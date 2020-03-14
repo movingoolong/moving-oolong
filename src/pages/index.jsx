@@ -28,7 +28,7 @@ export default Index;
 
 export const pageQuery = graphql`
 query IndexQuery {
-  allMarkdownRemark(limit: 2000, sort: {fields: [fields___date], order: DESC}, filter: {fileAbsolutePath: {eq: "content/posts"}}) {
+  allMarkdownRemark(filter: {frontmatter: {category: {eq: "episode"}}}, sort: {order: DESC, fields: fields___date}) {
     edges {
       node {
         fields {
