@@ -23,9 +23,9 @@ collections:
       - {label: "Body", name: "body", widget: "markdown"}
   - name: bios
     label: "Bios"
-    folder: "content"
+    folder: "content/bios"
     create: false
-    slug: "{{name}}.md"
+    slug: "{{slug}}.md"
     fields:
       - {label: "Name", name: "name", widget: "string"}
       - {label: "Profile Picture", name: "propic", widget: "image"}
