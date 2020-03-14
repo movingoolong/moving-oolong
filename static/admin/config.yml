@@ -1,22 +1,32 @@
 backend:
   name: github # Refer to https://www.netlifycms.org/docs/authentication-backends/ for auth backend list and instructions
   branch: master # Branch to update
-  repo: vagr9k/gatsby-material-starter # Repo for pushing new commits. Make sure to replace with your repo!
+  repo: movingoolong/moving-oolong # Repo for pushing new commits. Make sure to replace with your repo!
 
 media_folder: static/assets
 public_folder: assets
 
 collections:
   - name: blog
-    label: "Post"
-    folder: "content"
+    label: "Episode Posts"
+    folder: "content/posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}.md"
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Cover Image", name: "cover", widget: "image"}
+      - {label: "Embedded Link", name: "link", widget: "string"}
       - {label: "Slug", name: "slug", widget: "string"}
       - {label: "Category", name: "category", widget: "string"}
       - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Body", name: "body", widget: "markdown"}
+  - name: bios
+    label: "Bios"
+    folder: "content"
+    create: false
+    slug: "{{name}}.md"
+    fields:
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Profile Picture", name: "propic", widget: "image"}
       - {label: "Body", name: "body", widget: "markdown"}
