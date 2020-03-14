@@ -23,6 +23,7 @@ module.exports = {
     "gatsby-plugin-resolve-src",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-lodash",
+    "gatsby-plugin-material-ui",
     "gatsby-plugin-sass",
     {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
@@ -81,7 +82,8 @@ module.exports = {
           },
           "gatsby-remark-prismjs",
           "gatsby-remark-copy-linked-files",
-          "gatsby-remark-autolink-headers"
+          "gatsby-remark-autolink-headers",
+          "gatsby-remark-embedder",
         ]
       }
     },
