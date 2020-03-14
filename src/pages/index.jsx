@@ -27,27 +27,24 @@ class Index extends React.Component {
 export default Index;
 
 export const pageQuery = graphql`
-  query IndexQuery {
-    allMarkdownRemark(
-      limit: 2000
-      sort: { fields: [fields___date], order: DESC }
-    ) {
-      edges {
-        node {
-          fields {
-            slug
-            date
-          }
-          excerpt
-          timeToRead
-          frontmatter {
-            title
-            tags
-            cover
-            date
-          }
+query IndexQuery {
+  allMarkdownRemark(limit: 2000, sort: {fields: [fields___date], order: DESC}, filter: {fileAbsolutePath: {eq: "content/posts"}}) {
+    edges {
+      node {
+        fields {
+          slug
+          date
+        }
+        excerpt
+        timeToRead
+        frontmatter {
+          title
+          tags
+          cover
+          date
         }
       }
     }
   }
+}
 `;
