@@ -59,12 +59,12 @@ module.exports = {
         ]
       }
     },
-    {
-      resolve: "gatsby-plugin-google-analytics",
-      options: {
-        trackingId: config.siteGATrackingID
-      }
-    },
+    // {
+    //   resolve: "gatsby-plugin-google-analytics",
+    //   options: {
+    //     trackingId: config.siteGATrackingID
+    //   }
+    // },
     {
       resolve: "gatsby-plugin-nprogress",
       options: {
