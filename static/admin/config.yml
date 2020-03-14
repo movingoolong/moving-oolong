@@ -11,12 +11,13 @@ collections:
     label: "Episode Posts"
     folder: "content/posts"
     create: true
-    slug: "{{slug}}.md"
+    slug: "{{slug}}"
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Cover Image", name: "cover", widget: "image"}
       - {label: "Category", name: "category", widget: "hidden", default: "episode"}
+      - {label: "Slug", name: "slug", widget: "hidden", default: "{{slug}}"}
       - {label: "Tags", name: "tags", widget: "list"}
       - {label: "Body", name: "body", widget: "markdown"}
   - name: bios
