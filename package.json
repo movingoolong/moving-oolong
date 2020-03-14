@@ -4,6 +4,8 @@
   "version": "1.0.0",
   "author": "Moving Oolong <movingoolong@gmail.com>",
   "dependencies": {
+    "@material-ui/core": "^4.9.5",
+    "@material-ui/icons": "^4.9.1",
     "@material-ui/styles": "^4.9.0",
     "font-awesome": "^4.7.0",
     "gatsby": "^2.19.12",
