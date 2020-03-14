@@ -1,5 +1,5 @@
 ---
-title: 'Episode 1: The Beginning of the End is officially live!'
+title: 'Episode 1: The Beginning of the End'
 date: 2019-12-10T04:14:41.893Z
 cover: assets/ep1.jpg
 link: >-
