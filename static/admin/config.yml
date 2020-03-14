@@ -1,5 +1,5 @@
 backend:
-  name: git-gateway # Refer to https://www.netlifycms.org/docs/authentication-backends/ for auth backend list and instructions
+  name: github # Refer to https://www.netlifycms.org/docs/authentication-backends/ for auth backend list and instructions
   branch: master # Branch to update
   repo: movingoolong/moving-oolong # Repo for pushing new commits. Make sure to replace with your repo!
 
@@ -22,10 +22,10 @@ collections:
       - {label: "Tags", name: "tags", widget: "list"}
       - {label: "Body", name: "body", widget: "markdown"}
   - name: bios
+    identifier_field: name
     label: "Bios"
-    folder: content/bios"
+    folder: "content/bios"
     create: false
-    slug: "{{slug}}.md"
     fields:
       - {label: "Name", name: "name", widget: "string"}
       - {label: "Profile Picture", name: "propic", widget: "image"}
