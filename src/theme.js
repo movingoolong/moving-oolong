@@ -10,6 +10,12 @@ const theme = createMuiTheme({
       main: '#fcce0a',
     },
   },
+  typography: {
+    fontFamily: [
+      'Poppins',
+      'sans-serif',
+    ].join(','),
+  },
 });
 
 export default theme;
