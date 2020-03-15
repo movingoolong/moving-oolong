@@ -43,13 +43,6 @@ module.exports = {
         ],
       },
     },
-    // {
-    //   resolve: "gatsby-source-filesystem",
-    //   options: {
-    //     name: "assets",
-    //     path: `${__dirname}/static/assets/`
-    //   }
-    // },
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -76,13 +69,6 @@ module.exports = {
       options: {
         name: "bios",
         path: `${__dirname}/content/bios/`
-      }
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "examples",
-        path: `${__dirname}/content/examples/`
       }
     },
     {
