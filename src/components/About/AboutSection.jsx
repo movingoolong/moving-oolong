@@ -1,5 +1,6 @@
 import React from "react";
-import { Container, Grid, withStyles } from "@material-ui/core";
+import { Link } from "gatsby";
+import { Button, Container, Grid, withStyles } from "@material-ui/core";
 
 import config from "data/SiteConfig";
 
@@ -11,6 +12,10 @@ const styles = theme => ({
     },
     title: {
         color: "#ffffff",
+        textTransform: 'lowercase',
+    },
+    link: {
+        textDecoration: 'none',
     },
     description: {
         textAlign: "left",
@@ -24,7 +29,12 @@ function AboutSection(props) {
     const { classes } = props;
     return (
         <div className={classes.root}>
-            <h1 className={classes.title}>about us</h1>
+            <Link className={classes.link} to="/about">
+                    <Button className={classes.button} size="small">
+                        <h1 className={classes.title}>about us</h1>
+                    </Button>
+                </Link>
+            
             <h3 className={classes.description}>{config.siteDescription}</h3>
         </div>
     );
