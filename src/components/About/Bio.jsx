@@ -1,22 +1,30 @@
 import React from "react";
-import { Card, withStyles } from "@material-ui/core";
+import { Button, Card, CardContent, CardHeader, CardActions, withStyles } from "@material-ui/core";
 
 // Components
-
+import BioImage from "./BioImage";
 const styles = {
     root: {
-        width: "100%",
+        height: "100%",
     },
-    media: {
+    content: {
         width: "100%",
-        
+
     }
 };
 
 function Bio(props) {
-    const { classes, name, propic, description } = props;
+    const { classes, name, propic, description, allImages } = props;
     return (
         <Card className={classes.root}>
+            <BioImage allImages={allImages} imgSrc={propic} />
+            <CardHeader title={name} />
+            <CardContent>
+                <div
+                    className={classes.content}
+                    dangerouslySetInnerHTML={{ __html: description }}
+                />
+            </CardContent>
         </Card>
     );
 }

@@ -31,7 +31,7 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-lodash",
     "gatsby-plugin-material-ui",
-    "gatsby-plugin-sass",
+    // "gatsby-plugin-sass",
     {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
@@ -43,11 +43,18 @@ module.exports = {
         ],
       },
     },
+    // {
+    //   resolve: "gatsby-source-filesystem",
+    //   options: {
+    //     name: "assets",
+    //     path: `${__dirname}/static/assets/`
+    //   }
+    // },
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "assets",
-        path: `${__dirname}/static/assets/`
+        name: "static",
+        path: `${__dirname}/static/`
       }
     },
     {
@@ -97,7 +104,6 @@ module.exports = {
           "gatsby-remark-prismjs",
           "gatsby-remark-copy-linked-files",
           "gatsby-remark-autolink-headers",
-          "gatsby-remark-embedder",
         ]
       }
     },

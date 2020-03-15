@@ -27,6 +27,7 @@ collections:
     create: false
     fields:
       - {label: "Name", name: "name", widget: "string"}
+      - {label: "Category", name: "category", widget: "hidden", default: "bio"}
       - {label: "Profile Picture", name: "propic", widget: "image"}
       - {label: "Instagram", name: "instagram", widget: "string"}
       - {label: "Facebook", name: "facebook", widget: "string"}

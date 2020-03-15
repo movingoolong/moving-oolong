@@ -1,21 +1,74 @@
 import React from "react";
-import { withStyles } from "@material-ui/core/styles";
+import { useStaticQuery, graphql } from "gatsby"
+import { Container, Grid, withStyles } from "@material-ui/core";
+import config from "data/SiteConfig";
 
 // Components
 import Layout from "components/Layout/Layout";
+import Bio from "components/About/Bio";
+import SiteDescription from "components/About/SiteDescription";
 
-const styles = {
+const styles = theme => ({
     root: {
-
+        width: "100%",
+    },
+    item: {
+        marginTop: theme.spacing(2),
     }
-};
+});
 
 function AboutPage(props) {
+    const { classes } = props;
+    const data = useStaticQuery(graphql`
+    {
+        allMarkdownRemark(filter: {frontmatter: {category: {eq: "bio"}}}) {
+          edges {
+            node {
+              html
+              id
+              frontmatter {
+                category
+                name
+                propic
+              }
+            }
+          }
+        }
+        allFile(filter: {absolutePath: {regex: "static/assets/"}}) {
+          edges {
+            node {
+              id
+              absolutePath
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+    }
+    `);
+    const allImages = data.allFile.edges;
     return (
         <>
-        <Layout>
-            
-        </Layout>
+            <Layout>
+                <Container maxWidth="lg">
+                    <SiteDescription />
+                    <Grid container spacing={3} justify="center" alignItems="stretch">
+                        {data.allMarkdownRemark.edges.map(item =>
+                            <Grid item className={classes.item} xs={12} md={4} key={item.node.id}>
+                                <Bio
+                                    name={item.node.frontmatter.name}
+                                    propic={item.node.frontmatter.propic}
+                                    description={item.node.html}
+                                    allImages={allImages}
+                                />
+                            </Grid>
+                        )}
+                    </Grid>
+                </Container>
+            </Layout>
         </>
     );
 }

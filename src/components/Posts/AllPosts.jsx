@@ -29,15 +29,28 @@ function AllPosts(props) {
             }
           }
         }
-      }
+        allFile(filter: {absolutePath: {regex: "static/assets/"}}) {
+          edges {
+            node {
+              id
+              absolutePath
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+    }
     `);
 
     return (
         <Container maxWidth="lg">
-            <Grid container spacing={3}>
+            <Grid container spacing={3} justify="center">
                 {data.allMarkdownRemark.edges.map(post =>
-                    <Grid item xs={8} md={4} key={post.node.id}>
-                        <PostPreview postInfo={post.node} />
+                    <Grid item xs={12} md={4} key={post.node.id}>
+                        <PostPreview postInfo={post.node} allImages={data.allFile.edges} />
                     </Grid>
                 )}
             </Grid>

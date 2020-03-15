@@ -1,38 +1,38 @@
 import React from "react";
+import { Link } from "gatsby";
 
 import { Button, Card, CardActionArea, CardContent, CardHeader, CardMedia, CardActions, withStyles } from "@material-ui/core";
+import PostPreviewImage from "./PostPreviewImage";
 import moment from "moment";
 import config from "data/SiteConfig";
 
 const styles = theme => ({
     root: {
         margin: theme.spacing(1),
-    },
-
-    media: {
         width: "100%",
     },
+    link: {
+        textDecoration: 'none',
+    },
+    header: {
+        color: theme.palette.primary.main,
+    }
 });
 
 function PostPreview(props) {
-    const { classes, postInfo } = props;
-    const { title, tags, date, cover } = postInfo.frontmatter;
-    const coverImage = `static/${cover}`
+    const { classes, postInfo, allImages } = props;
+    const { title, tags, date, cover, slug } = postInfo.frontmatter;
 
     return (
         <Card className={classes.root}>
-            <CardActionArea>
-                <CardMedia
-                    className={classes.media}
-                    src={coverImage}
-                    title="Cover Photo"
-                />
-                <CardHeader title={title} subheader={moment(date).format(
-                    config.dateFormat)} />
-                <CardContent>
+            <Link className={classes.link} to={`/${slug}`}>
+                <CardActionArea>
+                    <PostPreviewImage allImages={allImages} coverHeight={200} coverImgSrc={`static/${cover}`} />
+                    <CardHeader className={classes.header} title={title} subheader={moment(date).format(
+                        config.dateFormat)} />
+                </CardActionArea>
+            </Link>
 
-                </CardContent>
-            </CardActionArea>
             <CardActions>
                 <Button size="small" color="primary">
                     Share
