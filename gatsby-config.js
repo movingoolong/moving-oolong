@@ -20,7 +20,14 @@ module.exports = {
     }
   },
   plugins: [
-    "gatsby-plugin-resolve-src",
+    {
+      resolve: `gatsby-alias-imports`,
+      options: {
+        aliases: {
+          data: `data/`,
+        }
+      }
+    },
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-lodash",
     "gatsby-plugin-material-ui",

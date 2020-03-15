@@ -3,6 +3,7 @@ title: 'Episode 1: The Beginning of the End'
 date: 2019-12-09T07:09:40.623Z
 cover: assets/ep1.jpg
 category: episode
+slug: episode-1-the-beginning-of-the-end
 tags:
   - intro
   - test

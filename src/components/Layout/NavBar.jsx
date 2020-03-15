@@ -14,12 +14,12 @@ const styles = theme => ({
         flexGrow: 1
     },
     link: {
-        display: 'none',
+        display: 'block',
         margin: theme.spacing(1),
         textDecoration: 'none',
-        [theme.breakpoints.up('sm')]: {
-            display: 'block',
-        },
+        // [theme.breakpoints.up('sm')]: {
+        //     display: 'block',
+        // },
     },
     button: {
         textTransform: 'lowercase',
@@ -39,6 +39,11 @@ function NavBar(props) {
                     <InstagramIcon />
                 </IconButton>
                 <div className={classes.grow} />
+                <Link className={classes.link} to="/">
+                    <Button className={classes.button}>
+                        Home
+                    </Button>
+                </Link>
                 <Link className={classes.link} to="/about">
                     <Button className={classes.button}>
                         About

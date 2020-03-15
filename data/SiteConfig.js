@@ -13,7 +13,7 @@ const config = {
   //siteGATrackingID: "UA-47311644-4", // Tracking code ID for google analytics.
   //disqusShortname: "https-vagr9k-github-io-gatsby-material-starter", // Disqus shortname.
   dateFromFormat: "YYYY-MM-DD", // Date format used in the frontmatter.
-  dateFormat: "DD/MM/YYYY", // Date format for display.
+  dateFormat: "MM/DD/YYYY", // Date format for display.
   userName: "Moving Oolong", // Username to display in the author segment.
   userEmail: "movingoolong@gmail.com", // Email used for RSS feed's author segment
   userTwitter: "", // Optionally renders "Follow Me" in the UserInfo segment.
