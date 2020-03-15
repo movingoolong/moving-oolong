@@ -3,7 +3,8 @@ import { withStyles } from "@material-ui/core/styles";
 
 // Components
 import Layout from "components/Layout/Layout";
-import AllPosts from "components/Posts/AllPosts";
+import FeaturedPosts from "components/Posts/FeaturedPosts";
+import AboutSection from "components/About/AboutSection";
 
 const styles = {
     root: {
@@ -15,7 +16,8 @@ function HomePage(props) {
     return (
         <>
         <Layout>
-            <AllPosts />
+            <FeaturedPosts />
+            <AboutSection />
         </Layout>
         </>
     );

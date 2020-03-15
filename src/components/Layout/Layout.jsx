@@ -6,6 +6,7 @@ import theme from "theme";
 
 //Components
 import NavBar from "./NavBar";
+import Footer from "./Footer";
 
 export default function Layout(props) {
     const { children } = props;
@@ -18,6 +19,7 @@ export default function Layout(props) {
                 <CssBaseline />
                 <NavBar />
                 {children}
+                <Footer />
             </ThemeProvider>
         </>
     );
