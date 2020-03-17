@@ -18,7 +18,7 @@ function FeaturedPosts(props) {
     const { classes } = props;
     return (
         <>
-            <h1 className={classes.title}>featured episodes</h1>
+            <h1 className={classes.title}>Featured Episodes</h1>
             <AllPosts />
         </>
     );

@@ -23,7 +23,8 @@ const styles = theme => ({
         display: 'inline-block',
     },
     button: {
-        textTransform: 'lowercase',
+        color: theme.palette.primary.dark,
+        //textTransform: 'lowercase',
     },
     menuButton: {
         //color: "#ffffff",
@@ -49,17 +50,17 @@ function NavBar(props) {
         <>
             <Link className={classes.link} to="/">
                 <Button className={classes.button}>
-                    Home
+                    <b>Home</b>
             </Button>
             </Link>
             <Link className={classes.link} to="/about">
                 <Button className={classes.button}>
-                    About
+                    <b>About</b>
             </Button>
             </Link>
             <Link className={classes.link} to="/episodes">
                 <Button className={classes.button}>
-                    Episodes
+                    <b>Episodes</b>
             </Button>
             </Link>
         </>

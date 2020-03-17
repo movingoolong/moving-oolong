@@ -12,7 +12,7 @@ const styles = theme => ({
     },
     title: {
         color: "#ffffff",
-        textTransform: 'lowercase',
+        textTransform: 'capitalize',
     },
     link: {
         textDecoration: 'none',
@@ -36,7 +36,7 @@ function AboutSection(props) {
         <div className={classes.root}>
             <Link className={classes.link} to="/about">
                 <Button className={classes.button} size="small">
-                    <h1 className={classes.title}>about us</h1>
+                    <h1 className={classes.title}>About Us</h1>
                 </Button>
             </Link>
 
