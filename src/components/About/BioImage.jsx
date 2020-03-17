@@ -1,11 +1,18 @@
 import React from "react";
 import Img from "gatsby-image"
-import { Card } from "@material-ui/core";
+import { withStyles } from "@material-ui/core";
 
 // Components
 
+const styles = theme => ({
+    root: {
+        height: "auto",
+        width: "100%",
+    },
+});
+
 function BioImage(props) {
-    const { allImages, imgSrc } = props;
+    const { classes, allImages, imgSrc } = props;
 
     const img = allImages.filter(imageFile => {
         if (imageFile.node.childImageSharp === null) return false;
@@ -20,7 +27,7 @@ function BioImage(props) {
         return (
             <Img 
                 fluid={img[0].node.childImageSharp.fluid} 
-                style={{ height: "auto", width: "100%"}} 
+                className={classes.root} 
             />
         );
     } else {
@@ -28,4 +35,5 @@ function BioImage(props) {
     }
 }
 
-export default BioImage
+
+export default withStyles(styles)(BioImage)

@@ -10,16 +10,18 @@ const styles = theme => ({
     root: {
         flexGrow: 1,
     },
+    title: {
+        color: "#ffffff",
+        margin: theme.spacing(1),
+        display: 'inline-block',
+    },
     grow: {
         flexGrow: 1
     },
     link: {
-        display: 'block',
         margin: theme.spacing(1),
         textDecoration: 'none',
-        // [theme.breakpoints.up('sm')]: {
-        //     display: 'block',
-        // },
+        display: 'inline-block',
     },
     button: {
         textTransform: 'lowercase',
@@ -29,15 +31,14 @@ const styles = theme => ({
 function NavBar(props) {
     const { classes } = props;
     return (
-        <AppBar className={classes.root} position="static">
+        <AppBar className={classes.root} position="static" elevation="0">
             <Toolbar>
-                <Logo />
-                <IconButton href="https://www.facebook.com/movingoolong/">
-                    <FacebookIcon />
-                </IconButton>
-                <IconButton href="https://www.instagram.com/movingoolongpod/">
-                    <InstagramIcon />
-                </IconButton>
+                <Link className={classes.link} to="/">
+                    <Logo />
+                    <h2 className={classes.title}>Moving Oolong</h2>
+                </Link>
+
+
                 <div className={classes.grow} />
                 <Link className={classes.link} to="/">
                     <Button className={classes.button}>

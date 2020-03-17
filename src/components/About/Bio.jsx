@@ -1,30 +1,57 @@
 import React from "react";
-import { Button, Card, CardContent, CardHeader, CardActions, withStyles } from "@material-ui/core";
+import { Card, CardContent, CardActions, withStyles } from "@material-ui/core";
+import SocialIcons from "./SocialIcons";
 
 // Components
 import BioImage from "./BioImage";
-const styles = {
+import theme from "theme";
+const styles = theme => ({
     root: {
         height: "100%",
+        display: "flex",
+        flexDirection: "column",
     },
     content: {
-        width: "100%",
-
-    }
-};
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        flexShrink: 1,
+    },
+    title: {
+        textAlign: "center",
+        marginLeft: "auto",
+        marginRight: "auto",
+        color: theme.palette.primary.dark,
+        marginTop: theme.spacing(1),
+        marginBottom: theme.spacing(1),
+    },
+    grow: {
+        flexGrow: 1,
+    },
+    socials: {
+        flexGrow: 1,
+        marginLeft: "auto",
+        marginRight: "auto",
+    },
+});
 
 function Bio(props) {
-    const { classes, name, propic, description, allImages } = props;
+    const { classes, name, propic, description, instagram, twitter, allImages } = props;
+    console.log(props);
     return (
         <Card className={classes.root}>
-            <BioImage allImages={allImages} imgSrc={propic} />
-            <CardHeader title={name} />
-            <CardContent>
-                <div
-                    className={classes.content}
-                    dangerouslySetInnerHTML={{ __html: description }}
-                />
-            </CardContent>
+            <div className={classes.content}>
+                <BioImage allImages={allImages} imgSrc={propic} />
+                <CardContent>
+                    <h2 className={classes.title}>{name}</h2>
+                    <div
+                        dangerouslySetInnerHTML={{ __html: description }}
+                    />
+                </CardContent>
+            </div>
+            <CardActions disableSpacing className={classes.socials}>
+                <SocialIcons instagram={instagram} twitter={twitter}/>
+            </CardActions>
         </Card>
     );
 }
