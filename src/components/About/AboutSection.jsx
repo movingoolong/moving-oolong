@@ -22,6 +22,11 @@ const styles = theme => ({
         color: "#ffffff",
         margin: theme.spacing(3),
         width: "25%",
+
+        [theme.breakpoints.down('sm')]: {
+            width: '100%',
+            margin: theme.spacing(1),
+        },
     }
 });
 
@@ -30,11 +35,11 @@ function AboutSection(props) {
     return (
         <div className={classes.root}>
             <Link className={classes.link} to="/about">
-                    <Button className={classes.button} size="small">
-                        <h1 className={classes.title}>about us</h1>
-                    </Button>
-                </Link>
-            
+                <Button className={classes.button} size="small">
+                    <h1 className={classes.title}>about us</h1>
+                </Button>
+            </Link>
+
             <h3 className={classes.description}>{config.siteDescription}</h3>
         </div>
     );

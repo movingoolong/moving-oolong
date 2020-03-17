@@ -1,10 +1,9 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby";
-import { AppBar, Button, IconButton, Toolbar, Typography, withStyles } from "@material-ui/core";
+import { AppBar, Button, Drawer, Hidden, IconButton, Toolbar, withStyles } from "@material-ui/core";
+import MenuIcon from '@material-ui/icons/Menu';
 
 // Page Components
-import FacebookIcon from '@material-ui/icons/Facebook';
-import InstagramIcon from '@material-ui/icons/Instagram';
 import Logo from "components/Logo/Logo"
 const styles = theme => ({
     root: {
@@ -25,11 +24,47 @@ const styles = theme => ({
     },
     button: {
         textTransform: 'lowercase',
-    }
+    },
+    menuButton: {
+        //color: "#ffffff",
+        marginRight: theme.spacing(2),
+        [theme.breakpoints.up('sm')]: {
+            display: 'none',
+        },
+    },
+    drawer: {
+        width: "40%",
+    },
 });
 
 function NavBar(props) {
     const { classes } = props;
+    const [mobileOpen, setMobileOpen] = React.useState(false);
+
+    const handleDrawerToggle = () => {
+        setMobileOpen(!mobileOpen);
+    };
+
+    const links = (
+        <>
+            <Link className={classes.link} to="/">
+                <Button className={classes.button}>
+                    Home
+            </Button>
+            </Link>
+            <Link className={classes.link} to="/about">
+                <Button className={classes.button}>
+                    About
+            </Button>
+            </Link>
+            <Link className={classes.link} to="/episodes">
+                <Button className={classes.button}>
+                    Episodes
+            </Button>
+            </Link>
+        </>
+    );
+
     return (
         <AppBar className={classes.root} position="static" elevation="0">
             <Toolbar>
@@ -38,23 +73,37 @@ function NavBar(props) {
                     <h2 className={classes.title}>Moving Oolong</h2>
                 </Link>
 
-
                 <div className={classes.grow} />
-                <Link className={classes.link} to="/">
-                    <Button className={classes.button}>
-                        Home
-                    </Button>
-                </Link>
-                <Link className={classes.link} to="/about">
-                    <Button className={classes.button}>
-                        About
-                    </Button>
-                </Link>
-                <Link className={classes.link} to="/episodes">
-                    <Button className={classes.button}>
-                        Episodes
-                    </Button>
-                </Link>
+                <IconButton
+                    aria-label="open drawer"
+                    edge="start"
+                    onClick={handleDrawerToggle}
+                    className={classes.menuButton}
+                >
+                    <MenuIcon />
+                </IconButton>
+
+                <Hidden xsDown>
+                    {links}
+                </Hidden>
+
+                <Hidden smUp>
+                    <Drawer
+                        variant="temporary"
+                        classes={{
+                            paper: classes.drawer,
+                        }}
+                        anchor="right"
+                        open={mobileOpen}
+                        onClose={handleDrawerToggle}
+                        ModalProps={{
+                            keepMounted: true, // Better open performance on mobile.
+                        }}
+                    >
+                        {links}
+                    </Drawer>
+                </Hidden>
+
             </Toolbar>
 
         </AppBar>

@@ -37,7 +37,6 @@ const styles = theme => ({
 
 function Bio(props) {
     const { classes, name, propic, description, instagram, twitter, allImages } = props;
-    console.log(props);
     return (
         <Card className={classes.root}>
             <div className={classes.content}>
