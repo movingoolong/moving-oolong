@@ -60,7 +60,6 @@ function AboutPage(props) {
                     <Grid container spacing={3} justify="center" alignItems="stretch">
                         {data.allMarkdownRemark.edges.map(item =>
                             <Grid item className={classes.item} xs={12} md={4} key={item.node.id}>
-                              {console.log(item.node)}
                                 <Bio
                                     name={item.node.frontmatter.name}
                                     propic={item.node.frontmatter.propic}

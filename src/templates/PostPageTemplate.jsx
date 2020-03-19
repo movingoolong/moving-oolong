@@ -15,13 +15,7 @@ const styles = theme => ({
 });
 
 function PostPageTemplate(props) {
-  // const { location, pageContext, data } = props;
-  // const { slug, nexttitle, nextslug, prevtitle, prevslug } = pageContext;
-  // const { title, date, cover, tags } = data.markdownRemark.frontmatter;
-  // const { body } = data.markdownRemark.html;
-
   const { classes, data, pageContext } = props;
-  console.log(data);
 
   return (
     <Layout>
