@@ -20,7 +20,7 @@ function PostPreviewImage(props) {
         return (
             <Img 
                 fluid={postImage[0].node.childImageSharp.fluid} 
-                style={{ height: coverHeight, width: "100%", display: "block" }} 
+                //style={{ height: "100%", width: "100%", display: "block" }} 
             />
         );
     } else {

@@ -19,7 +19,7 @@ function FeaturedPosts(props) {
     return (
         <>
             <h1 className={classes.title}>Featured Episodes</h1>
-            <AllPosts />
+            <AllPosts amount={3}/>
         </>
     );
 }

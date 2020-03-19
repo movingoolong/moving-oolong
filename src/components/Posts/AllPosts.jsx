@@ -12,19 +12,21 @@ const styles = theme => ({
 });
 
 function AllPosts(props) {
-    const { classes } = props;
+    const { classes, amount } = props;
     const data = useStaticQuery(graphql`
     {
         allMarkdownRemark(filter: {frontmatter: {category: {eq: "episode"}}}, sort: {order: DESC, fields: frontmatter___date}) {
           edges {
             node {
+              fields {
+                slug
+              }
               frontmatter {
                 title
                 tags
                 date
                 category
                 cover
-                slug
               }
               html
               id
@@ -47,10 +49,12 @@ function AllPosts(props) {
     }
     `);
 
+    const edges = amount != null ? data.allMarkdownRemark.edges.slice(0, amount) : data.allMarkdownRemark.edges;
+
     return (
         <Container maxWidth="lg">
-            <Grid container spacing={3} justify="center">
-                {data.allMarkdownRemark.edges.map(post =>
+            <Grid container spacing={3} alignItems="stretch" alignContent="stretch" justify="center">
+                {edges.map(post =>
                     <Grid item className={classes.item} xs={12} md={4} key={post.node.id}>
                         <PostPreview postInfo={post.node} allImages={data.allFile.edges} />
                     </Grid>

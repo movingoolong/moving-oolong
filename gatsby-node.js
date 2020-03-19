@@ -1,5 +1,6 @@
 const path = require(`path`)
 const moment = require("moment");
+const siteConfig = require("./data/SiteConfig");
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
@@ -22,8 +23,11 @@ exports.createPages = async ({ graphql, actions }) => {
       allMarkdownRemark(filter: {frontmatter: {category: {eq: "episode"}}}) {
           edges {
             node {
-              frontmatter {
+              fields {
                 slug
+              }
+              frontmatter {
+                title
                 cover
               }
             }
@@ -65,22 +69,22 @@ exports.createPages = async ({ graphql, actions }) => {
     if (index + 1 < postsEdges.length) {
       const nextEdge = postsEdges[index + 1];
       nextTitle = nextEdge.node.frontmatter.title;
-      nextSlug = nextEdge.node.frontmatter.slug;
+      nextSlug = nextEdge.node.fields.slug;
     }
 
     if (index - 1 >= 0) {
       const prevEdge = postsEdges[index - 1];
       prevTitle = prevEdge.node.frontmatter.title;
-      prevSlug = prevEdge.node.frontmatter.slug;
+      prevSlug = prevEdge.node.fields.slug;
     }
 
     createPage({
-      path: edge.node.frontmatter.slug,
+      path: edge.node.fields.slug,
       component: postPageTemplate,
       context: {
         // Data passed to context is available
         // in page queries as GraphQL variables.
-        slug: edge.node.frontmatter.slug,
+        slug: edge.node.fields.slug,
         cover: edge.node.frontmatter.cover,
         nextTitle: nextTitle,
         nextSlug: nextSlug,

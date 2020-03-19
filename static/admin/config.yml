@@ -17,7 +17,6 @@ collections:
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Cover Image", name: "cover", widget: "image"}
       - {label: "Category", name: "category", widget: "hidden", default: "episode"}
-      - {label: "Slug", name: "slug", widget: "hidden", default: "{{slug}}"}
       - {label: "Tags", name: "tags", widget: "list"}
       - {label: "Embedded Link", name: "link", widget: "markdown", minimal: true}
       - {label: "Body", name: "body", widget: "markdown"}

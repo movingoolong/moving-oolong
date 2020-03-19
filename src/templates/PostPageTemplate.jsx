@@ -21,7 +21,7 @@ function PostPageTemplate(props) {
   // const { body } = data.markdownRemark.html;
 
   const { classes, data, pageContext } = props;
-  console.log(pageContext);
+  console.log(data);
 
   return (
     <Layout>
@@ -40,7 +40,7 @@ export default withStyles(styles)(PostPageTemplate)
 
 export const query = graphql`
 query($slug: String, $cover: String) {
-  markdownRemark(frontmatter: { slug: { eq: $slug } }) {
+  markdownRemark(fields: { slug: { eq: $slug } }) {
     html
     frontmatter {
       title

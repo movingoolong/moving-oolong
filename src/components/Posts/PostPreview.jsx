@@ -1,44 +1,77 @@
 import React from "react";
 import { Link } from "gatsby";
 
-import { Button, Card, CardActionArea, CardContent, CardHeader, CardMedia, CardActions, withStyles } from "@material-ui/core";
+import { Button, Card, CardActionArea, CardContent, CardHeader, CardActions, withStyles } from "@material-ui/core";
 import PostPreviewImage from "./PostPreviewImage";
 import moment from "moment";
 import config from "data/SiteConfig";
 
 const styles = theme => ({
     root: {
+        display: "flex",
+        height: "100%",
+        flexDirection: "column",
         margin: theme.spacing(1),
-        width: "100%",
+    },
+    content: {
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        flexShrink: 1,
     },
     link: {
         textDecoration: 'none',
     },
-    header: {
+    title: {
+        color: theme.palette.primary.main,
+        marginTop: 0,
+    },
+    date: {
+        color: theme.palette.primary.dark,
+    },
+    description: {
+        height: "110px",
+        overflow: "hidden",
+
+        '& p': {
+            fontSize: "14px",
+            color: theme.palette.primary.dark,
+        },
+    },
+    action: {
+        flexGrow: 1,
+    },
+    button: {
+        marginLeft: "auto",
         color: theme.palette.primary.main,
     }
 });
 
 function PostPreview(props) {
     const { classes, postInfo, allImages } = props;
-    const { title, tags, date, cover, slug } = postInfo.frontmatter;
+    const { title, tags, date, cover } = postInfo.frontmatter;
+    const { slug } = postInfo.fields;
 
     return (
         <Card className={classes.root}>
-            <Link className={classes.link} to={`/${slug}`}>
-                <CardActionArea>
-                    <PostPreviewImage allImages={allImages} coverHeight={200} coverImgSrc={`static/${cover}`} />
-                    <CardHeader className={classes.header} title={title} subheader={moment(date).format(
-                        config.dateFormat)} />
-                </CardActionArea>
-            </Link>
+            <div className={classes.content}>
+                <Link className={classes.link} to={slug}>
+                    <CardActionArea>
+                        <PostPreviewImage allImages={allImages} coverHeight={200} coverImgSrc={`static/${cover}`} />
+                        <CardContent >
+                            <h2 className={classes.title}>{title}</h2>
+                            <h4 className={classes.date}>{moment(date).format(
+                                config.dateFormat)}</h4>
+                            <div className={classes.description} dangerouslySetInnerHTML={{ __html: postInfo.html }} />
+                        </CardContent>
+                    </CardActionArea>
+                </Link>
+            </div>
 
-            <CardActions>
-                <Button size="small" color="primary">
-                    Share
-                </Button>
-                <Button size="small" color="primary">
-                    Learn More
+
+            <CardActions className={classes.action}>
+                <Button className={classes.button} size="small" href={slug}>
+                    Read More
                 </Button>
             </CardActions>
         </Card>
