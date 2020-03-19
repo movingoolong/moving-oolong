@@ -8,14 +8,26 @@ const styles = theme => ({
     root: {
 
     },
+    grow: {
+        flexGrow: 1,
+    },
     link: {
         textDecoration: "none",
     },
+    left: {
+        textAlign: "left",
+    },
+    right: {
+        textAlign: "right",
+    },
     postTitle: {
-
+        color: theme.palette.primary.dark,
+        [theme.breakpoints.down('sm')]: {
+            fontSize: "12px",
+        },
     },
     helpText: {
-
+        color: theme.palette.primary.light,
     },
 });
 
@@ -27,26 +39,29 @@ function PostSuggestions(props) {
     if (prevSlug !== "" && prevTitle !== "") {
         previous = (
             <Link className={classes.link} to={prevSlug}>
-                <h5 className={classes.helpText}>Previous</h5>
-                <h4 className={classes.postTitle}>{prevTitle}</h4>
+                <div className={classes.left}>
+                    <h4 className={classes.helpText}><b>Previous</b></h4>
+                    <h3 className={classes.postTitle}>{prevTitle}</h3>
+                </div>
             </Link>
         );
-        console.log("created prev");
     }
 
     if (nextSlug !== "" && nextTitle !== "") {
         next = (
             <Link className={classes.link} to={nextSlug}>
-                <h5 className={classes.helpText}>Next</h5>
-                <h4 className={classes.postTitle}>{nextTitle}</h4>
+                <div className={classes.right}>
+                    <h4 className={classes.helpText}><b>Next</b></h4>
+                    <h3 className={classes.postTitle}>{nextTitle}</h3>
+                </div>
             </Link>
         );
-        console.log("created next");
     }
 
     return (
-        <Toolbar>
+        <Toolbar className={classes.root}>
             {previous}
+            <div className={classes.grow} />
             {next}
         </Toolbar>
     );

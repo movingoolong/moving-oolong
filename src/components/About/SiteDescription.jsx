@@ -6,9 +6,12 @@ import config from "data/SiteConfig";
 
 const styles = theme => ({
     description: {
-        fontSize: "24px",
+        fontSize: "22px",
         color: theme.palette.primary.dark,
         textAlign: "center",
+        [theme.breakpoints.down('sm')]: {
+            fontSize: "18px",
+        },
     },
 });
 
@@ -17,7 +20,7 @@ function SiteDescription(props) {
     return (
         <Container>
             <h5 className={classes.description}>
-            {config.siteDescription} All 3 of us are Asian American undergrad students at the same large, public university, but our backgrounds are very different. 
+            {config.siteDescription} 
             </h5>
         </Container>
     );
