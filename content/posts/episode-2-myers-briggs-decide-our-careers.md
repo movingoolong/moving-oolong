@@ -13,3 +13,5 @@ link: >-
   allow="encrypted-media"></iframe>
 ---
 We let Myers-Briggs decide our careers! With the first semester of senior year coming to a close, we all feel the pressure of determining our post-grad career plans. From high school to now, how have our career plans changed? And what does a personality test have to do with it anyways?
+
+You can find the specific MBTI test we used [here](https://www.16personalities.com/).
