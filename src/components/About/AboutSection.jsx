@@ -40,7 +40,7 @@ function AboutSection(props) {
                 </Button>
             </Link>
 
-            <h3 className={classes.description}>{config.siteDescription}</h3>
+            <h3 className={classes.description}>{config.siteDescriptionShort}</h3>
         </div>
     );
 }

@@ -20,7 +20,7 @@ function SiteDescription(props) {
     return (
         <Container>
             <h5 className={classes.description}>
-            {config.siteDescription} 
+            {config.siteDescriptionLong} 
             </h5>
         </Container>
     );

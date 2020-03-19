@@ -19,8 +19,12 @@ const styles = theme => ({
         flexDirection: "column",
         flexShrink: 1,
     },
+    header: {
+        paddingBottom: 0,
+    },
     link: {
         textDecoration: 'none',
+        color: "#ffffff",
     },
     title: {
         color: theme.palette.primary.main,
@@ -28,9 +32,10 @@ const styles = theme => ({
     },
     date: {
         color: theme.palette.primary.dark,
+        paddingBottom: 0,
     },
     description: {
-        height: "110px",
+        height: "65px",
         overflow: "hidden",
 
         '& p': {
@@ -40,6 +45,8 @@ const styles = theme => ({
     },
     action: {
         flexGrow: 1,
+        margin: 0,
+        paddingTop: 0,
     },
     button: {
         marginLeft: "auto",
@@ -58,7 +65,7 @@ function PostPreview(props) {
                 <Link className={classes.link} to={slug}>
                     <CardActionArea>
                         <PostPreviewImage allImages={allImages} coverHeight={200} coverImgSrc={`static/${cover}`} />
-                        <CardContent >
+                        <CardContent className={classes.header}>
                             <h2 className={classes.title}>{title}</h2>
                             <h4 className={classes.date}>{moment(date).format(
                                 config.dateFormat)}</h4>
