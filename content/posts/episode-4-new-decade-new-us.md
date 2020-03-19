@@ -7,7 +7,10 @@ slug: '{{slug}}'
 tags:
   - '#travels #taiwan #tasa'
 link: >-
-  https://open.spotify.com/episode/2Kq0YMQsP8QjkdFynF2MWv?si=tf0r4AJDR62wDWgerfRwPA
+  <iframe
+  src="https://open.spotify.com/embed-podcast/episode/65StylDGNr2BqmTXCciEwQ"
+  width="100%" height="232" frameborder="0" allowtransparency="true"
+  allow="encrypted-media"></iframe>
 ---
 Andddd we’re back! After 11 days of exploring and 35+ hours of traveling home, we’ve returned to the mic for episode 6 (our longest one yet).
 
