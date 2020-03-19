@@ -1,36 +1,39 @@
 import React from "react";
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
-import { withStyles } from "@material-ui/core";
+import { Container, Grid, withStyles } from "@material-ui/core";
 
 // Components
 import Layout from "components/Layout/Layout";
+import PostPageContent from "components/Posts/PostPageContent";
+import PostSuggestions from "components/Posts/PostSuggestions";
 
-const styles = {
-    root: {
+const styles = theme => ({
+  root: {
 
-    }
-};
+  },
+});
 
 function PostPageTemplate(props) {
-    // const { location, pageContext, data } = props;
-    // const { slug, nexttitle, nextslug, prevtitle, prevslug } = pageContext;
-    // const { title, date, cover, tags } = data.markdownRemark.frontmatter;
-    // const { body } = data.markdownRemark.html;
+  // const { location, pageContext, data } = props;
+  // const { slug, nexttitle, nextslug, prevtitle, prevslug } = pageContext;
+  // const { title, date, cover, tags } = data.markdownRemark.frontmatter;
+  // const { body } = data.markdownRemark.html;
 
-    const { classes, data } = props;
-    const { post } = data.markdownRemark;
-    const { img } = data.file.childImageSharp;
+  const { classes, data, pageContext } = props;
+  console.log(pageContext);
 
-    return (
-        <Layout>
-            <div>
-                <h1>{data.markdownRemark.frontmatter.title}</h1>
-                <Img fluid={data.file.childImageSharp.fluid} />
-                <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
-            </div>
-        </Layout>
-    );
+  return (
+    <Layout>
+      <PostPageContent post={data.markdownRemark} img={data.file.childImageSharp} />
+      <PostSuggestions 
+        nextTitle={pageContext.nextTitle}
+        nextSlug={pageContext.nextSlug}
+        prevTitle={pageContext.prevTitle}
+        prevSlug={pageContext.prevSlug}
+      />
+    </Layout>
+  );
 }
 
 export default withStyles(styles)(PostPageTemplate)
@@ -41,6 +44,9 @@ query($slug: String, $cover: String) {
     html
     frontmatter {
       title
+      tags
+      date
+      link
     }
   }
   file(relativePath: {eq: $cover}) {

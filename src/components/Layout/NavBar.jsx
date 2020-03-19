@@ -67,7 +67,7 @@ function NavBar(props) {
     );
 
     return (
-        <AppBar className={classes.root} position="static" elevation="0">
+        <AppBar className={classes.root} position="static" elevation={0}>
             <Toolbar>
                 <Link className={classes.link} to="/">
                     <Logo />
