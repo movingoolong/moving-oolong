@@ -7,7 +7,10 @@ slug: '{{slug}}'
 tags:
   - '#resolutions #goals #reflections'
 link: >-
-  https://open.spotify.com/episode/2Kq0YMQsP8QjkdFynF2MWv?si=EOtSh2DnROWV6SvnGl_W6g
+  <iframe
+  src="https://open.spotify.com/embed-podcast/episode/2Kq0YMQsP8QjkdFynF2MWv"
+  width="100%" height="232" frameborder="0" allowtransparency="true"
+  allow="encrypted-media"></iframe>
 ---
 A few days before the decade ends, we reflect on 2019 and discuss some of our new year’s resolutions! We touch on travel adventures, academic highlights, big milestones in Asian American media, and our familial & romantic relationships.
 
