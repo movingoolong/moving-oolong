@@ -29,10 +29,13 @@ const styles = theme => ({
     title: {
         color: theme.palette.primary.main,
         marginTop: 0,
+        marginBottom: 0,
+        padding: 0,
     },
     date: {
-        color: theme.palette.primary.dark,
-        paddingBottom: 0,
+        color: theme.palette.secondary.main,
+        margin: 0,
+        marginTop: theme.spacing(1),
     },
     description: {
         height: "65px",
@@ -40,8 +43,13 @@ const styles = theme => ({
 
         '& p': {
             fontSize: "14px",
-            color: theme.palette.primary.dark,
+            color: theme.palette.secondary.main,
         },
+
+        '& a': {
+            color: theme.palette.secondary.dark,
+        }
+
     },
     action: {
         flexGrow: 1,
@@ -50,12 +58,12 @@ const styles = theme => ({
     },
     button: {
         marginLeft: "auto",
-        color: theme.palette.primary.main,
+        //color: theme.palette.primary.main,
     }
 });
 
 function PostPreview(props) {
-    const { classes, postInfo, allImages } = props;
+    const { classes, postInfo, allImages, showDescription } = props;
     const { title, tags, date, cover } = postInfo.frontmatter;
     const { slug } = postInfo.fields;
 
@@ -69,7 +77,13 @@ function PostPreview(props) {
                             <h2 className={classes.title}>{title}</h2>
                             <h4 className={classes.date}>{moment(date).format(
                                 config.dateFormat)}</h4>
-                            <div className={classes.description} dangerouslySetInnerHTML={{ __html: postInfo.html }} />
+                            {showDescription ? 
+                                <div 
+                                    className={classes.description} 
+                                    dangerouslySetInnerHTML={{ __html: postInfo.html }} 
+                                />
+                                : <></>
+                            }
                         </CardContent>
                     </CardActionArea>
                 </Link>
@@ -77,7 +91,7 @@ function PostPreview(props) {
 
 
             <CardActions className={classes.action}>
-                <Button className={classes.button} size="small" href={slug}>
+                <Button className={classes.button} color="secondary" size="small" href={slug}>
                     Read More
                 </Button>
             </CardActions>

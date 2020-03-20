@@ -12,7 +12,7 @@ const styles = theme => ({
 });
 
 function AllPosts(props) {
-    const { classes, amount } = props;
+    const { classes, amount, showDescription } = props;
     const data = useStaticQuery(graphql`
     {
         allMarkdownRemark(filter: {frontmatter: {category: {eq: "episode"}}}, sort: {order: DESC, fields: frontmatter___date}) {
@@ -56,7 +56,7 @@ function AllPosts(props) {
             <Grid container spacing={3} alignItems="stretch" alignContent="stretch" justify="center">
                 {edges.map(post =>
                     <Grid item className={classes.item} xs={12} md={4} key={post.node.id}>
-                        <PostPreview postInfo={post.node} allImages={data.allFile.edges} />
+                        <PostPreview postInfo={post.node} allImages={data.allFile.edges} showDescription={showDescription} />
                     </Grid>
                 )}
             </Grid>

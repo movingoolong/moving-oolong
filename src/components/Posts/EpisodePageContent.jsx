@@ -62,7 +62,7 @@ function EpisodePageContent(props) {
             </Grid>
 
 
-            <AllPosts />
+            <AllPosts showDescription={true}/>
         </>
     );
 }
