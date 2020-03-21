@@ -103,7 +103,7 @@ function PostPreview(props) {
 
             <CardActions className={classes.action}>
                 <Grid container alignItems="flex-end" justify="space-between">
-                    <Grid item xs="6">
+                    <Grid item xs={6}>
                         <div className={classes.tags}>
                             {tags}
                         </div>
