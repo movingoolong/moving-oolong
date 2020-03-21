@@ -2,10 +2,12 @@ import React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import { Button, Container, Grid, withStyles } from "@material-ui/core";
 
+import aboutImg from "assets/img/about.jpg";
+
 import config from "data/SiteConfig";
 
 // Components
-import BackgroundImage from 'gatsby-background-image'
+//import BackgroundImage from 'gatsby-background-image'
 
 
 const styles = theme => ({
@@ -14,14 +16,14 @@ const styles = theme => ({
         padding: theme.spacing(4),
         width: "100%",
         height: "1000px",
+        backgroundImage: `url(${aboutImg})`,
         backgroundAttachment: "fixed",
-        backgroundPosition: "center 50%",
+        backgroundPosition: "center center",
         backgroundSize: "cover",
         opacity: 0.99,
 
         [theme.breakpoints.down('sm')]: {
-            height: "100%",
-            backgroundAttachment: "scroll",
+            height: "800px",
             backgroundPosition: "center 80%",
         },
     },
@@ -57,7 +59,7 @@ function AboutSection(props) {
     {
         file(relativePath: {eq: "about.jpg"}) {
           childImageSharp {
-            fluid(jpegQuality: 100) {
+            fluid(quality: 100) {
                 ...GatsbyImageSharpFluid_noBase64
             }
           }
@@ -65,11 +67,12 @@ function AboutSection(props) {
     }
     `);
     return (
-        <BackgroundImage className={classes.root} fluid={data.file.childImageSharp.fluid}>
-            <Container className={classes.container} maxWidth="sm">
+        <div className={classes.root}>
+        {/* <BackgroundImage className={classes.root} fluid={data.file.childImageSharp.fluid}> */}
+            <Container className={classes.container} maxWidth="md">
                 <Grid container alignItems="center" justify="center">
                     <Grid item>
-                        <h3 className={classes.description}>{config.siteDescriptionShort}</h3>
+                        <h2 className={classes.description}>{config.siteDescriptionShort}</h2>
                     </Grid>
 
                     <Grid item>
@@ -82,7 +85,8 @@ function AboutSection(props) {
                     </Grid>
                 </Grid>
             </Container>
-        </BackgroundImage>
+        {/* </BackgroundImage> */}
+        </div>
     );
 }
 

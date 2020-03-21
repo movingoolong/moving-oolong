@@ -58,7 +58,7 @@ function AllPosts(props) {
     <Container className={classes.root} maxWidth="lg">
       <Grid container spacing={3} alignItems="stretch" alignContent="stretch" justify="center">
         {edges.map(post =>
-          <Grid item className={classes.item} xs={12} md={4} key={post.node.id}>
+          <Grid item className={classes.item} xs={12} sm={4} key={post.node.id}>
             <PostPreview postInfo={post.node} allImages={data.allFile.edges} showDescription={showDescription} />
           </Grid>
         )}
