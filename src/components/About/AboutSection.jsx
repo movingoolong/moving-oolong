@@ -24,15 +24,10 @@ const styles = theme => ({
 
         [theme.breakpoints.down('sm')]: {
             height: "800px",
-            backgroundPosition: "center 80%",
         },
     },
     container: {
         height: "100%",
-    },
-    title: {
-        color: "#ffffff",
-        textTransform: 'capitalize',
     },
     link: {
         textDecoration: 'none',
@@ -78,7 +73,6 @@ function AboutSection(props) {
                     <Grid item>
                         <Link className={classes.link} to="/about">
                             <Button className={classes.button} size="large" variant="contained">
-                                {/* <h1 className={classes.title}>About Us</h1> */}
                                 About Us
                             </Button>
                         </Link>
