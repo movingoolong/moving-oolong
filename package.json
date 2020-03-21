@@ -44,6 +44,7 @@
     "react-helmet": "^5.2.1",
     "react-md": "^1.14.1",
     "react-share": "^4.0.1",
+    "react-swipeable-views": "^0.13.9",
     "react-twitter-widgets": "^1.7.1",
     "url-join": "^4.0.1"
   },

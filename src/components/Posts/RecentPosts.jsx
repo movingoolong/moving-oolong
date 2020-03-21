@@ -1,12 +1,14 @@
 import React from "react";
 import { Link } from "gatsby";
-import { withStyles } from "@material-ui/core";
+import { Grid, Hidden, withStyles } from "@material-ui/core";
 
 // Components
 import AllPosts from "components/Posts/AllPosts";
+import SwipeablePosts from 'components/Posts/SwipeablePosts';
+
 const styles = theme => ({
     root: {
-        
+
     },
     title: {
         textAlign: "left",
@@ -16,58 +18,35 @@ const styles = theme => ({
     },
     link: {
         textAlign: "right",
-        textTransform: "underlined",
         color: theme.palette.primary.dark,
-        marginRight: theme.spacing(2),
+        fontSize: "16px",
+        margin: theme.spacing(2),
     },
 });
 
 function RecentPosts(props) {
     const { classes } = props;
-    // const data = useStaticQuery(graphql`
-    // {
-    //     allMarkdownRemark(filter: {frontmatter: {category: {eq: "episode"}}}, sort: {order: DESC, fields: frontmatter___date}) {
-    //       edges {
-    //         node {
-    //           fields {
-    //             slug
-    //           }
-    //           frontmatter {
-    //             title
-    //             tags
-    //             date
-    //             category
-    //             cover
-    //           }
-    //           html
-    //           id
-    //         }
-    //       }
-    //     }
-    //     allFile(filter: {absolutePath: {regex: "static/assets/"}}) {
-    //       edges {
-    //         node {
-    //           id
-    //           absolutePath
-    //           childImageSharp {
-    //             fluid {
-    //               ...GatsbyImageSharpFluid
-    //             }
-    //           }
-    //         }
-    //       }
-    //     }
-    // }
-    // `);
-
     return (
         <>
-            <h1 className={classes.title}>Recent Episodes</h1>
-            {/* <Link className={classes.link} to="/episodes">
-                <h4><i>See all episodes</i></h4>
-            </Link> */}
-            
-            <AllPosts amount={3} showDescription={false}/>
+            <Grid container alignItems="flex-end" justify="space-between">
+                <Grid item xs={12} sm={8}>
+                    <h1 className={classes.title}>Recent Episodes</h1>
+                </Grid>
+                <Grid>
+                    <Link className={classes.link} to="/episodes">
+                        <i>See all episodes</i>
+                    </Link>
+                </Grid>
+
+
+            </Grid>
+
+            <Hidden xsDown>
+                <SwipeablePosts />
+            </Hidden>
+            <Hidden mdUp>
+                <AllPosts amount={3} showDescription={false} />
+            </Hidden>
         </>
     );
 }

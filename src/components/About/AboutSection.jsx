@@ -60,7 +60,7 @@ function AboutSection(props) {
     return (
         <BackgroundImage className={classes.root} fluid={data.file.childImageSharp.fluid}>
             <Container className={classes.container} maxWidth="md">
-                <Grid container alignItems="center" justify="center">
+                <Grid container alignItems="center" justify="center" alignContent="center">
                     <Grid item>
                         <h2 className={classes.description}>{config.siteDescriptionShort}</h2>
                     </Grid>
