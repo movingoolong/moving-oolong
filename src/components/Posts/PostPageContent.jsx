@@ -16,6 +16,9 @@ const styles = theme => ({
             fontSize: "24px",
         },
     },
+    embed: {
+        width: "100%",
+    },
     body: {
         fontSize: "16px",
         color: theme.palette.secondary.main,
@@ -23,14 +26,13 @@ const styles = theme => ({
             color: theme.palette.secondary.dark,
         }
     },
+    tags: {
+        color: theme.palette.secondary.main,
+        fontSize: "12px",
+    },
 });
 
 function PostPageContent(props) {
-    // const { location, pageContext, data } = props;
-    // const { slug, nexttitle, nextslug, prevtitle, prevslug } = pageContext;
-    // const { title, date, cover, tags } = data.markdownRemark.frontmatter;
-    // const { body } = data.markdownRemark.html;
-
     const { classes, post, img } = props;
 
     return (
@@ -42,12 +44,17 @@ function PostPageContent(props) {
                 <Grid item xs={12} sm={6}>
                     <Img fluid={img.fluid} />
                 </Grid>
-                <Grid item container alignItems="center" justify="center" xs={12} sm={6}>
-                    <Grid item xs={12}>
-                        <div dangerouslySetInnerHTML={{ __html: post.frontmatter.link }} />
+                <Grid item container direction="column" alignItems="stretch" justify="space-between" xs={12} sm={6}>
+                    <Grid item>
+                        <div className={classes.embed} dangerouslySetInnerHTML={{ __html: post.frontmatter.link }} />
                     </Grid>
-                    <Grid item xs={12}>
+                    <Grid item>
                         <div className={classes.body} dangerouslySetInnerHTML={{ __html: post.html }} />
+                    </Grid>
+                    <Grid item>
+                        <div className={classes.tags}>
+                            {post.frontmatter.tags}
+                        </div>
                     </Grid>
                 </Grid>
             </Grid>

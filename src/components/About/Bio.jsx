@@ -25,6 +25,9 @@ const styles = theme => ({
         marginTop: theme.spacing(1),
         marginBottom: theme.spacing(1),
     },
+    description: {
+        color: theme.palette.secondary.main,
+    },
     grow: {
         flexGrow: 1,
     },
@@ -44,6 +47,7 @@ function Bio(props) {
                 <CardContent>
                     <h2 className={classes.title}>{name}</h2>
                     <div
+                        className={classes.description}
                         dangerouslySetInnerHTML={{ __html: description }}
                     />
                 </CardContent>
