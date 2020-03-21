@@ -4,7 +4,7 @@ date: 2020-02-17T13:00:00.000Z
 cover: assets/fullsizeoutput_2da3.jpeg
 category: episode
 tags:
-  - '#aapi #asianamerican #media #recommendations #fans #reflections'
+  - '#asianamerican #media #recommendations #fans'
 link: >-
   <iframe
   src="https://open.spotify.com/embed-podcast/episode/3nqYoJBJaK64MFiDwgbOpw"
