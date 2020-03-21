@@ -115,7 +115,7 @@ function SwipeablePosts(props) {
                         <ArrowBackIosIcon />
                     </IconButton>
                 </Grid>
-                <Grid item sm={11}>
+                <Grid item sm={10} lg={11}>
                     <SwipeableViews
                         enableMouseEvents
                         slideStyle={{ overflow: "hidden" }}
