@@ -105,10 +105,8 @@ function SwipeablePosts(props) {
         );
     }
 
-    console.log(steps);
-
     return (
-        <Container className={classes.root} maxWidth="lg">
+        <Container className={classes.root} maxWidth="xl">
             <Grid container alignItems="center" justify="space-between">
                 <Grid item>
                     <IconButton className={classes.iconLeft} aria-label="back button" onClick={handleBack} disabled={activeStep === 0}>

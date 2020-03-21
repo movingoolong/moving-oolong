@@ -5,6 +5,7 @@ import { withStyles } from "@material-ui/core/styles";
 import Layout from "components/Layout/Layout";
 import RecentPosts from "components/Posts/RecentPosts";
 import AboutSection from "components/About/AboutSection";
+//import TwitterFeed from "components/Feeds/TwitterFeed";
 
 const styles = {
     root: {
@@ -18,6 +19,7 @@ function HomePage(props) {
         <Layout>
             <RecentPosts />
             <AboutSection />
+            {/* <TwitterFeed /> */}
         </Layout>
         </>
     );
