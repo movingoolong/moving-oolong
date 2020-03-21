@@ -1,9 +1,6 @@
 import React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import { Button, Container, Grid, withStyles } from "@material-ui/core";
-
-import aboutImg from "assets/img/about.jpg";
-
 import config from "data/SiteConfig";
 
 // Components
@@ -16,7 +13,6 @@ const styles = theme => ({
         padding: theme.spacing(4),
         width: "100%",
         height: "1000px",
-        //backgroundImage: `url(${aboutImg})`,
         backgroundAttachment: "fixed",
         backgroundPosition: "center center",
         backgroundSize: "cover",
