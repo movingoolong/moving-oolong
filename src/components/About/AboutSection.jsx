@@ -7,7 +7,7 @@ import aboutImg from "assets/img/about.jpg";
 import config from "data/SiteConfig";
 
 // Components
-//import BackgroundImage from 'gatsby-background-image'
+import BackgroundImage from 'gatsby-background-image'
 
 
 const styles = theme => ({
@@ -16,7 +16,7 @@ const styles = theme => ({
         padding: theme.spacing(4),
         width: "100%",
         height: "1000px",
-        backgroundImage: `url(${aboutImg})`,
+        //backgroundImage: `url(${aboutImg})`,
         backgroundAttachment: "fixed",
         backgroundPosition: "center center",
         backgroundSize: "cover",
@@ -54,7 +54,7 @@ function AboutSection(props) {
     {
         file(relativePath: {eq: "about.jpg"}) {
           childImageSharp {
-            fluid(quality: 100) {
+            fluid(maxWidth: 4096, quality: 100) {
                 ...GatsbyImageSharpFluid_noBase64
             }
           }
@@ -62,8 +62,7 @@ function AboutSection(props) {
     }
     `);
     return (
-        <div className={classes.root}>
-        {/* <BackgroundImage className={classes.root} fluid={data.file.childImageSharp.fluid}> */}
+        <BackgroundImage className={classes.root} fluid={data.file.childImageSharp.fluid}>
             <Container className={classes.container} maxWidth="md">
                 <Grid container alignItems="center" justify="center">
                     <Grid item>
@@ -79,8 +78,7 @@ function AboutSection(props) {
                     </Grid>
                 </Grid>
             </Container>
-        {/* </BackgroundImage> */}
-        </div>
+        </BackgroundImage>
     );
 }
 
