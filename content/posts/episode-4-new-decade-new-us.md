@@ -5,7 +5,9 @@ cover: assets/img_4987-2.jpg
 category: episode
 slug: '{{slug}}'
 tags:
-  - '#travels #taiwan #tasa #asia'
+  - travel
+  - tasa
+  - food
 link: >-
   <iframe
   src="https://open.spotify.com/embed-podcast/episode/65StylDGNr2BqmTXCciEwQ"
