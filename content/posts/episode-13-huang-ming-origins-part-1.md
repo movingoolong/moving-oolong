@@ -5,6 +5,7 @@ cover: assets/img_8730.jpg
 category: episode
 tags:
   - reflections
+  - educational
 link: >-
   <iframe
   src="https://open.spotify.com/embed-podcast/episode/36ojjdL10ugQi31zZLJ7KJ"
