@@ -4,7 +4,8 @@ date: 2020-02-10T13:00:00.000Z
 cover: assets/fullsizeoutput_2da2.jpeg
 category: episode
 tags:
-  - '#conferences #tasa #taiwan #reflections #meetup #fans'
+  - tasa
+  - reflections
 link: >-
   <iframe
   src="https://open.spotify.com/embed-podcast/episode/39HQyev2gdhpE3yKqXlVn0"
