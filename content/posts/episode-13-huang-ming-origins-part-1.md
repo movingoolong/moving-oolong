@@ -4,7 +4,7 @@ date: 2020-03-19T21:19:52.002Z
 cover: assets/img_8730.jpg
 category: episode
 tags:
-  - '#adoption #reflections #asianamerican #diaspora'
+  - reflections
 link: >-
   <iframe
   src="https://open.spotify.com/embed-podcast/episode/36ojjdL10ugQi31zZLJ7KJ"
