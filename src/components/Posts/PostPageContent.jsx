@@ -3,6 +3,7 @@ import Img from "gatsby-image"
 import { Container, Grid, withStyles } from "@material-ui/core";
 
 // Components
+import TagLink from "components/Posts/TagLink";
 
 const styles = theme => ({
     root: {
@@ -53,7 +54,7 @@ function PostPageContent(props) {
                     </Grid>
                     <Grid item>
                         <div className={classes.tags}>
-                            {post.frontmatter.tags}
+                            {post.frontmatter.tags.map(tag => <TagLink tag={tag} key={tag}/>)}
                         </div>
                     </Grid>
                 </Grid>

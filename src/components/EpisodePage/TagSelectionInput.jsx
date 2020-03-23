@@ -33,7 +33,7 @@ function TagSelectionInput(props) {
         <div className={classes.root}>
             <FormControl component="fieldset" className={classes.formControl}>
                 <FormLabel component="legend" color="primary" className={classes.groupLabel}>
-                    <b>Filter by Tag</b>
+                    <b>Filter by Tags</b>
                 </FormLabel>
                 <FormGroup>
                     {Object.entries(tags).map(([key, val]) =>
