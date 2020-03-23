@@ -4,7 +4,7 @@ date: 2020-02-24T13:00:00.000Z
 cover: assets/dsc04895-2.jpg
 category: episode
 tags:
-  - personalitytests
+  - personalitytest
   - friendship
 link: >-
   <iframe
