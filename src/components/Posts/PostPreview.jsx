@@ -105,8 +105,7 @@ function PostPreview(props) {
                 <Grid container alignItems="flex-end" justify="space-between">
                     <Grid item xs={6}>
                         <div className={classes.tags}>
-                            {tags.map(tag => <TagLink tag={tag} />)}
-                            {/* {tags !== undefined && tags.length > 0 ? `#${tags.join(" #")}` : ""} */}
+                            {tags.map(tag => <TagLink tag={tag} key={tag}/>)}
                         </div>
                     </Grid>
                     <Grid item>
