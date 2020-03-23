@@ -4,7 +4,8 @@ date: 2020-03-09T12:00:00.000Z
 cover: assets/fullsizeoutput_2da5.jpeg
 category: episode
 tags:
-  - '#fans #media #asianamerican #recommendations'
+  - media
+  - recommendations
 link: >-
   <iframe
   src="https://open.spotify.com/embed-podcast/episode/3g6D3hUyTblLe7maAMYxfM"
