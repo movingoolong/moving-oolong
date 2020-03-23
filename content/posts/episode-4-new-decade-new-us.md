@@ -7,7 +7,6 @@ slug: '{{slug}}'
 tags:
   - travel
   - tasa
-  - food
 link: >-
   <iframe
   src="https://open.spotify.com/embed-podcast/episode/65StylDGNr2BqmTXCciEwQ"
