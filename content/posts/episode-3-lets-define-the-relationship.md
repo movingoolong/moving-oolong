@@ -5,7 +5,8 @@ cover: assets/dsc04905-3.jpg
 category: episode
 slug: '{{slug}}'
 tags:
-  - '#relationships #love'
+  - relationships
+  - friendship
 link: >-
   <iframe
   src="https://open.spotify.com/embed-podcast/episode/7cCIpus3sgAs2p1Ys6MkY5"
