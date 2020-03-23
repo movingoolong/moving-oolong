@@ -13,6 +13,9 @@ const styles = theme => ({
     groupLabel: {
         color: theme.palette.primary.main,
     },
+    label: {
+        color: theme.palette.secondary.dark,
+    },
 });
 
 function TagSelectionInput(props) {
@@ -39,7 +42,7 @@ function TagSelectionInput(props) {
                     {Object.entries(tags).map(([key, val]) =>
                         <FormControlLabel
                             control={<Checkbox checked={val} onChange={handleChange} name={key} />}
-                            label={key}
+                            label={<div className={classes.label}>{key}</div>}
                             key={key}
                         />
                     )}
