@@ -4,7 +4,8 @@ date: 2020-02-24T13:00:00.000Z
 cover: assets/dsc04895-2.jpg
 category: episode
 tags:
-  - '#astrology #personality #friendship #relationships'
+  - personalitytests
+  - friendship
 link: >-
   <iframe
   src="https://open.spotify.com/embed-podcast/episode/0aJaN6DBbu4RfSVyE9EuTs"
