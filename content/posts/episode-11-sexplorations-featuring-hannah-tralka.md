@@ -4,7 +4,9 @@ date: 2020-03-02T13:00:00.000Z
 cover: assets/fullsizeoutput_2da4.jpeg
 category: episode
 tags:
-  - '#education #sex #relationships #guest'
+  - relationships
+  - guest
+  - educational
 link: >-
   <iframe
   src="https://open.spotify.com/embed-podcast/episode/1Y4ng9ALW4wBcRDwoFngp9"
