@@ -17,10 +17,10 @@ function PostGrid(props) {
   const { classes, posts, allImages, showDescription } = props;
 
   return (
-    <Container className={classes.root} maxWidth="lg">
+    <Container className={classes.root} maxWidth="xl">
       <Grid container spacing={3} alignItems="stretch" alignContent="stretch" justify="center">
         {posts.map(post =>
-          <Grid item className={classes.item} xs={12} sm={4} key={post.node.id}>
+          <Grid item className={classes.item} xs={12} sm={4} lg={3} key={post.node.id}>
             <PostPreview postInfo={post.node} allImages={allImages} showDescription={showDescription} />
           </Grid>
         )}

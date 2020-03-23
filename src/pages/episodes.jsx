@@ -6,6 +6,7 @@ import { useQueryParam, StringParam } from 'use-query-params';
 // Components
 import EpisodePageHeader from "components/EpisodePage/EpisodePageHeader";
 import FilteredPosts from "components/Posts/FilteredPosts";
+import TagSelectionInput from "components/EpisodePage/TagSelectionInput";
 import useTags from "hooks/useTags";
 
 // Images
@@ -61,7 +62,7 @@ export const query = graphql`
 
 export default withStyles(styles)((props) => {
   const { classes, data, location } = props;
-  const [ urlTags, setURLTags] = useQueryParam("tags", StringParam);
+  const [urlTags, setURLTags] = useQueryParam("tags", StringParam);
   const { tags, setTags } = useTags(urlTags);
 
   // const tagMap = new Map();
@@ -82,18 +83,26 @@ export default withStyles(styles)((props) => {
   //       initialState[key] = false;
   //   });
 
-  
+
 
   return (
     <>
       <EpisodePageHeader />
+      <Grid container alignItems="flex-start" justify="center">
+        <Grid item xs={12} sm={3} lg={1}>
+          <TagSelectionInput tags={tags} urlTags={urlTags} setURLTags={setURLTags} />
+        </Grid>
+        <Grid item xs={12} sm={9} lg={11}>
+          <FilteredPosts
+            tags={tags}
+            showDescription={true}
+            posts={data.allMarkdownRemark.edges}
+            allImages={data.allFile.edges}
+          />
+        </Grid>
+      </Grid>
 
-      <FilteredPosts
-        tags={tags}
-        showDescription={true}
-        posts={data.allMarkdownRemark.edges}
-        allImages={data.allFile.edges}
-      />
+
     </>
   );
 })
