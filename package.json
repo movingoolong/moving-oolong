@@ -46,7 +46,8 @@
     "react-share": "^4.0.1",
     "react-swipeable-views": "^0.13.9",
     "react-twitter-widgets": "^1.7.1",
-    "url-join": "^4.0.1"
+    "url-join": "^4.0.1",
+    "use-query-params": "^0.6.0"
   },
   "devDependencies": {
     "cli-glob": "^0.1.0",

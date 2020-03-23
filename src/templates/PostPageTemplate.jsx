@@ -4,7 +4,6 @@ import Img from "gatsby-image"
 import { Container, Grid, withStyles } from "@material-ui/core";
 
 // Components
-import Layout from "components/Layout/Layout";
 import PostPageContent from "components/Posts/PostPageContent";
 import PostSuggestions from "components/Posts/PostSuggestions";
 
@@ -18,15 +17,15 @@ function PostPageTemplate(props) {
   const { classes, data, pageContext } = props;
 
   return (
-    <Layout>
+    <>
       <PostPageContent post={data.markdownRemark} img={data.file.childImageSharp} />
-      <PostSuggestions 
+      <PostSuggestions
         nextTitle={pageContext.nextTitle}
         nextSlug={pageContext.nextSlug}
         prevTitle={pageContext.prevTitle}
         prevSlug={pageContext.prevSlug}
       />
-    </Layout>
+    </>
   );
 }
 

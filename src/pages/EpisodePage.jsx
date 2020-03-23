@@ -2,20 +2,17 @@ import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 
 // Components
-import Layout from "components/Layout/Layout";
-import EpisodePageContent from "components/Posts/EpisodePageContent";
+import EpisodePageContent from "components/EpisodePage/EpisodePageContent";
 const styles = {
     root: {
-        
+
     }
 };
 
 function EpisodePage(props) {
     return (
         <>
-        <Layout>
             <EpisodePageContent />
-        </Layout>
         </>
     );
 }

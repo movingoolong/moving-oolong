@@ -1,9 +1,6 @@
 import React from "react";
 import { IconButton, Grid, withStyles } from "@material-ui/core";
 
-// Components
-import AllPosts from "components/Posts/AllPosts";
-
 // Images
 import apple from "assets/img/icons/apple_podcasts.png";
 import spotify from "assets/img/icons/spotify.png";
@@ -28,9 +25,6 @@ const styles = theme => ({
         [theme.breakpoints.down('sm')]: {
             textAlign: "center",
         },
-    },
-    icon: {
-
     },
 });
 
@@ -60,9 +54,6 @@ function EpisodePageContent(props) {
                     </div>
                 </Grid>
             </Grid>
-
-
-            <AllPosts showDescription={true}/>
         </>
     );
 }
