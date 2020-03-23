@@ -112,7 +112,7 @@ export default withStyles(styles)((props) => {
             anchor="top"
             open={drawer}
             onClose={toggleDrawer(false)}
-            onOpen={toggleDrawer(open)}
+            onOpen={toggleDrawer(true)}
             elevation={16}
           >
             <TagSelectionInput tags={tags} urlTags={urlTags} setURLTags={setURLTags} />
