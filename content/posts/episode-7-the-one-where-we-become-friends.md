@@ -4,7 +4,8 @@ date: 2020-02-03T13:00:00.000Z
 cover: assets/dsc04851-2.jpg
 category: episode
 tags:
-  - '#friendship #q&a #questions'
+  - friendship
+  - questions
 link: >-
   <iframe
   src="https://open.spotify.com/embed-podcast/episode/09fOFKxr38LX8Hr4WQwmSa"
