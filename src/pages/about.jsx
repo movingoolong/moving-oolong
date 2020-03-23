@@ -16,40 +16,41 @@ const styles = theme => ({
   }
 });
 
-function AboutPage(props) {
-  const { classes } = props;
-  const data = useStaticQuery(graphql`
-    {
-        allMarkdownRemark(filter: {frontmatter: {category: {eq: "bio"}}}) {
-          edges {
-            node {
-              html
-              id
-              frontmatter {
-                category
-                name
-                propic
-                twitter
-                instagram
-              }
-            }
-          }
+export const query = graphql`
+{
+  allMarkdownRemark(filter: {frontmatter: {category: {eq: "bio"}}}) {
+    edges {
+      node {
+        html
+        id
+        frontmatter {
+          category
+          name
+          propic
+          twitter
+          instagram
         }
-        allFile(filter: {absolutePath: {regex: "static/assets/"}}) {
-          edges {
-            node {
-              id
-              absolutePath
-              childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-        }
+      }
     }
-    `);
+  }
+  allFile(filter: {absolutePath: {regex: "static/assets/"}}) {
+    edges {
+      node {
+        id
+        absolutePath
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  }
+}
+`
+
+export default withStyles(styles)((props) => {
+  const { classes, data } = props;
   const allImages = data.allFile.edges;
   return (
     <>
@@ -75,6 +76,4 @@ function AboutPage(props) {
 
     </>
   );
-}
-
-export default withStyles(styles)(AboutPage)
+})
