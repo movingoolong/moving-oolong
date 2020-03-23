@@ -17,7 +17,15 @@ collections:
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Cover Image", name: "cover", widget: "image"}
       - {label: "Category", name: "category", widget: "hidden", default: "episode"}
-      - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Tags", name: "tags", widget: "select", multiple: true,
+          options: ["reflections", "friendship", 
+            "relationships", "educational", 
+            "recommendations", "media", 
+            "questions", "personalitytest", 
+            "guest", "travel", 
+            "tasa", "postgrad", 
+            "careers"], 
+          }
       - {label: "Embedded Link", name: "link", widget: "markdown", minimal: true}
       - {label: "Body", name: "body", widget: "markdown"}
   - name: bios

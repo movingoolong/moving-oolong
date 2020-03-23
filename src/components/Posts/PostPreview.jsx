@@ -105,7 +105,7 @@ function PostPreview(props) {
                 <Grid container alignItems="flex-end" justify="space-between">
                     <Grid item xs={6}>
                         <div className={classes.tags}>
-                            {tags}
+                            {tags !== undefined && tags.length > 0 ? `#${tags.join(" #")}` : ""}
                         </div>
                     </Grid>
                     <Grid item>

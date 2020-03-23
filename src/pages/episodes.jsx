@@ -1,6 +1,6 @@
 import React from "react";
-import { Grid, withStyles } from "@material-ui/core";
-import { graphql } from "gatsby"
+import { Button, Grid, withStyles } from "@material-ui/core";
+import { graphql, navigate } from "gatsby"
 
 // Components
 import EpisodePageHeader from "components/EpisodePage/EpisodePageHeader";
@@ -52,7 +52,31 @@ export const query = graphql`
 `
 
 export default withStyles(styles)((props) => {
-  const { classes, data } = props;
+  const { classes, data, location } = props;
+  const onClick = () => {
+    navigate("/episodes?tags=Hello,My,Name,Is", {
+      search: ""
+    });
+  }
+
+  const tagMap = new Map();
+
+  data.allMarkdownRemark.edges.forEach((edge) => {
+    const tags = edge.node.frontmatter.tags;
+    const tagArray = tags != undefined ? tags[0].split("#") : [];
+    tagArray.forEach((tag) => {
+      const tagTrimmed = tag.trim();
+      const tagAmount = tagMap.get(tagTrimmed);
+      if(tagAmount == undefined) {
+        tagMap.set(tagTrimmed, 1);
+      } else {
+        tagMap.set(tagTrimmed, tagAmount + 1);
+      }
+
+    })
+  })
+
+  console.log(tagMap);
 
   return (
     <>
