@@ -7,6 +7,7 @@ slug: '{{slug}}'
 tags:
   - careers
   - personalitytest
+  - postgrad
 link: >-
   <iframe
   src="https://open.spotify.com/embed-podcast/episode/2QjVE1joyLSeYgg4q5b9cI"
