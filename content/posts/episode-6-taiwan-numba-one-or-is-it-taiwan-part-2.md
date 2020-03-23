@@ -6,7 +6,6 @@ category: episode
 tags:
   - travel
   - tasa
-  - food
 link: >-
   <iframe
   src="https://open.spotify.com/embed-podcast/episode/6JioLiilHPCGDpBjKg24kC"
