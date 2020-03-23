@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Grid, withStyles } from "@material-ui/core";
 import { graphql, navigate } from "gatsby"
+import { useQueryParam, StringParam } from 'use-query-params';
 
 // Components
 import EpisodePageHeader from "components/EpisodePage/EpisodePageHeader";
-import PostGrid from "components/Posts/PostGrid";
+import FilteredPosts from "components/Posts/FilteredPosts";
+import useTags from "hooks/useTags";
 
 // Images
 
@@ -51,38 +53,47 @@ export const query = graphql`
 }
 `
 
+// const onClick = () => {
+//   navigate("/episodes?tags=Hello,My,Name,Is", {
+//     search: ""
+//   });
+// }
+
 export default withStyles(styles)((props) => {
   const { classes, data, location } = props;
-  const onClick = () => {
-    navigate("/episodes?tags=Hello,My,Name,Is", {
-      search: ""
-    });
-  }
+  const [ urlTags, setURLTags] = useQueryParam("tags", StringParam);
+  const { tags, setTags } = useTags(urlTags);
 
-  const tagMap = new Map();
+  // const tagMap = new Map();
 
-  data.allMarkdownRemark.edges.forEach((edge) => {
-    const tags = edge.node.frontmatter.tags;
-    const tagArray = tags != undefined ? tags[0].split("#") : [];
-    tagArray.forEach((tag) => {
-      const tagTrimmed = tag.trim();
-      const tagAmount = tagMap.get(tagTrimmed);
-      if(tagAmount == undefined) {
-        tagMap.set(tagTrimmed, 1);
-      } else {
-        tagMap.set(tagTrimmed, tagAmount + 1);
-      }
+  // data.allMarkdownRemark.edges.forEach((edge) => {
+  //   edge.node.frontmatter.tags.forEach((tag) => {
+  //     const tagAmount = tagMap.get(tag);
+  //     if (tagAmount == undefined) {
+  //       tagMap.set(tag, 1);
+  //     } else {
+  //       tagMap.set(tag, tagAmount + 1);
+  //     }
+  //   })
+  // })
 
-    })
-  })
+  // const initialState = {};
+  //   tagMap.forEach((__, key) => {
+  //       initialState[key] = false;
+  //   });
 
-  console.log(tagMap);
+  
 
   return (
     <>
       <EpisodePageHeader />
 
-      <PostGrid showDescription={true} posts={data.allMarkdownRemark.edges} allImages={data.allFile.edges} />
+      <FilteredPosts
+        tags={tags}
+        showDescription={true}
+        posts={data.allMarkdownRemark.edges}
+        allImages={data.allFile.edges}
+      />
     </>
   );
 })

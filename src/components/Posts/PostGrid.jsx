@@ -1,5 +1,4 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby"
 import { Container, Grid, withStyles } from "@material-ui/core";
 
 // Components

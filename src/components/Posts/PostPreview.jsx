@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "gatsby";
-
 import { Button, Card, CardActionArea, CardContent, CardHeader, CardActions, Grid, withStyles } from "@material-ui/core";
+
+// Components
 import PostPreviewImage from "./PostPreviewImage";
-import LabelIcon from '@material-ui/icons/Label';
+import TagLink from "components/Posts/TagLink";
 import moment from "moment";
 import config from "data/SiteConfig";
 
@@ -64,7 +65,6 @@ const styles = theme => ({
         flexGrow: 1,
     },
     tags: {
-        color: theme.palette.secondary.main,
         fontSize: "10px",
     },
 
@@ -105,7 +105,8 @@ function PostPreview(props) {
                 <Grid container alignItems="flex-end" justify="space-between">
                     <Grid item xs={6}>
                         <div className={classes.tags}>
-                            {tags !== undefined && tags.length > 0 ? `#${tags.join(" #")}` : ""}
+                            {tags.map(tag => <TagLink tag={tag} />)}
+                            {/* {tags !== undefined && tags.length > 0 ? `#${tags.join(" #")}` : ""} */}
                         </div>
                     </Grid>
                     <Grid item>
@@ -114,7 +115,6 @@ function PostPreview(props) {
                         </Button>
                     </Grid>
                 </Grid>
-                {/* <LabelIcon className={classes.tagIcon} color="primary" /> */}
             </CardActions>
         </Card>
     );

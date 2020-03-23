@@ -31,6 +31,7 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-lodash",
     "gatsby-plugin-material-ui",
+    "gatsby-plugin-use-query-params",
     // "gatsby-plugin-sass",
     {
       resolve: `gatsby-plugin-prefetch-google-fonts`,

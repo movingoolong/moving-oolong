@@ -1,7 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby"
-import Img from "gatsby-image"
-import { Container, Grid, withStyles } from "@material-ui/core";
+import { withStyles } from "@material-ui/core";
 
 // Components
 import PostPageContent from "components/Posts/PostPageContent";
