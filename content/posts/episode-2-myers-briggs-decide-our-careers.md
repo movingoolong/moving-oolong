@@ -5,7 +5,8 @@ cover: assets/dsc04834-2.jpg
 category: episode
 slug: '{{slug}}'
 tags:
-  - '#careers #postgrad #personality'
+  - careers
+  - personalitytest
 link: >-
   <iframe
   src="https://open.spotify.com/embed-podcast/episode/2QjVE1joyLSeYgg4q5b9cI"
