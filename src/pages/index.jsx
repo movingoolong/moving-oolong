@@ -12,15 +12,13 @@ const styles = {
     }
 };
 
-function HomePage(props) {
-    return (
-        <>
+export default withStyles(styles)((props) => {
+  return (
+    <>
 
-            <RecentPosts />
-            <AboutSection />
-            {/* <TwitterFeed /> */}
-        </>
-    );
-}
-
-export default withStyles(styles)(HomePage)
+        <RecentPosts />
+        <AboutSection />
+        {/* <TwitterFeed /> */}
+    </>
+);
+})

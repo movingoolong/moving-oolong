@@ -15,17 +15,16 @@ const styles = theme => ({
     },
 });
 
-function EpisodePageContent(props) {
+function EpisodePage(props) {
     const { classes } = props;
 
     return (
         <>
             <EpisodePageHeader />
 
-
             <AllPosts showDescription={true}/>
         </>
     );
 }
 
-export default withStyles(styles)(EpisodePageContent)
+export default withStyles(styles)(EpisodePage)
