@@ -5,7 +5,7 @@ cover: assets/img_1265-2.jpg
 category: episode
 slug: '{{slug}}'
 tags:
-  - '#resolutions #goals #reflections'
+  - reflections
 link: >-
   <iframe
   src="https://open.spotify.com/embed-podcast/episode/2Kq0YMQsP8QjkdFynF2MWv"
