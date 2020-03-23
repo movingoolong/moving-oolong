@@ -4,7 +4,9 @@ date: 2020-01-27T13:00:00.000Z
 cover: assets/img_7028-2.jpg
 category: episode
 tags:
-  - '#travels #taiwan #asia #foodie'
+  - travel
+  - tasa
+  - food
 link: >-
   <iframe
   src="https://open.spotify.com/embed-podcast/episode/6JioLiilHPCGDpBjKg24kC"
