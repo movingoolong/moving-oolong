@@ -40,6 +40,5 @@ export default function useTags(urlTags) {
 
     return {
         tags,
-        setTags,
     }
 }
