@@ -5,7 +5,7 @@ cover: assets/ecc3-2.jpg
 category: episode
 slug: episode-1-the-beginning-of-the-end
 tags:
-  - friendships
+  - friendship
 link: >-
   <iframe
   src="https://open.spotify.com/embed-podcast/episode/1R5u8jFJNqQdeWOjHBvvnc"
