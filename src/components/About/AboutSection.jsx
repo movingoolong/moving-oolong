@@ -12,18 +12,25 @@ const styles = theme => ({
         position: "relative",
         padding: theme.spacing(4),
         width: "100%",
-        height: "1000px",
+        height: "850px",
         backgroundAttachment: "fixed",
         backgroundPosition: "center center",
         backgroundSize: "cover",
         opacity: 0.99,
 
         [theme.breakpoints.down('sm')]: {
-            height: "800px",
+            height: "600px",
         },
     },
     container: {
         height: "100%",
+    },
+    centerVert: {
+        position: "relative",
+        top: "30%",
+        [theme.breakpoints.down('sm')]: {
+            top: "20%",
+        },
     },
     link: {
         textDecoration: 'none',
@@ -60,7 +67,9 @@ function AboutSection(props) {
     return (
         <BackgroundImage className={classes.root} fluid={data.file.childImageSharp.fluid}>
             <Container className={classes.container} maxWidth="md">
-                <Grid container alignItems="center" justify="center" alignContent="center">
+                <Grid className={classes.centerVert} container 
+                    alignItems="center" justify="center" alignContent="center"
+                >
                     <Grid item>
                         <h2 className={classes.description}>{config.siteDescriptionShort}</h2>
                     </Grid>
