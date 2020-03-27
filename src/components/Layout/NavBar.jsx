@@ -5,6 +5,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 
 // Page Components
 import Logo from "components/Logo/Logo"
+import Search from "components/Search/Search";
+
 const styles = theme => ({
     root: {
         flexGrow: 1,
@@ -51,17 +53,17 @@ function NavBar(props) {
             <Link className={classes.link} to="/">
                 <Button className={classes.button}>
                     <b>Home</b>
-            </Button>
+                </Button>
             </Link>
             <Link className={classes.link} to="/about">
                 <Button className={classes.button}>
                     <b>About</b>
-            </Button>
+                </Button>
             </Link>
             <Link className={classes.link} to="/episodes">
                 <Button className={classes.button}>
                     <b>Episodes</b>
-            </Button>
+                </Button>
             </Link>
         </>
     );
@@ -84,7 +86,10 @@ function NavBar(props) {
                     <MenuIcon />
                 </IconButton>
 
+
+
                 <Hidden xsDown>
+                    <Search />
                     {links}
                 </Hidden>
 

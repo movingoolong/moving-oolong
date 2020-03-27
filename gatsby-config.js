@@ -1,5 +1,7 @@
 const urljoin = require("url-join");
 const config = require("./data/SiteConfig");
+const queries = require("./src/utils/algolia")
+require("dotenv").config()
 
 const regexExcludeRobots = /^(?!\/(dev-404-page|404|offline-plugin-app-shell-fallback|tags|categories)).*$/;
 
@@ -33,6 +35,15 @@ module.exports = {
     "gatsby-plugin-material-ui",
     "gatsby-plugin-use-query-params",
     // "gatsby-plugin-sass",
+    {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.GATSBY_ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_ADMIN_KEY,
+        queries,
+        chunkSize: 1000, // default: 1000
+      },
+    },
     {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {

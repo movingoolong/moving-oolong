@@ -1,6 +1,6 @@
 import React from "react";
 import { IconButton, Tooltip, withStyles } from "@material-ui/core";
-//import FacebookIcon from '@material-ui/icons/Facebook';
+import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import TwitterIcon from '@material-ui/icons/Twitter';
 
@@ -12,18 +12,20 @@ const styles = theme => ({
 });
 
 function SocialIcons(props) {
-    const { color, instagram, twitter } = props;
-    //let facebookIcon = <></>;
+    const { color, facebook, instagram, twitter } = props;
+    let facebookIcon = <></>;
     let instagramIcon = <></>;
     let twitterIcon = <></>;
 
-    // if (facebook !== null) {
-    //     facebookIcon = (
-    //         <IconButton href={facebook}>
-    //             <FacebookIcon />
-    //         </IconButton>
-    //     );
-    // }
+    if (facebook != null) {
+        facebookIcon = (
+            <Tooltip title={facebook} interactive placement="top">
+                <IconButton color={color} href={`https://www.facebook.com/${facebook}/`}>
+                    <FacebookIcon />
+                </IconButton>
+            </Tooltip>
+        );
+    }
 
     if (instagram != null) {
         instagramIcon = (
@@ -47,7 +49,7 @@ function SocialIcons(props) {
 
     return (
         <>
-            {/* {facebookIcon} */}
+            {facebookIcon}
             {instagramIcon}
             {twitterIcon}
         </>

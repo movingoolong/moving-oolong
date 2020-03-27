@@ -15,7 +15,6 @@ const styles = {
 export default withStyles(styles)((props) => {
   return (
     <>
-
         <RecentPosts />
         <AboutSection />
         <FeedSection />
