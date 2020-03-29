@@ -8,7 +8,7 @@ import SwipeablePosts from 'components/Posts/SwipeablePosts';
 
 const styles = theme => ({
     root: {
-
+        marginTop: theme.spacing(1),
     },
     title: {
         textAlign: "left",
@@ -27,7 +27,7 @@ const styles = theme => ({
 function RecentPosts(props) {
     const { classes } = props;
     return (
-        <>
+        <div className={classes.root}>
             <Grid container alignItems="flex-end" justify="space-between">
                 <Grid item xs={12} sm={8}>
                     <h1 className={classes.title}>Recent Episodes</h1>
@@ -47,7 +47,7 @@ function RecentPosts(props) {
             <Hidden mdUp>
                 <AllPosts amount={3} showDescription={false} />
             </Hidden>
-        </>
+        </div>
     );
 }
 
