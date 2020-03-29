@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, withStyles } from "@material-ui/core";
+import { Grid, Container, withStyles } from "@material-ui/core";
 
 // Components
 import RecentPosts from "components/Posts/RecentPosts";
@@ -19,15 +19,19 @@ export default withStyles(styles)((props) => {
         <>
             <AboutSection />
             <RecentPosts />
-            <Grid className={classes.contact} container alignItems="stretch" justify="center">
-                <Grid item xs={12} sm={9}>
-                    <ContactUsSection />
-                </Grid>
-                <Grid item xs={12} sm={3}>
-                    <FeedSection />
-                </Grid>
+            <Container maxWidth="xl">
+                <Grid className={classes.contact} container alignItems="stretch" justify="center">
+                    <Grid item xs={12} sm={9}>
+                        <ContactUsSection />
+                    </Grid>
 
-            </Grid>
+                    <Grid item xs={12} sm={2}>
+                        <FeedSection />
+                    </Grid>
+                    
+                </Grid>
+            </Container>
+
 
         </>
     );
