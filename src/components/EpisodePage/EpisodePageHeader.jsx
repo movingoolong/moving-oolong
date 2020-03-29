@@ -6,6 +6,9 @@ import apple from "assets/img/icons/apple_podcasts.png";
 import spotify from "assets/img/icons/spotify.png";
 import stitcher from "assets/img/icons/stitcher.png";
 import soundcloud from "assets/img/icons/soundcloud.png";
+import googleplay from "assets/img/icons/google-play-music.png";
+import breaker from "assets/img/icons/breaker.png";
+import radiopublic from "assets/img/icons/radiopublic.png";
 
 const styles = theme => ({
     root: {
@@ -50,6 +53,15 @@ function EpisodePageContent(props) {
                         </IconButton>
                         <IconButton className={classes.icon} href="https://www.stitcher.com/podcast/moving-oolong?refid=stpr">
                             <img src={stitcher} alt="Stitcher link" />
+                        </IconButton>
+                        <IconButton className={classes.icon} href="">
+                            <img src={googleplay} alt="Google Play Music link" />
+                        </IconButton>
+                        <IconButton className={classes.icon} href="https://www.breaker.audio/moving-oolong">
+                            <img src={breaker} alt="Breaker link" />
+                        </IconButton>
+                        <IconButton className={classes.icon} href="https://radiopublic.com/moving-oolong-6p0d2Q">
+                            <img src={radiopublic} alt="Radio Public link" />
                         </IconButton>
                     </div>
                 </Grid>
