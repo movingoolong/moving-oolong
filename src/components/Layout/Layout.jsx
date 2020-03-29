@@ -7,7 +7,7 @@ import NavBar from "./NavBar";
 import Footer from "./Footer";
 
 export default function Layout(props) {
-    const { children } = props;
+    const { children, location } = props;
     return (
         <>
             <Helmet>
@@ -15,7 +15,7 @@ export default function Layout(props) {
                 <link href="https://fonts.googleapis.com/css?family=Passion+One&display=swap" rel="stylesheet"/>
             </Helmet>
             <CssBaseline />
-            <NavBar />
+            <NavBar location={location}/>
             {children}
             <Footer />
         </>

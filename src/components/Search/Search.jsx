@@ -25,7 +25,7 @@ const Stats = connectStateResults(
 const styles = theme => ({
     popper: {
         width: "50%",
-        top: "45px",
+        marginTop: theme.spacing(9),
     },
     stats: {
         marginLeft: theme.spacing(1),
@@ -78,7 +78,12 @@ function Search(props) {
             >
                 <>
                     <SearchInput onFocus={handleOpen} />
-                    <Popper open={query.length > 0 && open} anchorEl={anchorRef.current} transition className={classes.popper}>
+                    <Popper 
+                        open={query.length > 0 && open} 
+                        anchorEl={anchorRef.current} 
+                        transition 
+                        className={classes.popper}
+                    >
                         {({ TransitionProps, placement }) => (
                             <Grow
                                 {...TransitionProps}

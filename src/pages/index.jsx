@@ -31,8 +31,6 @@ export default withStyles(styles)((props) => {
                     
                 </Grid>
             </Container>
-
-
         </>
     );
 })
