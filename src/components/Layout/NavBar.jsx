@@ -13,8 +13,12 @@ const styles = theme => ({
     },
     title: {
         color: "#ffffff",
+        fontSize: "24px",
         margin: theme.spacing(1),
+        marginLeft: theme.spacing(2),
         display: 'inline-block',
+        fontFamily: "Passion One, cursive",
+        textTransform: "uppercase",
     },
     grow: {
         flexGrow: 1

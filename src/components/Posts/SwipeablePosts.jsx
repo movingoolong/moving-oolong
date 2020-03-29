@@ -8,6 +8,8 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 // Components
 import PostPreview from "components/Posts/PostPreview";
 
+const NUM_POSTS_SHOWN = 4;
+
 const styles = theme => ({
     root: {
         marginBottom: theme.spacing(2),
@@ -81,24 +83,29 @@ function SwipeablePosts(props) {
     };
 
     const edges = data.allMarkdownRemark.edges;
-    const maxSteps = Math.floor(edges.length / 3);
+    const maxSteps = Math.floor(edges.length / NUM_POSTS_SHOWN);
     const steps = [];
     let i = 0;
     for (i = 0; i < maxSteps; i++) {
-        const cur = i * 3;
+        const cur = i * NUM_POSTS_SHOWN;
         steps.push(
             <Grid container spacing={3} alignItems="stretch" justify="center" key={i}>
-                <Grid item className={classes.item} sm={4} key={edges[cur].node.id}>
+                <Grid item className={classes.item} sm={12 / NUM_POSTS_SHOWN} key={edges[cur].node.id}>
                     <PostPreview postInfo={edges[cur].node} allImages={data.allFile.edges} showDescription={false} />
                 </Grid>
                 {cur + 1 < edges.length ?
-                    <Grid item className={classes.item} sm={4} key={edges[cur + 1].node.id}>
+                    <Grid item className={classes.item} sm={12 / NUM_POSTS_SHOWN} key={edges[cur + 1].node.id}>
                         <PostPreview postInfo={edges[cur + 1].node} allImages={data.allFile.edges} showDescription={false} />
                     </Grid>
                     : <></>}
                 {cur + 2 < edges.length ?
-                    <Grid item className={classes.item} sm={4} key={edges[cur + 2].node.id}>
+                    <Grid item className={classes.item} sm={12 / NUM_POSTS_SHOWN} key={edges[cur + 2].node.id}>
                         <PostPreview postInfo={edges[cur + 2].node} allImages={data.allFile.edges} showDescription={false} />
+                    </Grid>
+                    : <></>}
+                {cur + 3 < edges.length ?
+                    <Grid item className={classes.item} sm={12 / NUM_POSTS_SHOWN} key={edges[cur + 3].node.id}>
+                        <PostPreview postInfo={edges[cur + 3].node} allImages={data.allFile.edges} showDescription={false} />
                     </Grid>
                     : <></>}
             </Grid>

@@ -45,15 +45,19 @@ function Bio(props) {
             <div className={classes.content}>
                 <BioImage allImages={allImages} imgSrc={propic} />
                 <CardContent>
-                    <h2 className={classes.title}>{name}</h2>
-                    <div
+
+                    {description != null ? 
+                    <>
+                        <h2 className={classes.title}>{name}</h2>
+                        <div
                         className={classes.description}
                         dangerouslySetInnerHTML={{ __html: description }}
-                    />
+                        />
+                    </> : <></>}
                 </CardContent>
             </div>
             <CardActions disableSpacing className={classes.socials}>
-                <SocialIcons instagram={instagram} twitter={twitter}/>
+                <SocialIcons instagram={instagram} twitter={twitter} />
             </CardActions>
         </Card>
     );
