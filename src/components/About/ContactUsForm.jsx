@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Backdrop, CircularProgress, TextField, withStyles } from "@material-ui/core";
+import { Button, CircularProgress, TextField, withStyles } from "@material-ui/core";
 // Components
 
 const styles = theme => ({
@@ -15,10 +15,12 @@ const styles = theme => ({
         color: '#fff',
     },
     success: {
-        color: "#4CAF50"
+        color: theme.palette.primary.dark,
+        textAlign: "center",
     },
     failure: {
-        color: "#f44336"
+        color: "#f44336",
+        textAlign: "center",
     }
 });
 
@@ -39,36 +41,35 @@ export default withStyles(styles)((props) => {
         }
     )
 
-    const [backdropOpen, setBackdropOpen] = useState(false);
-    const [backdropContent, setBackdropContent] = useState(<CircularProgress color="primary" />);
+    const [submitContent, setSubmitContent] = useState(
+        <Button
+            className={classes.submit}
+            type="submit"
+            color="primary"
+            fullWidth
+        ><b>Submit</b></Button>
+    );
 
     const handleChange = event => {
         setState({ ...state, [event.target.name]: event.target.value })
     };
 
     const handleSubmit = event => {
-        setBackdropOpen(true);
+        setSubmitContent(<CircularProgress color="primary" />);
         fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: encode({ "form-name": "contact", ...state })
         })
             .then(() => {
-                setBackdropContent(<h1 className={classes.success}>Success!</h1>)
-                setBackdropOpen(false);
+                setSubmitContent(<h3 className={classes.success}>Success! Thank you for your message!</h3>)
             })
             .catch(error => {
-                setBackdropContent(<h1 className={classes.failure}>Failed! {error}</h1>)
-                setBackdropOpen(false);
+                setSubmitContent(<h3 className={classes.failure}>Failed to send message! {error}</h3>)
             });
 
         event.preventDefault();
-        setBackdropContent(<CircularProgress color="primary" />);
     };
-
-    const handleClose = () => {
-        setBackdropOpen(false);
-    }
 
     return (
         <div className={classes.root}>
@@ -123,20 +124,8 @@ export default withStyles(styles)((props) => {
                     value={state.body}
                     onChange={handleChange}
                 />
-                <Button
-                    className={classes.submit}
-                    type="submit"
-                    color="primary"
-                    fullWidth
-                ><b>{backdropOpen ? <CircularProgress color="primary" /> : "Submit"}</b></Button>
+                {submitContent}
             </form>
-            <Backdrop className={classes.backdrop} open={backdropOpen} onClose={handleClose} transitionDuration={{
-                appear: 250,
-                enter: 0,
-                exit: 1000,
-            }}>
-                {backdropContent}
-            </Backdrop>
         </div>
 
     );
