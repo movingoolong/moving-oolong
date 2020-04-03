@@ -1,19 +1,20 @@
 import React from "react";
 import { graphql } from "gatsby"
-import { withStyles } from "@material-ui/core";
+import { Container } from "@material-ui/core";
+import { Disqus } from 'gatsby-plugin-disqus'
+import config from "data/SiteConfig";
 
 // Components
 import PostPageContent from "components/Posts/PostPageContent";
 import PostSuggestions from "components/Posts/PostSuggestions";
 
-const styles = theme => ({
-  root: {
-
-  },
-});
-
 function PostPageTemplate(props) {
-  const { classes, data, pageContext } = props;
+  const { data, pageContext, location } = props;
+  const disqusConfig = {
+    url: `${config.siteUrl + location.pathname}`,
+    identifier: data.markdownRemark.id,
+    title: data.markdownRemark.frontmatter.title,
+  };
 
   return (
     <>
@@ -24,16 +25,21 @@ function PostPageTemplate(props) {
         prevTitle={pageContext.prevTitle}
         prevSlug={pageContext.prevSlug}
       />
+      <Container>
+        <Disqus config={disqusConfig} />
+      </Container>
+
     </>
   );
 }
 
-export default withStyles(styles)(PostPageTemplate)
+export default PostPageTemplate
 
 export const query = graphql`
 query($slug: String, $cover: String) {
   markdownRemark(fields: { slug: { eq: $slug } }) {
     html
+    id
     frontmatter {
       title
       tags

@@ -112,6 +112,12 @@ module.exports = {
     //   }
     // },
     {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `movingoolongpod`
+      }
+    },
+    {
       resolve: "gatsby-plugin-nprogress",
       options: {
         color: "#a9ddde"
