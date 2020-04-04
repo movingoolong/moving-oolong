@@ -13,10 +13,10 @@ const styles = theme => ({
         padding: theme.spacing(4),
         width: "100%",
         height: "850px",
+        opacity: 0.99,
         backgroundAttachment: "fixed",
         backgroundPosition: "center center",
         backgroundSize: "cover",
-        opacity: 0.99,
 
         [theme.breakpoints.down('sm')]: {
             height: "600px",
@@ -66,7 +66,7 @@ function AboutSection(props) {
     return (
         <BackgroundImage className={classes.root} fluid={data.file.childImageSharp.fluid}>
             <Container className={classes.container} maxWidth="md">
-                <Grid className={classes.centerVert} container 
+                <Grid className={classes.centerVert} container
                     alignItems="center" justify="center" alignContent="center"
                     direciton="column"
                 >
