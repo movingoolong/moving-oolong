@@ -68,6 +68,7 @@ function AboutSection(props) {
             <Container className={classes.container} maxWidth="md">
                 <Grid className={classes.centerVert} container 
                     alignItems="center" justify="center" alignContent="center"
+                    direciton="column"
                 >
                     <Grid item>
                         <h2 className={classes.description}>{config.siteDescriptionShort}</h2>
