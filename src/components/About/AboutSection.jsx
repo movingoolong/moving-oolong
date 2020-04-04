@@ -42,7 +42,6 @@ const styles = theme => ({
     description: {
         textAlign: "center",
         color: "#ffffff",
-        //textShadow: "-1px -1px 0 #000,  1px -1px 0 #000", //, -1px 1px 0 #000, 1px 1px 0 #000",
         margin: theme.spacing(3),
 
         [theme.breakpoints.down('sm')]: {

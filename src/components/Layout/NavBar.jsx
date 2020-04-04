@@ -10,7 +10,7 @@ import Search from "components/Search/Search";
 const styles = theme => ({
     root: {
         flexGrow: 1,
-        opacity: props => props.location.pathname == "/" ? 0.9 : 1.0,
+        opacity: (props) => props.location.pathname === "/" ? 0.9 : 1.0,
     },
     title: {
         color: "#ffffff",
@@ -47,7 +47,7 @@ const styles = theme => ({
 
 function NavBar(props) {
     const { classes, location } = props;
-    const [mobileOpen, setMobileOpen] = React.useState(false);
+    const [mobileOpen, setMobileOpen] = useState(false);
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -76,7 +76,7 @@ function NavBar(props) {
     return (
         <AppBar 
             className={classes.root} 
-            position={location.pathname == "/" ? "absolute" : "relative"} 
+            position={location.pathname === "/" ? "absolute" : "relative"} 
             elevation={0}
         >
             <Toolbar className={classes.toolbar}>
@@ -94,8 +94,6 @@ function NavBar(props) {
                 >
                     <MenuIcon />
                 </IconButton>
-
-
 
                 <Hidden xsDown>
                     <Search />
