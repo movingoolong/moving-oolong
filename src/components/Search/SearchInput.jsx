@@ -7,12 +7,10 @@ import SearchIcon from '@material-ui/icons/Search';
 
 const styles = theme => ({
     root: {
-        marginRight: theme.spacing(1),
         marginLeft: 0,
-        width: '100%',
-        [theme.breakpoints.up('sm')]: {
+        width: 'auto',
+        [theme.breakpoints.up('md')]: {
             marginLeft: theme.spacing(3),
-            width: 'auto',
         },
     },
     searchIcon: {

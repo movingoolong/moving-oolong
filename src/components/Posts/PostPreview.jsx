@@ -14,6 +14,9 @@ const styles = theme => ({
         height: "100%",
         flexDirection: "column",
         margin: theme.spacing(1),
+        [theme.breakpoints.down("sm")]: {
+            margin: theme.spacing(0),
+        }
     },
     content: {
         height: "100%",
@@ -33,11 +36,17 @@ const styles = theme => ({
         marginTop: 0,
         marginBottom: 0,
         padding: 0,
+        [theme.breakpoints.only("sm")]: {
+            fontSize: "14px",
+        }
     },
     date: {
         color: theme.palette.secondary.main,
         margin: 0,
         marginTop: theme.spacing(1),
+        [theme.breakpoints.only("sm")]: {
+            fontSize: "12px",
+        }
     },
     description: {
         height: "65px",

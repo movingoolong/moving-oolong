@@ -59,7 +59,7 @@ export default withStyles(styles)((props) => {
         <SiteDescription />
         <Grid container spacing={3} justify="center" alignItems="stretch">
           {data.allMarkdownRemark.edges.map(item =>
-            <Grid item className={classes.item} xs={12} md={4} key={item.node.id}>
+            <Grid item className={classes.item} xs={12} sm={4} key={item.node.id}>
               <Bio
                 name={item.node.frontmatter.name}
                 propic={item.node.frontmatter.propic}

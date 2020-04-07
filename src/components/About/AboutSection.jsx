@@ -28,7 +28,7 @@ const styles = theme => ({
     centerVert: {
         position: "relative",
         top: "30%",
-        [theme.breakpoints.down('sm')]: {
+        [theme.breakpoints.down('xs')]: {
             top: "20%",
         },
     },
@@ -68,7 +68,7 @@ function AboutSection(props) {
             <Container className={classes.container} maxWidth="md">
                 <Grid className={classes.centerVert} container
                     alignItems="center" justify="center" alignContent="center"
-                    direciton="column"
+                    direction="column"
                 >
                     <Grid item>
                         <h2 className={classes.description}>{config.siteDescriptionShort}</h2>

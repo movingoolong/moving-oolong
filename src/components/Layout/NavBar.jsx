@@ -14,12 +14,15 @@ const styles = theme => ({
     },
     title: {
         color: "#ffffff",
-        fontSize: "24px",
         margin: theme.spacing(1),
         marginLeft: theme.spacing(2),
-        display: 'inline-block',
+        display: 'inline',
         fontFamily: "Passion One, cursive",
         textTransform: "uppercase",
+        fontSize: "24px",
+        [theme.breakpoints.down("sm")]: {
+            fontSize: "18px",
+        },
     },
     grow: {
         flexGrow: 1
@@ -74,9 +77,9 @@ function NavBar(props) {
     );
 
     return (
-        <AppBar 
-            className={classes.root} 
-            position={location.pathname === "/" ? "absolute" : "relative"} 
+        <AppBar
+            className={classes.root}
+            position={location.pathname === "/" ? "absolute" : "relative"}
             elevation={0}
         >
             <Toolbar className={classes.toolbar}>
@@ -86,6 +89,15 @@ function NavBar(props) {
                 </Link>
 
                 <div className={classes.grow} />
+                
+                <Hidden xsDown>
+                    <Search />
+                </Hidden>
+
+                <Hidden xsDown>
+                    {links}
+                </Hidden>
+
                 <IconButton
                     aria-label="open drawer"
                     edge="start"
@@ -94,11 +106,6 @@ function NavBar(props) {
                 >
                     <MenuIcon />
                 </IconButton>
-
-                <Hidden xsDown>
-                    <Search />
-                    {links}
-                </Hidden>
 
                 <Hidden smUp>
                     <Drawer

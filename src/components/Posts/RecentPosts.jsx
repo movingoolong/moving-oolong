@@ -44,7 +44,7 @@ function RecentPosts(props) {
             <Hidden xsDown>
                 <SwipeablePosts />
             </Hidden>
-            <Hidden mdUp>
+            <Hidden smUp>
                 <AllPosts amount={3} showDescription={false} />
             </Hidden>
         </div>
