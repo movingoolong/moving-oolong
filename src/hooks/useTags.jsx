@@ -14,6 +14,7 @@ const initialState = {
     tasa: false,
     postgrad: false,
     careers: false,
+    creative: false,
 };
 
 // function setInitialState(tagMap) {

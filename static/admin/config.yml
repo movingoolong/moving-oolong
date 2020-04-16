@@ -24,7 +24,7 @@ collections:
             "questions", "personalitytest", 
             "guest", "travel", 
             "tasa", "postgrad", 
-            "careers"], 
+            "careers", "creative"], 
           }
       - {label: "Embedded Link", name: "link", widget: "markdown", minimal: true}
       - {label: "Body", name: "body", widget: "markdown"}
