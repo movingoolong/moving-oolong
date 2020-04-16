@@ -4,8 +4,7 @@ date: 2020-04-13T12:00:00.000Z
 cover: assets/d7a6fe16-0d24-45b2-9151-de4193c0421d.jpg
 category: episode
 tags:
-  - travel
-  - friendship
+  - creative
 link: >-
   <iframe
   src="https://open.spotify.com/embed-podcast/episode/3p8UJDsd2hVzcbm0bu35Kp"
