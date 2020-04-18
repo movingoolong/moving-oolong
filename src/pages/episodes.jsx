@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 import { Button, Hidden, SwipeableDrawer, Grid, withStyles } from "@material-ui/core";
-import { graphql, navigate } from "gatsby"
+import { graphql } from "gatsby"
 import { useQueryParam, StringParam } from 'use-query-params';
+import config from "data/SiteConfig";
+
 
 // Components
 import EpisodePageHeader from "components/EpisodePage/EpisodePageHeader";
@@ -63,6 +66,7 @@ export const query = graphql`
 
 export default withStyles(styles)((props) => {
   const { classes, data, location } = props;
+  const title = "Episodes | Moving Oolong";
   const [urlTags, setURLTags] = useQueryParam("tags", StringParam);
   const { tags } = useTags(urlTags);
 
@@ -96,6 +100,13 @@ export default withStyles(styles)((props) => {
 
   return (
     <>
+      <Helmet title={title}>
+        <meta name="description" content={config.siteDescriptionShort} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={config.siteDescriptionShort} />
+        <meta property="og:image" content={`${config.siteUrl}/static/logos/logo-1024.png`} />
+        <meta property="og:type" content="website" />
+      </Helmet>
       <EpisodePageHeader />
       <Grid container alignItems="flex-start" justify="center">
         <Hidden smUp>

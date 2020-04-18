@@ -1,5 +1,6 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby"
+import { Helmet } from "react-helmet";
+import { graphql } from "gatsby"
 import { Container, Grid, withStyles } from "@material-ui/core";
 import config from "data/SiteConfig";
 
@@ -52,9 +53,16 @@ export const query = graphql`
 export default withStyles(styles)((props) => {
   const { classes, data } = props;
   const allImages = data.allFile.edges;
+  const title = "About | Moving Oolong";
   return (
     <>
-
+      <Helmet title={title}>
+        <meta name="description" content={config.siteDescriptionShort} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={config.siteDescriptionShort} />
+        <meta property="og:image" content={`${config.siteUrl}/static/logos/logo-1024.png`} />
+        <meta property="og:type" content="website" />
+      </Helmet>
       <Container maxWidth="lg">
         <SiteDescription />
         <Grid container spacing={3} justify="center" alignItems="stretch">

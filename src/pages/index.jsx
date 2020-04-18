@@ -1,5 +1,7 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { Grid, Container, withStyles } from "@material-ui/core";
+import config from "data/SiteConfig";
 
 // Components
 import RecentPosts from "components/Posts/RecentPosts";
@@ -15,8 +17,16 @@ const styles = theme => ({
 
 export default withStyles(styles)((props) => {
     const { classes } = props;
+    const title = "Home | Moving Oolong";
     return (
         <>
+            <Helmet title={title}>
+                <meta name="description" content={config.siteDescriptionShort} />
+                <meta property="og:title" content={title} />
+                <meta property="og:description" content={config.siteDescriptionShort} />
+                <meta property="og:image" content={`${config.siteUrl}/static/logos/logo-1024.png`} />
+                <meta property="og:type" content="website" />
+            </Helmet>
             <AboutSection />
             <RecentPosts />
             <Container maxWidth="xl">
@@ -28,7 +38,7 @@ export default withStyles(styles)((props) => {
                     <Grid item xs={12} sm={2}>
                         <FeedSection />
                     </Grid>
-                    
+
                 </Grid>
             </Container>
         </>

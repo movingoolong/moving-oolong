@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby"
+import { Helmet } from "react-helmet";
 import { Container } from "@material-ui/core";
 import { Disqus } from 'gatsby-plugin-disqus'
 import config from "data/SiteConfig";
@@ -16,8 +17,15 @@ function PostPageTemplate(props) {
     title: data.markdownRemark.frontmatter.title,
   };
 
+  const title = data.markdownRemark.frontmatter.title;
+
   return (
     <>
+      <Helmet title={title}>
+        <meta property="og:title" content={title} />
+        <meta property="og:image" content={`${config.siteUrl}${data.file.childImageSharp.fluid.src}`} />
+        <meta property="og:type" content="article" />
+      </Helmet>
       <PostPageContent post={data.markdownRemark} img={data.file.childImageSharp} />
       <PostSuggestions
         nextTitle={pageContext.nextTitle}
