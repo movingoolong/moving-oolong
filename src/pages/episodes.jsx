@@ -104,7 +104,7 @@ export default withStyles(styles)((props) => {
         <meta name="description" content={config.siteDescriptionShort} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={config.siteDescriptionShort} />
-        <meta property="og:image" content={`${config.siteUrl}/static/logos/logo-1024.png`} />
+        <meta property="og:image" content={`${config.siteUrl}/logos/logo-1024.png`} />
         <meta property="og:type" content="website" />
       </Helmet>
       <EpisodePageHeader />
