@@ -18,6 +18,6 @@ College definitely challenges our ability to stay organized so we’ve perfected
 
 Grab your tool ring (aka your phone) and see if you use the same tools we do:
 
-[G-Suite](https://gsuite.google.com/features/), [Mint](https://www.mint.com/), [Goodreads](https://www.goodreads.com/), [Genius Scan](https://thegrizzlylabs.com/genius-scan/), [Slack](https://slack.com/), [Mealime](https://www.mealime.com/), [Goodnotes](https://www.goodnotes.com/), [Procreate](https://procreate.art/), [Zotero](https://www.zotero.org/)
+[G-Suite](https://gsuite.google.com/features/), [Mint](https://www.mint.com/), [Goodreads](https://www.goodreads.com/), [Genius Scan](https://thegrizzlylabs.com/genius-scan/), [Slack](https://slack.com/), [Mealime](https://www.mealime.com/), [Goodnotes](https://www.goodnotes.com/), [Procreate](https://procreate.art/), [Zotero](https://www.zotero.org/), [EndNote](https://endnote.com/)
 
 \[Also it’s totally okay if you’re feeling unproductive/motivated during this time, feel free to take a break from productivity talk and save this episode for a later listen]
