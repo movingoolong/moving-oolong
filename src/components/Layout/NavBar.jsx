@@ -47,9 +47,6 @@ const styles = (theme) => ({
   menuButton: {
     //color: "#ffffff",
     marginRight: theme.spacing(2),
-    [theme.breakpoints.up("sm")]: {
-      display: "none",
-    },
   },
   drawer: {
     width: "40%",
@@ -100,10 +97,12 @@ function NavBar(props) {
 
         <Hidden xsDown>
           <Search />
+          {links}
         </Hidden>
 
-        <Hidden xsDown>{links}</Hidden>
+        
 
+        <Hidden smUp>
         <IconButton
           aria-label="open drawer"
           edge="start"
@@ -112,8 +111,6 @@ function NavBar(props) {
         >
           <MenuIcon />
         </IconButton>
-
-        <Hidden smUp>
           <Drawer
             variant="temporary"
             classes={{
