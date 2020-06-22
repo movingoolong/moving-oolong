@@ -21,23 +21,23 @@ const query = `{
             }
         }
     }
-  }`;
+  }`
 
 const flatten = (arr) =>
-  arr.map(({ node: { frontmatter, fields, ...rest } }) => ({
-    ...frontmatter,
-    ...fields,
-    ...rest,
-  }));
-const settings = {};
+    arr.map(({ node: { frontmatter, fields, ...rest } }) => ({
+        ...frontmatter,
+        ...fields,
+        ...rest,
+    }))
+const settings = {}
 
 const queries = [
-  {
-    query: query,
-    transformer: ({ data }) => flatten(data.allMarkdownRemark.edges),
-    indexName: `Posts`,
-    settings,
-  },
-];
+    {
+        query: query,
+        transformer: ({ data }) => flatten(data.allMarkdownRemark.edges),
+        indexName: `Posts`,
+        settings,
+    },
+]
 
-module.exports = queries;
+module.exports = queries

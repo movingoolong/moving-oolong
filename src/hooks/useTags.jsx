@@ -1,21 +1,21 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react"
 
 const initialState = {
-  reflections: false,
-  friendship: false,
-  relationships: false,
-  educational: false,
-  recommendations: false,
-  media: false,
-  questions: false,
-  personalitytest: false,
-  guest: false,
-  travel: false,
-  tasa: false,
-  postgrad: false,
-  careers: false,
-  creative: false,
-};
+    reflections: false,
+    friendship: false,
+    relationships: false,
+    educational: false,
+    recommendations: false,
+    media: false,
+    questions: false,
+    personalitytest: false,
+    guest: false,
+    travel: false,
+    tasa: false,
+    postgrad: false,
+    careers: false,
+    creative: false,
+}
 
 // function setInitialState(tagMap) {
 //     const initialState = {};
@@ -26,18 +26,18 @@ const initialState = {
 // }
 
 export default function useTags(urlTags) {
-  const [tags, setTags] = useState(initialState);
+    const [tags, setTags] = useState(initialState)
 
-  useEffect(() => {
-    const newState = {};
-    const tagsToCheck = urlTags !== undefined ? urlTags.split(",") : [];
-    Object.entries(initialState).forEach(([key, __]) => {
-      newState[key] = tagsToCheck.includes(key);
-    });
-    setTags(newState);
-  }, [urlTags]);
+    useEffect(() => {
+        const newState = {}
+        const tagsToCheck = urlTags !== undefined ? urlTags.split(",") : []
+        Object.entries(initialState).forEach(([key, __]) => {
+            newState[key] = tagsToCheck.includes(key)
+        })
+        setTags(newState)
+    }, [urlTags])
 
-  return {
-    tags,
-  };
+    return {
+        tags,
+    }
 }
