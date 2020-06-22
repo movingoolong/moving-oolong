@@ -3,7 +3,7 @@ import { Container, Grid, withStyles } from "@material-ui/core";
 
 // Components
 import PostPreview from "./PostPreview";
-const styles = theme => ({
+const styles = (theme) => ({
   root: {
     marginBottom: theme.spacing(2),
   },
@@ -18,15 +18,32 @@ function PostGrid(props) {
 
   return (
     <Container className={classes.root} maxWidth="xl">
-      <Grid container spacing={3} alignItems="stretch" alignContent="stretch" justify="center">
-        {posts.map(post =>
-          <Grid item className={classes.item} xs={12} sm={4} lg={3} key={post.node.id}>
-            <PostPreview postInfo={post.node} allImages={allImages} showDescription={showDescription} />
+      <Grid
+        container
+        spacing={3}
+        alignItems="stretch"
+        alignContent="stretch"
+        justify="center"
+      >
+        {posts.map((post) => (
+          <Grid
+            item
+            className={classes.item}
+            xs={12}
+            sm={4}
+            lg={3}
+            key={post.node.id}
+          >
+            <PostPreview
+              postInfo={post.node}
+              allImages={allImages}
+              showDescription={showDescription}
+            />
           </Grid>
-        )}
+        ))}
       </Grid>
     </Container>
   );
 }
 
-export default withStyles(styles)(PostGrid)
+export default withStyles(styles)(PostGrid);

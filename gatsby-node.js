@@ -1,41 +1,43 @@
-const path = require(`path`)
+const path = require(`path`);
 const moment = require("moment");
 const siteConfig = require("./data/SiteConfig");
-const { createFilePath } = require(`gatsby-source-filesystem`)
+const { createFilePath } = require(`gatsby-source-filesystem`);
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions
+  const { createNodeField } = actions;
   if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: `pages` })
+    const slug = createFilePath({ node, getNode, basePath: `pages` });
     createNodeField({
       node,
       name: `slug`,
       value: slug,
-    })
+    });
   }
-}
+};
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
   const postPageTemplate = path.resolve(`./src/templates/PostPageTemplate.jsx`);
   const result = await graphql(`
     query {
-      allMarkdownRemark(filter: {frontmatter: {category: {eq: "episode"}}}) {
-          edges {
-            node {
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-                cover
-                date
-              }
+      allMarkdownRemark(
+        filter: { frontmatter: { category: { eq: "episode" } } }
+      ) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+              cover
+              date
             }
           }
+        }
       }
-    } 
-    `);
+    }
+  `);
 
   if (result.errors) {
     console.error(result.errors);
@@ -92,6 +94,6 @@ exports.createPages = async ({ graphql, actions }) => {
         prevTitle: prevTitle,
         prevSlug: prevSlug,
       },
-    })
-  })
-}
+    });
+  });
+};

@@ -1,7 +1,7 @@
 const urljoin = require("url-join");
 const config = require("./data/SiteConfig");
-const queries = require("./src/utils/algolia")
-require("dotenv").config()
+const queries = require("./src/utils/algolia");
+require("dotenv").config();
 
 const regexExcludeRobots = /^(?!\/(dev-404-page|404|offline-plugin-app-shell-fallback|tags|categories)).*$/;
 
@@ -18,8 +18,8 @@ module.exports = {
         config.siteUrl,
         config.pathPrefix
       )}/logos/logo-512.png`,
-      copyright: config.copyright
-    }
+      copyright: config.copyright,
+    },
   },
   plugins: [
     {
@@ -27,8 +27,8 @@ module.exports = {
       options: {
         aliases: {
           data: `data/`,
-        }
-      }
+        },
+      },
     },
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-lodash",
@@ -51,7 +51,7 @@ module.exports = {
         fonts: [
           {
             family: `Poppins`,
-            variants: [`400`, `700`]
+            variants: [`400`, `700`],
           },
         ],
       },
@@ -60,51 +60,51 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "static",
-        path: `${__dirname}/static/`
-      }
+        path: `${__dirname}/static/`,
+      },
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "img",
-        path: `${__dirname}/src/assets/img`
-      }
+        path: `${__dirname}/src/assets/img`,
+      },
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "posts",
-        path: `${__dirname}/content/posts/`
-      }
+        path: `${__dirname}/content/posts/`,
+      },
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "bios",
-        path: `${__dirname}/content/bios/`
-      }
+        path: `${__dirname}/content/bios/`,
+      },
     },
     {
       resolve: "gatsby-transformer-remark",
       options: {
         plugins: [
           {
-            resolve: "gatsby-remark-relative-images"
+            resolve: "gatsby-remark-relative-images",
           },
           {
             resolve: "gatsby-remark-images",
             options: {
-              maxWidth: 672
-            }
+              maxWidth: 672,
+            },
           },
           {
-            resolve: "gatsby-remark-responsive-iframe"
+            resolve: "gatsby-remark-responsive-iframe",
           },
           "gatsby-remark-prismjs",
           "gatsby-remark-copy-linked-files",
           "gatsby-remark-autolink-headers",
-        ]
-      }
+        ],
+      },
     },
     // {
     //   resolve: "gatsby-plugin-google-analytics",
@@ -115,14 +115,14 @@ module.exports = {
     {
       resolve: `gatsby-plugin-disqus`,
       options: {
-        shortname: `movingoolongpod`
-      }
+        shortname: `movingoolongpod`,
+      },
     },
     {
       resolve: "gatsby-plugin-nprogress",
       options: {
-        color: "#a9ddde"
-      }
+        color: "#a9ddde",
+      },
     },
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
@@ -154,8 +154,8 @@ module.exports = {
                 }
               }
             }
-        }`
-      }
+        }`,
+      },
     },
     {
       resolve: "gatsby-plugin-manifest",
@@ -168,7 +168,7 @@ module.exports = {
         theme_color: "#c62828",
         display: "minimal-ui",
         icon: "src/assets/img/logo.png",
-      }
+      },
     },
     "gatsby-plugin-offline",
     // {
@@ -243,5 +243,5 @@ module.exports = {
     //     ]
     //   }
     // }
-  ]
+  ],
 };

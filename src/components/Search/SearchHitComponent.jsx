@@ -1,19 +1,16 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from "react";
+import { Link } from "gatsby";
 import { Grid, MenuItem, withStyles } from "@material-ui/core";
 
 import moment from "moment";
 import config from "data/SiteConfig";
-import EventIcon from '@material-ui/icons/Event';
-
+import EventIcon from "@material-ui/icons/Event";
 
 // Components
-const styles = theme => ({
-  root: {
-
-  },
+const styles = (theme) => ({
+  root: {},
   link: {
-    textDecoration: 'none',
+    textDecoration: "none",
   },
   icon: {
     color: theme.palette.primary.dark,
@@ -36,18 +33,17 @@ const styles = theme => ({
   description: {
     height: "44px",
     overflowY: "hidden",
-    '& p': {
+    "& p": {
       fontSize: "14px",
       margin: 0,
       color: theme.palette.secondary.main,
     },
 
-    '& a': {
+    "& a": {
       color: theme.palette.secondary.dark,
-    }
+    },
   },
 });
-
 
 const SearchHitComponent = (props) => {
   const { classes, hit, key } = props;
@@ -56,25 +52,20 @@ const SearchHitComponent = (props) => {
       <Link className={classes.link} to={hit.slug}>
         <Grid container direction="column">
           <Grid item>
-            <h4 className={classes.title}>
-              {hit.title}
-            </h4>
+            <h4 className={classes.title}>{hit.title}</h4>
           </Grid>
           <Grid container item alignItems="center">
             <EventIcon className={classes.icon} color="secondary" />
-            <h5 className={classes.date}>{moment(hit.date).format(config.dateFormat)}</h5>
+            <h5 className={classes.date}>
+              {moment(hit.date).format(config.dateFormat)}
+            </h5>
             <div className={classes.tags}>
               {hit.tags.map((tag, index) => (
-                <div key={tag}>
-                  {`#${tag} `}
-                </div>
+                <div key={tag}>{`#${tag} `}</div>
               ))}
             </div>
-
           </Grid>
-          <Grid item>
-
-          </Grid>
+          <Grid item></Grid>
           <Grid item>
             <div
               className={classes.description}
@@ -85,6 +76,6 @@ const SearchHitComponent = (props) => {
       </Link>
     </MenuItem>
   );
-}
+};
 
 export default withStyles(styles)(SearchHitComponent);

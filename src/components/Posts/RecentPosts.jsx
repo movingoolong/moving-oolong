@@ -4,51 +4,49 @@ import { Grid, Hidden, withStyles } from "@material-ui/core";
 
 // Components
 import AllPosts from "components/Posts/AllPosts";
-import SwipeablePosts from 'components/Posts/SwipeablePosts';
+import SwipeablePosts from "components/Posts/SwipeablePosts";
 
-const styles = theme => ({
-    root: {
-        marginTop: theme.spacing(1),
-    },
-    title: {
-        textAlign: "left",
-        color: theme.palette.primary.main,
-        margin: theme.spacing(2),
-        marginBottom: 0,
-    },
-    link: {
-        textAlign: "right",
-        color: theme.palette.primary.dark,
-        fontSize: "16px",
-        margin: theme.spacing(2),
-    },
+const styles = (theme) => ({
+  root: {
+    marginTop: theme.spacing(1),
+  },
+  title: {
+    textAlign: "left",
+    color: theme.palette.primary.main,
+    margin: theme.spacing(2),
+    marginBottom: 0,
+  },
+  link: {
+    textAlign: "right",
+    color: theme.palette.primary.dark,
+    fontSize: "16px",
+    margin: theme.spacing(2),
+  },
 });
 
 function RecentPosts(props) {
-    const { classes } = props;
-    return (
-        <div className={classes.root}>
-            <Grid container alignItems="flex-end" justify="space-between">
-                <Grid item xs={12} sm={8}>
-                    <h1 className={classes.title}>Recent Episodes</h1>
-                </Grid>
-                <Grid>
-                    <Link className={classes.link} to="/episodes">
-                        <i>See all episodes</i>
-                    </Link>
-                </Grid>
+  const { classes } = props;
+  return (
+    <div className={classes.root}>
+      <Grid container alignItems="flex-end" justify="space-between">
+        <Grid item xs={12} sm={8}>
+          <h1 className={classes.title}>Recent Episodes</h1>
+        </Grid>
+        <Grid>
+          <Link className={classes.link} to="/episodes">
+            <i>See all episodes</i>
+          </Link>
+        </Grid>
+      </Grid>
 
-
-            </Grid>
-
-            <Hidden xsDown>
-                <SwipeablePosts />
-            </Hidden>
-            <Hidden smUp>
-                <AllPosts amount={3} showDescription={false} />
-            </Hidden>
-        </div>
-    );
+      <Hidden xsDown>
+        <SwipeablePosts />
+      </Hidden>
+      <Hidden smUp>
+        <AllPosts amount={3} showDescription={false} />
+      </Hidden>
+    </div>
+  );
 }
 
-export default withStyles(styles)(RecentPosts)
+export default withStyles(styles)(RecentPosts);

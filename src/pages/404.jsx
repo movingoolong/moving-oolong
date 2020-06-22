@@ -3,15 +3,13 @@ import { withStyles } from "@material-ui/core/styles";
 
 // Components
 const styles = {
-    root: {
-
-    },
+  root: {},
 };
 
 export default withStyles(styles)((props) => {
-    return (
-        <>
-            <h1>Oops page couldn't be found!</h1>
-        </>
-    );
-})
+  return (
+    <>
+      <h1>Oops page couldn't be found!</h1>
+    </>
+  );
+});

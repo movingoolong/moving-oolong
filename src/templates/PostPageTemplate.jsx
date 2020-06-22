@@ -1,8 +1,8 @@
 import React from "react";
-import { graphql } from "gatsby"
+import { graphql } from "gatsby";
 import { Helmet } from "react-helmet";
 import { Container } from "@material-ui/core";
-import { Disqus } from 'gatsby-plugin-disqus'
+import { Disqus } from "gatsby-plugin-disqus";
 import config from "data/SiteConfig";
 
 // Components
@@ -23,10 +23,16 @@ function PostPageTemplate(props) {
     <>
       <Helmet title={title}>
         <meta property="og:title" content={title} />
-        <meta property="og:image" content={`${config.siteUrl}${data.file.childImageSharp.fluid.src}`} />
+        <meta
+          property="og:image"
+          content={`${config.siteUrl}${data.file.childImageSharp.fluid.src}`}
+        />
         <meta property="og:type" content="article" />
       </Helmet>
-      <PostPageContent post={data.markdownRemark} img={data.file.childImageSharp} />
+      <PostPageContent
+        post={data.markdownRemark}
+        img={data.file.childImageSharp}
+      />
       <PostSuggestions
         nextTitle={pageContext.nextTitle}
         nextSlug={pageContext.nextSlug}
@@ -36,31 +42,30 @@ function PostPageTemplate(props) {
       <Container>
         <Disqus config={disqusConfig} />
       </Container>
-
     </>
   );
 }
 
-export default PostPageTemplate
+export default PostPageTemplate;
 
 export const query = graphql`
-query($slug: String, $cover: String) {
-  markdownRemark(fields: { slug: { eq: $slug } }) {
-    html
-    id
-    frontmatter {
-      title
-      tags
-      date
-      link
+  query($slug: String, $cover: String) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      html
+      id
+      frontmatter {
+        title
+        tags
+        date
+        link
+      }
     }
-  }
-  file(relativePath: {eq: $cover}) {
-    childImageSharp {
+    file(relativePath: { eq: $cover }) {
+      childImageSharp {
         fluid {
-            ...GatsbyImageSharpFluid
+          ...GatsbyImageSharpFluid
         }
+      }
     }
   }
-}
-`
+`;
