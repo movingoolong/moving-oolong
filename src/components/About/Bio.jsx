@@ -4,7 +4,7 @@ import SocialIcons from "./SocialIcons";
 
 // Components
 import BioImage from "./BioImage";
-import theme from "theme";
+
 const styles = (theme) => ({
   root: {
     height: "100%",
