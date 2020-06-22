@@ -15,7 +15,7 @@ collections:
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Cover Image", name: "cover", widget: "image"}
+      - {label: "Cover Image", name: "imgsrc", widget: "image"}
       - {label: "Category", name: "category", widget: "hidden", default: "episode"}
       - {label: "Tags", name: "tags", widget: "select", multiple: true,
           options: ["reflections", "friendship", 
@@ -36,7 +36,7 @@ collections:
     fields:
       - {label: "Name", name: "name", widget: "string"}
       - {label: "Category", name: "category", widget: "hidden", default: "bio"}
-      - {label: "Profile Picture", name: "propic", widget: "image"}
+      - {label: "Profile Picture", name: "imgsrc", widget: "image"}
       - {label: "Instagram", name: "instagram", widget: "string", required: false, 
             hint: "@name", pattern: ["@.+", "Must begin with an @ symbol"]}
       - {label: "Twitter", name: "twitter", widget: "string", required: false, 
