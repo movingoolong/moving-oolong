@@ -83,3 +83,23 @@ collections:
                 pattern: ["@.+", "Must begin with an @ symbol"],
             }
           - { label: "Body", name: "body", widget: "markdown" }
+    - name: options
+      label: "Editable Options"
+      create: false
+      folder: "content/options"
+      fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - {
+                label: "Category",
+                name: "category",
+                widget: "hidden",
+                default: "options",
+            }
+          - {
+                label: "Options",
+                name: "options",
+                allow_add: true,
+                widget: "list",
+                collapsed: false,
+                hint: "Order of this list determines order on site where applicable. Spaces after commas will be automatically added",
+            }
