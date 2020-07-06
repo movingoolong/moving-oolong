@@ -35,7 +35,6 @@ module.exports = {
             },
         },
         "gatsby-plugin-react-helmet",
-        "gatsby-plugin-lodash",
         "gatsby-plugin-material-ui",
         "gatsby-plugin-use-query-params",
         "gatsby-background-image",
@@ -117,12 +116,6 @@ module.exports = {
                 ],
             },
         },
-        // {
-        //   resolve: "gatsby-plugin-google-analytics",
-        //   options: {
-        //     trackingId: config.siteGATrackingID
-        //   }
-        // },
         {
             resolve: `gatsby-plugin-disqus`,
             options: {
