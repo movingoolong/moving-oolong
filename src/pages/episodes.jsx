@@ -50,13 +50,7 @@ export const query = graphql`
         allFile(filter: { absolutePath: { regex: "static/assets/" } }) {
             edges {
                 node {
-                    id
-                    absolutePath
-                    childImageSharp {
-                        fluid {
-                            ...GatsbyImageSharpFluid
-                        }
-                    }
+                    ...FluidImage
                 }
             }
         }

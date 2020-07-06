@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-function getInitialState() {
-    const data = useStaticQuery(graphql`
+type TagState = Record<string, boolean>
+
+function getInitialState(): TagState {
+    const data = useStaticQuery<GatsbyTypes.AllTagsQuery>(graphql`
         query AllTags {
             markdownRemark(fileAbsolutePath: { regex: "/episode-tags/" }) {
                 frontmatter {
@@ -12,20 +14,23 @@ function getInitialState() {
         }
     `)
 
-    if (!data.markdownRemark.frontmatter?.options) throw new Error("No tag options exist")
+    if (!data.markdownRemark?.frontmatter?.options)
+        throw new Error("No tag options exist")
 
-    let state = {}
-    data.markdownRemark.frontmatter.options.forEach((tag) => state[tag] = false)
+    let state: TagState = {}
+    data.markdownRemark.frontmatter.options.forEach(
+        (tag = "") => (state[tag] = false)
+    )
     return state
 }
 
-export default function useTags(urlTags) {
+export default function useTags(urlTags?: string) {
     //const initialState = useMemo(() => getInitialState(), [])
     const initialState = getInitialState()
     const [tags, setTags] = useState(initialState)
-    
+
     useEffect(() => {
-        const newState = {}
+        const newState: TagState = {}
         const tagsToCheck = urlTags !== undefined ? urlTags.split(",") : []
         Object.entries(initialState).forEach(([key, __]) => {
             newState[key] = tagsToCheck.includes(key)
