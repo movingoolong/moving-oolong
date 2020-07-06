@@ -1,7 +1,7 @@
 ---
 title: Episode 13. Huang Ming - Origins Part 1
 date: 2020-03-19T21:19:52.002Z
-cover: assets/img_8730.jpg
+imgsrc: assets/img_8730.jpg
 category: episode
 tags:
   - reflections

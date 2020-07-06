@@ -1,7 +1,7 @@
 ---
 title: 'Episode 8. Loveboat, College Park'
 date: 2020-02-10T13:00:00.000Z
-cover: assets/fullsizeoutput_2da2.jpeg
+imgsrc: assets/fullsizeoutput_2da2.jpeg
 category: episode
 tags:
   - tasa

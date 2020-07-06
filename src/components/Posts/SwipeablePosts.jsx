@@ -48,7 +48,7 @@ function SwipeablePosts(props) {
                             tags
                             date
                             category
-                            cover
+                            imgsrc
                         }
                         html
                         id

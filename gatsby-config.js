@@ -89,6 +89,13 @@ module.exports = {
             },
         },
         {
+            resolve: "gatsby-source-filesystem",
+            options: {
+                name: "options",
+                path: `${__dirname}/content/options/`,
+            },
+        },
+        {
             resolve: "gatsby-transformer-remark",
             options: {
                 plugins: [

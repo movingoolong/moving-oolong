@@ -1,7 +1,7 @@
 ---
 title: Episode 16. The COVID Creative Club
 date: 2020-04-20T12:00:00.000Z
-cover: assets/img_9343.jpg
+imgsrc: assets/img_9343.jpg
 category: episode
 tags:
   - recommendations

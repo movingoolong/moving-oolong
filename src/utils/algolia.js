@@ -14,7 +14,7 @@ const query = `{
                 tags
                 date
                 category
-                cover
+                imgsrc
               }
               html
               id

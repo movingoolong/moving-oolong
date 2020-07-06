@@ -40,7 +40,7 @@ export const query = graphql`
                         tags
                         date
                         category
-                        cover
+                        imgsrc
                     }
                     html
                     id

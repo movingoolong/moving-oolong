@@ -1,7 +1,7 @@
 ---
 title: Episode 9. To All the Asians on Screen
 date: 2020-02-17T13:00:00.000Z
-cover: assets/fullsizeoutput_2da3.jpeg
+imgsrc: assets/fullsizeoutput_2da3.jpeg
 category: episode
 tags:
   - media

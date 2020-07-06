@@ -1,7 +1,7 @@
 ---
 title: Episode 7. The One Where We Become Friends
 date: 2020-02-03T13:00:00.000Z
-cover: assets/dsc04851-2.jpg
+imgsrc: assets/dsc04851-2.jpg
 category: episode
 tags:
   - friendship

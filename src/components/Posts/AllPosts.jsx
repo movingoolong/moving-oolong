@@ -22,7 +22,7 @@ function AllPosts(props) {
                             tags
                             date
                             category
-                            cover
+                            imgsrc
                         }
                         html
                         id

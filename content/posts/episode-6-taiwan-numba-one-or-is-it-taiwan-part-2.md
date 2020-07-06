@@ -1,7 +1,7 @@
 ---
 title: Episode 6. Taiwan Numba One... or is it? - Taiwan Part 2
 date: 2020-01-27T13:00:00.000Z
-cover: assets/img_7028-2.jpg
+imgsrc: assets/img_7028-2.jpg
 category: episode
 tags:
   - travel

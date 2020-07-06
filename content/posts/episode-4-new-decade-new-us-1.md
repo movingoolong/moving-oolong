@@ -1,7 +1,7 @@
 ---
 title: 'Episode 4. New Decade, New Us'
 date: 2019-12-30T13:00:00.000Z
-cover: assets/img_1265-2.jpg
+imgsrc: assets/img_1265-2.jpg
 category: episode
 slug: '{{slug}}'
 tags:

@@ -1,7 +1,7 @@
 ---
 title: Episode 2. Myers-Briggs Decide Our Careers
 date: 2019-12-16T13:00:00.000Z
-cover: assets/dsc04834-2.jpg
+imgsrc: assets/dsc04834-2.jpg
 category: episode
 slug: '{{slug}}'
 tags:

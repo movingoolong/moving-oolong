@@ -1,7 +1,7 @@
 ---
 title: Episode 12. Fan Favorites
 date: 2020-03-09T12:00:00.000Z
-cover: assets/fullsizeoutput_2da5.jpeg
+imgsrc: assets/fullsizeoutput_2da5.jpeg
 category: episode
 tags:
   - media

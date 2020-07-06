@@ -1,7 +1,7 @@
 ---
 title: Episode 5. Chatting & Packing - Taiwan Part 1
 date: 2020-01-06T13:00:00.000Z
-cover: assets/img_4987-2.jpg
+imgsrc: assets/img_4987-2.jpg
 category: episode
 slug: '{{slug}}'
 tags:

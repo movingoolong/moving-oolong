@@ -42,7 +42,7 @@ function Bio(props) {
     const {
         classes,
         name,
-        propic,
+        imgsrc,
         description,
         instagram,
         twitter,
@@ -51,7 +51,7 @@ function Bio(props) {
     return (
         <Card className={classes.root}>
             <div className={classes.content}>
-                <BioImage allImages={allImages} imgSrc={propic} />
+                <BioImage allImages={allImages} imgSrc={imgsrc} />
                 <CardContent>
                     {description != null ? (
                         <>

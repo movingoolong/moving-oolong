@@ -32,7 +32,7 @@ exports.createPages = async ({ graphql, actions }) => {
                         }
                         frontmatter {
                             title
-                            cover
+                            imgsrc
                             date
                         }
                     }
@@ -90,7 +90,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 // Data passed to context is available
                 // in page queries as GraphQL variables.
                 slug: edge.node.fields.slug,
-                cover: edge.node.frontmatter.cover,
+                imgsrc: edge.node.frontmatter.imgsrc,
                 nextTitle: nextTitle,
                 nextSlug: nextSlug,
                 prevTitle: prevTitle,

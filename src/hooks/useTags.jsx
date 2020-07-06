@@ -1,33 +1,28 @@
 import { useState, useEffect } from "react"
+import { useStaticQuery, graphql } from "gatsby"
 
-const initialState = {
-    reflections: false,
-    friendship: false,
-    relationships: false,
-    educational: false,
-    recommendations: false,
-    media: false,
-    questions: false,
-    personalitytest: false,
-    guest: false,
-    travel: false,
-    tasa: false,
-    postgrad: false,
-    careers: false,
-    creative: false,
+function getInitialState() {
+    const data = useStaticQuery(graphql`
+        query AllTags {
+            markdownRemark(fileAbsolutePath: { regex: "/episode-tags/" }) {
+                frontmatter {
+                    options
+                }
+            }
+        }
+    `)
+
+    if (!data.markdownRemark.frontmatter?.options) throw new Error("No tag options exist")
+
+    let state = {}
+    data.markdownRemark.frontmatter.options.forEach((tag) => state[tag] = false)
+
+    return state
 }
 
-// function setInitialState(tagMap) {
-//     const initialState = {};
-//     tagMap.forEach((__, key) => {
-//         initialState[key] = false;
-//     });
-//     return initialState;
-// }
-
 export default function useTags(urlTags) {
-    const [tags, setTags] = useState(initialState)
-
+    const [tags, setTags] = useState(getInitialState())
+    
     useEffect(() => {
         const newState = {}
         const tagsToCheck = urlTags !== undefined ? urlTags.split(",") : []

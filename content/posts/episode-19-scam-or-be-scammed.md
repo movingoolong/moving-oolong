@@ -1,7 +1,7 @@
 ---
 title: Episode 19. Scam or Be Scammed
 date: 2020-05-11T12:00:00.000Z
-cover: assets/f8cc071c-b284-48cd-9635-986e7152bbed-2.jpg
+imgsrc: assets/f8cc071c-b284-48cd-9635-986e7152bbed-2.jpg
 category: episode
 tags:
   - reflections

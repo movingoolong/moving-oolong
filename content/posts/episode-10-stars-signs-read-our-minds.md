@@ -1,7 +1,7 @@
 ---
 title: Episode 10. Stars & Signs Read Our Minds
 date: 2020-02-24T13:00:00.000Z
-cover: assets/dsc04895-2.jpg
+imgsrc: assets/dsc04895-2.jpg
 category: episode
 tags:
   - personalitytest

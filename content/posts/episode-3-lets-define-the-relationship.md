@@ -1,7 +1,7 @@
 ---
 title: Episode 3. Let's Define the Relationship
 date: 2019-12-23T13:00:00.000Z
-cover: assets/dsc04905-3.jpg
+imgsrc: assets/dsc04905-3.jpg
 category: episode
 slug: '{{slug}}'
 tags:

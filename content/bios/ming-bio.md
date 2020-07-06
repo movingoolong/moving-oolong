@@ -1,7 +1,7 @@
 ---
 name: Ming Gault
 category: bio
-propic: assets/dsc04755-1-.jpg
+imgsrc: assets/dsc04755-1-.jpg
 instagram: '@buffalowildmings'
 twitter: '@minggault'
 ---

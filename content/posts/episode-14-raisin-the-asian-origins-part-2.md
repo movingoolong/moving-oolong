@@ -1,7 +1,7 @@
 ---
 title: Episode 14. Raisin' the Asian - Origins Part 2
 date: 2020-04-06T12:00:00.000Z
-cover: assets/33b925e3-db9d-47cc-88b9-0a6763ba842e.jpg
+imgsrc: assets/33b925e3-db9d-47cc-88b9-0a6763ba842e.jpg
 category: episode
 tags:
   - reflections

@@ -1,7 +1,7 @@
 ---
 title: Episode 15. Stick & Poke
 date: 2020-04-13T12:00:00.000Z
-cover: assets/d7a6fe16-0d24-45b2-9151-de4193c0421d.jpg
+imgsrc: assets/d7a6fe16-0d24-45b2-9151-de4193c0421d.jpg
 category: episode
 tags:
   - creative

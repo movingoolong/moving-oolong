@@ -29,7 +29,7 @@ export const query = graphql`
                     frontmatter {
                         category
                         name
-                        propic
+                        imgsrc
                         twitter
                         instagram
                     }
@@ -92,7 +92,7 @@ export default withStyles(styles)((props) => {
                         >
                             <Bio
                                 name={item.node.frontmatter.name}
-                                propic={item.node.frontmatter.propic}
+                                imgsrc={item.node.frontmatter.imgsrc}
                                 description={item.node.html}
                                 allImages={allImages}
                                 // facebook={item.node.frontmatter.facebook}

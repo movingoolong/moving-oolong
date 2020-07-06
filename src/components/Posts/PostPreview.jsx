@@ -92,7 +92,7 @@ const styles = (theme) => ({
 
 function PostPreview(props) {
     const { classes, postInfo, allImages, showDescription } = props
-    const { title, tags, date, cover } = postInfo.frontmatter
+    const { title, tags, date, imgsrc } = postInfo.frontmatter
     const { slug } = postInfo.fields
 
     return (
@@ -103,7 +103,7 @@ function PostPreview(props) {
                         <PostPreviewImage
                             allImages={allImages}
                             coverHeight={200}
-                            coverImgSrc={`static/${cover}`}
+                            coverImgSrc={`static/${imgsrc}`}
                         />
                         <CardContent className={classes.header}>
                             <h2 className={classes.title}>{title}</h2>

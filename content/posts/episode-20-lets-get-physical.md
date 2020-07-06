@@ -1,7 +1,7 @@
 ---
 title: Episode 20. Let's Get Physical
 date: 2020-05-18T12:00:00.000Z
-cover: assets/1d2c3ae2-b7b5-4160-8968-d2007cda736a.jpg
+imgsrc: assets/1d2c3ae2-b7b5-4160-8968-d2007cda736a.jpg
 category: episode
 tags:
   - recommendations

@@ -49,7 +49,7 @@ function PostPageTemplate(props) {
 export default PostPageTemplate
 
 export const query = graphql`
-    query($slug: String, $cover: String) {
+    query($slug: String, $imgsrc: String) {
         markdownRemark(fields: { slug: { eq: $slug } }) {
             html
             id
@@ -60,7 +60,7 @@ export const query = graphql`
                 link
             }
         }
-        file(relativePath: { eq: $cover }) {
+        file(relativePath: { eq: $imgsrc }) {
             childImageSharp {
                 fluid {
                     ...GatsbyImageSharpFluid
