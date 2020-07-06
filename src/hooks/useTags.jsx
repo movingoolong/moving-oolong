@@ -16,12 +16,13 @@ function getInitialState() {
 
     let state = {}
     data.markdownRemark.frontmatter.options.forEach((tag) => state[tag] = false)
-
     return state
 }
 
 export default function useTags(urlTags) {
-    const [tags, setTags] = useState(getInitialState())
+    //const initialState = useMemo(() => getInitialState(), [])
+    const initialState = getInitialState()
+    const [tags, setTags] = useState(initialState)
     
     useEffect(() => {
         const newState = {}
