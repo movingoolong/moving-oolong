@@ -61,11 +61,7 @@ export const query = graphql`
             }
         }
         file(relativePath: { eq: $imgsrc }) {
-            childImageSharp {
-                fluid {
-                    ...GatsbyImageSharpFluid
-                }
-            }
+            ...FluidImage
         }
     }
 `

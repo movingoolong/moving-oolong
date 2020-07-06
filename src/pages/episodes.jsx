@@ -15,8 +15,11 @@ import config from "data/SiteConfig"
 import EpisodePageHeader from "components/EpisodePage/EpisodePageHeader"
 import FilteredPosts from "components/Posts/FilteredPosts"
 import TagSelectionInput from "components/EpisodePage/TagSelectionInput"
-import useTags from "hooks/useTags"
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
+
+// Hooks
+import useTags from "hooks/useTags"
+//import useEpisodes from "hooks/useEpisodes"
 
 // Images
 
@@ -30,29 +33,10 @@ export const query = graphql`
             filter: { frontmatter: { category: { eq: "episode" } } }
             sort: { order: DESC, fields: frontmatter___date }
         ) {
-            edges {
-                node {
-                    fields {
-                        slug
-                    }
-                    frontmatter {
-                        title
-                        tags
-                        date
-                        category
-                        imgsrc
-                    }
-                    html
-                    id
-                }
-            }
+            ...EpisodeEdges
         }
         allFile(filter: { absolutePath: { regex: "static/assets/" } }) {
-            edges {
-                node {
-                    ...FluidImage
-                }
-            }
+            ...FluidImageEdges
         }
     }
 `
@@ -67,7 +51,8 @@ export default withStyles(styles)((props) => {
     const { classes, data, location } = props
     const title = "Episodes | Moving Oolong"
     const [urlTags, setURLTags] = useQueryParam("tags", StringParam)
-    const { tags } = useTags(urlTags)
+    const tags = useTags(urlTags)
+    //const useEpisodes = useEpisodes({tags: tags})
 
     const [drawer, setDrawer] = useState(false)
 

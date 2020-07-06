@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-type TagState = Record<string, boolean>
+export type TagState = Record<string, boolean>
 
 function getInitialState(): TagState {
     const data = useStaticQuery<GatsbyTypes.AllTagsQuery>(graphql`
@@ -24,6 +24,16 @@ function getInitialState(): TagState {
     return state
 }
 
+export function getArrayFromTags(tags: TagState): string[] {
+    const tagsArray: string[] = []
+
+    Object.entries(tags).forEach(([key, val]) => {
+        if(val) tagsArray.push(key)
+    })
+
+    return tagsArray
+}
+
 export default function useTags(urlTags?: string) {
     //const initialState = useMemo(() => getInitialState(), [])
     const initialState = getInitialState()
@@ -38,7 +48,5 @@ export default function useTags(urlTags?: string) {
         setTags(newState)
     }, [urlTags])
 
-    return {
-        tags,
-    }
+    return tags
 }
