@@ -1,17 +1,21 @@
 import React from "react"
 import { Link } from "gatsby"
-import { withStyles } from "@material-ui/core"
+import { createStyles, Theme, withStyles, WithStyles, } from "@material-ui/core"
 
 // Components
 
-const styles = (theme) => ({
+const styles = (theme: Theme) => createStyles({
     link: {
         textDecoration: "none",
         color: theme.palette.secondary.main,
     },
 })
 
-function TagLink(props) {
+type Props = WithStyles<typeof styles> & {
+    tag: string,
+}
+
+function TagLink(props: Props) {
     const { classes, tag } = props
 
     return (
