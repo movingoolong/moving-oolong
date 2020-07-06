@@ -38,6 +38,7 @@ module.exports = {
         "gatsby-plugin-material-ui",
         "gatsby-plugin-use-query-params",
         "gatsby-background-image",
+        "gatsby-plugin-typegen",
         // "gatsby-plugin-sass",
         {
             resolve: `gatsby-plugin-algolia`,

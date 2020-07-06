@@ -26,6 +26,8 @@
     "gatsby-plugin-sharp": "^2.6.18",
     "gatsby-plugin-sitemap": "^2.4.10",
     "gatsby-plugin-twitter": "^2.3.9",
+    "gatsby-plugin-typegen": "^2.2.0",
+    "gatsby-plugin-typescript": "^2.4.13",
     "gatsby-plugin-use-query-params": "^1.0.1",
     "gatsby-remark-autolink-headers": "^2.3.10",
     "gatsby-remark-copy-linked-files": "^2.3.10",
@@ -54,6 +56,9 @@
     "use-query-params": "^0.6.0"
   },
   "devDependencies": {
+    "@types/node": "^14.0.14",
+    "@types/react": "^16.9.41",
+    "@types/react-dom": "^16.9.8",
     "cli-glob": "^0.1.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.2.0",
@@ -68,6 +73,7 @@
     "stylefmt": "^6.0.3",
     "stylelint": "^13.6.1",
     "stylelint-config-standard": "^20.0.0",
+    "typescript": "^3.9.6",
     "write-good": "^1.0.2"
   },
   "keywords": [
