@@ -1,5 +1,5 @@
 import React from "react"
-import { withStyles } from "@material-ui/core/styles"
+import { Container, withStyles } from "@material-ui/core"
 
 // Components
 const styles = {
@@ -8,8 +8,8 @@ const styles = {
 
 export default withStyles(styles)((props) => {
     return (
-        <>
+        <Container>
             <h1>Oops page couldn't be found!</h1>
-        </>
+        </Container>
     )
 })

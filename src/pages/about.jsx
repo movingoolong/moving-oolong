@@ -1,12 +1,11 @@
 import React from "react"
-import { Helmet } from "react-helmet"
 import { graphql } from "gatsby"
 import { Container, Grid, withStyles } from "@material-ui/core"
-import config from "data/SiteConfig"
 
 // Components
 import Bio from "components/About/Bio"
 import SiteDescription from "components/About/SiteDescription"
+import SEO from "components/General/SEO"
 
 const styles = (theme) => ({
     root: {
@@ -55,25 +54,9 @@ export const query = graphql`
 export default withStyles(styles)((props) => {
     const { classes, data } = props
     const allImages = data.allFile.edges
-    const title = "About | Moving Oolong"
     return (
         <>
-            <Helmet title={title}>
-                <meta
-                    name="description"
-                    content={config.siteDescriptionShort}
-                />
-                <meta property="og:title" content={title} />
-                <meta
-                    property="og:description"
-                    content={config.siteDescriptionShort}
-                />
-                <meta
-                    property="og:image"
-                    content={`${config.siteUrl}/logos/logo-512.png`}
-                />
-                <meta property="og:type" content="website" />
-            </Helmet>
+            <SEO title="About" />
             <Container maxWidth="lg">
                 <SiteDescription />
                 <Grid

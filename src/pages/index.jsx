@@ -1,5 +1,4 @@
 import React from "react"
-import { Helmet } from "react-helmet"
 import { Grid, Container, withStyles } from "@material-ui/core"
 import config from "data/SiteConfig"
 
@@ -8,6 +7,7 @@ import RecentEpisodes from "components/Episode/RecentEpisodes"
 import AboutSection from "components/About/AboutSection"
 import ContactUsSection from "components/About/ContactUsSection"
 import FeedSection from "components/Feeds/FeedSection"
+import SEO from "components/General/SEO"
 
 const styles = (theme) => ({
     contact: {
@@ -17,25 +17,17 @@ const styles = (theme) => ({
 
 export default withStyles(styles)((props) => {
     const { classes } = props
-    const title = "Home | Moving Oolong"
     return (
         <>
-            <Helmet title={title}>
-                <meta
-                    name="description"
-                    content={config.siteDescriptionShort}
-                />
-                <meta property="og:title" content={title} />
-                <meta
-                    property="og:description"
-                    content={config.siteDescriptionShort}
-                />
-                <meta
-                    property="og:image"
-                    content={`${config.siteUrl}/logos/logo-512.png`}
-                />
-                <meta property="og:type" content="website" />
-            </Helmet>
+            <SEO
+                title={"Home"}
+                meta={[
+                    {
+                        property: "og:image",
+                        content: `${config.siteUrl}/logos/logo-512.png`,
+                    },
+                ]}
+            />
             <AboutSection />
             <RecentEpisodes />
             <Container maxWidth="xl">

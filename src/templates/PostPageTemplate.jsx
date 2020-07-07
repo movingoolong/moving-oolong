@@ -8,6 +8,7 @@ import config from "data/SiteConfig"
 // Components
 import EpisodeContent from "components/Episode/EpisodeContent"
 import PostSuggestions from "components/Posts/PostSuggestions"
+import SEO from "components/General/SEO"
 
 function PostPageTemplate(props) {
     const { data, pageContext, location } = props
@@ -21,18 +22,16 @@ function PostPageTemplate(props) {
 
     return (
         <>
-            <Helmet title={title}>
-                <meta property="og:title" content={title} />
-                <meta
-                    property="og:image"
-                    content={`${config.siteUrl}${data.file.childImageSharp.fluid.src}`}
-                />
-                <meta property="og:type" content="article" />
-            </Helmet>
-            <EpisodeContent
-                episode={data.markdownRemark}
-                img={data.file}
+            <SEO
+                title={title}
+                meta={[
+                    {
+                        property: "og:image",
+                        content: `${config.siteUrl}${data.file.childImageSharp.fluid.src}`,
+                    },
+                ]}
             />
+            <EpisodeContent episode={data.markdownRemark} img={data.file} />
             <PostSuggestions
                 nextTitle={pageContext.nextTitle}
                 nextSlug={pageContext.nextSlug}

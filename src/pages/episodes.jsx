@@ -8,13 +8,13 @@ import {
     withStyles,
 } from "@material-ui/core"
 import { useQueryParam, StringParam } from "use-query-params"
-import config from "data/SiteConfig"
 
 // Components
 import EpisodePageHeader from "components/EpisodePage/EpisodePageHeader"
 import EpisodeGrid from "components/Episode/EpisodeGrid"
 import TagSelectionInput from "components/EpisodePage/TagSelectionInput"
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
+import SEO from "components/General/SEO"
 
 // Hooks
 import useTags from "hooks/useTags"
@@ -34,7 +34,6 @@ const styles = (theme) => ({
 
 export default withStyles(styles)((props) => {
     const { classes, location } = props
-    const title = "Episodes | Moving Oolong"
     const [urlTags, setURLTags] = useQueryParam("tags", StringParam)
     const tags = useTags(urlTags)
     const episodes = useEpisodes(tags)
@@ -55,22 +54,7 @@ export default withStyles(styles)((props) => {
 
     return (
         <>
-            <Helmet title={title}>
-                <meta
-                    name="description"
-                    content={config.siteDescriptionShort}
-                />
-                <meta property="og:title" content={title} />
-                <meta
-                    property="og:description"
-                    content={config.siteDescriptionShort}
-                />
-                <meta
-                    property="og:image"
-                    content={`${config.siteUrl}/logos/logo-512.png`}
-                />
-                <meta property="og:type" content="website" />
-            </Helmet>
+            <SEO title={"Episodes"} />
             <EpisodePageHeader />
             <Grid container alignItems="flex-start" justify="center">
                 <Hidden smUp>
