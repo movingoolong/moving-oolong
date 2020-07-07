@@ -8,7 +8,6 @@ import BackgroundImage from "gatsby-background-image"
 
 const styles = (theme) => ({
     root: {
-        position: "relative",
         width: "100%",
         height: "60vh",
         backgroundAttachment: "fixed",
@@ -60,6 +59,7 @@ function AboutSection(props) {
                 childImageSharp {
                     fluid(maxWidth: 4096, quality: 100) {
                         ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluidLimitPresentationSize
                     }
                 }
             }
