@@ -9,19 +9,22 @@ import BackgroundImage from "gatsby-background-image"
 const styles = (theme) => ({
     root: {
         position: "relative",
-        padding: theme.spacing(4),
         width: "100%",
-        height: "850px",
-        opacity: 0.99,
+        height: "60vh",
         backgroundAttachment: "fixed",
         backgroundPosition: "center center",
         backgroundSize: "cover",
-
-        [theme.breakpoints.down("sm")]: {
-            height: "600px",
-        },
+    },
+    filter: {
+        width: "100%",
+        height: "100%",
+        position: "absolute",
+        background: "rgba(0, 0, 0, 0.3)",
+        zIndex: -1,
     },
     container: {
+        zIndex: 1,
+        width: "100%",
         height: "100%",
     },
     centerVert: {
@@ -67,6 +70,7 @@ function AboutSection(props) {
             className={classes.root}
             fluid={data.file.childImageSharp.fluid}
         >
+            <div className={classes.filter} />
             <Container className={classes.container} maxWidth="md">
                 <Grid
                     className={classes.centerVert}
