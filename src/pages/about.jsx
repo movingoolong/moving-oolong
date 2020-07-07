@@ -43,7 +43,7 @@ export const query = graphql`
                     absolutePath
                     childImageSharp {
                         fluid {
-                            ...GatsbyImageSharpFluid
+                            ...GatsbyImageSharpFluid_withWebp
                         }
                     }
                 }

@@ -6,7 +6,7 @@ import { Disqus } from "gatsby-plugin-disqus"
 import config from "data/SiteConfig"
 
 // Components
-import PostPageContent from "components/Posts/PostPageContent"
+import EpisodeContent from "components/Episode/EpisodeContent"
 import PostSuggestions from "components/Posts/PostSuggestions"
 
 function PostPageTemplate(props) {
@@ -29,9 +29,9 @@ function PostPageTemplate(props) {
                 />
                 <meta property="og:type" content="article" />
             </Helmet>
-            <PostPageContent
-                post={data.markdownRemark}
-                img={data.file.childImageSharp}
+            <EpisodeContent
+                episode={data.markdownRemark}
+                img={data.file}
             />
             <PostSuggestions
                 nextTitle={pageContext.nextTitle}
@@ -51,14 +51,7 @@ export default PostPageTemplate
 export const query = graphql`
     query($slug: String, $imgsrc: String) {
         markdownRemark(fields: { slug: { eq: $slug } }) {
-            html
-            id
-            frontmatter {
-                title
-                tags
-                date
-                link
-            }
+            ...Episode
         }
         file(relativePath: { eq: $imgsrc }) {
             ...FluidImage

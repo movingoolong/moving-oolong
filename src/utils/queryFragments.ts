@@ -21,6 +21,7 @@ export const episodeFragment = graphql`
             date
             category
             imgsrc
+            link
         }
         html
         id
