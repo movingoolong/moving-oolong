@@ -7,7 +7,6 @@ import Footer from "./Footer"
 
 export default function Layout(props) {
     const { children, location } = props
-
     return (
         <>
             <CssBaseline />
