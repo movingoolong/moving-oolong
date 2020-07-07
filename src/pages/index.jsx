@@ -4,7 +4,7 @@ import { Grid, Container, withStyles } from "@material-ui/core"
 import config from "data/SiteConfig"
 
 // Components
-import RecentPosts from "components/Posts/RecentPosts"
+import RecentEpisodes from "components/Episode/RecentEpisodes"
 import AboutSection from "components/About/AboutSection"
 import ContactUsSection from "components/About/ContactUsSection"
 import FeedSection from "components/Feeds/FeedSection"
@@ -37,7 +37,7 @@ export default withStyles(styles)((props) => {
                 <meta property="og:type" content="website" />
             </Helmet>
             <AboutSection />
-            <RecentPosts />
+            <RecentEpisodes />
             <Container maxWidth="xl">
                 <Grid
                     className={classes.contact}

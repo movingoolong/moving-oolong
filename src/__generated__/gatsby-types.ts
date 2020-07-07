@@ -3180,13 +3180,20 @@ type Unnamed_3_Query = { readonly allMarkdownRemark: { readonly edges: ReadonlyA
         & { readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }
       ) }> } };
 
-type Unnamed_4_QueryVariables = Exact<{
+type FluidImageFragment = (
+  Pick<File, 'absolutePath' | 'relativePath'>
+  & { readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluid_withWebpFragment> }> }
+);
+
+type GatsbyImageSharpFluid_withWebpFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type mntcUsersslohDocumentsGitHubmovingOolongsrctemplatesPostPageTemplateJsx4130276915QueryVariables = Exact<{
   slug: Maybe<Scalars['String']>;
   imgsrc: Maybe<Scalars['String']>;
 }>;
 
 
-type Unnamed_4_Query = { readonly markdownRemark: Maybe<(
+type mntcUsersslohDocumentsGitHubmovingOolongsrctemplatesPostPageTemplateJsx4130276915Query = { readonly markdownRemark: Maybe<(
     Pick<MarkdownRemark, 'html' | 'id'>
     & { readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'tags' | 'date' | 'link'>> }
   )>, readonly file: Maybe<FluidImageFragment> };
@@ -3204,11 +3211,6 @@ type EpisodeFragment = (
 );
 
 type FluidImageEdgesFragment = { readonly edges: ReadonlyArray<{ readonly node: FluidImageFragment }> };
-
-type FluidImageFragment = (
-  Pick<File, 'absolutePath' | 'relativePath'>
-  & { readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluid_withWebpFragment> }> }
-);
 
 type AllEpisodesQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -3232,8 +3234,6 @@ type GatsbyImageSharpFluidFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRat
 type GatsbyImageSharpFluidLimitPresentationSizeFragment = { maxHeight: ImageSharpFluid['presentationHeight'], maxWidth: ImageSharpFluid['presentationWidth'] };
 
 type GatsbyImageSharpFluid_tracedSVGFragment = Pick<ImageSharpFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
-
-type GatsbyImageSharpFluid_withWebpFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
 
 type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = Pick<ImageSharpFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
 
@@ -3265,10 +3265,10 @@ type GatsbyImageSharpSizes_noBase64Fragment = Pick<ImageSharpSizes, 'aspectRatio
 
 type GatsbyImageSharpSizes_withWebp_noBase64Fragment = Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
 
-type Unnamed_5_QueryVariables = Exact<{ [key: string]: never; }>;
+type mntcUsersslohDocumentsGitHubmovingOolongsrcpagesaboutJsx1224766951QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type Unnamed_5_Query = { readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: (
+type mntcUsersslohDocumentsGitHubmovingOolongsrcpagesaboutJsx1224766951Query = { readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: (
         Pick<MarkdownRemark, 'html' | 'id'>
         & { readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'category' | 'name' | 'imgsrc' | 'twitter' | 'instagram'>> }
       ) }> }, readonly allFile: { readonly edges: ReadonlyArray<{ readonly node: (
@@ -3276,10 +3276,10 @@ type Unnamed_5_Query = { readonly allMarkdownRemark: { readonly edges: ReadonlyA
         & { readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }
       ) }> } };
 
-type Unnamed_6_QueryVariables = Exact<{ [key: string]: never; }>;
+type Unnamed_4_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type Unnamed_6_Query = { readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: (
+type Unnamed_4_Query = { readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: (
         Pick<MarkdownRemark, 'html' | 'id'>
         & { readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'tags' | 'date' | 'category' | 'imgsrc'>> }
       ) }> }, readonly allFile: { readonly edges: ReadonlyArray<{ readonly node: (
@@ -3291,5 +3291,16 @@ type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type PagesQueryQuery = { readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
+
+type mntcUsersslohDocumentsGitHubmovingOolongsrccomponentsEpisodeSwipeableEpisodesTsx1781380845QueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type mntcUsersslohDocumentsGitHubmovingOolongsrccomponentsEpisodeSwipeableEpisodesTsx1781380845Query = { readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: (
+        Pick<MarkdownRemark, 'html' | 'id'>
+        & { readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'tags' | 'date' | 'category' | 'imgsrc'>> }
+      ) }> }, readonly allFile: { readonly edges: ReadonlyArray<{ readonly node: (
+        Pick<File, 'id' | 'absolutePath'>
+        & { readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }
+      ) }> } };
 
 }
