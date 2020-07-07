@@ -14,6 +14,7 @@ import {
 
 // Components
 import PostPreviewImage from "./PostPreviewImage"
+import MarkdownContent from "components/General/MarkdownContent"
 import TagLink from "components/Posts/TagLink"
 import moment from "moment"
 import config from "data/SiteConfig"
@@ -61,15 +62,6 @@ const styles = (theme) => ({
     description: {
         height: "65px",
         overflow: "hidden",
-
-        "& p": {
-            fontSize: "14px",
-            color: theme.palette.secondary.main,
-        },
-
-        "& a": {
-            color: theme.palette.secondary.dark,
-        },
     },
     action: {
         //display: "flex",
@@ -112,11 +104,9 @@ function PostPreview(props) {
                                 {moment(date).format(config.dateFormat)}
                             </h4>
                             {showDescription ? (
-                                <div
+                                <MarkdownContent
                                     className={classes.description}
-                                    dangerouslySetInnerHTML={{
-                                        __html: postInfo.html,
-                                    }}
+                                    content={postInfo.html}
                                 />
                             ) : (
                                 <></>

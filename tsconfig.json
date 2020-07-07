@@ -13,7 +13,7 @@
             "root/*": ["*"],
         },
         "typeRoots": ["./node_modules/@types"],
-        // "allowJs": true,
+        "allowJs": true,
         // "checkJs": true,
         "jsx": "react",
         "strict": true,

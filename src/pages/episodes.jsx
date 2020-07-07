@@ -7,39 +7,24 @@ import {
     Grid,
     withStyles,
 } from "@material-ui/core"
-import { graphql } from "gatsby"
 import { useQueryParam, StringParam } from "use-query-params"
 import config from "data/SiteConfig"
 
 // Components
 import EpisodePageHeader from "components/EpisodePage/EpisodePageHeader"
-import FilteredPosts from "components/Posts/FilteredPosts"
+import EpisodeGrid from "components/Episode/EpisodeGrid"
 import TagSelectionInput from "components/EpisodePage/TagSelectionInput"
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
 
 // Hooks
 import useTags from "hooks/useTags"
-//import useEpisodes from "hooks/useEpisodes"
+import useEpisodes from "hooks/useEpisodes"
 
 // Images
 
 const styles = (theme) => ({
     root: {},
 })
-
-export const query = graphql`
-    {
-        allMarkdownRemark(
-            filter: { frontmatter: { category: { eq: "episode" } } }
-            sort: { order: DESC, fields: frontmatter___date }
-        ) {
-            ...EpisodeEdges
-        }
-        allFile(filter: { absolutePath: { regex: "static/assets/" } }) {
-            ...FluidImageEdges
-        }
-    }
-`
 
 // const onClick = () => {
 //   navigate("/episodes?tags=Hello,My,Name,Is", {
@@ -48,11 +33,11 @@ export const query = graphql`
 // }
 
 export default withStyles(styles)((props) => {
-    const { classes, data, location } = props
+    const { classes, location } = props
     const title = "Episodes | Moving Oolong"
     const [urlTags, setURLTags] = useQueryParam("tags", StringParam)
     const tags = useTags(urlTags)
-    //const useEpisodes = useEpisodes({tags: tags})
+    const episodes = useEpisodes(tags)
 
     const [drawer, setDrawer] = useState(false)
 
@@ -67,24 +52,6 @@ export default withStyles(styles)((props) => {
 
         setDrawer(open)
     }
-
-    // const tagMap = new Map();
-
-    // data.allMarkdownRemark.edges.forEach((edge) => {
-    //   edge.node.frontmatter.tags.forEach((tag) => {
-    //     const tagAmount = tagMap.get(tag);
-    //     if (tagAmount == undefined) {
-    //       tagMap.set(tag, 1);
-    //     } else {
-    //       tagMap.set(tag, tagAmount + 1);
-    //     }
-    //   })
-    // })
-
-    // const initialState = {};
-    //   tagMap.forEach((__, key) => {
-    //       initialState[key] = false;
-    //   });
 
     return (
         <>
@@ -141,12 +108,7 @@ export default withStyles(styles)((props) => {
                 </Hidden>
 
                 <Grid item xs={12} sm={9} lg={10}>
-                    <FilteredPosts
-                        tags={tags}
-                        showDescription={true}
-                        posts={data.allMarkdownRemark.edges}
-                        allImages={data.allFile.edges}
-                    />
+                    <EpisodeGrid episodes={episodes} showDescription />
                 </Grid>
             </Grid>
         </>

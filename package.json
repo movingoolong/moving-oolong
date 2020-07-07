@@ -8,6 +8,7 @@
     "@material-ui/icons": "^4.9.1",
     "@material-ui/styles": "^4.10.0",
     "algoliasearch": "^4.3.0",
+    "clsx": "^1.1.1",
     "dotenv": "^8.2.0",
     "gatsby": "^2.23.21",
     "gatsby-alias-imports": "^1.0.4",

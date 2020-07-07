@@ -1,17 +1,15 @@
+import { useState, useEffect, useMemo } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { mapImgToNode } from "utils/hookUtils"
+import { TagState, getArrayFromTags } from "hooks/useTags"
+import { now } from "moment"
 
 type EpisodeNode = GatsbyTypes.AllEpisodesQuery["allMarkdownRemark"]["edges"][0]
 
 export type EpisodeArrayType = ReturnType<typeof useEpisodes>
+export type EpisodeType = EpisodeArrayType[0]
 
-export interface UseEpisodesOptions {
-    amount?: number
-    tags?: string[]
-}
-
-export default function useEpisodes(options: UseEpisodesOptions) {
-    const { amount, tags } = options
+export default function useEpisodes(tags?: TagState) {
     const data = useStaticQuery<GatsbyTypes.AllEpisodesQuery>(graphql`
         query AllEpisodes {
             allMarkdownRemark(
@@ -43,22 +41,23 @@ export default function useEpisodes(options: UseEpisodesOptions) {
         data.allFile.edges
     )
 
-    if (tags && tags.length > 0) {
-        episodes = episodes.filter((episode) =>
-            episode.node.frontmatter?.tags?.some((postTags) => {
-                if (!postTags) return false
+    if (tags) {
+        const tagsArray = getArrayFromTags(tags)
+        if (tagsArray.length > 0) {
+            episodes = episodes.filter((episode) =>
+                episode.node.frontmatter?.tags?.some((postTags) => {
+                    if (!postTags) return false
 
-                let i = 0
-                while (i < tags.length) {
-                    if (postTags.includes(tags[i])) return true
-                    i++
-                }
-                return false
-            })
-        )
+                    let i = 0
+                    while (i < tagsArray.length) {
+                        if (postTags.includes(tagsArray[i])) return true
+                        i++
+                    }
+                    return false
+                })
+            )
+        }
     }
 
-    return amount && amount < episodes.length
-        ? episodes.slice(0, amount)
-        : episodes
+    return episodes
 }
