@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Link } from "gatsby"
+import { Link, PageProps } from "gatsby"
 import {
     AppBar,
     Button,
@@ -7,53 +7,62 @@ import {
     Hidden,
     IconButton,
     Toolbar,
+    Theme,
+    createStyles,
     withStyles,
+    WithStyles,
 } from "@material-ui/core"
 import MenuIcon from "@material-ui/icons/Menu"
 
-// Page Components
+// Components
 import Logo from "components/Logo/Logo"
 import Search from "components/Search/Search"
 
-const styles = (theme) => ({
-    root: {
-        flexGrow: 1,
-        opacity: (props) => (props.location.pathname === "/" ? 0.9 : 1.0),
-    },
-    title: {
-        color: "#ffffff",
-        margin: theme.spacing(1),
-        marginLeft: theme.spacing(2),
-        display: "inline",
-        fontFamily: "Passion One, cursive",
-        textTransform: "uppercase",
-        fontSize: "24px",
-        [theme.breakpoints.down("sm")]: {
-            fontSize: "18px",
+const styles = (theme: Theme) =>
+    createStyles({
+        root: {
+            flexGrow: 1,
+            opacity: (props: Props) =>
+                props.location.pathname === "/" ? 0.9 : 1.0,
         },
-    },
-    grow: {
-        flexGrow: 1,
-    },
-    link: {
-        margin: theme.spacing(1),
-        textDecoration: "none",
-        display: "inline-block",
-    },
-    button: {
-        color: theme.palette.primary.dark,
-        //textTransform: 'lowercase',
-    },
-    menuButton: {
-        //color: "#ffffff",
-        marginRight: theme.spacing(2),
-    },
-    drawer: {
-        width: "40%",
-    },
-})
+        title: {
+            color: "#ffffff",
+            margin: theme.spacing(1),
+            marginLeft: theme.spacing(2),
+            display: "inline",
+            fontFamily: "Passion One, cursive",
+            textTransform: "uppercase",
+            fontSize: "24px",
+            [theme.breakpoints.down("sm")]: {
+                fontSize: "18px",
+            },
+        },
+        grow: {
+            flexGrow: 1,
+        },
+        link: {
+            margin: theme.spacing(1),
+            textDecoration: "none",
+            display: "inline-block",
+        },
+        button: {
+            color: theme.palette.primary.dark,
+            //textTransform: 'lowercase',
+        },
+        menuButton: {
+            //color: "#ffffff",
+            marginRight: theme.spacing(2),
+        },
+        drawer: {
+            width: "40%",
+        },
+    })
 
-function NavBar(props) {
+type Props = {
+    location: PageProps["location"]
+}
+
+function Header(props: Props & WithStyles<typeof styles>) {
     const { classes, location } = props
     const [mobileOpen, setMobileOpen] = useState(false)
 
@@ -87,7 +96,7 @@ function NavBar(props) {
             position={location.pathname === "/" ? "absolute" : "relative"}
             elevation={0}
         >
-            <Toolbar className={classes.toolbar}>
+            <Toolbar>
                 <Link className={classes.link} to="/">
                     <Logo />
                     <h2 className={classes.title}>Moving Oolong</h2>
@@ -129,4 +138,4 @@ function NavBar(props) {
     )
 }
 
-export default withStyles(styles)(NavBar)
+export default withStyles(styles)(Header)
