@@ -22,8 +22,7 @@ const styles = (theme: Theme) =>
     createStyles({
         root: {
             flexGrow: 1,
-            opacity: (props: Props) =>
-                props.location.pathname === "/" ? 0.9 : 1.0,
+            opacity: 0.9,
         },
         title: {
             color: "#ffffff",

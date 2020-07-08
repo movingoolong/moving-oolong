@@ -13,20 +13,20 @@ import InstagramIcon from "@material-ui/icons/Instagram"
 import TwitterIcon from "@material-ui/icons/Twitter"
 
 // Components
+import Text from "components/Typography/Text"
 
-const styles = (theme: Theme) => createStyles({
-    root: {
-        padding: theme.spacing(1),
-        [theme.breakpoints.up("md")]: {
-            paddingRight: theme.spacing(3),
+const styles = (theme: Theme) =>
+    createStyles({
+        root: {
+            padding: theme.spacing(1),
+            [theme.breakpoints.up("md")]: {
+                paddingRight: theme.spacing(3),
+            },
         },
-    },
-    copyright: {
-        marginLeft: theme.spacing(3),
-        color: theme.palette.primary.main,
-        textAlign: "right",
-    },
-})
+        copyright: {
+            marginLeft: theme.spacing(3),
+        },
+    })
 
 type Props = WithStyles<typeof styles>
 
@@ -65,7 +65,13 @@ function Footer(props: Props) {
                 </IconButton>
             </Grid>
             <Grid item>
-                <h4 className={classes.copyright}>{config.copyright}</h4>
+                <Text
+                    className={classes.copyright}
+                    align="right"
+                    color="primary"
+                >
+                    <b>{config.copyright}</b>
+                </Text>
             </Grid>
         </Grid>
     )

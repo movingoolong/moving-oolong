@@ -10,10 +10,15 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-type MetaType = {
-    name: string
-    content: string
-}
+type MetaType =
+    | {
+          name: string
+          content: string
+      }
+    | {
+          property: string
+          content: string
+      }
 
 type SEOProps = {
     lang?: string

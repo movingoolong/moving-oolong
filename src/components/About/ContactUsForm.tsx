@@ -3,33 +3,37 @@ import {
     Button,
     CircularProgress,
     TextField,
+    Theme,
+    createStyles,
     withStyles,
+    WithStyles,
 } from "@material-ui/core"
 // Components
 
-const styles = (theme) => ({
-    root: {
-        padding: theme.spacing(1),
-    },
-    submit: {
-        marginLeft: "auto",
-        marginRight: "auto",
-    },
-    backdrop: {
-        zIndex: theme.zIndex.drawer + 1,
-        color: "#fff",
-    },
-    success: {
-        color: theme.palette.primary.dark,
-        textAlign: "center",
-    },
-    failure: {
-        color: "#f44336",
-        textAlign: "center",
-    },
-})
+const styles = (theme: Theme) =>
+    createStyles({
+        root: {
+            padding: theme.spacing(1),
+        },
+        submit: {
+            marginLeft: "auto",
+            marginRight: "auto",
+        },
+        backdrop: {
+            zIndex: theme.zIndex.drawer + 1,
+            color: "#fff",
+        },
+        success: {
+            color: theme.palette.primary.dark,
+            textAlign: "center",
+        },
+        failure: {
+            color: "#f44336",
+            textAlign: "center",
+        },
+    })
 
-const encode = (data) => {
+const encode = (data: Record<string, string>) => {
     return Object.keys(data)
         .map(
             (key) =>
@@ -38,9 +42,18 @@ const encode = (data) => {
         .join("&")
 }
 
-export default withStyles(styles)((props) => {
+type Props = WithStyles<typeof styles>
+
+type State = {
+    name: string
+    email: string
+    subject: string
+    body: string
+}
+
+export default withStyles(styles)((props: Props) => {
     const { classes } = props
-    const [state, setState] = useState({
+    const [state, setState] = useState<State>({
         name: "",
         email: "",
         subject: "",
@@ -58,11 +71,15 @@ export default withStyles(styles)((props) => {
         </Button>
     )
 
-    const handleChange = (event) => {
-        setState({ ...state, [event.target.name]: event.target.value })
+    const handleChange = (event: React.FormEvent) => {
+        setState({
+            ...state,
+            [(event.target as HTMLFormElement)
+                .name]: (event.target as HTMLFormElement).value,
+        })
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = (event: React.FormEvent) => {
         setSubmitContent(<CircularProgress color="primary" />)
         fetch("/", {
             method: "POST",

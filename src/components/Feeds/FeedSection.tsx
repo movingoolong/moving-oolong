@@ -1,21 +1,12 @@
 import React from "react"
-import { Container, Grid, withStyles } from "@material-ui/core"
+import { Grid } from "@material-ui/core"
 
 // Components
 import TwitterFeed from "components/Feeds/TwitterFeed"
-//import SocialIcons from "components/About/SocialIcons";
 
-const styles = (theme) => ({
-    root: {},
-    title: {
-        textAlign: "center",
-        color: theme.palette.primary.main,
-    },
-})
+type Props = {}
 
-function FeedSection(props) {
-    const { classes } = props
-
+function FeedSection(props: Props) {
     return (
         <>
             <Grid
@@ -32,4 +23,4 @@ function FeedSection(props) {
     )
 }
 
-export default withStyles(styles)(FeedSection)
+export default FeedSection

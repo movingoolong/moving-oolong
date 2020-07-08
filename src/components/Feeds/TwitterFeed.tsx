@@ -1,7 +1,11 @@
 import React from "react"
 import ClientOnly from "components/General/ClientOnly"
 
-function TwitterFeed(props) {
+type Props = {
+    height: number,
+}
+
+function TwitterFeed(props: Props) {
     const { height } = props
     return (
         <ClientOnly>
