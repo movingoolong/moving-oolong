@@ -14,6 +14,7 @@ import TwitterIcon from "@material-ui/icons/Twitter"
 
 // Components
 import Text from "components/Typography/Text"
+import ClientOnly from "components/General/ClientOnly"
 
 const styles = (theme: Theme) =>
     createStyles({
@@ -33,47 +34,45 @@ type Props = WithStyles<typeof styles>
 function Footer(props: Props) {
     const { classes } = props
     return (
-        <Grid
-            container
-            alignItems="center"
-            wrap="nowrap"
-            justify="flex-end"
-            className={classes.root}
-        >
-            <Grid item>
-                <IconButton
-                    href="https://www.facebook.com/movingoolong/"
-                    color="primary"
-                >
-                    <FacebookIcon />
-                </IconButton>
+        <ClientOnly>
+            <Grid
+                container
+                alignItems="center"
+                wrap="nowrap"
+                justify="flex-end"
+                className={classes.root}
+            >
+                <Grid item>
+                    <IconButton
+                        href="https://www.facebook.com/movingoolong/"
+                        color="primary"
+                    >
+                        <FacebookIcon />
+                    </IconButton>
+                </Grid>
+                <Grid item>
+                    <IconButton
+                        href="https://www.instagram.com/movingoolongpod/"
+                        color="primary"
+                    >
+                        <InstagramIcon />
+                    </IconButton>
+                </Grid>
+                <Grid item>
+                    <IconButton
+                        href="https://www.instagram.com/movingoolongpod/"
+                        color="primary"
+                    >
+                        <TwitterIcon />
+                    </IconButton>
+                </Grid>
+                <Grid item className={classes.copyright}>
+                    <Text align="right" color="primary">
+                        <b>{config.copyright}</b>
+                    </Text>
+                </Grid>
             </Grid>
-            <Grid item>
-                <IconButton
-                    href="https://www.instagram.com/movingoolongpod/"
-                    color="primary"
-                >
-                    <InstagramIcon />
-                </IconButton>
-            </Grid>
-            <Grid item>
-                <IconButton
-                    href="https://www.instagram.com/movingoolongpod/"
-                    color="primary"
-                >
-                    <TwitterIcon />
-                </IconButton>
-            </Grid>
-            <Grid item>
-                <Text
-                    className={classes.copyright}
-                    align="right"
-                    color="primary"
-                >
-                    <b>{config.copyright}</b>
-                </Text>
-            </Grid>
-        </Grid>
+        </ClientOnly>
     )
 }
 

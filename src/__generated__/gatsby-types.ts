@@ -3140,11 +3140,6 @@ type StringQueryOperatorInput = {
   readonly glob: Maybe<Scalars['String']>;
 };
 
-type SEOQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type SEOQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description'>> }> };
-
 type AboutSectionQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -3153,26 +3148,53 @@ type AboutSectionQuery = { readonly file: Maybe<{ readonly childImageSharp: Mayb
         & GatsbyImageSharpFluidLimitPresentationSizeFragment
       )> }> }> };
 
-type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type Unnamed_1_Query = { readonly file: Maybe<{ readonly childImageSharp: Maybe<{ readonly fixed: Maybe<GatsbyImageSharpFixed_noBase64Fragment> }> }> };
-
 type AllTagsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type AllTagsQuery = { readonly markdownRemark: Maybe<{ readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'options'>> }> };
 
-type Unnamed_2_QueryVariables = Exact<{ [key: string]: never; }>;
+type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type Unnamed_2_Query = { readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: (
+type Unnamed_1_Query = { readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: (
         Pick<MarkdownRemark, 'html' | 'id'>
         & { readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'category' | 'name' | 'imgsrc' | 'twitter' | 'instagram'>> }
       ) }> }, readonly allFile: { readonly edges: ReadonlyArray<{ readonly node: (
         Pick<File, 'id' | 'absolutePath'>
         & { readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluid_withWebpFragment> }> }
       ) }> } };
+
+type SEOQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type SEOQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description'>> }> };
+
+type EpisodeEdgesFragment = { readonly edges: ReadonlyArray<{ readonly node: EpisodeFragment }> };
+
+type EpisodeFragment = (
+  Pick<MarkdownRemark, 'html' | 'id'>
+  & { readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'tags' | 'date' | 'category' | 'imgsrc' | 'link'>> }
+);
+
+type FluidImageEdgesFragment = { readonly edges: ReadonlyArray<{ readonly node: FluidImageFragment }> };
+
+type FluidImageFragment = (
+  Pick<File, 'absolutePath' | 'relativePath'>
+  & { readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluid_withWebpFragment> }> }
+);
+
+type Unnamed_2_QueryVariables = Exact<{
+  slug: Maybe<Scalars['String']>;
+  imgsrc: Maybe<Scalars['String']>;
+}>;
+
+
+type Unnamed_2_Query = { readonly markdownRemark: Maybe<EpisodeFragment>, readonly file: Maybe<FluidImageFragment> };
+
+type Unnamed_3_QueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type Unnamed_3_Query = { readonly file: Maybe<{ readonly childImageSharp: Maybe<{ readonly fixed: Maybe<GatsbyImageSharpFixed_noBase64Fragment> }> }> };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
@@ -3228,27 +3250,5 @@ type AllEpisodesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type AllEpisodesQuery = { readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: EpisodeFragment }> }, readonly allFile: { readonly edges: ReadonlyArray<{ readonly node: FluidImageFragment }> } };
-
-type Unnamed_3_QueryVariables = Exact<{
-  slug: Maybe<Scalars['String']>;
-  imgsrc: Maybe<Scalars['String']>;
-}>;
-
-
-type Unnamed_3_Query = { readonly markdownRemark: Maybe<EpisodeFragment>, readonly file: Maybe<FluidImageFragment> };
-
-type EpisodeEdgesFragment = { readonly edges: ReadonlyArray<{ readonly node: EpisodeFragment }> };
-
-type EpisodeFragment = (
-  Pick<MarkdownRemark, 'html' | 'id'>
-  & { readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'tags' | 'date' | 'category' | 'imgsrc' | 'link'>> }
-);
-
-type FluidImageEdgesFragment = { readonly edges: ReadonlyArray<{ readonly node: FluidImageFragment }> };
-
-type FluidImageFragment = (
-  Pick<File, 'absolutePath' | 'relativePath'>
-  & { readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluid_withWebpFragment> }> }
-);
 
 }

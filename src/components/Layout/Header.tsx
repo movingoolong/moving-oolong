@@ -93,6 +93,7 @@ function Header(props: Props & WithStyles<typeof styles>) {
         <AppBar
             className={classes.root}
             position={location.pathname === "/" ? "absolute" : "relative"}
+            key={location.pathname}
             elevation={0}
         >
             <Toolbar>
