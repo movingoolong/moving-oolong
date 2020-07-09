@@ -16,6 +16,6 @@ Feel free to continue to check out [resources](https://blacklivesmatter.carrd.co
 
 —
 
-July = halfway through the year 😮  Plus, this week we’re kickstarting our second season!! It’s been over a month since we’ve graduated and we still can’t help but feel uncertain of what the future holds for us. So we decided to take a pause & reflect on the year so far.
+July = halfway through the year 😮  Plus, this week we’re kickstarting our **2nd season**!! It’s been over a month since we’ve graduated and we still can’t help but feel uncertain of what the future holds for us. So we decided to take a pause & reflect on the year so far.
 
 If you haven’t listened to our [2020 resolutions episode](https://www.movingoolongpod.com/episode-4-new-decade-new-us-1/) yet, go ahead and give it a listen first. Then come back for today’s episode where we discuss the goals we made in January. Find out if we stuck with them and learn about our new goals for the remainder of 2020!
