@@ -1,8 +1,6 @@
-import { useState, useEffect, useMemo } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { mapImgToNode } from "utils/hookUtils"
 import { TagState, getArrayFromTags } from "hooks/useTags"
-import { now } from "moment"
 
 type EpisodeNode = GatsbyTypes.AllEpisodesQuery["allMarkdownRemark"]["edges"][0]
 

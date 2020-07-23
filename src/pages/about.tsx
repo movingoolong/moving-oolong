@@ -14,6 +14,9 @@ import Bio from "components/About/Bio"
 import SEO from "components/General/SEO"
 import Text from "components/Typography/Text"
 
+// Hooks
+import useBios from "hooks/useBios"
+
 const styles = (theme: Theme) =>
     createStyles({
         root: {
@@ -28,7 +31,7 @@ const styles = (theme: Theme) =>
         },
         description: {
             marginBottom: theme.spacing(4),
-        }
+        },
     })
 
 export const query = graphql`
@@ -37,36 +40,6 @@ export const query = graphql`
             frontmatter {
                 about_page
                 about_page_header
-            }
-        }
-        allMarkdownRemark(
-            filter: { frontmatter: { category: { eq: "bio" } } }
-        ) {
-            edges {
-                node {
-                    html
-                    id
-                    frontmatter {
-                        category
-                        name
-                        imgsrc
-                        twitter
-                        instagram
-                    }
-                }
-            }
-        }
-        allFile(filter: { absolutePath: { regex: "static/assets/" } }) {
-            edges {
-                node {
-                    id
-                    absolutePath
-                    childImageSharp {
-                        fluid {
-                            ...GatsbyImageSharpFluid_withWebp
-                        }
-                    }
-                }
             }
         }
     }
@@ -78,7 +51,7 @@ type Props = WithStyles<typeof styles> & {
 
 export default withStyles(styles)((props: Props) => {
     const { classes, data } = props
-    const allImages = data.allFile.edges
+    const bios = useBios()
     return (
         <>
             <SEO title="About" />
@@ -101,23 +74,15 @@ export default withStyles(styles)((props: Props) => {
                     justify="center"
                     alignItems="stretch"
                 >
-                    {data.allMarkdownRemark.edges.map((item) => (
+                    {bios.map((bio) => (
                         <Grid
                             item
                             className={classes.item}
                             xs={12}
                             sm={4}
-                            key={item.node.id}
+                            key={bio.node.id}
                         >
-                            <Bio
-                                name={item.node.frontmatter.name}
-                                imgsrc={item.node.frontmatter.imgsrc}
-                                description={item.node.html}
-                                allImages={allImages}
-                                // facebook={item.node.frontmatter.facebook}
-                                instagram={item.node.frontmatter.instagram}
-                                twitter={item.node.frontmatter.twitter}
-                            />
+                            <Bio bio={bio} />
                         </Grid>
                     ))}
                 </Grid>
