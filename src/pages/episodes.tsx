@@ -1,11 +1,13 @@
-import React, { useState } from "react"
-import { Helmet } from "react-helmet"
+import React, { useState, FormEvent, SyntheticEvent } from "react"
 import {
     Button,
     Hidden,
     SwipeableDrawer,
     Grid,
+    Theme,
+    createStyles,
     withStyles,
+    WithStyles,
 } from "@material-ui/core"
 import { useQueryParam, StringParam } from "use-query-params"
 
@@ -20,34 +22,28 @@ import SEO from "components/General/SEO"
 import useTags from "hooks/useTags"
 import useEpisodes from "hooks/useEpisodes"
 
-// Images
-
-const styles = (theme) => ({
+const styles = (theme: Theme) => createStyles({
     root: {},
 })
 
-// const onClick = () => {
-//   navigate("/episodes?tags=Hello,My,Name,Is", {
-//     search: ""
-//   });
-// }
+type Props = WithStyles<typeof styles>
 
-export default withStyles(styles)((props) => {
-    const { classes, location } = props
+export default withStyles(styles)((props: Props) => {
+    const { classes } = props
     const [urlTags, setURLTags] = useQueryParam("tags", StringParam)
     const tags = useTags(urlTags)
     const episodes = useEpisodes(tags)
 
     const [drawer, setDrawer] = useState(false)
 
-    const toggleDrawer = (open) => (event) => {
-        if (
-            event &&
-            event.type === "keydown" &&
-            (event.key === "Tab" || event.key === "Shift")
-        ) {
-            return
-        }
+    const toggleDrawer = (open: boolean) => (event: SyntheticEvent) => {
+        // if (
+        //     event &&
+        //     event.type === "keydown" &&
+        //     (event.key === "Tab" || event.key === "Shift")
+        // ) {
+        //     return
+        // }
 
         setDrawer(open)
     }
