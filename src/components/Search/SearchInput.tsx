@@ -1,11 +1,20 @@
 import React from "react"
 import { connectSearchBox } from "react-instantsearch-dom"
-import { TextField, withStyles, fade } from "@material-ui/core"
+import { SearchBoxProvided } from "react-instantsearch-core"
+import {
+    TextField,
+    TextFieldProps,
+    withStyles,
+    fade,
+    Theme,
+    createStyles,
+    WithStyles,
+} from "@material-ui/core"
 
 // Components
 import SearchIcon from "@material-ui/icons/Search"
 
-const styles = (theme) => ({
+const styles = (theme: Theme) => createStyles({
     root: {
         marginLeft: 0,
         width: "auto",
@@ -36,7 +45,9 @@ const styles = (theme) => ({
     },
 })
 
-const SearchInput = (props) => {
+type Props = WithStyles<typeof styles> & SearchBoxProvided & TextFieldProps
+
+const SearchInput = (props: Props) => {
     const { classes, refine, ...rest } = props
     return (
         <div className={classes.root}>
