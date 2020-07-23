@@ -92,3 +92,35 @@ collections:
                 collapsed: false,
                 hint: "Order of this list determines order on site where applicable. Spaces after commas will be automatically added",
             }
+    - name: descriptions
+      label: "Site Descriptions"
+      create: false
+      folder: "content/descriptions"
+      fields:
+          - {
+                label: "Title",
+                name: "title",
+                widget: "hidden",
+                default: "site-descriptions",
+            }
+          - {
+                label: "Category",
+                name: "category",
+                widget: "hidden",
+                default: "descriptions",
+            }
+          - {
+                label: "Front Page Description",
+                name: "front-page",
+                widget: "text",
+            }
+          - {
+                label: "About Page Header",
+                name: "about-page-header",
+                widget: "text",
+            }
+          - {
+                label: "About Page Description",
+                name: "about-page",
+                widget: "text",
+            }

@@ -95,6 +95,13 @@ module.exports = {
             },
         },
         {
+            resolve: "gatsby-source-filesystem",
+            options: {
+                name: "descriptions",
+                path: `${__dirname}/content/descriptions/`,
+            },
+        },
+        {
             resolve: "gatsby-transformer-remark",
             options: {
                 plugins: [

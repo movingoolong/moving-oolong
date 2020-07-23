@@ -9,7 +9,6 @@ import {
     withStyles,
     WithStyles,
 } from "@material-ui/core"
-import config from "data/SiteConfig"
 
 // Components
 import BackgroundImage from "gatsby-background-image"
@@ -66,6 +65,12 @@ function AboutSection(props: Props) {
     const { classes } = props
     const data = useStaticQuery<GatsbyTypes.AboutSectionQuery>(graphql`
         query AboutSection {
+            markdownRemark(fileAbsolutePath: { regex: "/site-descriptions/" }) {
+                frontmatter {
+                    front_page
+                }
+            }
+
             file(relativePath: { eq: "about.jpg" }) {
                 childImageSharp {
                     fluid(maxWidth: 4096, quality: 100) {
@@ -93,7 +98,7 @@ function AboutSection(props: Props) {
                 <Grid item>
                     <Container maxWidth="md">
                         <h2 className={classes.description}>
-                            {config.siteDescriptionShort}
+                            {data.markdownRemark?.frontmatter?.front_page}
                         </h2>
                     </Container>
                 </Grid>
