@@ -17,25 +17,18 @@ Sometimes talking about money or income can seem taboo and even we’ve never ha
 
 Similar to our friendship episode, we also use a list of questions designed to start these important financial conversations ([*The 20 Questions You Should Ask Your S.O.* via Refinery29](https://www.refinery29.com/en-us/2018/07/202646/money-questions-to-ask-your-romantic-partner))
 
-
-
 **Financial Education Resources:** 
 
 *YouTube Channels*
 
 * [Aja Dang](https://www.youtube.com/user/ajabdang) 
-* [The Financial Diet](https://www.youtube.com/c/thefinancialdiet/featured)
-* [KatherOut](https://www.youtube.com/user/MyPreppyStyle) 
+* [The Financial Diet](https://www.youtube.com/c/thefinancialdiet/featured) 
 * [Glamour](https://www.youtube.com/c/glamour/featured)
-
-
 
 *Podcasts*
 
 * [Planet Money](https://www.npr.org/sections/money/)
 * [Freakonomics](https://freakonomics.com/archive/) 
-
-
 
 *Articles*
 
