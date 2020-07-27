@@ -17,7 +17,9 @@ Sometimes talking about money or income can seem taboo and even we’ve never ha
 
 Similar to our friendship episode, we also use a list of questions designed to start these important financial conversations ([*The 20 Questions You Should Ask Your S.O.* via Refinery29](https://www.refinery29.com/en-us/2018/07/202646/money-questions-to-ask-your-romantic-partner))
 
-**Financial Education Resources:** 
+
+
+**Things We Mentioned :** 
 
 *YouTube Channels*
 
