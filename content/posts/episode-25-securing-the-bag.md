@@ -19,7 +19,7 @@ Similar to our friendship episode, we also use a list of questions designed to s
 
 
 
-**Things We Mentioned :** 
+**Things We Mentioned:** 
 
 *YouTube Channels*
 
