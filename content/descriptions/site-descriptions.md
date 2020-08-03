@@ -1,5 +1,5 @@
 ---
-title: site-descriptions
+title: Site Descriptions
 category: descriptions
 front-page: Raw, unfiltered conversations between 3 best friends. We’re Asian
   American young women who started this podcast to share our stories and growing
