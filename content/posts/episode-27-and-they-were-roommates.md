@@ -5,7 +5,7 @@ imgsrc: assets/b43263fe-56d5-4d95-983f-8ad8c65a28e3-76edbc37-462b-4a85-b78f-e69f
 category: episode
 tags:
   - friendship
-  - reflections
+  - college life
 link: <iframe
   src="https://open.spotify.com/embed-podcast/episode/2zGEAHKDIb5gxGJF443kIE"
   width="100%" height="232" frameborder="0" allowtransparency="true"
