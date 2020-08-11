@@ -5,8 +5,8 @@ imgsrc: assets/c033a2bf-9834-4b9e-970e-0d802c17233e.jpg
 category: episode
 tags:
   - educational
-  - reflections
   - guest
+  - college life
 link: <iframe
   src="https://open.spotify.com/embed-podcast/episode/2tjdUgd8FmNaRdvfw4HmCc"
   width="100%" height="232" frameborder="0" allowtransparency="true"
