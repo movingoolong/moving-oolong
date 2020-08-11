@@ -2,6 +2,7 @@
 title: Episode Tags
 category: options
 options:
+  - college life
   - reflections
   - friendship
   - relationships
