@@ -1,13 +1,13 @@
 ---
-title: 'Episode 8. Loveboat, College Park'
+title: Episode 8. Loveboat, College Park
 date: 2020-02-10T13:00:00.000Z
 imgsrc: assets/fullsizeoutput_2da2.jpeg
 category: episode
 tags:
   - tasa
   - reflections
-link: >-
-  <iframe
+  - college life
+link: <iframe
   src="https://open.spotify.com/embed-podcast/episode/39HQyev2gdhpE3yKqXlVn0"
   width="100%" height="232" frameborder="0" allowtransparency="true"
   allow="encrypted-media"></iframe>
