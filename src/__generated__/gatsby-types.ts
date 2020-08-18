@@ -2,7 +2,7 @@
 
 declare namespace GatsbyTypes {
 type Maybe<T> = T | undefined;
-type Exact<T extends { [key: string]: any }> = { [K in keyof T]: T[K] };
+type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 /** All built-in and custom scalars, mapped to their actual values */
 type Scalars = {
   ID: string;
@@ -696,9 +696,9 @@ enum FileFieldsEnum {
   childMarkdownRemark___frontmatter___date = 'childMarkdownRemark.frontmatter.date',
   childMarkdownRemark___frontmatter___imgsrc = 'childMarkdownRemark.frontmatter.imgsrc',
   childMarkdownRemark___frontmatter___category = 'childMarkdownRemark.frontmatter.category',
-  childMarkdownRemark___frontmatter___slug = 'childMarkdownRemark.frontmatter.slug',
   childMarkdownRemark___frontmatter___tags = 'childMarkdownRemark.frontmatter.tags',
   childMarkdownRemark___frontmatter___link = 'childMarkdownRemark.frontmatter.link',
+  childMarkdownRemark___frontmatter___slug = 'childMarkdownRemark.frontmatter.slug',
   childMarkdownRemark___frontmatter___name = 'childMarkdownRemark.frontmatter.name',
   childMarkdownRemark___frontmatter___instagram = 'childMarkdownRemark.frontmatter.instagram',
   childMarkdownRemark___frontmatter___twitter = 'childMarkdownRemark.frontmatter.twitter',
@@ -1486,9 +1486,9 @@ enum MarkdownRemarkFieldsEnum {
   frontmatter___date = 'frontmatter.date',
   frontmatter___imgsrc = 'frontmatter.imgsrc',
   frontmatter___category = 'frontmatter.category',
-  frontmatter___slug = 'frontmatter.slug',
   frontmatter___tags = 'frontmatter.tags',
   frontmatter___link = 'frontmatter.link',
+  frontmatter___slug = 'frontmatter.slug',
   frontmatter___name = 'frontmatter.name',
   frontmatter___instagram = 'frontmatter.instagram',
   frontmatter___twitter = 'frontmatter.twitter',
@@ -1627,9 +1627,9 @@ type MarkdownRemarkFrontmatter = {
   readonly date: Maybe<Scalars['Date']>;
   readonly imgsrc: Maybe<Scalars['String']>;
   readonly category: Maybe<Scalars['String']>;
-  readonly slug: Maybe<Scalars['String']>;
   readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly link: Maybe<Scalars['String']>;
+  readonly slug: Maybe<Scalars['String']>;
   readonly name: Maybe<Scalars['String']>;
   readonly instagram: Maybe<Scalars['String']>;
   readonly twitter: Maybe<Scalars['String']>;
@@ -1652,9 +1652,9 @@ type MarkdownRemarkFrontmatterFilterInput = {
   readonly date: Maybe<DateQueryOperatorInput>;
   readonly imgsrc: Maybe<StringQueryOperatorInput>;
   readonly category: Maybe<StringQueryOperatorInput>;
-  readonly slug: Maybe<StringQueryOperatorInput>;
   readonly tags: Maybe<StringQueryOperatorInput>;
   readonly link: Maybe<StringQueryOperatorInput>;
+  readonly slug: Maybe<StringQueryOperatorInput>;
   readonly name: Maybe<StringQueryOperatorInput>;
   readonly instagram: Maybe<StringQueryOperatorInput>;
   readonly twitter: Maybe<StringQueryOperatorInput>;
@@ -1890,7 +1890,7 @@ type Query_allSitePageArgs = {
 type Query_siteArgs = {
   buildTime: Maybe<DateQueryOperatorInput>;
   siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
-  port: Maybe<DateQueryOperatorInput>;
+  port: Maybe<IntQueryOperatorInput>;
   host: Maybe<StringQueryOperatorInput>;
   pathPrefix: Maybe<StringQueryOperatorInput>;
   polyfill: Maybe<BooleanQueryOperatorInput>;
@@ -2003,7 +2003,7 @@ type Query_allSitePluginArgs = {
 type Site = Node & {
   readonly buildTime: Maybe<Scalars['Date']>;
   readonly siteMetadata: Maybe<SiteSiteMetadata>;
-  readonly port: Maybe<Scalars['Date']>;
+  readonly port: Maybe<Scalars['Int']>;
   readonly host: Maybe<Scalars['String']>;
   readonly pathPrefix: Maybe<Scalars['String']>;
   readonly polyfill: Maybe<Scalars['Boolean']>;
@@ -2015,14 +2015,6 @@ type Site = Node & {
 
 
 type Site_buildTimeArgs = {
-  formatString: Maybe<Scalars['String']>;
-  fromNow: Maybe<Scalars['Boolean']>;
-  difference: Maybe<Scalars['String']>;
-  locale: Maybe<Scalars['String']>;
-};
-
-
-type Site_portArgs = {
   formatString: Maybe<Scalars['String']>;
   fromNow: Maybe<Scalars['Boolean']>;
   difference: Maybe<Scalars['String']>;
@@ -2313,7 +2305,7 @@ enum SiteFieldsEnum {
 type SiteFilterInput = {
   readonly buildTime: Maybe<DateQueryOperatorInput>;
   readonly siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
-  readonly port: Maybe<DateQueryOperatorInput>;
+  readonly port: Maybe<IntQueryOperatorInput>;
   readonly host: Maybe<StringQueryOperatorInput>;
   readonly pathPrefix: Maybe<StringQueryOperatorInput>;
   readonly polyfill: Maybe<BooleanQueryOperatorInput>;
@@ -3084,110 +3076,17 @@ type StringQueryOperatorInput = {
   readonly glob: Maybe<Scalars['String']>;
 };
 
-type AllTagsQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type AllTagsQuery = { readonly markdownRemark: Maybe<{ readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'options'>> }> };
-
-type SEOQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type SEOQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description'>> }> };
-
-type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type Unnamed_1_Query = { readonly file: Maybe<{ readonly childImageSharp: Maybe<{ readonly fixed: Maybe<GatsbyImageSharpFixed_noBase64Fragment> }> }> };
-
-type AllEpisodesQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type AllEpisodesQuery = { readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: EpisodeFragment }> }, readonly allFile: { readonly edges: ReadonlyArray<{ readonly node: FluidImageFragment }> } };
-
-type AllBiosQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type AllBiosQuery = { readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: (
-        Pick<MarkdownRemark, 'html' | 'id'>
-        & { readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'category' | 'name' | 'imgsrc' | 'twitter' | 'instagram'>> }
-      ) }> }, readonly allFile: { readonly edges: ReadonlyArray<{ readonly node: FluidImageFragment }> } };
-
-type AboutPageQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type AboutPageQuery = { readonly markdownRemark: Maybe<{ readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'about_page' | 'about_page_header'>> }> };
-
-type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
-
-type GatsbyImageSharpFixed_tracedSVGFragment = Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
-
-type GatsbyImageSharpFixed_withWebpFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
-
-type GatsbyImageSharpFixed_withWebp_tracedSVGFragment = Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
-
-type GatsbyImageSharpFixed_noBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet'>;
-
-type GatsbyImageSharpFixed_withWebp_noBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
-
-type GatsbyImageSharpFluidFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
-
-type GatsbyImageSharpFluidLimitPresentationSizeFragment = { maxHeight: ImageSharpFluid['presentationHeight'], maxWidth: ImageSharpFluid['presentationWidth'] };
-
-type GatsbyImageSharpFluid_tracedSVGFragment = Pick<ImageSharpFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
-
-type GatsbyImageSharpFluid_withWebpFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
-
-type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = Pick<ImageSharpFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
-
-type GatsbyImageSharpFluid_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
-
-type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
-
-type GatsbyImageSharpResolutionsFragment = Pick<ImageSharpResolutions, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
-
-type GatsbyImageSharpResolutions_tracedSVGFragment = Pick<ImageSharpResolutions, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
-
-type GatsbyImageSharpResolutions_withWebpFragment = Pick<ImageSharpResolutions, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
-
-type GatsbyImageSharpResolutions_withWebp_tracedSVGFragment = Pick<ImageSharpResolutions, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
-
-type GatsbyImageSharpResolutions_noBase64Fragment = Pick<ImageSharpResolutions, 'width' | 'height' | 'src' | 'srcSet'>;
-
-type GatsbyImageSharpResolutions_withWebp_noBase64Fragment = Pick<ImageSharpResolutions, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
-
-type GatsbyImageSharpSizesFragment = Pick<ImageSharpSizes, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
-
-type GatsbyImageSharpSizes_tracedSVGFragment = Pick<ImageSharpSizes, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
-
-type GatsbyImageSharpSizes_withWebpFragment = Pick<ImageSharpSizes, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
-
-type GatsbyImageSharpSizes_withWebp_tracedSVGFragment = Pick<ImageSharpSizes, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
-
-type GatsbyImageSharpSizes_noBase64Fragment = Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
-
-type GatsbyImageSharpSizes_withWebp_noBase64Fragment = Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
-
-type AboutSectionQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type AboutSectionQuery = { readonly markdownRemark: Maybe<{ readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'front_page'>> }>, readonly file: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<(
-        GatsbyImageSharpFluid_withWebpFragment
-        & GatsbyImageSharpFluidLimitPresentationSizeFragment
-      )> }> }> };
-
-type EpisodeEdgesFragment = { readonly edges: ReadonlyArray<{ readonly node: EpisodeFragment }> };
-
 type EpisodeFragment = (
   Pick<MarkdownRemark, 'html' | 'id'>
   & { readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'tags' | 'date' | 'category' | 'imgsrc' | 'link'>> }
 );
 
-type FluidImageEdgesFragment = { readonly edges: ReadonlyArray<{ readonly node: FluidImageFragment }> };
-
 type FluidImageFragment = (
   Pick<File, 'absolutePath' | 'relativePath'>
   & { readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluid_withWebpFragment> }> }
 );
+
+type GatsbyImageSharpFluid_withWebpFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
 
 type mntcUsersslohDocumentsGitHubmovingOolongsrctemplatesPostPageTemplateJsx873388545QueryVariables = Exact<{
   slug: Maybe<Scalars['String']>;
@@ -3201,5 +3100,50 @@ type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type PagesQueryQuery = { readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
+
+type AboutPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type AboutPageQuery = { readonly markdownRemark: Maybe<{ readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'about_page' | 'about_page_header'>> }> };
+
+type GatsbyImageSharpFluidLimitPresentationSizeFragment = { maxHeight: ImageSharpFluid['presentationHeight'], maxWidth: ImageSharpFluid['presentationWidth'] };
+
+type AboutSectionQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type AboutSectionQuery = { readonly markdownRemark: Maybe<{ readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'front_page'>> }>, readonly file: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<(
+        GatsbyImageSharpFluid_withWebpFragment
+        & GatsbyImageSharpFluidLimitPresentationSizeFragment
+      )> }> }> };
+
+type SEOQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type SEOQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description'>> }> };
+
+type GatsbyImageSharpFixed_noBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet'>;
+
+type mntcUsersslohDocumentsGitHubmovingOolongsrccomponentsLogoLogoJsx472950100QueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type mntcUsersslohDocumentsGitHubmovingOolongsrccomponentsLogoLogoJsx472950100Query = { readonly file: Maybe<{ readonly childImageSharp: Maybe<{ readonly fixed: Maybe<GatsbyImageSharpFixed_noBase64Fragment> }> }> };
+
+type AllBiosQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type AllBiosQuery = { readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: (
+        Pick<MarkdownRemark, 'html' | 'id'>
+        & { readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'category' | 'name' | 'imgsrc' | 'twitter' | 'instagram'>> }
+      ) }> }, readonly allFile: { readonly edges: ReadonlyArray<{ readonly node: FluidImageFragment }> } };
+
+type AllEpisodesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type AllEpisodesQuery = { readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: EpisodeFragment }> }, readonly allFile: { readonly edges: ReadonlyArray<{ readonly node: FluidImageFragment }> } };
+
+type AllTagsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type AllTagsQuery = { readonly markdownRemark: Maybe<{ readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'options'>> }> };
 
 }
