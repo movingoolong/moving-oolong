@@ -42,10 +42,6 @@ export default withStyles(styles)((props: Props) => {
                     <Grid item xs={12} sm={9}>
                         <ContactUsSection />
                     </Grid>
-
-                    <Grid item xs={12} sm={2}>
-                        <FeedSection />
-                    </Grid>
                 </Grid>
             </Container>
         </>
