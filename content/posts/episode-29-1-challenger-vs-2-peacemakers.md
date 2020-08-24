@@ -22,8 +22,6 @@ Take the test & learn more:
 * <https://www.truity.com/test/enneagram-personality-test>
 * <https://www.enneagraminstitute.com/>
 
-
-
 —⁣
 
-This episode is in partnership with The Katra Box. Learn more at thekatrabox.com and @thekatrabox ✨
+This episode is in partnership with The Katra Box. Learn more at thekatrabox.com and @thekatrabox on IG ✨
