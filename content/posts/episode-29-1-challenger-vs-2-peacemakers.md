@@ -17,10 +17,12 @@ This week we try to understand the basics of the enneagram system & symbol (shou
 
 Tune in for a fun episode about this complicated system & how it compares to other personality tests!
 
-Enneagram Resources:
+Take the test & learn more:
 
-* <https://www.enneagraminstitute.com/>
 * <https://www.truity.com/test/enneagram-personality-test>
+* <https://www.enneagraminstitute.com/>
+
+
 
 —⁣
 
