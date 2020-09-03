@@ -2543,7 +2543,6 @@ enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___chunkSize = 'pluginCreator.pluginOptions.chunkSize',
   pluginCreator___pluginOptions___enablePartialUpdates = 'pluginCreator.pluginOptions.enablePartialUpdates',
   pluginCreator___pluginOptions___matchFields = 'pluginCreator.pluginOptions.matchFields',
-  pluginCreator___pluginOptions___layout = 'pluginCreator.pluginOptions.layout',
   pluginCreator___pluginOptions___fonts = 'pluginCreator.pluginOptions.fonts',
   pluginCreator___pluginOptions___fonts___family = 'pluginCreator.pluginOptions.fonts.family',
   pluginCreator___pluginOptions___fonts___variants = 'pluginCreator.pluginOptions.fonts.variants',
@@ -2771,7 +2770,6 @@ enum SitePluginFieldsEnum {
   pluginOptions___chunkSize = 'pluginOptions.chunkSize',
   pluginOptions___enablePartialUpdates = 'pluginOptions.enablePartialUpdates',
   pluginOptions___matchFields = 'pluginOptions.matchFields',
-  pluginOptions___layout = 'pluginOptions.layout',
   pluginOptions___fonts = 'pluginOptions.fonts',
   pluginOptions___fonts___family = 'pluginOptions.fonts.family',
   pluginOptions___fonts___variants = 'pluginOptions.fonts.variants',
@@ -2915,7 +2913,6 @@ type SitePluginPluginOptions = {
   readonly chunkSize: Maybe<Scalars['Int']>;
   readonly enablePartialUpdates: Maybe<Scalars['Boolean']>;
   readonly matchFields: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
-  readonly layout: Maybe<Scalars['String']>;
   readonly fonts: Maybe<ReadonlyArray<Maybe<SitePluginPluginOptionsFonts>>>;
   readonly name: Maybe<Scalars['String']>;
   readonly path: Maybe<Scalars['String']>;
@@ -2955,7 +2952,6 @@ type SitePluginPluginOptionsFilterInput = {
   readonly chunkSize: Maybe<IntQueryOperatorInput>;
   readonly enablePartialUpdates: Maybe<BooleanQueryOperatorInput>;
   readonly matchFields: Maybe<StringQueryOperatorInput>;
-  readonly layout: Maybe<StringQueryOperatorInput>;
   readonly fonts: Maybe<SitePluginPluginOptionsFontsFilterListInput>;
   readonly name: Maybe<StringQueryOperatorInput>;
   readonly path: Maybe<StringQueryOperatorInput>;
@@ -3100,14 +3096,54 @@ type mntcUsersslohDocumentsGitHubmovingOolongsrctemplatesPostPageTemplateJsx8733
 
 type mntcUsersslohDocumentsGitHubmovingOolongsrctemplatesPostPageTemplateJsx873388545Query = { readonly markdownRemark: Maybe<EpisodeFragment>, readonly file: Maybe<FluidImageFragment> };
 
+type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type PagesQueryQuery = { readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
+
 type AboutPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type AboutPageQuery = { readonly markdownRemark: Maybe<{ readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'about_page' | 'about_page_header'>> }> };
 
-type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
+type GatsbyImageSharpFluidLimitPresentationSizeFragment = { maxHeight: ImageSharpFluid['presentationHeight'], maxWidth: ImageSharpFluid['presentationWidth'] };
+
+type AboutSectionQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type PagesQueryQuery = { readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
+type AboutSectionQuery = { readonly markdownRemark: Maybe<{ readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'front_page'>> }>, readonly file: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<(
+        GatsbyImageSharpFluid_withWebpFragment
+        & GatsbyImageSharpFluidLimitPresentationSizeFragment
+      )> }> }> };
+
+type SEOQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type SEOQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description'>> }> };
+
+type GatsbyImageSharpFixed_noBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet'>;
+
+type mntcUsersslohDocumentsGitHubmovingOolongsrccomponentsLogoLogoJsx472950100QueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type mntcUsersslohDocumentsGitHubmovingOolongsrccomponentsLogoLogoJsx472950100Query = { readonly file: Maybe<{ readonly childImageSharp: Maybe<{ readonly fixed: Maybe<GatsbyImageSharpFixed_noBase64Fragment> }> }> };
+
+type AllEpisodesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type AllEpisodesQuery = { readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: EpisodeFragment }> }, readonly allFile: { readonly edges: ReadonlyArray<{ readonly node: FluidImageFragment }> } };
+
+type AllBiosQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type AllBiosQuery = { readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: (
+        Pick<MarkdownRemark, 'html' | 'id'>
+        & { readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'category' | 'name' | 'imgsrc' | 'twitter' | 'instagram'>> }
+      ) }> }, readonly allFile: { readonly edges: ReadonlyArray<{ readonly node: FluidImageFragment }> } };
+
+type AllTagsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type AllTagsQuery = { readonly markdownRemark: Maybe<{ readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'options'>> }> };
 
 }
