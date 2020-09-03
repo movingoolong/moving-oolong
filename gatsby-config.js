@@ -40,9 +40,15 @@ module.exports = {
                 queries,
                 chunkSize: 1000, // default: 1000
                 enablePartialUpdates: true,
-                matchFields: ['slug', 'modified']
+                matchFields: ["slug", "modified"],
             },
         },
+        // {
+        //     resolve: "gatsby-plugin-transition-link",
+        //     options: {
+        //         layout: require.resolve(`./src/components/Layout/Layout.tsx`),
+        //     },
+        // },
         {
             resolve: `gatsby-plugin-prefetch-google-fonts`,
             options: {
@@ -57,7 +63,6 @@ module.exports = {
                     },
                 ],
             },
-            
         },
         {
             resolve: "gatsby-source-filesystem",

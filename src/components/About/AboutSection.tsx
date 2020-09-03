@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import {
     Button,
     Container,
@@ -12,6 +12,7 @@ import {
 
 // Components
 import BackgroundImage from "gatsby-background-image"
+import CustomLink from "components/General/CustomLink"
 
 const styles = (theme: Theme) =>
     createStyles({
@@ -40,9 +41,6 @@ const styles = (theme: Theme) =>
             width: "100%",
             height: "100%",
             margin: "auto",
-        },
-        link: {
-            textDecoration: "none",
         },
         button: {
             margin: theme.spacing(3),
@@ -104,7 +102,7 @@ function AboutSection(props: Props) {
                 </Grid>
 
                 <Grid item>
-                    <Link className={classes.link} to="/about">
+                    <CustomLink to="/about">
                         <Button
                             className={classes.button}
                             size="large"
@@ -112,7 +110,7 @@ function AboutSection(props: Props) {
                         >
                             About Us
                         </Button>
-                    </Link>
+                    </CustomLink>
                 </Grid>
             </Grid>
         </BackgroundImage>

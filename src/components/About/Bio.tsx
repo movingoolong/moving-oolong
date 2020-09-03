@@ -58,6 +58,8 @@ function Bio(props: Props) {
     const { classes, bio } = props
     if (!bio.node.frontmatter)
         throw new Error("Frontmatter does not exist on bio")
+    if (!bio.image.childImageSharp?.fluid)
+        throw new Error(`Image does not exist`)
 
     const { name, instagram, twitter } = bio.node.frontmatter
 

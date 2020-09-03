@@ -1,17 +1,14 @@
 import React from "react"
-import { Link } from "gatsby"
 import { Grid, MenuItem, withStyles } from "@material-ui/core"
 
 import moment from "moment"
 import config from "data/SiteConfig"
 import EventIcon from "@material-ui/icons/Event"
+import CustomLink from "components/General/CustomLink"
 
 // Components
 const styles = (theme) => ({
     root: {},
-    link: {
-        textDecoration: "none",
-    },
     icon: {
         color: theme.palette.primary.dark,
     },
@@ -49,7 +46,7 @@ const SearchHitComponent = (props) => {
     const { classes, hit, key } = props
     return (
         <MenuItem key={key}>
-            <Link className={classes.link} to={hit.slug}>
+            <CustomLink to={hit.slug}>
                 <Grid container direction="column">
                     <Grid item>
                         <h4 className={classes.title}>{hit.title}</h4>
@@ -73,7 +70,7 @@ const SearchHitComponent = (props) => {
                         />
                     </Grid>
                 </Grid>
-            </Link>
+            </CustomLink>
         </MenuItem>
     )
 }

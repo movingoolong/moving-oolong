@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 import Img from "gatsby-image"
 import {
     Button,
@@ -13,11 +12,12 @@ import {
     withStyles,
     WithStyles,
 } from "@material-ui/core"
+import moment from "moment"
 
 // Components
 import MarkdownContent from "components/General/MarkdownContent"
 import TagLink from "components/Posts/TagLink"
-import moment from "moment"
+import CustomLink from "components/General/CustomLink"
 import config from "data/SiteConfig"
 
 // Types
@@ -44,7 +44,6 @@ const styles = (theme: Theme) =>
             paddingBottom: 0,
         },
         link: {
-            textDecoration: "none",
             color: "#ffffff",
         },
         title: {
@@ -99,6 +98,8 @@ function EpisodePreview(props: Props) {
     if (!episode.node.frontmatter)
         throw new Error("Frontmatter does not exist on episode")
     if (!episode.node.fields?.slug) throw new Error("Slug does not exist")
+    if (!episode.image.childImageSharp?.fluid)
+        throw new Error("Image doesn't exist")
 
     const { title, tags = [], date, imgsrc } = episode.node.frontmatter
     const { slug } = episode.node.fields
@@ -106,7 +107,7 @@ function EpisodePreview(props: Props) {
     return (
         <Card className={classes.root}>
             <div className={classes.content}>
-                <Link className={classes.link} to={slug}>
+                <CustomLink className={classes.link} to={slug}>
                     <CardActionArea>
                         <Img
                             fluid={episode.image.childImageSharp?.fluid}
@@ -127,7 +128,7 @@ function EpisodePreview(props: Props) {
                             )}
                         </CardContent>
                     </CardActionArea>
-                </Link>
+                </CustomLink>
             </div>
 
             <CardActions className={classes.action}>

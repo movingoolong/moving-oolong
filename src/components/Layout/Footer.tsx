@@ -10,7 +10,6 @@ import {
 import config from "data/SiteConfig"
 import FacebookIcon from "@material-ui/icons/Facebook"
 import InstagramIcon from "@material-ui/icons/Instagram"
-import TwitterIcon from "@material-ui/icons/Twitter"
 
 // Components
 import Text from "components/Typography/Text"
@@ -56,14 +55,6 @@ function Footer(props: Props) {
                         color="primary"
                     >
                         <InstagramIcon />
-                    </IconButton>
-                </Grid>
-                <Grid item>
-                    <IconButton
-                        href="https://www.instagram.com/movingoolongpod/"
-                        color="primary"
-                    >
-                        <TwitterIcon />
                     </IconButton>
                 </Grid>
                 <Grid item className={classes.copyright}>

@@ -1,10 +1,10 @@
 import React from "react"
-import { Link } from "gatsby"
 import { Grid, Hidden, withStyles, Theme, createStyles, WithStyles } from "@material-ui/core"
 
 // Components
 import EpisodeGrid from "./EpisodeGrid"
 import SwipeableEpisodes from "./SwipeableEpisodes"
+import CustomLink from "components/General/CustomLink"
 
 import useEpisodes from "hooks/useEpisodes"
 
@@ -38,9 +38,9 @@ function RecentPosts(props: Props) {
                     <h1 className={classes.title}>Recent Episodes</h1>
                 </Grid>
                 <Grid>
-                    <Link className={classes.link} to="/episodes">
+                    <CustomLink className={classes.link} to="/episodes">
                         <i>See all episodes</i>
-                    </Link>
+                    </CustomLink>
                 </Grid>
             </Grid>
 

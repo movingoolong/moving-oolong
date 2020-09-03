@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Link, PageProps } from "gatsby"
+import { PageProps } from "gatsby"
 import {
     AppBar,
     Button,
@@ -17,6 +17,7 @@ import MenuIcon from "@material-ui/icons/Menu"
 // Components
 import Logo from "components/Logo/Logo"
 import Search from "components/Search/Search"
+import CustomLink from "components/General/CustomLink"
 
 const styles = (theme: Theme) =>
     createStyles({
@@ -71,21 +72,21 @@ function Header(props: Props & WithStyles<typeof styles>) {
 
     const links = (
         <>
-            <Link className={classes.link} to="/">
+            <CustomLink className={classes.link} to="/">
                 <Button className={classes.button}>
                     <b>Home</b>
                 </Button>
-            </Link>
-            <Link className={classes.link} to="/about">
+            </CustomLink>
+            <CustomLink className={classes.link} to="/about">
                 <Button className={classes.button}>
                     <b>About</b>
                 </Button>
-            </Link>
-            <Link className={classes.link} to="/episodes">
+            </CustomLink>
+            <CustomLink className={classes.link} to="/episodes">
                 <Button className={classes.button}>
                     <b>Episodes</b>
                 </Button>
-            </Link>
+            </CustomLink>
         </>
     )
 
@@ -97,10 +98,10 @@ function Header(props: Props & WithStyles<typeof styles>) {
             elevation={0}
         >
             <Toolbar>
-                <Link className={classes.link} to="/">
+                <CustomLink className={classes.link} to="/">
                     <Logo />
                     <h2 className={classes.title}>Moving Oolong</h2>
-                </Link>
+                </CustomLink>
 
                 <div className={classes.grow} />
 

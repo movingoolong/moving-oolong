@@ -4,7 +4,7 @@ import { ThemeProvider, CssBaseline } from "@material-ui/core"
 import theme from "../../theme"
 
 type Props = {
-    children: React.ReactNode
+    children: React.ReactNode | React.ReactNodeArray
 }
 
 export default function ProviderLayout(props: Props) {

@@ -10,7 +10,6 @@ import {
 } from "@material-ui/core"
 import FacebookIcon from "@material-ui/icons/Facebook"
 import InstagramIcon from "@material-ui/icons/Instagram"
-import TwitterIcon from "@material-ui/icons/Twitter"
 import EmailIcon from "@material-ui/icons/Email"
 // Components
 import ContactUsForm from "components/About/ContactUsForm"
@@ -47,7 +46,7 @@ export default withStyles(styles)((props: Props) => {
                 justify="center"
                 alignContent="center"
             >
-                <Grid item xs={12} sm={6} lg={3}>
+                <Grid item xs={12} sm={6} lg={4}>
                     <Button
                         className={classes.button}
                         href="mailto:movingoolong@gmail.com"
@@ -57,7 +56,7 @@ export default withStyles(styles)((props: Props) => {
                         <p className={classes.text}>movingoolong@gmail.com</p>
                     </Button>
                 </Grid>
-                <Grid item xs={12} sm={6} lg={3}>
+                <Grid item xs={12} sm={6} lg={4}>
                     <Button
                         className={classes.button}
                         href="https://www.facebook.com/movingoolong/"
@@ -67,7 +66,7 @@ export default withStyles(styles)((props: Props) => {
                         <p className={classes.text}>Moving Oolong Podcast</p>
                     </Button>
                 </Grid>
-                <Grid item xs={12} sm={6} lg={3}>
+                <Grid item xs={12} sm={6} lg={4}>
                     <Button
                         className={classes.button}
                         href="https://www.instagram.com/movingoolongpod/"
@@ -77,17 +76,6 @@ export default withStyles(styles)((props: Props) => {
                         <p className={classes.text}>@movingoolongpod</p>
                     </Button>
                 </Grid>
-                <Grid item xs={12} sm={6} lg={3}>
-                    <Button
-                        className={classes.button}
-                        href="https://www.instagram.com/movingoolongpod/"
-                        color="secondary"
-                    >
-                        <TwitterIcon />
-                        <p className={classes.text}>@movingoolongpod</p>
-                    </Button>
-                </Grid>
-
                 <Grid item xs={12}>
                     <ContactUsForm />
                 </Grid>
