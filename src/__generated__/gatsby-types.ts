@@ -3106,16 +3106,6 @@ type AboutPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 type AboutPageQuery = { readonly markdownRemark: Maybe<{ readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'about_page' | 'about_page_header'>> }> };
 
-type GatsbyImageSharpFluidLimitPresentationSizeFragment = { maxHeight: ImageSharpFluid['presentationHeight'], maxWidth: ImageSharpFluid['presentationWidth'] };
-
-type AboutSectionQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type AboutSectionQuery = { readonly markdownRemark: Maybe<{ readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'front_page'>> }>, readonly file: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<(
-        GatsbyImageSharpFluid_withWebpFragment
-        & GatsbyImageSharpFluidLimitPresentationSizeFragment
-      )> }> }> };
-
 type SEOQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -3145,5 +3135,15 @@ type AllTagsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type AllTagsQuery = { readonly markdownRemark: Maybe<{ readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'options'>> }> };
+
+type GatsbyImageSharpFluidLimitPresentationSizeFragment = { maxHeight: ImageSharpFluid['presentationHeight'], maxWidth: ImageSharpFluid['presentationWidth'] };
+
+type AboutSectionQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type AboutSectionQuery = { readonly markdownRemark: Maybe<{ readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'front_page'>> }>, readonly file: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<(
+        GatsbyImageSharpFluid_withWebpFragment
+        & GatsbyImageSharpFluidLimitPresentationSizeFragment
+      )> }> }> };
 
 }

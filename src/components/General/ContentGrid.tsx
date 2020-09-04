@@ -8,6 +8,7 @@ import {
     withStyles,
     WithStyles,
 } from "@material-ui/core"
+import { useTransition, animated } from "react-spring"
 
 // Components
 const styles = (theme: Theme) =>
@@ -29,9 +30,16 @@ export interface PropsForGrid {
     xl?: GridProps["xl"]
 }
 
+export interface ReactNodeWithKey {
+    node: React.ReactNode
+    key: string | number
+}
+
+const AnimatedGrid = animated(Grid)
+
 type Props = WithStyles<typeof styles> &
     PropsForGrid & {
-        content: React.ReactNode[]
+        content: ReactNodeWithKey[]
     }
 
 function ContentGrid(props: Props) {
@@ -45,6 +53,13 @@ function ContentGrid(props: Props) {
         xl = false,
     } = props
 
+    const transitions = useTransition(content, (item) => item.key, {
+        from: { opacity: 0 },
+        enter: { opacity: 1 },
+        leave: { opacity: 0 },
+        unique: true,
+    })
+
     return (
         <Container className={classes.root} maxWidth="xl">
             <Grid
@@ -54,7 +69,22 @@ function ContentGrid(props: Props) {
                 alignContent="stretch"
                 justify="center"
             >
-                {content.map((node, index) => (
+                {transitions.map(({ item, key, props }) => (
+                    <AnimatedGrid
+                        item
+                        className={classes.item}
+                        xs={xs}
+                        sm={sm}
+                        md={md}
+                        lg={lg}
+                        xl={xl}
+                        key={key}
+                        style={props}
+                    >
+                        {item.node}
+                    </AnimatedGrid>
+                ))}
+                {/* {content.map((node, index) => (
                     <Grid
                         item
                         className={classes.item}
@@ -67,7 +97,7 @@ function ContentGrid(props: Props) {
                     >
                         {node}
                     </Grid>
-                ))}
+                ))} */}
             </Grid>
         </Container>
     )

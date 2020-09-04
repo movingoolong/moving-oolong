@@ -12,9 +12,15 @@ type Props = PropsForGrid & {
 
 function EpisodeGrid(props: Props) {
     const { episodes, showDescription = true, ...rest } = props
-    const content = episodes.map((episode) => (
-        <EpisodePreview episode={episode} showDescription={showDescription} />
-    ))
+    const content = episodes.map((episode) => ({
+        node: (
+            <EpisodePreview
+                episode={episode}
+                showDescription={showDescription}
+            />
+        ),
+        key: episode.node.id,
+    }))
 
     return <ContentGrid content={content} {...rest} />
 }
