@@ -1,7 +1,7 @@
 ---
 name: Linda Kuo
 category: bio
-imgsrc: assets/dsc04748.jpg
+imgsrc: assets/linda_biopic.jpg
 instagram: "@buppletea"
 twitter: "@buppletea"
 ---

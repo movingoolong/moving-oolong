@@ -1,7 +1,7 @@
 ---
 name: Ming Gault
 category: bio
-imgsrc: assets/dsc04755-1-.jpg
+imgsrc: assets/ming_biopic.jpg
 instagram: "@minggault"
 twitter: "@minggault"
 ---
