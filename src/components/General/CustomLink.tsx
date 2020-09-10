@@ -17,7 +17,7 @@ type Props = WithStyles<typeof styles> & {
 }
 
 function CustomLink(props: Props) {
-    const { classes, to, children, className = ""} = props
+    const { classes, to, children, className = "" } = props
     return (
         <Link className={clsx(classes.root, className)} to={to}>
             {children}

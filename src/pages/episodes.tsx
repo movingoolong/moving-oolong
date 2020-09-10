@@ -22,9 +22,10 @@ import SEO from "components/General/SEO"
 import useTags from "hooks/useTags"
 import useEpisodes from "hooks/useEpisodes"
 
-const styles = (theme: Theme) => createStyles({
-    root: {},
-})
+const styles = (theme: Theme) =>
+    createStyles({
+        root: {},
+    })
 
 type Props = WithStyles<typeof styles>
 

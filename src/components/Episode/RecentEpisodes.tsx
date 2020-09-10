@@ -1,5 +1,12 @@
 import React from "react"
-import { Grid, Hidden, withStyles, Theme, createStyles, WithStyles } from "@material-ui/core"
+import {
+    Grid,
+    Hidden,
+    withStyles,
+    Theme,
+    createStyles,
+    WithStyles,
+} from "@material-ui/core"
 
 // Components
 import EpisodeGrid from "./EpisodeGrid"
@@ -8,23 +15,24 @@ import CustomLink from "components/General/CustomLink"
 
 import useEpisodes from "hooks/useEpisodes"
 
-const styles = (theme: Theme) => createStyles({
-    root: {
-        marginTop: theme.spacing(1),
-    },
-    title: {
-        textAlign: "left",
-        color: theme.palette.primary.main,
-        margin: theme.spacing(2),
-        marginBottom: 0,
-    },
-    link: {
-        textAlign: "right",
-        color: theme.palette.primary.dark,
-        fontSize: "16px",
-        margin: theme.spacing(2),
-    },
-})
+const styles = (theme: Theme) =>
+    createStyles({
+        root: {
+            marginTop: theme.spacing(1),
+        },
+        title: {
+            textAlign: "left",
+            color: theme.palette.primary.main,
+            margin: theme.spacing(2),
+            marginBottom: 0,
+        },
+        link: {
+            textAlign: "right",
+            color: theme.palette.primary.dark,
+            fontSize: "16px",
+            margin: theme.spacing(2),
+        },
+    })
 
 type Props = WithStyles<typeof styles>
 
@@ -48,7 +56,10 @@ function RecentPosts(props: Props) {
                 <SwipeableEpisodes episodes={episodes.slice(0, 8)} />
             </Hidden>
             <Hidden smUp>
-                <EpisodeGrid episodes={episodes.slice(0, 3)} showDescription={false} />
+                <EpisodeGrid
+                    episodes={episodes.slice(0, 3)}
+                    showDescription={false}
+                />
             </Hidden>
         </div>
     )

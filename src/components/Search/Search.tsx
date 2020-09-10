@@ -90,8 +90,7 @@ function Search(props: Props) {
     const handleFocus = (
         event: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
     ) => {
-        if(anchorEl == null)
-            setAnchorEl(event.currentTarget)
+        if (anchorEl == null) setAnchorEl(event.currentTarget)
         setOpen(true)
     }
 
@@ -105,7 +104,9 @@ function Search(props: Props) {
         setOpen(false)
     }
 
-    const handleListKeyDown = (event: React.KeyboardEvent<HTMLUListElement>) => {
+    const handleListKeyDown = (
+        event: React.KeyboardEvent<HTMLUListElement>
+    ) => {
         if (event.key === "Tab") {
             event.preventDefault()
             setOpen(false)
@@ -123,7 +124,7 @@ function Search(props: Props) {
                     <SearchInput onFocus={handleFocus} />
                     <Popper
                         open={open && query.length > 0}
-                        id={open ? 'search-popper' : undefined}
+                        id={open ? "search-popper" : undefined}
                         anchorEl={anchorEl}
                         transition
                         className={classes.popper}

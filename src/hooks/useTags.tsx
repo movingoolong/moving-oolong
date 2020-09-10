@@ -28,7 +28,7 @@ export function getArrayFromTags(tags: TagState): string[] {
     const tagsArray: string[] = []
 
     Object.entries(tags).forEach(([key, val]) => {
-        if(val) tagsArray.push(key)
+        if (val) tagsArray.push(key)
     })
 
     return tagsArray

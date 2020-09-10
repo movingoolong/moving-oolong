@@ -2,7 +2,7 @@ import React from "react"
 import ClientOnly from "components/General/ClientOnly"
 
 type Props = {
-    height: number,
+    height: number
 }
 
 function TwitterFeed(props: Props) {

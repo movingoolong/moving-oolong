@@ -10,7 +10,7 @@ const styles = (theme: Theme) =>
                 fontSize: "14px",
                 color: theme.palette.secondary.main,
             },
-    
+
             "& a": {
                 color: theme.palette.secondary.dark,
             },

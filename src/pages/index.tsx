@@ -1,5 +1,12 @@
 import React from "react"
-import { Grid, Container, Theme, createStyles, withStyles, WithStyles } from "@material-ui/core"
+import {
+    Grid,
+    Container,
+    Theme,
+    createStyles,
+    withStyles,
+    WithStyles,
+} from "@material-ui/core"
 import config from "data/SiteConfig"
 
 // Components
@@ -9,11 +16,12 @@ import ContactUsSection from "components/About/ContactUsSection"
 import FeedSection from "components/Feeds/FeedSection"
 import SEO from "components/General/SEO"
 
-const styles = (theme: Theme) => createStyles({
-    contact: {
-        marginTop: theme.spacing(15),
-    },
-})
+const styles = (theme: Theme) =>
+    createStyles({
+        contact: {
+            marginTop: theme.spacing(15),
+        },
+    })
 
 type Props = WithStyles<typeof styles>
 

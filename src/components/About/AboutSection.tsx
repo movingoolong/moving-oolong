@@ -9,7 +9,7 @@ import {
     withStyles,
     WithStyles,
 } from "@material-ui/core"
-import { useSpring, animated as a, config} from "react-spring"
+import { useSpring, animated as a, config } from "react-spring"
 
 // Components
 import BackgroundImage from "gatsby-background-image"
@@ -87,14 +87,14 @@ function AboutSection(props: Props) {
 
     const prefersReducedMotion = usePrefersReducedMotion()
     const springLeft = useSpring({
-        from: { opacity: 0, transform: "translateX(-10px)"},
-        to: { opacity: 1, transform: "translateX(0px)"},
+        from: { opacity: 0, transform: "translateX(-10px)" },
+        to: { opacity: 1, transform: "translateX(0px)" },
         immediate: prefersReducedMotion,
         config: config.molasses,
     })
-    const springRight= useSpring({
-        from: { opacity: 0, transform: "translateX(10px)"},
-        to: { opacity: 1, transform: "translateX(0px)"},
+    const springRight = useSpring({
+        from: { opacity: 0, transform: "translateX(10px)" },
+        to: { opacity: 1, transform: "translateX(0px)" },
         immediate: prefersReducedMotion,
         config: config.molasses,
     })
@@ -113,7 +113,7 @@ function AboutSection(props: Props) {
                 justify="center"
                 direction="column"
             >
-                <AnimatedGrid item  style={springLeft}>
+                <AnimatedGrid item style={springLeft}>
                     <Container maxWidth="md">
                         <h2 className={classes.description}>
                             {data.markdownRemark?.frontmatter?.front_page}

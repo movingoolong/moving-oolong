@@ -1,20 +1,29 @@
 import React from "react"
-import { Paper, MenuList, MenuListProps, createStyles, withStyles, WithStyles } from "@material-ui/core"
+import {
+    Paper,
+    MenuList,
+    MenuListProps,
+    createStyles,
+    withStyles,
+    WithStyles,
+} from "@material-ui/core"
 
 // Components
-const styles = () => createStyles({
-    paper: {
-        width: "100%",
-    },
-    menu: {
-        width: "100%",
-    },
-})
+const styles = () =>
+    createStyles({
+        paper: {
+            width: "100%",
+        },
+        menu: {
+            width: "100%",
+        },
+    })
 
-type Props = WithStyles<typeof styles> & MenuListProps & {
-    children: React.ReactNode,
-    open: boolean,
-}
+type Props = WithStyles<typeof styles> &
+    MenuListProps & {
+        children: React.ReactNode
+        open: boolean
+    }
 
 function SearchHitsWrapper(props: Props) {
     const { classes, children, open, ...rest } = props

@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, { useState } from "react"
 import { graphql } from "gatsby"
 import {
     Container,
@@ -61,9 +61,7 @@ export default withStyles(styles)((props: Props) => {
     const trails = useTrail(bios.length, {
         to: {
             opacity: isVisible ? 1 : 0,
-            transform: isVisible
-                ? "translateY(0px)"
-                : "translateY(-10px)",
+            transform: isVisible ? "translateY(0px)" : "translateY(-10px)",
         },
         immediate: usePrefersReducedMotion(),
     })
@@ -83,30 +81,29 @@ export default withStyles(styles)((props: Props) => {
                     <b>{data.markdownRemark?.frontmatter?.about_page}</b>
                 </Text>
 
-                <VisibilitySensor 
-                        onChange={(isVisible) => setIsVisible(isVisible)}
-                        partialVisibility
-                    >
-                <Grid
-                    container
-                    spacing={3}
-                    justify="center"
-                    alignItems="stretch"
+                <VisibilitySensor
+                    onChange={(isVisible) => setIsVisible(isVisible)}
+                    partialVisibility
                 >
-                    
+                    <Grid
+                        container
+                        spacing={3}
+                        justify="center"
+                        alignItems="stretch"
+                    >
                         {bios.map((bio, index) => (
                             <AnimatedGrid
-                            item
-                            className={classes.item}
-                            xs={12}
-                            sm={4}
-                            key={bio.node.id}
-                            style={trails[index]}
-                        >
-                            <Bio bio={bio} />
+                                item
+                                className={classes.item}
+                                xs={12}
+                                sm={4}
+                                key={bio.node.id}
+                                style={trails[index]}
+                            >
+                                <Bio bio={bio} />
                             </AnimatedGrid>
                         ))}
-                </Grid>
+                    </Grid>
                 </VisibilitySensor>
             </Container>
         </>
