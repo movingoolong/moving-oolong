@@ -53,12 +53,12 @@ function ContentGrid(props: Props) {
         xl = false,
     } = props
 
-    const transitions = useTransition(content, (item) => item.key, {
-        from: { opacity: 0 },
-        enter: { opacity: 1 },
-        leave: { opacity: 0 },
-        unique: true,
-    })
+    // const transitions = useTransition(content, (item) => item.key, {
+    //     from: { opacity: 0 },
+    //     enter: { opacity: 1 },
+    //     leave: { opacity: 0 },
+    //     unique: true,
+    // })
 
     return (
         <Container className={classes.root} maxWidth="xl">
@@ -69,7 +69,7 @@ function ContentGrid(props: Props) {
                 alignContent="stretch"
                 justify="center"
             >
-                {transitions.map(({ item, key, props }) => (
+                {/* {transitions.map(({ item, key, props }) => (
                     <AnimatedGrid
                         item
                         className={classes.item}
@@ -83,8 +83,8 @@ function ContentGrid(props: Props) {
                     >
                         {item.node}
                     </AnimatedGrid>
-                ))}
-                {/* {content.map((node, index) => (
+                ))} */}
+                {content.map((item) => (
                     <Grid
                         item
                         className={classes.item}
@@ -93,11 +93,11 @@ function ContentGrid(props: Props) {
                         md={md}
                         lg={lg}
                         xl={xl}
-                        key={index}
+                        key={item.key}
                     >
-                        {node}
+                        {item.node}
                     </Grid>
-                ))} */}
+                ))}
             </Grid>
         </Container>
     )

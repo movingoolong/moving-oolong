@@ -93,7 +93,7 @@ type Props = WithStyles<typeof styles> & {
 }
 
 function EpisodePreview(props: Props) {
-    const { classes, episode, showDescription = true } = props
+    const { classes, episode, showDescription = true, ...rest } = props
 
     if (!episode.node.frontmatter)
         throw new Error("Frontmatter does not exist on episode")
@@ -105,7 +105,7 @@ function EpisodePreview(props: Props) {
     const { slug } = episode.node.fields
 
     return (
-        <Card className={classes.root}>
+        <Card className={classes.root} {...rest}>
             <div className={classes.content}>
                 <CustomLink className={classes.link} to={slug}>
                     <CardActionArea>
