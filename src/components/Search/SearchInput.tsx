@@ -48,7 +48,7 @@ const styles = (theme: Theme) =>
 
 type Props = WithStyles<typeof styles> & SearchBoxProvided & TextFieldProps
 
-const SearchInput = (props: Props) => {
+const SearchInput = (props: Props, ref: React.Ref<HTMLElement>) => {
     const { classes, refine, ...rest } = props
     return (
         <div className={classes.root}>
@@ -73,10 +73,13 @@ const SearchInput = (props: Props) => {
                 }}
                 onChange={(e) => refine(e.target.value)}
                 variant="filled"
+                inputRef={ref}
                 {...rest}
             />
         </div>
     )
 }
 
-export default connectSearchBox(withStyles(styles)(SearchInput))
+export default connectSearchBox(
+    withStyles(styles)(React.forwardRef(SearchInput))
+)
