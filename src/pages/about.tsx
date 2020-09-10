@@ -83,6 +83,7 @@ export default withStyles(styles)((props: Props) => {
 
                 <VisibilitySensor
                     onChange={(isVisible) => setIsVisible(isVisible)}
+                    active={!isVisible}
                     partialVisibility
                 >
                     <Grid
