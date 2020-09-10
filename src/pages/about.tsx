@@ -9,7 +9,7 @@ import {
     WithStyles,
 } from "@material-ui/core"
 import VisibilitySensor from "react-visibility-sensor"
-import { useSpring, useTrail, animated } from "react-spring"
+import { useTrail, animated } from "react-spring"
 
 // Components
 import Bio from "components/About/Bio"
@@ -67,29 +67,28 @@ export default withStyles(styles)((props: Props) => {
         },
         immediate: usePrefersReducedMotion(),
     })
-    const springStyle = useSpring({
-        from: {
-            opacity: 0,
-            transform: "translateY(10px)",
-        },
-        to: {
-            opacity: 1,
-            transform: "translateY(0px)",
-        },
-        immediate: usePrefersReducedMotion(),
-    })
     return (
         <>
             <SEO title="About" />
             <Container maxWidth="lg">
-                <AnimatedText
-                    variant="h5"
-                    align="center"
-                    className={classes.title}
-                    style={springStyle}
-                >
-                    <b>{data.markdownRemark?.frontmatter?.about_page_header}</b>
-                </AnimatedText>
+                <AnimateOnVisible once>
+                    {(springStyle) => (
+                        <AnimatedText
+                            variant="h5"
+                            align="center"
+                            className={classes.title}
+                            style={springStyle}
+                        >
+                            <b>
+                                {
+                                    data.markdownRemark?.frontmatter
+                                        ?.about_page_header
+                                }
+                            </b>
+                        </AnimatedText>
+                    )}
+                </AnimateOnVisible>
+
                 <Text
                     variant="subtitle1"
                     align="center"
