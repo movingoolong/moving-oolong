@@ -9,10 +9,15 @@ import {
     withStyles,
     WithStyles,
 } from "@material-ui/core"
+import { useSpring, animated as a, config} from "react-spring"
 
 // Components
 import BackgroundImage from "gatsby-background-image"
 import CustomLink from "components/General/CustomLink"
+
+import usePrefersReducedMotion from "hooks/usePrefersReducedMotion"
+
+const AnimatedGrid = a(Grid)
 
 const styles = (theme: Theme) =>
     createStyles({
@@ -79,6 +84,21 @@ function AboutSection(props: Props) {
             }
         }
     `)
+
+    const prefersReducedMotion = usePrefersReducedMotion()
+    const springLeft = useSpring({
+        from: { opacity: 0, transform: "translateX(-10px)"},
+        to: { opacity: 1, transform: "translateX(0px)"},
+        immediate: prefersReducedMotion,
+        config: config.molasses,
+    })
+    const springRight= useSpring({
+        from: { opacity: 0, transform: "translateX(10px)"},
+        to: { opacity: 1, transform: "translateX(0px)"},
+        immediate: prefersReducedMotion,
+        config: config.molasses,
+    })
+
     return (
         <BackgroundImage
             className={classes.root}
@@ -93,15 +113,15 @@ function AboutSection(props: Props) {
                 justify="center"
                 direction="column"
             >
-                <Grid item>
+                <AnimatedGrid item  style={springLeft}>
                     <Container maxWidth="md">
                         <h2 className={classes.description}>
                             {data.markdownRemark?.frontmatter?.front_page}
                         </h2>
                     </Container>
-                </Grid>
+                </AnimatedGrid>
 
-                <Grid item>
+                <AnimatedGrid item style={springRight}>
                     <CustomLink to="/about">
                         <Button
                             className={classes.button}
@@ -111,7 +131,7 @@ function AboutSection(props: Props) {
                             About Us
                         </Button>
                     </CustomLink>
-                </Grid>
+                </AnimatedGrid>
             </Grid>
         </BackgroundImage>
     )
