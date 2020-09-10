@@ -3107,54 +3107,14 @@ type mntcUsersslohDocumentsGitHubmovingOolongsrctemplatesPostPageTemplateJsx8733
 
 type mntcUsersslohDocumentsGitHubmovingOolongsrctemplatesPostPageTemplateJsx873388545Query = { readonly markdownRemark: Maybe<EpisodeFragment>, readonly file: Maybe<FluidImageFragment> };
 
-type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type PagesQueryQuery = { readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
-
 type AboutPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type AboutPageQuery = { readonly markdownRemark: Maybe<{ readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'about_page' | 'about_page_header'>> }> };
 
-type GatsbyImageSharpFluidLimitPresentationSizeFragment = { maxHeight: ImageSharpFluid['presentationHeight'], maxWidth: ImageSharpFluid['presentationWidth'] };
-
-type AboutSectionQueryVariables = Exact<{ [key: string]: never; }>;
+type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type AboutSectionQuery = { readonly markdownRemark: Maybe<{ readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'front_page'>> }>, readonly file: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<(
-        GatsbyImageSharpFluid_withWebpFragment
-        & GatsbyImageSharpFluidLimitPresentationSizeFragment
-      )> }> }> };
-
-type SEOQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type SEOQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description'>> }> };
-
-type AllEpisodesQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type AllEpisodesQuery = { readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: EpisodeFragment }> }, readonly allFile: { readonly edges: ReadonlyArray<{ readonly node: FluidImageFragment }> } };
-
-type AllBiosQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type AllBiosQuery = { readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: (
-        Pick<MarkdownRemark, 'html' | 'id'>
-        & { readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'category' | 'name' | 'imgsrc' | 'twitter' | 'instagram'>> }
-      ) }> }, readonly allFile: { readonly edges: ReadonlyArray<{ readonly node: FluidImageFragment }> } };
-
-type AllTagsQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type AllTagsQuery = { readonly markdownRemark: Maybe<{ readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'options'>> }> };
-
-type GatsbyImageSharpFixed_noBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet'>;
-
-type mntcUsersslohDocumentsGitHubmovingOolongsrccomponentsLogoLogoJsx472950100QueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type mntcUsersslohDocumentsGitHubmovingOolongsrccomponentsLogoLogoJsx472950100Query = { readonly file: Maybe<{ readonly childImageSharp: Maybe<{ readonly fixed: Maybe<GatsbyImageSharpFixed_noBase64Fragment> }> }> };
+type PagesQueryQuery = { readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
 
 }

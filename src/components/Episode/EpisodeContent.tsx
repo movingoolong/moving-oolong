@@ -8,10 +8,12 @@ import {
     withStyles,
     WithStyles,
 } from "@material-ui/core"
+import { animated as a } from "react-spring"
 
 // Components
 import TagLink from "components/Posts/TagLink"
 import MarkdownContent from "components/General/MarkdownContent"
+import AnimateOnVisible from "components/General/AnimateOnVisible"
 
 const styles = (theme: Theme) =>
     createStyles({
@@ -62,7 +64,13 @@ function EpisodeContent(props: Props) {
                 spacing={2}
             >
                 <Grid item xs={12}>
-                    <h1 className={classes.title}>{title}</h1>
+                    <AnimateOnVisible once>
+                        {(styleProps) => (
+                            <a.h1 className={classes.title} style={styleProps}>
+                                {title}
+                            </a.h1>
+                        )}
+                    </AnimateOnVisible>
                 </Grid>
                 <Grid item xs={12} sm={6}>
                     <Img
