@@ -34,12 +34,7 @@ type Props = WithStyles<typeof styles> &
  * @param props
  */
 function Text(props: Props, ref: React.Ref<HTMLElement>) {
-    const {
-        classes,
-        className = "",
-        color = "initial",
-        ...rest
-    } = props
+    const { classes, className = "", color = "initial", ...rest } = props
 
     let textClassName = className
 
