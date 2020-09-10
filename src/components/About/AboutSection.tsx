@@ -74,7 +74,7 @@ function AboutSection(props: Props) {
                 }
             }
 
-            file(relativePath: { eq: "about.jpg" }) {
+            file(relativePath: { eq: "about3.jpg" }) {
                 childImageSharp {
                     fluid(maxWidth: 4096, quality: 100) {
                         ...GatsbyImageSharpFluid_withWebp
