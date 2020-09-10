@@ -23,22 +23,17 @@ const styles = (theme: Theme) =>
     createStyles({
         root: {
             width: "100%",
-            height: "60vh",
+            height: "70vh",
             position: "relative",
             backgroundAttachment: "fixed",
-            backgroundPosition: "center center",
+            backgroundPosition: "center 90%",
             backgroundSize: "cover",
-            "&::before,&::after": {
-                backgroundAttachment: "fixed",
-                backgroundPosition: "center center",
-                backgroundSize: "cover",
-            },
         },
         filter: {
             width: "100%",
             height: "100%",
             position: "absolute",
-            background: "rgba(0, 0, 0, 0.3)",
+            background: "rgba(0, 0, 0, 0.35)",
             zIndex: -1,
         },
         container: {
