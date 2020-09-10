@@ -9,18 +9,20 @@ import {
     WithStyles,
 } from "@material-ui/core"
 import VisibilitySensor from "react-visibility-sensor"
-import { useTrail, animated } from "react-spring"
+import { useSpring, useTrail, animated } from "react-spring"
 
 // Components
 import Bio from "components/About/Bio"
 import SEO from "components/General/SEO"
 import Text from "components/Typography/Text"
+import AnimateOnVisible from "components/General/AnimateOnVisible"
 
 // Hooks
 import useBios from "hooks/useBios"
 import usePrefersReducedMotion from "hooks/usePrefersReducedMotion"
 
 const AnimatedGrid = animated(Grid)
+const AnimatedText = animated(Text)
 
 const styles = (theme: Theme) =>
     createStyles({
@@ -65,13 +67,29 @@ export default withStyles(styles)((props: Props) => {
         },
         immediate: usePrefersReducedMotion(),
     })
+    const springStyle = useSpring({
+        from: {
+            opacity: 0,
+            transform: "translateX(-20px)",
+        },
+        to: {
+            opacity: 1,
+            transform: "translateX(0px)",
+        },
+        immediate: usePrefersReducedMotion(),
+    })
     return (
         <>
             <SEO title="About" />
             <Container maxWidth="lg">
-                <Text variant="h5" align="center" className={classes.title}>
+                <AnimatedText
+                    variant="h5"
+                    align="center"
+                    className={classes.title}
+                    style={springStyle}
+                >
                     <b>{data.markdownRemark?.frontmatter?.about_page_header}</b>
-                </Text>
+                </AnimatedText>
                 <Text
                     variant="subtitle1"
                     align="center"

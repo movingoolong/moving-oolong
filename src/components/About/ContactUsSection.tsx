@@ -106,6 +106,7 @@ export default withStyles(styles)((props: Props) => {
                             sm={6}
                             lg={4}
                             style={trails[index]}
+                            key={`contact-us-section-icon-${index}`}
                         >
                             {item}
                         </AnimatedGrid>
