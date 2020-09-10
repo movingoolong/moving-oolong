@@ -33,22 +33,39 @@ type Props = WithStyles<typeof styles> &
  * Custom text component that wraps Material-UI typography
  * @param props
  */
-function Text(props: Props) {
-    const { classes, className = "", color = "initial", ...rest } = props
-    const textClassName = clsx({
-        [className]: true,
-        [classes.white]: color === "white",
-        [classes.success]: color === "success",
-    })
+function Text(props: Props, ref: React.Ref<HTMLElement>) {
+    const {
+        classes,
+        className = "",
+        color = "initial",
+        ...rest
+    } = props
+
+    let textClassName = className
+
+    let passedColor = color
+
+    switch (color) {
+        case "white":
+            textClassName = clsx(textClassName, classes.white)
+            passedColor = "initial"
+            break
+        case "success":
+            textClassName = clsx(textClassName, classes.white)
+            passedColor = "initial"
+            break
+        default:
+            passedColor = color
+    }
 
     return (
         <Typography
             className={textClassName}
-            // @ts-ignore The case of invalid color names is handled but not recognized by Typescript
-            color={textClassName === className ? color : "initial"}
+            color={passedColor}
+            ref={ref}
             {...rest}
         />
     )
 }
 
-export default withStyles(styles)(Text)
+export default withStyles(styles)(React.forwardRef(Text))
