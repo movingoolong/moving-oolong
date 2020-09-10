@@ -70,11 +70,11 @@ export default withStyles(styles)((props: Props) => {
     const springStyle = useSpring({
         from: {
             opacity: 0,
-            transform: "translateX(-20px)",
+            transform: "translateY(10px)",
         },
         to: {
             opacity: 1,
-            transform: "translateX(0px)",
+            transform: "translateY(0px)",
         },
         immediate: usePrefersReducedMotion(),
     })
