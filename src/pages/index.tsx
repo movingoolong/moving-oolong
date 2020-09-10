@@ -26,7 +26,7 @@ export default withStyles(styles)((props: Props) => {
                 meta={[
                     {
                         property: "og:image",
-                        content: `${config.siteUrl}/logos/logo-512.png`,
+                        content: `logos/logo-512.png`,
                     },
                 ]}
             />
