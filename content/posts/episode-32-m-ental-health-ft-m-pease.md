@@ -16,8 +16,6 @@ We’re taking a break from the lighter, personality topics this week to talk me
 
 In this episode, we discuss how our intersecting identities shape our mental health. M also shares what it’s like to work as a Peer Counselor at the [university’s help center](https://helpcenterumd.org/) and why there’s often barriers to accessing mental health resources like seeing a therapist 💬
 
-
-
 Mental Health Crisis Resources & Hotlines:
 
 * [National Suicide Prevention Lifeline](https://suicidepreventionlifeline.org/)
@@ -27,4 +25,4 @@ Mental Health Crisis Resources & Hotlines:
 
 —⁣⁣
 
-This episode is in partnership with The Katra Box. Learn more at thekatrabox.com and on IG @thekatrabox ✨⁣
+This episode is in partnership with The Katra Box. Learn more at [thekatrabox.com](https://thekatrabox.com/) and @thekatrabox on IG ✨⁣
