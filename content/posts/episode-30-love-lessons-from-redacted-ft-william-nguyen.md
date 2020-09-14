@@ -17,8 +17,6 @@ For our 30th episode (!!) we finally get to a highly requested topic: our past d
 
 They say all relationships can be a lesson we learn from and we definitely agree 🤔 Join us (and our best friend, William) for a LONG story time episode with a bit of reflection at the end!⁣⁣
 
-
-
 —⁣⁣
 
-This episode is in partnership with The Katra Box. Learn more at thekatrabox.com and @thekatrabox on IG ✨⁣
+This episode is in partnership with The Katra Box. Learn more at [thekatrabox.com](https://thekatrabox.com/) and @thekatrabox on IG ✨⁣
