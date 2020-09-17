@@ -33,6 +33,7 @@ const styles = (theme: Theme) =>
             fontFamily: "Passion One, cursive",
             textTransform: "uppercase",
             fontSize: "24px",
+            verticalAlign: "middle",
             [theme.breakpoints.down("sm")]: {
                 fontSize: "18px",
             },
