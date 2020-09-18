@@ -30,10 +30,10 @@ const styles = (theme: Theme) =>
             margin: theme.spacing(1),
             marginLeft: theme.spacing(2),
             display: "inline",
-            fontFamily: "Passion One, cursive",
+            fontFamily: "Hussar Bold, sans-serif",
             textTransform: "uppercase",
             fontSize: "24px",
-            verticalAlign: "middle",
+            verticalAlign: "-15%",
             [theme.breakpoints.down("sm")]: {
                 fontSize: "18px",
             },
