@@ -17,10 +17,8 @@ It’s a casual episode this week so you’ll hear our candid thoughts & reactio
 
 But seriously, somehow it’s our 31st episode and we’re still learning new things about each other!
 
-
-
 Try the [random question generator](https://www.conversationstarters.com/generator.php) we used for a fun game with friends (or a date)!
 
 —⁣⁣
 
-This episode is in partnership with The Katra Box. Learn more at thekatrabox.com and on IG @thekatrabox ✨⁣
+This episode is in partnership with The Katra Box. Learn more at [thekatrabox.com](https://thekatrabox.com/) and @thekatrabox on IG ✨⁣

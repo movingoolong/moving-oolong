@@ -24,4 +24,4 @@ Take the test & learn more:
 
 —⁣
 
-This episode is in partnership with The Katra Box. Learn more at thekatrabox.com and @thekatrabox on IG ✨
+This episode is in partnership with The Katra Box. Learn more at [thekatrabox.com](https://thekatrabox.com/) and @thekatrabox on IG ✨
