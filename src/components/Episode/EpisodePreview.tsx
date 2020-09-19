@@ -57,6 +57,7 @@ const styles = (theme: Theme) =>
         },
         date: {
             color: theme.palette.secondary.main,
+            fontFamily: "Poppins, sans-serif",
             margin: 0,
             marginTop: theme.spacing(1),
             [theme.breakpoints.only("sm")]: {
