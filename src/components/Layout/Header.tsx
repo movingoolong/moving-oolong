@@ -30,7 +30,6 @@ const styles = (theme: Theme) =>
             margin: theme.spacing(1),
             marginLeft: theme.spacing(2),
             display: "inline",
-            fontFamily: "Hussar Bold, sans-serif",
             textTransform: "uppercase",
             fontSize: "24px",
             verticalAlign: "-15%",

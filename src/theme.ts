@@ -8,8 +8,8 @@ const hussarBold = {
     src: `url(${HussarBold})`,
 }
 
-const hussar = ["Hussar Bold", "sans-serif"].join()
-const poppins = ["Poppins", "san-serif"].join()
+export const HEADING_FONT = ["Hussar Bold", "sans-serif"].join()
+export const BODY_FONT = ["Poppins", "san-serif"].join()
 
 // A custom theme for this app
 const theme = createMuiTheme({
@@ -23,15 +23,15 @@ const theme = createMuiTheme({
         },
     },
     typography: {
-        fontFamily: hussar,
+        fontFamily: HEADING_FONT,
         body1: {
-            fontFamily: poppins,
+            fontFamily: BODY_FONT,
         },
         body2: {
-            fontFamily: poppins,
+            fontFamily: BODY_FONT,
         },
         button: {
-            fontFamily: poppins,
+            fontFamily: BODY_FONT,
         }
     },
     overrides: {
@@ -39,25 +39,25 @@ const theme = createMuiTheme({
             "@global": {
                 "@font-face": [hussarBold],
                 h1: {
-                    fontFamily: hussar,
+                    fontFamily: HEADING_FONT,
                 },
                 h2: {
-                    fontFamily: hussar,
+                    fontFamily: HEADING_FONT,
                 },
                 h3: {
-                    fontFamily: hussar,
+                    fontFamily: HEADING_FONT,
                 },
                 h4: {
-                    fontFamily: hussar,
+                    fontFamily: HEADING_FONT,
                 },
                 h5: {
-                    fontFamily: hussar,
+                    fontFamily: HEADING_FONT,
                 },
                 h6: {
-                    fontFamily: hussar,
+                    fontFamily: HEADING_FONT,
                 },
                 p: {
-                    fontFamily: poppins,
+                    fontFamily: BODY_FONT,
                 },
             },
         },

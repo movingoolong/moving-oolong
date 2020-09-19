@@ -10,6 +10,7 @@ import {
 } from "@material-ui/core"
 import VisibilitySensor from "react-visibility-sensor"
 import { useTrail, animated } from "react-spring"
+import { BODY_FONT } from "src/theme"
 
 // Components
 import Bio from "components/About/Bio"
@@ -38,6 +39,7 @@ const styles = (theme: Theme) =>
         },
         description: {
             marginBottom: theme.spacing(4),
+            fontFamily: BODY_FONT,
         },
     })
 

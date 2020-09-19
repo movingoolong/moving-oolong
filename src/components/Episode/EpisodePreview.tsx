@@ -13,6 +13,7 @@ import {
     WithStyles,
 } from "@material-ui/core"
 import moment from "moment"
+import { BODY_FONT } from "src/theme"
 
 // Components
 import MarkdownContent from "components/General/MarkdownContent"
@@ -57,7 +58,7 @@ const styles = (theme: Theme) =>
         },
         date: {
             color: theme.palette.secondary.main,
-            fontFamily: "Poppins, sans-serif",
+            fontFamily: BODY_FONT,
             margin: 0,
             marginTop: theme.spacing(1),
             [theme.breakpoints.only("sm")]: {

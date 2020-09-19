@@ -23,6 +23,7 @@ module.exports = {
             options: {
                 aliases: {
                     data: `data/`,
+                    src: `src/`, 
                 },
             },
         },
