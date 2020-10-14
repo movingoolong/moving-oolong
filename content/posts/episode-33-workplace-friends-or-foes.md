@@ -1,7 +1,7 @@
 ---
 title: Episode 33. Workplace Friends or Foes?
 date: 2020-09-21T12:00:00.000Z
-imgsrc: assets/e69ac1f0-6a8c-47be-8f90-d2aa21e5b422-eaee5503-a7cf-49de-9cd6-a40cbcedf3e8.jpg
+imgsrc: assets/6917f89d-29dd-41e1-ae2b-222d8eaf1cee.jpg
 category: episode
 tags:
   - postgrad
