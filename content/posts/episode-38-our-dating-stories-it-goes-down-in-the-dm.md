@@ -4,7 +4,7 @@ date: 2020-10-26T12:00:00.000Z
 imgsrc: assets/fcc59998-86b7-40c4-82c3-d48add54218b-2.jpg
 category: episode
 tags:
-  - relationships
+  - dating
 link: <iframe
   src="https://open.spotify.com/embed-podcast/episode/36aAG6z8c5N1Ofnviueiyd"
   width="100%" height="232" frameborder="0" allowtransparency="true"
