@@ -5,7 +5,7 @@ options:
   - college life
   - reflections
   - friendship
-  - relationships
+  - dating
   - educational
   - recommendations
   - media
