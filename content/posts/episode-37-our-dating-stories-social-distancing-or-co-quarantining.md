@@ -4,8 +4,8 @@ date: 2020-10-19T12:00:00.000Z
 imgsrc: assets/ae405a94-e838-41ed-95e5-7335758a9b2f.jpg
 category: episode
 tags:
-  - relationships
   - guest
+  - dating
 link: <iframe
   src="https://open.spotify.com/embed-podcast/episode/3UI8LkWzYV1BfD4QM959ji"
   width="100%" height="232" frameborder="0" allowtransparency="true"
