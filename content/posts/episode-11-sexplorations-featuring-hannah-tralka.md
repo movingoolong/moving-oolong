@@ -4,11 +4,10 @@ date: 2020-03-02T13:00:00.000Z
 imgsrc: assets/fullsizeoutput_2da4.jpeg
 category: episode
 tags:
-  - relationships
   - guest
   - educational
-link: >-
-  <iframe
+  - dating
+link: <iframe
   src="https://open.spotify.com/embed-podcast/episode/1Y4ng9ALW4wBcRDwoFngp9"
   width="100%" height="232" frameborder="0" allowtransparency="true"
   allow="encrypted-media"></iframe>
