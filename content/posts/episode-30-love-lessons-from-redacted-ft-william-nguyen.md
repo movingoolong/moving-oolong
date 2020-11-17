@@ -19,4 +19,4 @@ They say all relationships can be a lesson we learn from and we definitely agree
 
 —⁣⁣
 
-This episode is in partnership with The Katra Box. Learn more at [thekatrabox.com](https://thekatrabox.com/) and @thekatrabox on IG ✨⁣
+This episode is in partnership with The Katra Box. Learn more at [thekatrabox.com](https://thekatrabox.com/) and [@thekatrabox](https://www.instagram.com/thekatrabox/?hl=en) on Instagram ✨⁣
