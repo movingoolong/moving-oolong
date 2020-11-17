@@ -21,4 +21,4 @@ Try the [random question generator](https://www.conversationstarters.com/generat
 
 —⁣⁣
 
-This episode is in partnership with The Katra Box. Learn more at [thekatrabox.com](https://thekatrabox.com/) and @thekatrabox on IG ✨⁣
+This episode is in partnership with The Katra Box. Learn more at [thekatrabox.com](https://thekatrabox.com/) and [@thekatrabox](https://www.instagram.com/thekatrabox/?hl=en) on Instagram ✨⁣
