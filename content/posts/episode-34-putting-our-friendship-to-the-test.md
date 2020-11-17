@@ -17,4 +17,4 @@ This week we made mini quizzes about ourselves and put each other to the test. S
 
 —⁣⁣⁣
 
-This episode is in partnership with Monumental Magazine. Learn more at [monumentalmagazine.com](monumentalmagazine.com) and on IG @monumentalmag
+This episode is in partnership with Monumental Magazine. Learn more at [monumentalmagazine.com](monumentalmagazine.com) and [@monumentalmag](https://www.instagram.com/monumentalmag/?hl=en) on Instagram.
