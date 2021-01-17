@@ -39,7 +39,7 @@ module.exports = {
                 queries,
                 chunkSize: 1000, // default: 1000
                 enablePartialUpdates: false,
-                concurrentQueries: false,
+                concurrentQueries: true,
                 matchFields: ["slug"],
             },
         },
