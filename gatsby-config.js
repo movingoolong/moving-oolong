@@ -18,7 +18,6 @@ module.exports = {
         copyright: config.copyright,
     },
     plugins: [
-        "gatsby-plugin-typegen",
         {
             resolve: `gatsby-alias-imports`,
             options: {
@@ -32,7 +31,6 @@ module.exports = {
         "gatsby-plugin-material-ui",
         "gatsby-plugin-use-query-params",
         "gatsby-background-image",
-        
         {
             resolve: `gatsby-plugin-algolia`,
             options: {
@@ -158,6 +156,7 @@ module.exports = {
         }`,
             },
         },
+        "gatsby-plugin-typegen",
         {
             resolve: "gatsby-plugin-manifest",
             options: {
