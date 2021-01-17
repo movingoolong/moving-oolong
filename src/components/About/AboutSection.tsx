@@ -16,8 +16,10 @@ import BackgroundImage from "gatsby-background-image"
 import CustomLink from "components/General/CustomLink"
 
 import usePrefersReducedMotion from "hooks/usePrefersReducedMotion"
+import useBoop from "hooks/useBoop"
 
 const AnimatedGrid = a(Grid)
+const AnimatedButton = a(Button)
 
 const styles = (theme: Theme) =>
     createStyles({
@@ -94,6 +96,8 @@ function AboutSection(props: Props) {
         config: config.molasses,
     })
 
+    const [buttonBoopStyle, trigger] = useBoop({ scale: 1.05 })
+
     return (
         <BackgroundImage
             className={classes.root}
@@ -118,13 +122,15 @@ function AboutSection(props: Props) {
 
                 <AnimatedGrid item style={springRight}>
                     <CustomLink to="/about">
-                        <Button
+                        <AnimatedButton
                             className={classes.button}
                             size="large"
                             variant="contained"
+                            style={buttonBoopStyle}
+                            onMouseEnter={trigger}
                         >
                             About Us
-                        </Button>
+                        </AnimatedButton>
                     </CustomLink>
                 </AnimatedGrid>
             </Grid>

@@ -103,7 +103,7 @@ function EpisodePreview(props: Props) {
     if (!episode.image.childImageSharp?.fluid)
         throw new Error("Image doesn't exist")
 
-    const { title, tags = [], date, imgsrc } = episode.node.frontmatter
+    const { title, tags = [], date } = episode.node.frontmatter
     const { slug } = episode.node.fields
 
     return (
@@ -123,7 +123,7 @@ function EpisodePreview(props: Props) {
                             {showDescription ? (
                                 <MarkdownContent
                                     className={classes.description}
-                                    content={episode.node.html}
+                                    content={episode.node.excerpt}
                                 />
                             ) : (
                                 <></>

@@ -23,6 +23,7 @@ export const episodeFragment = graphql`
             imgsrc
             link
         }
+        excerpt(pruneLength: 100, format: HTML)
         html
         id
     }

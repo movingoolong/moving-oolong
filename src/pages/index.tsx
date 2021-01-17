@@ -13,7 +13,6 @@ import config from "data/SiteConfig"
 import RecentEpisodes from "components/Episode/RecentEpisodes"
 import AboutSection from "components/About/AboutSection"
 import ContactUsSection from "components/About/ContactUsSection"
-import FeedSection from "components/Feeds/FeedSection"
 import SEO from "components/General/SEO"
 
 const styles = (theme: Theme) =>
