@@ -18,6 +18,7 @@ module.exports = {
         copyright: config.copyright,
     },
     plugins: [
+        "gatsby-plugin-typegen",
         {
             resolve: `gatsby-alias-imports`,
             options: {
@@ -31,8 +32,7 @@ module.exports = {
         "gatsby-plugin-material-ui",
         "gatsby-plugin-use-query-params",
         "gatsby-background-image",
-        "gatsby-plugin-typegen",
-        // "gatsby-plugin-sass",
+        
         {
             resolve: `gatsby-plugin-algolia`,
             options: {
@@ -50,21 +50,6 @@ module.exports = {
         //         layout: require.resolve(`./src/components/Layout/Layout.tsx`),
         //     },
         // },
-        {
-            resolve: `gatsby-plugin-prefetch-google-fonts`,
-            options: {
-                fonts: [
-                    {
-                        family: `Poppins`,
-                        variants: [`400`, `700`],
-                    },
-                    {
-                        family: `Passion One`,
-                        variants: [`400`, `700`],
-                    },
-                ],
-            },
-        },
         {
             resolve: "gatsby-source-filesystem",
             options: {
@@ -145,7 +130,6 @@ module.exports = {
         "gatsby-plugin-sharp",
         "gatsby-plugin-catch-links",
         "gatsby-plugin-netlify-cms",
-        "gatsby-plugin-twitter",
         {
             resolve: "gatsby-plugin-sitemap",
             options: {
@@ -180,7 +164,7 @@ module.exports = {
                 name: config.siteTitle,
                 short_name: config.siteTitleShort,
                 description: config.siteDescription,
-                start_url: config.pathPrefix,
+                start_url: "/",
                 background_color: "#e0e0e0",
                 theme_color: "#c62828",
                 display: "minimal-ui",
@@ -188,77 +172,5 @@ module.exports = {
             },
         },
         "gatsby-plugin-offline",
-        // {
-        //   resolve: "gatsby-plugin-feed",
-        //   options: {
-        //     setup(ref) {
-        //       const ret = ref.query.site.siteMetadata.rssMetadata;
-        //       ret.allMarkdownRemark = ref.query.allMarkdownRemark;
-        //       ret.generator = "Moving Oolong Podcast";
-        //       return ret;
-        //     },
-        //     query: `
-        //     {
-        //       site {
-        //         siteMetadata {
-        //           rssMetadata {
-        //             site_url
-        //             feed_url
-        //             title
-        //             description
-        //             image_url
-        //             copyright
-        //           }
-        //         }
-        //       }
-        //     }
-        //   `,
-        //     feeds: [
-        //       {
-        //         serialize(ctx) {
-        //           const { rssMetadata } = ctx.query.site.siteMetadata;
-        //           return ctx.query.allMarkdownRemark.edges.map(edge => ({
-        //             categories: edge.node.frontmatter.tags,
-        //             date: edge.node.frontmatter.date,
-        //             title: edge.node.frontmatter.title,
-        //             description: edge.node.excerpt,
-        //             url: rssMetadata.site_url + edge.node.fields.slug,
-        //             guid: rssMetadata.site_url + edge.node.fields.slug,
-        //             custom_elements: [
-        //               { "content:encoded": edge.node.html },
-        //               { author: config.userEmail }
-        //             ]
-        //           }));
-        //         },
-        //         query: `
-        //         {
-        //           allMarkdownRemark(
-        //             limit: 1000,
-        //             sort: { order: DESC, fields: [frontmatter___date] },
-        //           ) {
-        //             edges {
-        //               node {
-        //                 excerpt
-        //                 html
-        //                 timeToRead
-        //                 fields { slug }
-        //                 frontmatter {
-        //                   title
-        //                   cover
-        //                   date
-        //                   category
-        //                   tags
-        //                 }
-        //               }
-        //             }
-        //           }
-        //         }
-        //       `,
-        //         output: config.siteRss,
-        //         title: config.siteRssTitle
-        //       }
-        //     ]
-        //   }
-        // }
     ],
 }
