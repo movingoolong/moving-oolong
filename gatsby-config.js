@@ -23,7 +23,7 @@ module.exports = {
             options: {
                 aliases: {
                     data: `data/`,
-                    src: `src/`, 
+                    src: `src/`,
                 },
             },
         },
@@ -38,8 +38,8 @@ module.exports = {
                 apiKey: process.env.ALGOLIA_ADMIN_KEY,
                 queries,
                 chunkSize: 1000, // default: 1000
-                enablePartialUpdates: true,
-                matchFields: ["slug", "modified"],
+                enablePartialUpdates: false,
+                matchFields: ["slug"],
             },
         },
         // {
