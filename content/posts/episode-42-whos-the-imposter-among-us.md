@@ -1,7 +1,7 @@
 ---
 title: Episode 42. Who's the Imposter Among Us?
 date: 2020-11-23T13:00:00.000Z
-imgsrc: assets/mo-ig-posts.png
+imgsrc: assets/83403fb3-9b53-4384-a80c-35b1f9dbafbb.jpeg
 category: episode
 tags:
   - college life
