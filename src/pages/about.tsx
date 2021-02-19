@@ -1,13 +1,6 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
-import {
-    Container,
-    Grid,
-    createStyles,
-    Theme,
-    withStyles,
-    WithStyles,
-} from "@material-ui/core"
+import { Container, Grid, makeStyles } from "@material-ui/core"
 import VisibilitySensor from "react-visibility-sensor"
 import { useTrail, animated } from "react-spring"
 import { BODY_FONT } from "src/theme"
@@ -25,23 +18,22 @@ import usePrefersReducedMotion from "hooks/usePrefersReducedMotion"
 const AnimatedGrid = animated(Grid)
 const AnimatedText = animated(Text)
 
-const styles = (theme: Theme) =>
-    createStyles({
-        root: {
-            width: "100%",
-        },
-        item: {
-            marginTop: theme.spacing(2),
-        },
-        title: {
-            color: theme.palette.primary.dark,
-            margin: theme.spacing(4),
-        },
-        description: {
-            marginBottom: theme.spacing(4),
-            fontFamily: BODY_FONT,
-        },
-    })
+const useStyles = makeStyles((theme) => ({
+    root: {
+        width: "100%",
+    },
+    item: {
+        marginTop: theme.spacing(2),
+    },
+    title: {
+        color: theme.palette.primary.dark,
+        margin: theme.spacing(4),
+    },
+    description: {
+        marginBottom: theme.spacing(4),
+        fontFamily: BODY_FONT,
+    },
+}))
 
 export const query = graphql`
     query AboutPage {
@@ -54,12 +46,12 @@ export const query = graphql`
     }
 `
 
-type Props = WithStyles<typeof styles> & {
+type Props = {
     data: GatsbyTypes.AboutPageQuery
 }
 
-export default withStyles(styles)((props: Props) => {
-    const { classes, data } = props
+export default ({ data}: Props) => {
+    const classes = useStyles()
     const bios = useBios()
     const [isVisible, setIsVisible] = useState(false)
     const trails = useTrail(bios.length, {
@@ -94,7 +86,7 @@ export default withStyles(styles)((props: Props) => {
                 <Text
                     variant="subtitle1"
                     align="center"
-                    color="secondary"
+                    color="textPrimary"
                     className={classes.description}
                 >
                     <b>{data.markdownRemark?.frontmatter?.about_page}</b>
@@ -128,4 +120,4 @@ export default withStyles(styles)((props: Props) => {
             </Container>
         </>
     )
-})
+}

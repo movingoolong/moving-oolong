@@ -1,13 +1,5 @@
 import React from "react"
-import {
-    Grid,
-    Container,
-    Theme,
-    createStyles,
-    withStyles,
-    WithStyles,
-} from "@material-ui/core"
-import config from "data/SiteConfig"
+import { Grid, Container, makeStyles } from "@material-ui/core"
 
 // Components
 import RecentEpisodes from "components/Episode/RecentEpisodes"
@@ -15,17 +7,14 @@ import AboutSection from "components/About/AboutSection"
 import ContactUsSection from "components/About/ContactUsSection"
 import SEO from "components/General/SEO"
 
-const styles = (theme: Theme) =>
-    createStyles({
-        contact: {
-            marginTop: theme.spacing(15),
-        },
-    })
+const useStyles = makeStyles((theme) => ({
+    contact: {
+        marginTop: theme.spacing(15),
+    },
+}))
 
-type Props = WithStyles<typeof styles>
-
-export default withStyles(styles)((props: Props) => {
-    const { classes } = props
+export default () => {
+    const classes = useStyles()
     return (
         <>
             <SEO
@@ -53,4 +42,4 @@ export default withStyles(styles)((props: Props) => {
             </Container>
         </>
     )
-})
+}

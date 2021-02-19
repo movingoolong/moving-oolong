@@ -1,14 +1,5 @@
 import React, { useState, FormEvent, SyntheticEvent } from "react"
-import {
-    Button,
-    Hidden,
-    SwipeableDrawer,
-    Grid,
-    Theme,
-    createStyles,
-    withStyles,
-    WithStyles,
-} from "@material-ui/core"
+import { Button, Hidden, SwipeableDrawer, Grid } from "@material-ui/core"
 import { useQueryParam, StringParam } from "use-query-params"
 
 // Components
@@ -22,15 +13,7 @@ import SEO from "components/General/SEO"
 import useTags from "hooks/useTags"
 import useEpisodes from "hooks/useEpisodes"
 
-const styles = (theme: Theme) =>
-    createStyles({
-        root: {},
-    })
-
-type Props = WithStyles<typeof styles>
-
-export default withStyles(styles)((props: Props) => {
-    const { classes } = props
+export default () => {
     const [urlTags, setURLTags] = useQueryParam("tags", StringParam)
     const tags = useTags(urlTags)
     const episodes = useEpisodes(tags)
@@ -94,4 +77,4 @@ export default withStyles(styles)((props: Props) => {
             </Grid>
         </>
     )
-})
+}
