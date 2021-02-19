@@ -1,23 +1,17 @@
 import React from "react"
-import {
-    Toolbar,
-    Theme,
-    createStyles,
-    withStyles,
-    WithStyles,
-} from "@material-ui/core"
+import { Toolbar, makeStyles } from "@material-ui/core"
 
 // Components
 import CustomLink from "components/General/CustomLink"
+import Text from "components/Typography"
 
-const styles = (theme: Theme) =>
-    createStyles({
-        root: {},
+const useStyles = makeStyles(theme =>
+    ({
+        root: {
+            margin: theme.spacing(1),
+        },
         grow: {
             flexGrow: 1,
-        },
-        link: {
-            textDecoration: "none",
         },
         left: {
             textAlign: "left",
@@ -26,17 +20,14 @@ const styles = (theme: Theme) =>
             textAlign: "right",
         },
         postTitle: {
-            color: theme.palette.primary.dark,
-            [theme.breakpoints.down("sm")]: {
-                fontSize: "12px",
-            },
+            color: theme.palette.primary.main,
         },
         helpText: {
-            color: theme.palette.primary.light,
+            color: theme.palette.text.primary,
         },
-    })
+    }))
 
-type Props = WithStyles<typeof styles> & {
+type Props =  {
     prevSlug: string
     prevTitle: string
     nextSlug: string
@@ -44,18 +35,19 @@ type Props = WithStyles<typeof styles> & {
 }
 
 function PostSuggestions(props: Props) {
-    const { classes, prevSlug, prevTitle, nextSlug, nextTitle } = props
+    const {prevSlug, prevTitle, nextSlug, nextTitle } = props
+    const classes = useStyles()
     let previous = <></>
     let next = <></>
 
     if (prevSlug !== "" && prevTitle !== "") {
         previous = (
-            <CustomLink className={classes.link} to={prevSlug}>
+            <CustomLink to={prevSlug}>
                 <div className={classes.left}>
-                    <h4 className={classes.helpText}>
+                    <Text variant="h6" className={classes.helpText}>
                         <b>Previous</b>
-                    </h4>
-                    <h3 className={classes.postTitle}>{prevTitle}</h3>
+                    </Text>
+                    <Text variant="subtitle1" className={classes.postTitle}>{prevTitle}</Text>
                 </div>
             </CustomLink>
         )
@@ -63,12 +55,12 @@ function PostSuggestions(props: Props) {
 
     if (nextSlug !== "" && nextTitle !== "") {
         next = (
-            <CustomLink className={classes.link} to={nextSlug}>
+            <CustomLink to={nextSlug}>
                 <div className={classes.right}>
-                    <h4 className={classes.helpText}>
+                    <Text variant="h6" className={classes.helpText}>
                         <b>Next</b>
-                    </h4>
-                    <h3 className={classes.postTitle}>{nextTitle}</h3>
+                    </Text>
+                    <Text variant="subtitle1" className={classes.postTitle}>{nextTitle}</Text>
                 </div>
             </CustomLink>
         )
@@ -83,4 +75,4 @@ function PostSuggestions(props: Props) {
     )
 }
 
-export default withStyles(styles)(PostSuggestions)
+export default PostSuggestions

@@ -1,29 +1,29 @@
 import React from "react"
-import { Grid, MenuItem, withStyles } from "@material-ui/core"
+import { Grid, MenuItem, makeStyles } from "@material-ui/core"
 
 import moment from "moment"
 import config from "data/SiteConfig"
 import EventIcon from "@material-ui/icons/Event"
 import CustomLink from "components/General/CustomLink"
+import TagLink from "components/Posts/TagLink"
+import Text from "components/Typography"
 
 // Components
-const styles = (theme) => ({
+const useStyles = makeStyles((theme) => ({
     root: {},
     icon: {
-        color: theme.palette.primary.dark,
+        color: theme.palette.primary.main,
     },
     title: {
-        color: theme.palette.primary.main,
         marginBottom: 0,
     },
     date: {
-        color: theme.palette.secondary.main,
         marginLeft: theme.spacing(1),
         margin: 0,
     },
     tags: {
         fontSize: "10px",
-        color: theme.palette.secondary.main,
+        color: theme.palette.text.primary,
         marginLeft: theme.spacing(2),
     },
 
@@ -33,38 +33,49 @@ const styles = (theme) => ({
         "& p": {
             fontSize: "14px",
             margin: 0,
-            color: theme.palette.secondary.main,
+            color: theme.palette.text.primary,
         },
 
         "& a": {
-            color: theme.palette.secondary.dark,
+            color: theme.palette.primary.main,
         },
     },
-})
+}))
 
 const SearchHitComponent = (props) => {
-    const { classes, hit, key } = props
+    const { hit, key } = props
+    const classes = useStyles()
     return (
         <MenuItem key={key}>
             <CustomLink to={hit.slug}>
                 <Grid container direction="column">
                     <Grid item>
-                        <h4 className={classes.title}>{hit.title}</h4>
+                        <Text
+                            variant="h6"
+                            className={classes.title}
+                            color="primary"
+                        >
+                            {hit.title}
+                        </Text>
                     </Grid>
                     <Grid container item alignItems="center">
                         <EventIcon className={classes.icon} color="secondary" />
-                        <h5 className={classes.date}>
+                        <Text
+                            variant="subtitle1"
+                            className={classes.date}
+                            color="textPrimary"
+                        >
                             {moment(hit.date).format(config.dateFormat)}
-                        </h5>
+                        </Text>
                         <div className={classes.tags}>
-                            {hit.tags.map((tag, index) => (
-                                <div key={tag}>{`#${tag} `}</div>
+                            {hit.tags.map((tag) => (
+                                <TagLink tag={tag} key={tag} />
                             ))}
                         </div>
                     </Grid>
                     <Grid item></Grid>
                     <Grid item>
-                        <div
+                        <Text
                             className={classes.description}
                             dangerouslySetInnerHTML={{ __html: hit.html }}
                         />
@@ -75,4 +86,4 @@ const SearchHitComponent = (props) => {
     )
 }
 
-export default withStyles(styles)(SearchHitComponent)
+export default SearchHitComponent
