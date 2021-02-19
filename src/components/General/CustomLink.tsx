@@ -1,23 +1,22 @@
 import React from "react"
 import { Link } from "gatsby"
-import { Theme, createStyles, withStyles, WithStyles } from "@material-ui/core"
+import { makeStyles } from "@material-ui/core"
 import clsx from "clsx"
 
-const styles = (theme: Theme) =>
-    createStyles({
-        root: {
-            textDecoration: "none",
-        },
-    })
+const useStyles = makeStyles({
+    root: {
+        textDecoration: "none",
+    },
+})
 
-type Props = WithStyles<typeof styles> & {
+type Props = {
     to: string
     children: React.ReactNode | React.ReactNodeArray
     className?: string
 }
 
-function CustomLink(props: Props) {
-    const { classes, to, children, className = "" } = props
+function CustomLink({ to, children, className = "" }: Props) {
+    const classes = useStyles()
     return (
         <Link className={clsx(classes.root, className)} to={to}>
             {children}
@@ -25,4 +24,4 @@ function CustomLink(props: Props) {
     )
 }
 
-export default withStyles(styles)(CustomLink)
+export default CustomLink

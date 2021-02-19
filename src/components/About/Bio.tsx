@@ -1,14 +1,6 @@
 import React from "react"
 import Img from "gatsby-image"
-import {
-    Card,
-    CardContent,
-    CardActions,
-    createStyles,
-    Theme,
-    withStyles,
-    WithStyles,
-} from "@material-ui/core"
+import { Card, CardContent, CardActions, makeStyles } from "@material-ui/core"
 import SocialIcons from "./SocialIcons"
 
 // Components
@@ -18,43 +10,39 @@ import Text from "components/Typography/Text"
 // Types
 import { BioType } from "hooks/useBios"
 
-const styles = (theme: Theme) =>
-    createStyles({
-        root: {
-            height: "100%",
-            display: "flex",
-            flexDirection: "column",
-        },
-        content: {
-            height: "100%",
-            display: "flex",
-            flexDirection: "column",
-            flexShrink: 1,
-        },
-        title: {
-            fontWeight: 700,
-            marginTop: theme.spacing(1),
-            marginBottom: theme.spacing(1),
-        },
-        description: {
-            // color: theme.palette.secondary.main,
-        },
-        grow: {
-            flexGrow: 1,
-        },
-        socials: {
-            flexGrow: 1,
-            marginLeft: "auto",
-            marginRight: "auto",
-        },
-    })
+const useStyles = makeStyles((theme) => ({
+    root: {
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+    },
+    content: {
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        flexShrink: 1,
+    },
+    title: {
+        fontWeight: 700,
+        marginTop: theme.spacing(1),
+        marginBottom: theme.spacing(1),
+    },
+    grow: {
+        flexGrow: 1,
+    },
+    socials: {
+        flexGrow: 1,
+        marginLeft: "auto",
+        marginRight: "auto",
+    },
+}))
 
-type Props = WithStyles<typeof styles> & {
+type Props = {
     bio: BioType
 }
 
-function Bio(props: Props) {
-    const { classes, bio } = props
+function Bio({ bio }: Props) {
+    const classes = useStyles()
     if (!bio.node.frontmatter)
         throw new Error("Frontmatter does not exist on bio")
     if (!bio.image.childImageSharp?.fluid)
@@ -78,10 +66,7 @@ function Bio(props: Props) {
                     >
                         {name}
                     </Text>
-                    <MarkdownContent
-                        className={classes.description}
-                        content={bio.node.html}
-                    />
+                    <MarkdownContent content={bio.node.html} />
                 </CardContent>
             </div>
             <CardActions disableSpacing className={classes.socials}>
@@ -91,4 +76,4 @@ function Bio(props: Props) {
     )
 }
 
-export default withStyles(styles)(Bio)
+export default Bio
