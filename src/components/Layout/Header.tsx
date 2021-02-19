@@ -39,6 +39,9 @@ const useStyles = makeStyles((theme) => ({
     },
     button: {
         color: theme.palette.primary.contrastText,
+        [theme.breakpoints.down("xs")]: {
+            color: theme.palette.primary.main,
+        },
     },
     menuButton: {
         marginRight: theme.spacing(2),
@@ -97,10 +100,11 @@ function Header({ location }: Props) {
 
                 <div className={classes.grow} />
 
-                <Hidden xsDown>
+                <Hidden smDown>
                     <Search />
-                    {links}
                 </Hidden>
+
+                <Hidden xsDown>{links}</Hidden>
 
                 <Hidden smUp>
                     <IconButton
