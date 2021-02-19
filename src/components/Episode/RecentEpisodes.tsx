@@ -24,9 +24,19 @@ const useStyles = makeStyles((theme) => ({
         textAlign: "left",
         color: theme.palette.primary.main,
         margin: theme.spacing(2),
+        [theme.breakpoints.down("xs")]: {
+            textAlign: "center",
+        },
     },
-    link: {
+    seeAll: {
+        textAlign: "right",
+        textDecoration: "underline",
         margin: theme.spacing(2),
+        [theme.breakpoints.down("xs")]: {
+            textAlign: "center",
+            marginTop: 0,
+            marginBottom: 0,
+        },
     },
 }))
 
@@ -58,12 +68,12 @@ export default function RecentPosts() {
                         Recent Episodes
                     </Text>
                 </Grid>
-                <Grid>
-                    <CustomLink className={classes.link} to="/episodes">
+                <Grid xs={12} sm={2}>
+                    <CustomLink to="/episodes">
                         <Text
                             variant="subtitle1"
                             color="textPrimary"
-                            align="right"
+                            className={classes.seeAll}
                         >
                             See all episodes
                         </Text>
