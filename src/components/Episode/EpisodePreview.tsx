@@ -20,6 +20,7 @@ import MarkdownContent from "components/General/MarkdownContent"
 import TagLink from "components/Posts/TagLink"
 import CustomLink from "components/General/CustomLink"
 import config from "data/SiteConfig"
+import Text from "components/Typography"
 
 // Types
 import { EpisodeType } from "hooks/useEpisodes"
@@ -116,10 +117,10 @@ function EpisodePreview(props: Props) {
                             alt={`${title} preview image`}
                         />
                         <CardContent className={classes.header}>
-                            <h2 className={classes.title}>{title}</h2>
-                            <h4 className={classes.date}>
+                            <Text variant="h6" className={classes.title}>{title}</Text>
+                            <Text variant="subtitle2" color="textPrimary">
                                 {moment(date).format(config.dateFormat)}
-                            </h4>
+                            </Text>
                             {showDescription ? (
                                 <MarkdownContent
                                     className={classes.description}
