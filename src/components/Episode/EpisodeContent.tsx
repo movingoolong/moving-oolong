@@ -3,10 +3,7 @@ import Img from "gatsby-image"
 import {
     Container,
     Grid,
-    Theme,
-    createStyles,
-    withStyles,
-    WithStyles,
+    makeStyles,
 } from "@material-ui/core"
 
 // Components
@@ -15,8 +12,8 @@ import MarkdownContent from "components/General/MarkdownContent"
 import AnimateOnVisible from "components/General/AnimateOnVisible"
 import { AnimatedText } from "components/Typography"
 
-const styles = (theme: Theme) =>
-    createStyles({
+const useStyles = makeStyles(theme =>
+    ({
         title: {
             margin: theme.spacing(2),
         },
@@ -26,15 +23,15 @@ const styles = (theme: Theme) =>
         tags: {
             color: theme.palette.secondary.main,
         },
-    })
+    }))
 
-type Props = WithStyles<typeof styles> & {
+type Props = {
     episode: GatsbyTypes.EpisodeFragment
     img: GatsbyTypes.FluidImageFragment
 }
 
-function EpisodeContent(props: Props) {
-    const { classes, episode, img } = props
+function EpisodeContent({ episode, img }: Props) {
+    const classes = useStyles()
 
     if (!episode.frontmatter)
         throw new Error("Episode frontmatter doesn't exist")
@@ -101,4 +98,4 @@ function EpisodeContent(props: Props) {
     )
 }
 
-export default withStyles(styles)(EpisodeContent)
+export default EpisodeContent

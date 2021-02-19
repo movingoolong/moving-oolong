@@ -1,25 +1,15 @@
 import React from "react"
-import {
-    Container,
-    Grid,
-    GridProps,
-    Theme,
-    createStyles,
-    withStyles,
-    WithStyles,
-} from "@material-ui/core"
+import { Container, Grid, GridProps, makeStyles } from "@material-ui/core"
 
-// Components
-const styles = (theme: Theme) =>
-    createStyles({
-        root: {
-            marginBottom: theme.spacing(2),
-        },
-        item: {
-            marginTop: theme.spacing(2),
-            marginBottom: theme.spacing(2),
-        },
-    })
+const useStyles = makeStyles((theme) => ({
+    root: {
+        marginBottom: theme.spacing(2),
+    },
+    item: {
+        marginTop: theme.spacing(2),
+        marginBottom: theme.spacing(2),
+    },
+}))
 
 export interface PropsForGrid {
     xs?: GridProps["xs"]
@@ -34,21 +24,13 @@ export interface ReactNodeWithKey {
     key: string | number
 }
 
-type Props = WithStyles<typeof styles> &
-    PropsForGrid & {
-        content: ReactNodeWithKey[]
-    }
+type Props = PropsForGrid & {
+    content: ReactNodeWithKey[]
+}
 
 function ContentGrid(props: Props) {
-    const {
-        classes,
-        content,
-        xs = 12,
-        sm = 4,
-        md = false,
-        lg = 3,
-        xl = false,
-    } = props
+    const { content, xs = 12, sm = 4, md = false, lg = 3, xl = false } = props
+    const classes = useStyles()
 
     return (
         <Container className={classes.root} maxWidth="xl">
@@ -78,4 +60,4 @@ function ContentGrid(props: Props) {
     )
 }
 
-export default withStyles(styles)(ContentGrid)
+export default ContentGrid

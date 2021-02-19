@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react"
+import React, { useState } from "react"
 import {
     InstantSearch,
     Index,
@@ -11,11 +11,7 @@ import {
     ClickAwayListener,
     Grow,
     Popper,
-    withStyles,
-    Theme,
-    createStyles,
-    WithStyles,
-    Drawer,
+    makeStyles,
     PopperProps,
 } from "@material-ui/core"
 
@@ -53,33 +49,30 @@ const Stats = connectStateResults(StatsComponent)
 //         `${res.nbHits} result${res.nbHits > 1 ? `s` : ``}`
 // )
 
-const styles = (theme: Theme) =>
-    createStyles({
-        popper: {
-            width: "50vw",
-            marginTop: theme.spacing(2),
+const useStyles = makeStyles((theme) => ({
+    popper: {
+        width: "50vw",
+        marginTop: theme.spacing(2),
+    },
+    stats: {
+        marginLeft: theme.spacing(2),
+        color: theme.palette.secondary.main,
+    },
+    grow: {
+        transformOrigin: "center bottom",
+        [theme.breakpoints.down("xs")]: {
+            transformOrigin: "center left",
         },
-        stats: {
-            marginLeft: theme.spacing(2),
-            color: theme.palette.secondary.main,
-        },
-        grow: {
-            transformOrigin: "center bottom",
-            [theme.breakpoints.down("xs")]: {
-                transformOrigin: "center left",
-            },
-        },
-        drawer: {
-            width: "300px",
-        },
-    })
+    },
+    drawer: {
+        width: "300px",
+    },
+}))
 
 type ReferenceObject = PopperProps["anchorEl"]
 
-type Props = WithStyles<typeof styles>
-
-function Search(props: Props) {
-    const { classes } = props
+function Search() {
+    const classes = useStyles()
     const [query, setQuery] = useState(``)
     const searchClient = algoliasearch(
         process.env.GATSBY_ALGOLIA_APP_ID as string,
@@ -160,4 +153,4 @@ function Search(props: Props) {
     )
 }
 
-export default withStyles(styles)(Search)
+export default Search

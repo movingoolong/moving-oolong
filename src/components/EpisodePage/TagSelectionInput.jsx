@@ -5,12 +5,12 @@ import {
     FormLabel,
     FormGroup,
     FormControlLabel,
-    withStyles,
+    makeStyles,
 } from "@material-ui/core"
 
 // Components
 
-const styles = (theme) => ({
+const useStyles = makeStyles((theme) => ({
     root: {
         display: "flex",
     },
@@ -23,10 +23,10 @@ const styles = (theme) => ({
     label: {
         color: theme.palette.text.primary,
     },
-})
+}))
 
-function TagSelectionInput(props) {
-    const { classes, tags, urlTags, setURLTags } = props
+function TagSelectionInput({ tags, urlTags, setURLTags }) {
+    const classes = useStyles()
 
     const handleChange = (event) => {
         const urlTagsArray = urlTags !== undefined ? urlTags.split(",") : []
@@ -69,4 +69,4 @@ function TagSelectionInput(props) {
     )
 }
 
-export default withStyles(styles)(TagSelectionInput)
+export default TagSelectionInput

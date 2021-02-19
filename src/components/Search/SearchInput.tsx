@@ -1,55 +1,47 @@
 import React from "react"
 import { connectSearchBox } from "react-instantsearch-dom"
 import { SearchBoxProvided } from "react-instantsearch-core"
-import {
-    TextField,
-    TextFieldProps,
-    withStyles,
-    fade,
-    Theme,
-    createStyles,
-    WithStyles,
-} from "@material-ui/core"
+import { TextField, TextFieldProps, fade, makeStyles } from "@material-ui/core"
 
 // Components
 import SearchIcon from "@material-ui/icons/Search"
 
-const styles = (theme: Theme) =>
-    createStyles({
-        root: {
-            marginLeft: 0,
-            width: "auto",
-            [theme.breakpoints.up("md")]: {
-                marginLeft: theme.spacing(3),
-            },
+const useStyles = makeStyles((theme) => ({
+    root: {
+        marginLeft: 0,
+        width: "auto",
+        [theme.breakpoints.up("md")]: {
+            marginLeft: theme.spacing(3),
         },
-        searchIcon: {
-            pointerEvents: "none",
-            marginRight: theme.spacing(1),
-            marginLeft: theme.spacing(1),
+    },
+    searchIcon: {
+        pointerEvents: "none",
+        marginRight: theme.spacing(1),
+        marginLeft: theme.spacing(1),
+    },
+    textField: {
+        margin: 0,
+        padding: theme.spacing(0),
+        borderRadius: theme.shape.borderRadius,
+        backgroundColor: fade(theme.palette.primary.contrastText, 0.4),
+        "&:hover": {
+            backgroundColor: fade(theme.palette.primary.contrastText, 0.6),
         },
-        textField: {
-            margin: 0,
-            padding: theme.spacing(0),
-            borderRadius: theme.shape.borderRadius,
-            backgroundColor: fade(theme.palette.primary.contrastText, 0.4),
-            "&:hover": {
-                backgroundColor: fade(theme.palette.primary.contrastText, 0.6),
-            },
-            "&:focus": {
-                backgroundColor: fade(theme.palette.primary.contrastText, 0.7),
-            },
+        "&:focus": {
+            backgroundColor: fade(theme.palette.primary.contrastText, 0.7),
         },
-        input: {
-            color: theme.palette.secondary.dark,
-            padding: theme.spacing(1),
-        },
-    })
+    },
+    input: {
+        color: theme.palette.secondary.dark,
+        padding: theme.spacing(1),
+    },
+}))
 
-type Props = WithStyles<typeof styles> & SearchBoxProvided & TextFieldProps
+type Props = SearchBoxProvided & TextFieldProps
 
 const SearchInput = (props: Props, ref: React.Ref<HTMLElement>) => {
-    const { classes, refine, ...rest } = props
+    const { refine, ...rest } = props
+    const classes = useStyles()
     return (
         <div className={classes.root}>
             <TextField
@@ -80,6 +72,4 @@ const SearchInput = (props: Props, ref: React.Ref<HTMLElement>) => {
     )
 }
 
-export default connectSearchBox(
-    withStyles(styles)(React.forwardRef(SearchInput))
-)
+export default connectSearchBox(React.forwardRef(SearchInput))

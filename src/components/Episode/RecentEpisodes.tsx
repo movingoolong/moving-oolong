@@ -1,12 +1,5 @@
 import React from "react"
-import {
-    Grid,
-    Hidden,
-    withStyles,
-    Theme,
-    createStyles,
-    WithStyles,
-} from "@material-ui/core"
+import { Grid, Hidden, makeStyles } from "@material-ui/core"
 
 // Components
 import EpisodeGrid from "./EpisodeGrid"
@@ -16,26 +9,23 @@ import Text from "components/Typography"
 
 import useEpisodes from "hooks/useEpisodes"
 
-const styles = (theme: Theme) =>
-    createStyles({
-        root: {
-            marginLeft: theme.spacing(3),
-            marginRight: theme.spacing(3),
-        },
-        title: {
-            textAlign: "left",
-            color: theme.palette.primary.main,
-            margin: theme.spacing(2),
-        },
-        link: {
-            margin: theme.spacing(2),
-        },
-    })
+const useStyles = makeStyles((theme) => ({
+    root: {
+        marginLeft: theme.spacing(3),
+        marginRight: theme.spacing(3),
+    },
+    title: {
+        textAlign: "left",
+        color: theme.palette.primary.main,
+        margin: theme.spacing(2),
+    },
+    link: {
+        margin: theme.spacing(2),
+    },
+}))
 
-type Props = WithStyles<typeof styles>
-
-function RecentPosts(props: Props) {
-    const { classes } = props
+export default function RecentPosts() {
+    const classes = useStyles()
     const episodes = useEpisodes()
     return (
         <div className={classes.root}>
@@ -70,5 +60,3 @@ function RecentPosts(props: Props) {
         </div>
     )
 }
-
-export default withStyles(styles)(RecentPosts)

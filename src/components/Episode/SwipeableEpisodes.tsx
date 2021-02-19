@@ -1,14 +1,11 @@
 import React, { useState } from "react"
-import { graphql, useStaticQuery } from "gatsby"
 import {
     Container,
     Grid,
     IconButton,
-    withStyles,
-    Theme,
-    createStyles,
-    WithStyles,
+    makeStyles,
 } from "@material-ui/core"
+
 // @ts-ignore
 import SwipeableViews from "react-swipeable-views"
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos"
@@ -18,8 +15,8 @@ import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos"
 import { EpisodeArrayType } from "hooks/useEpisodes"
 import EpisodePreview from "./EpisodePreview"
 
-const styles = (theme: Theme) =>
-    createStyles({
+const useStyles = makeStyles(theme =>
+    ({
         root: {
             marginBottom: theme.spacing(2),
             height: "100%",
@@ -35,15 +32,15 @@ const styles = (theme: Theme) =>
             marginTop: theme.spacing(2),
             marginBottom: theme.spacing(2),
         },
-    })
+    }))
 
-type Props = WithStyles<typeof styles> & {
+type Props =  {
     episodes: EpisodeArrayType
     numShown?: number
 }
 
-function SwipeableEpisodes(props: Props) {
-    const { classes, episodes, numShown = 4 } = props
+function SwipeableEpisodes({ episodes, numShown = 4 }: Props) {
+    const classes = useStyles()
     const [activeStep, setActiveStep] = useState(0)
 
     const handleNext = () => {
@@ -128,4 +125,4 @@ function SwipeableEpisodes(props: Props) {
     )
 }
 
-export default withStyles(styles)(SwipeableEpisodes)
+export default SwipeableEpisodes
