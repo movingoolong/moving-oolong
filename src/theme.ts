@@ -29,7 +29,7 @@ const theme = createMuiTheme({
     typography: {
         fontFamily: HEADING_FONT,
         h1: {
-            fontSize: "2.25em",
+            fontSize: "2.5em",
             fontFamily: HEADING_FONT,
         },
         h2: {

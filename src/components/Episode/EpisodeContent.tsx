@@ -8,30 +8,23 @@ import {
     withStyles,
     WithStyles,
 } from "@material-ui/core"
-import { animated as a } from "react-spring"
 
 // Components
 import TagLink from "components/Posts/TagLink"
 import MarkdownContent from "components/General/MarkdownContent"
 import AnimateOnVisible from "components/General/AnimateOnVisible"
+import { AnimatedText } from "components/Typography"
 
 const styles = (theme: Theme) =>
     createStyles({
-        root: {},
         title: {
-            textAlign: "center",
-            // fontSize: "48px",
-            color: theme.palette.primary.main,
-            // [theme.breakpoints.down("sm")]: {
-            //     fontSize: "24px",
-            // },
+            margin: theme.spacing(2),
         },
         embed: {
             width: "100%",
         },
         tags: {
             color: theme.palette.secondary.main,
-            // fontSize: "12px",
         },
     })
 
@@ -59,9 +52,15 @@ function EpisodeContent(props: Props) {
                 <Grid item xs={12}>
                     <AnimateOnVisible once>
                         {(styleProps) => (
-                            <a.h1 className={classes.title} style={styleProps}>
+                            <AnimatedText
+                                variant="h1"
+                                className={classes.title}
+                                align="center"
+                                color="primary"
+                                style={styleProps}
+                            >
                                 {title}
-                            </a.h1>
+                            </AnimatedText>
                         )}
                     </AnimateOnVisible>
                 </Grid>

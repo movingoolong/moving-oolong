@@ -1,5 +1,6 @@
 import React from "react"
 import { Typography, TypographyProps, makeStyles } from "@material-ui/core"
+import { animated } from "react-spring"
 import clsx from "clsx"
 
 const useStyles = makeStyles((theme) => ({
@@ -53,3 +54,4 @@ function Text(props: Props, ref: React.Ref<HTMLElement>) {
 }
 
 export default React.forwardRef(Text)
+export const AnimatedText = animated(React.forwardRef(Text))

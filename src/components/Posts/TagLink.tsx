@@ -1,32 +1,17 @@
 import React from "react"
-import { createStyles, Theme, withStyles, WithStyles } from "@material-ui/core"
 
 // Components
 import CustomLink from "components/General/CustomLink"
+import Text from "components/Typography"
 
-const styles = (theme: Theme) =>
-    createStyles({
-        link: {
-            color: theme.palette.primary.main,
-        },
-    })
-
-type Props = WithStyles<typeof styles> & {
+type Props = {
     tag: string
 }
 
-function TagLink(props: Props) {
-    const { classes, tag } = props
+const TagLink = ({ tag }: Props) => (
+    <CustomLink to={`/episodes/?tags=${tag}`} key={tag}>
+        <Text variant="body2" color="textPrimary" display="inline">{`#${tag} `}</Text>
+    </CustomLink>
+)
 
-    return (
-        <CustomLink
-            className={classes.link}
-            to={`/episodes/?tags=${tag}`}
-            key={tag}
-        >
-            {`#${tag} `}
-        </CustomLink>
-    )
-}
-
-export default withStyles(styles)(TagLink)
+export default TagLink

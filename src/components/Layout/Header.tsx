@@ -94,7 +94,7 @@ function Header(props: Props & WithStyles<typeof styles>) {
             <Toolbar>
                 <CustomLink to="/">
                     <Logo />
-                    <Text variant="h1" className={classes.title}>Moving Oolong</Text>
+                    <Text variant="h2" className={classes.title}>Moving Oolong</Text>
                 </CustomLink>
 
                 <div className={classes.grow} />

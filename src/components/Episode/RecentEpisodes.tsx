@@ -46,7 +46,7 @@ function RecentPosts(props: Props) {
         <div className={classes.root}>
             <Grid container alignItems="flex-end" justify="space-between">
                 <Grid item xs={12} sm={8}>
-                    <Text variant="h1" className={classes.title}>Recent Episodes</Text>
+                    <Text variant="h2" className={classes.title}>Recent Episodes</Text>
                 </Grid>
                 <Grid>
                     <CustomLink className={classes.link} to="/episodes">
