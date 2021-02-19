@@ -36,7 +36,7 @@ const useStyles = makeStyles(theme =>
 
 type Props =  {
     episodes: EpisodeArrayType
-    numShown?: number
+    numShown: 1 | 2 | 3 | 4
 }
 
 function SwipeableEpisodes({ episodes, numShown = 4 }: Props) {
@@ -67,7 +67,8 @@ function SwipeableEpisodes({ episodes, numShown = 4 }: Props) {
                 <Grid
                     item
                     className={classes.item}
-                    sm={3}
+                    // @ts-ignore Numbers 
+                    sm={12 / numShown}
                     key={episode.node.id}
                 >
                     <EpisodePreview episode={episode} showDescription={false} />

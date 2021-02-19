@@ -1,5 +1,11 @@
 import React from "react"
-import { Grid, Hidden, makeStyles } from "@material-ui/core"
+import {
+    Grid,
+    Hidden,
+    makeStyles,
+    useMediaQuery,
+    useTheme,
+} from "@material-ui/core"
 
 // Components
 import EpisodeGrid from "./EpisodeGrid"
@@ -24,9 +30,26 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
+const useSizing = () => {
+    const theme = useTheme()
+
+    // Have to calculate all cause hooks can't be conditional
+    const isLarge = useMediaQuery(theme.breakpoints.up("xl"))
+    const isMedium = useMediaQuery(theme.breakpoints.up("md"))
+
+    if (isLarge) {
+        return 4
+    } else if (isMedium) {
+        return 3
+    } else {
+        return 2
+    }
+}
+
 export default function RecentPosts() {
     const classes = useStyles()
     const episodes = useEpisodes()
+    const numShown = useSizing()
     return (
         <div className={classes.root}>
             <Grid container alignItems="center" justify="space-between">
@@ -49,7 +72,10 @@ export default function RecentPosts() {
             </Grid>
 
             <Hidden xsDown>
-                <SwipeableEpisodes episodes={episodes.slice(0, 8)} />
+                <SwipeableEpisodes
+                    episodes={episodes.slice(0, numShown * 2)}
+                    numShown={numShown}
+                />
             </Hidden>
             <Hidden smUp>
                 <EpisodeGrid
