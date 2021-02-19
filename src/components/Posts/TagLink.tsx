@@ -7,7 +7,7 @@ import CustomLink from "components/General/CustomLink"
 const styles = (theme: Theme) =>
     createStyles({
         link: {
-            color: theme.palette.secondary.main,
+            color: theme.palette.primary.main,
         },
     })
 

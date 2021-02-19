@@ -32,12 +32,12 @@ const styles = (theme: Theme) =>
             margin: 0,
             padding: theme.spacing(0),
             borderRadius: theme.shape.borderRadius,
-            backgroundColor: fade(theme.palette.primary.dark, 0.2),
+            backgroundColor: fade(theme.palette.primary.contrastText, 0.4),
             "&:hover": {
-                backgroundColor: fade(theme.palette.primary.dark, 0.4),
+                backgroundColor: fade(theme.palette.primary.contrastText, 0.6),
             },
             "&:focus": {
-                backgroundColor: fade(theme.palette.primary.dark, 0.5),
+                backgroundColor: fade(theme.palette.primary.contrastText, 0.7),
             },
         },
         input: {
@@ -61,7 +61,7 @@ const SearchInput = (props: Props, ref: React.Ref<HTMLElement>) => {
                     startAdornment: (
                         <SearchIcon
                             className={classes.searchIcon}
-                            color="secondary"
+                            color="primary"
                         />
                     ),
                     margin: "dense",

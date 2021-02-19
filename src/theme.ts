@@ -1,29 +1,57 @@
-import { createMuiTheme } from "@material-ui/core/styles"
+import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles"
 // @ts-ignore Importing a font so no type
-import HussarBold from "assets/fonts/HussarBold.otf"
+import SukarBlack from "assets/fonts/Sukar-Black.ttf"
 
-const hussarBold = {
-    fontFamily: "Hussar Bold",
+const fontFace = {
+    fontFamily: "Sukar Black",
     fontStyle: "normal",
-    src: `url(${HussarBold})`,
+    src: `url(${SukarBlack})`,
 }
 
-export const HEADING_FONT = ["Hussar Bold", "sans-serif"].join()
+export const HEADING_FONT = ["Sukar Black", "sans-serif"].join()
 export const BODY_FONT = ["Poppins", "san-serif"].join()
 
 // A custom theme for this app
 const theme = createMuiTheme({
     palette: {
         primary: {
-            main: "#a9ddde",
-            contrastText: "#26547C",
+            main: "#3C787E",
+            // dark: "#36685a",
+            contrastText: "#ffffff",
         },
         secondary: {
-            main: "#989C94",
+            main: "#C1666B",
         },
+        text: {
+            primary: "#545454",
+        }
     },
     typography: {
         fontFamily: HEADING_FONT,
+        h1: {
+            fontSize: "2.25em",
+            fontFamily: HEADING_FONT,
+        },
+        h2: {
+            fontSize: "2.15em",
+            fontFamily: HEADING_FONT,
+        },
+        h3: {
+            fontSize: "2em",
+            fontFamily: HEADING_FONT,
+        },
+        h4: {
+            fontSize: "1.75em",
+            fontFamily: HEADING_FONT,
+        },
+        h5: {
+            fontSize: "1.6em",
+            fontFamily: HEADING_FONT,
+        },
+        h6: {
+            fontSize: "1.45em",
+            fontFamily: HEADING_FONT,
+        },
         body1: {
             fontFamily: BODY_FONT,
         },
@@ -37,7 +65,7 @@ const theme = createMuiTheme({
     overrides: {
         MuiCssBaseline: {
             "@global": {
-                "@font-face": [hussarBold],
+                "@font-face": [fontFace],
                 h1: {
                     fontFamily: HEADING_FONT,
                 },
@@ -64,4 +92,4 @@ const theme = createMuiTheme({
     },
 })
 
-export default theme
+export default responsiveFontSizes(theme)

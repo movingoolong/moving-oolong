@@ -1,43 +1,47 @@
 import React from "react"
 import clsx from "clsx"
-import { Theme, createStyles, withStyles, WithStyles } from "@material-ui/core"
+import { makeStyles } from "@material-ui/core"
 import ClientOnly from "components/General/ClientOnly"
+import Text from "components/Typography"
 
-const styles = (theme: Theme) =>
-    createStyles({
-        root: {
-            "& p": {
-                fontSize: "14px",
-                color: theme.palette.secondary.main,
-            },
-
-            "& a": {
-                color: theme.palette.secondary.dark,
-            },
+const useStyles = makeStyles((theme) => ({
+    root: {
+        "& a": {
+            color: theme.palette.primary.dark,
         },
-    })
+    },
+}))
 
-type Props = WithStyles<typeof styles> & {
+type Props = {
     content: string | undefined
     className?: string
 }
 
 function MarkdownContent(props: Props) {
-    const { content, className = "", classes } = props
+    const { content, className = "" } = props
+    const classes = useStyles()
     const textClassName = clsx(classes.root, className)
 
     return (
         <ClientOnly>
             {content ? (
-                <div
+                <Text
                     className={textClassName}
+                    variant="body1"
+                    color="textPrimary"
                     dangerouslySetInnerHTML={{ __html: content }}
                 />
             ) : (
-                <div className={textClassName}>No description provided</div>
+                <Text
+                    className={textClassName}
+                    variant="body1"
+                    color="textPrimary"
+                >
+                    No description provided
+                </Text>
             )}
         </ClientOnly>
     )
 }
 
-export default withStyles(styles)(MarkdownContent)
+export default MarkdownContent

@@ -20,25 +20,18 @@ const styles = (theme: Theme) =>
         root: {},
         title: {
             textAlign: "center",
-            fontSize: "48px",
+            // fontSize: "48px",
             color: theme.palette.primary.main,
-            [theme.breakpoints.down("sm")]: {
-                fontSize: "24px",
-            },
+            // [theme.breakpoints.down("sm")]: {
+            //     fontSize: "24px",
+            // },
         },
         embed: {
             width: "100%",
         },
-        body: {
-            fontSize: "16px",
-            color: theme.palette.secondary.main,
-            "& a": {
-                color: theme.palette.secondary.dark,
-            },
-        },
         tags: {
             color: theme.palette.secondary.main,
-            fontSize: "12px",
+            // fontSize: "12px",
         },
     })
 
@@ -94,10 +87,7 @@ function EpisodeContent(props: Props) {
                         />
                     </Grid>
                     <Grid item>
-                        <MarkdownContent
-                            className={classes.body}
-                            content={episode.html}
-                        />
+                        <MarkdownContent content={episode.html} />
                     </Grid>
                     <Grid item>
                         <div className={classes.tags}>

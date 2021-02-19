@@ -52,22 +52,22 @@ const styles = (theme: Theme) =>
             marginTop: 0,
             marginBottom: 0,
             padding: 0,
-            [theme.breakpoints.only("sm")]: {
-                fontSize: "14px",
-            },
+            // [theme.breakpoints.only("sm")]: {
+            //     fontSize: "14px",
+            // },
         },
         date: {
-            color: theme.palette.secondary.main,
+            color: theme.palette.text.primary,
             fontFamily: BODY_FONT,
             margin: 0,
             marginTop: theme.spacing(1),
-            [theme.breakpoints.only("sm")]: {
-                fontSize: "12px",
-            },
+            // [theme.breakpoints.only("sm")]: {
+            //     fontSize: "12px",
+            // },
         },
         description: {
-            height: "65px",
-            overflow: "hidden",
+            // height: "65px",
+            // overflow: "hidden",
         },
         action: {
             //display: "flex",
@@ -81,7 +81,7 @@ const styles = (theme: Theme) =>
             flexGrow: 1,
         },
         tags: {
-            fontSize: "10px",
+            // fontSize: "10px",
         },
 
         button: {

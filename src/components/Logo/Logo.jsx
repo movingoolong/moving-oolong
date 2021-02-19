@@ -15,7 +15,7 @@ function Logo(props) {
         {
             file(relativePath: { eq: "logo.png" }) {
                 childImageSharp {
-                    fixed(width: 50, height: 50) {
+                    fixed(width: 75, height: 75) {
                         ...GatsbyImageSharpFixed_noBase64
                     }
                 }

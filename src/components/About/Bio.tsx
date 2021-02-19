@@ -38,7 +38,7 @@ const styles = (theme: Theme) =>
             marginBottom: theme.spacing(1),
         },
         description: {
-            color: theme.palette.secondary.main,
+            // color: theme.palette.secondary.main,
         },
         grow: {
             flexGrow: 1,

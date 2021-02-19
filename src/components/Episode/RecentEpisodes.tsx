@@ -12,13 +12,16 @@ import {
 import EpisodeGrid from "./EpisodeGrid"
 import SwipeableEpisodes from "./SwipeableEpisodes"
 import CustomLink from "components/General/CustomLink"
+import Text from "components/Typography"
 
 import useEpisodes from "hooks/useEpisodes"
 
 const styles = (theme: Theme) =>
     createStyles({
         root: {
-            marginTop: theme.spacing(1),
+            marginLeft: theme.spacing(3),
+            marginRight: theme.spacing(3),
+            //marginTop: theme.spacing(1),
         },
         title: {
             textAlign: "left",
@@ -29,7 +32,7 @@ const styles = (theme: Theme) =>
         link: {
             textAlign: "right",
             color: theme.palette.primary.dark,
-            fontSize: "16px",
+            // fontSize: "16px",
             margin: theme.spacing(2),
         },
     })
@@ -43,11 +46,11 @@ function RecentPosts(props: Props) {
         <div className={classes.root}>
             <Grid container alignItems="flex-end" justify="space-between">
                 <Grid item xs={12} sm={8}>
-                    <h1 className={classes.title}>Recent Episodes</h1>
+                    <Text variant="h1" className={classes.title}>Recent Episodes</Text>
                 </Grid>
                 <Grid>
                     <CustomLink className={classes.link} to="/episodes">
-                        <i>See all episodes</i>
+                        <Text variant="subtitle1" color="textPrimary">See all episodes</Text>
                     </CustomLink>
                 </Grid>
             </Grid>

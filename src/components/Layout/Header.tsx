@@ -18,6 +18,7 @@ import MenuIcon from "@material-ui/icons/Menu"
 import Logo from "components/Logo/Logo"
 import Search from "components/Search/Search"
 import CustomLink from "components/General/CustomLink"
+import Text from "components/Typography"
 
 const styles = (theme: Theme) =>
     createStyles({
@@ -26,16 +27,11 @@ const styles = (theme: Theme) =>
             opacity: 0.9,
         },
         title: {
-            color: "#ffffff",
-            margin: theme.spacing(1),
-            marginLeft: theme.spacing(2),
+            color: theme.palette.primary.contrastText,
+            marginLeft: theme.spacing(1),
             display: "inline",
-            textTransform: "uppercase",
-            fontSize: "24px",
+            textTransform: "none",
             verticalAlign: "-15%",
-            [theme.breakpoints.down("sm")]: {
-                fontSize: "18px",
-            },
         },
         grow: {
             flexGrow: 1,
@@ -46,11 +42,9 @@ const styles = (theme: Theme) =>
             display: "inline-block",
         },
         button: {
-            color: theme.palette.primary.dark,
-            //textTransform: 'lowercase',
+            color: theme.palette.primary.contrastText,
         },
         menuButton: {
-            //color: "#ffffff",
             marginRight: theme.spacing(2),
         },
         drawer: {
@@ -98,9 +92,9 @@ function Header(props: Props & WithStyles<typeof styles>) {
             elevation={0}
         >
             <Toolbar>
-                <CustomLink className={classes.link} to="/">
+                <CustomLink to="/">
                     <Logo />
-                    <h2 className={classes.title}>Moving Oolong</h2>
+                    <Text variant="h1" className={classes.title}>Moving Oolong</Text>
                 </CustomLink>
 
                 <div className={classes.grow} />
