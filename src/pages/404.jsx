@@ -1,15 +1,14 @@
 import React from "react"
-import { Container, withStyles } from "@material-ui/core"
+import { Container } from "@material-ui/core"
 
+import Text from "components/Typography"
 // Components
-const styles = {
-    root: {},
-}
 
-export default withStyles(styles)((props) => {
+
+export default () => {
     return (
         <Container>
-            <h1>Oops page couldn't be found!</h1>
+            <Text variant="h1" align="center">Oops page couldn't be found!</Text>
         </Container>
     )
-})
+}

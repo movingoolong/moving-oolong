@@ -21,7 +21,7 @@ const styles = (theme) => ({
         color: theme.palette.primary.main,
     },
     label: {
-        color: theme.palette.secondary.dark,
+        color: theme.palette.text.primary,
     },
 })
 

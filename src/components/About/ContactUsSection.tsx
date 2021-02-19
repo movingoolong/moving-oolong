@@ -1,13 +1,5 @@
 import React, { useState } from "react"
-import {
-    Button,
-    Grid,
-    Container,
-    Theme,
-    createStyles,
-    withStyles,
-    WithStyles,
-} from "@material-ui/core"
+import { Button, Grid, Container, makeStyles } from "@material-ui/core"
 import { Facebook, Instagram, Email } from "@material-ui/icons"
 import VisibilitySensor from "react-visibility-sensor"
 import { useTrail, animated as a, config } from "react-spring"
@@ -20,28 +12,25 @@ import usePrefersReducedMotion from "hooks/usePrefersReducedMotion"
 
 const AnimatedGrid = a(Grid)
 
-const styles = (theme: Theme) =>
-    createStyles({
-        title: {
-            textAlign: "center",
-            color: theme.palette.primary.main,
-        },
-        moving: {
-            textAlign: "center",
-        },
-        button: {
-            width: "100%",
-        },
-        text: {
-            textTransform: "none",
-            marginLeft: theme.spacing(1),
-        },
-    })
+const useStyles = makeStyles((theme) => ({
+    title: {
+        textAlign: "center",
+        color: theme.palette.primary.main,
+    },
+    moving: {
+        textAlign: "center",
+    },
+    button: {
+        width: "100%",
+    },
+    text: {
+        textTransform: "none",
+        marginLeft: theme.spacing(1),
+    },
+}))
 
-type Props = WithStyles<typeof styles>
-
-export default withStyles(styles)((props: Props) => {
-    const { classes } = props
+export default () => {
+    const classes = useStyles()
     const socialIcons = [
         <Button
             className={classes.button}
@@ -118,4 +107,4 @@ export default withStyles(styles)((props: Props) => {
             </VisibilitySensor>
         </Container>
     )
-})
+}

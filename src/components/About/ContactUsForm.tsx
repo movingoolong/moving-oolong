@@ -3,35 +3,32 @@ import {
     Button,
     CircularProgress,
     TextField,
-    Theme,
-    createStyles,
-    withStyles,
-    WithStyles,
+    makeStyles,
 } from "@material-ui/core"
 // Components
+import Text from "components/Typography"
 
-const styles = (theme: Theme) =>
-    createStyles({
-        root: {
-            padding: theme.spacing(1),
-        },
-        submit: {
-            marginLeft: "auto",
-            marginRight: "auto",
-        },
-        backdrop: {
-            zIndex: theme.zIndex.drawer + 1,
-            color: "#fff",
-        },
-        success: {
-            color: theme.palette.primary.dark,
-            textAlign: "center",
-        },
-        failure: {
-            color: "#f44336",
-            textAlign: "center",
-        },
-    })
+const useStyles = makeStyles((theme) => ({
+    root: {
+        padding: theme.spacing(1),
+    },
+    submit: {
+        marginLeft: "auto",
+        marginRight: "auto",
+    },
+    backdrop: {
+        zIndex: theme.zIndex.drawer + 1,
+        color: "#fff",
+    },
+    success: {
+        color: theme.palette.primary.dark,
+        textAlign: "center",
+    },
+    failure: {
+        color: "#f44336",
+        textAlign: "center",
+    },
+}))
 
 const encode = (data: Record<string, string>) => {
     return Object.keys(data)
@@ -42,8 +39,6 @@ const encode = (data: Record<string, string>) => {
         .join("&")
 }
 
-type Props = WithStyles<typeof styles>
-
 type State = {
     name: string
     email: string
@@ -51,8 +46,8 @@ type State = {
     body: string
 }
 
-export default withStyles(styles)((props: Props) => {
-    const { classes } = props
+export default () => {
+    const classes = useStyles()
     const [state, setState] = useState<State>({
         name: "",
         email: "",
@@ -88,16 +83,16 @@ export default withStyles(styles)((props: Props) => {
         })
             .then(() => {
                 setSubmitContent(
-                    <h3 className={classes.success}>
+                    <Text variant="h4" className={classes.success}>
                         Success! Thank you for your message!
-                    </h3>
+                    </Text>
                 )
             })
             .catch((error) => {
                 setSubmitContent(
-                    <h3 className={classes.failure}>
+                    <Text variant="h4" className={classes.failure}>
                         Failed to send message! {error}
-                    </h3>
+                    </Text>
                 )
             })
 
@@ -119,7 +114,7 @@ export default withStyles(styles)((props: Props) => {
                     label="Name"
                     name="name"
                     variant="outlined"
-                    color="secondary"
+                    color="primary"
                     margin="dense"
                     fullWidth
                     value={state.name}
@@ -131,7 +126,7 @@ export default withStyles(styles)((props: Props) => {
                     label="Email"
                     name="email"
                     variant="outlined"
-                    color="secondary"
+                    color="primary"
                     margin="dense"
                     fullWidth
                     value={state.email}
@@ -143,7 +138,7 @@ export default withStyles(styles)((props: Props) => {
                     label="Subject"
                     name="subject"
                     variant="outlined"
-                    color="secondary"
+                    color="primary"
                     margin="normal"
                     fullWidth
                     value={state.subject}
@@ -155,7 +150,7 @@ export default withStyles(styles)((props: Props) => {
                     label="Body"
                     name="body"
                     variant="outlined"
-                    color="secondary"
+                    color="primary"
                     margin="normal"
                     fullWidth
                     multiline
@@ -167,4 +162,4 @@ export default withStyles(styles)((props: Props) => {
             </form>
         </div>
     )
-})
+}
