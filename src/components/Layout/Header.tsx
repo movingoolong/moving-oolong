@@ -7,10 +7,7 @@ import {
     Hidden,
     IconButton,
     Toolbar,
-    Theme,
-    createStyles,
-    withStyles,
-    WithStyles,
+    makeStyles,
 } from "@material-ui/core"
 import MenuIcon from "@material-ui/icons/Menu"
 
@@ -20,44 +17,43 @@ import Search from "components/Search/Search"
 import CustomLink from "components/General/CustomLink"
 import Text from "components/Typography"
 
-const styles = (theme: Theme) =>
-    createStyles({
-        root: {
-            flexGrow: 1,
-            opacity: 0.9,
-        },
-        title: {
-            color: theme.palette.primary.contrastText,
-            marginLeft: theme.spacing(1),
-            display: "inline",
-            textTransform: "none",
-            verticalAlign: "-15%",
-        },
-        grow: {
-            flexGrow: 1,
-        },
-        link: {
-            margin: theme.spacing(1),
-            textDecoration: "none",
-            display: "inline-block",
-        },
-        button: {
-            color: theme.palette.primary.contrastText,
-        },
-        menuButton: {
-            marginRight: theme.spacing(2),
-        },
-        drawer: {
-            width: "40%",
-        },
-    })
+const useStyles = makeStyles((theme) => ({
+    root: {
+        flexGrow: 1,
+        opacity: 0.9,
+    },
+    title: {
+        color: theme.palette.primary.contrastText,
+        marginLeft: theme.spacing(1),
+        display: "inline",
+        textTransform: "none",
+        verticalAlign: "-15%",
+    },
+    grow: {
+        flexGrow: 1,
+    },
+    link: {
+        margin: theme.spacing(1),
+        textDecoration: "none",
+        display: "inline-block",
+    },
+    button: {
+        color: theme.palette.primary.contrastText,
+    },
+    menuButton: {
+        marginRight: theme.spacing(2),
+    },
+    drawer: {
+        width: "40%",
+    },
+}))
 
 type Props = {
     location: PageProps["location"]
 }
 
-function Header(props: Props & WithStyles<typeof styles>) {
-    const { classes, location } = props
+function Header({ location }: Props) {
+    const classes = useStyles()
     const [mobileOpen, setMobileOpen] = useState(false)
 
     const handleDrawerToggle = () => {
@@ -94,7 +90,9 @@ function Header(props: Props & WithStyles<typeof styles>) {
             <Toolbar>
                 <CustomLink to="/">
                     <Logo />
-                    <Text variant="h2" className={classes.title}>Moving Oolong</Text>
+                    <Text variant="h2" className={classes.title}>
+                        Moving Oolong
+                    </Text>
                 </CustomLink>
 
                 <div className={classes.grow} />
@@ -133,4 +131,4 @@ function Header(props: Props & WithStyles<typeof styles>) {
     )
 }
 
-export default withStyles(styles)(Header)
+export default Header
