@@ -7,10 +7,7 @@ import {
     CardContent,
     CardActions,
     Grid,
-    createStyles,
-    Theme,
-    withStyles,
-    WithStyles,
+    makeStyles,
 } from "@material-ui/core"
 import moment from "moment"
 import { BODY_FONT } from "src/theme"
@@ -25,78 +22,60 @@ import Text from "components/Typography"
 // Types
 import { EpisodeType } from "hooks/useEpisodes"
 
-const styles = (theme: Theme) =>
-    createStyles({
-        root: {
-            display: "flex",
-            height: "100%",
-            flexDirection: "column",
-            margin: theme.spacing(1),
-            [theme.breakpoints.down("sm")]: {
-                margin: theme.spacing(0),
-            },
+const useStyles = makeStyles((theme) => ({
+    root: {
+        display: "flex",
+        height: "100%",
+        flexDirection: "column",
+        margin: theme.spacing(1),
+        [theme.breakpoints.down("sm")]: {
+            margin: theme.spacing(0),
         },
-        content: {
-            height: "100%",
-            display: "flex",
-            flexDirection: "column",
-            flexShrink: 1,
-        },
-        header: {
-            paddingBottom: 0,
-        },
-        link: {
-            color: "#ffffff",
-        },
-        title: {
-            color: theme.palette.primary.main,
-            marginTop: 0,
-            marginBottom: 0,
-            padding: 0,
-            // [theme.breakpoints.only("sm")]: {
-            //     fontSize: "14px",
-            // },
-        },
-        date: {
-            color: theme.palette.text.primary,
-            fontFamily: BODY_FONT,
-            margin: 0,
-            marginTop: theme.spacing(1),
-            // [theme.breakpoints.only("sm")]: {
-            //     fontSize: "12px",
-            // },
-        },
-        description: {
-            // height: "65px",
-            // overflow: "hidden",
-        },
-        action: {
-            //display: "flex",
-            flexGrow: 1,
-            margin: 0,
-            marginLeft: theme.spacing(1),
-            marginRight: theme.spacing(1),
-            paddingTop: 0,
-        },
-        grow: {
-            flexGrow: 1,
-        },
-        tags: {
-            // fontSize: "10px",
-        },
+    },
+    content: {
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        flexShrink: 1,
+    },
+    header: {
+        paddingBottom: 0,
+    },
+    link: {
+        color: "#ffffff",
+    },
+    title: {
+        color: theme.palette.primary.main,
+        marginTop: 0,
+        marginBottom: 0,
+        padding: 0,
+    },
+    date: {
+        color: theme.palette.text.primary,
+        fontFamily: BODY_FONT,
+        margin: 0,
+        marginTop: theme.spacing(1),
+    },
+    action: {
+        //display: "flex",
+        flexGrow: 1,
+        margin: 0,
+        marginLeft: theme.spacing(1),
+        marginRight: theme.spacing(1),
+        paddingTop: 0,
+    },
+    grow: {
+        flexGrow: 1,
+    },
+}))
 
-        button: {
-            //marginLeft: "auto",
-        },
-    })
-
-type Props = WithStyles<typeof styles> & {
+type Props = {
     episode: EpisodeType
     showDescription?: boolean
 }
 
-function EpisodePreview(props: Props) {
-    const { classes, episode, showDescription = true, ...rest } = props
+function EpisodePreview({ episode, showDescription = true, ...rest }: Props) {
+    const classes = useStyles()
 
     if (!episode.node.frontmatter)
         throw new Error("Frontmatter does not exist on episode")
@@ -117,13 +96,14 @@ function EpisodePreview(props: Props) {
                             alt={`${title} preview image`}
                         />
                         <CardContent className={classes.header}>
-                            <Text variant="h6" className={classes.title}>{title}</Text>
+                            <Text variant="h6" className={classes.title}>
+                                {title}
+                            </Text>
                             <Text variant="subtitle2" color="textPrimary">
                                 {moment(date).format(config.dateFormat)}
                             </Text>
                             {showDescription ? (
                                 <MarkdownContent
-                                    className={classes.description}
                                     content={episode.node.excerpt}
                                 />
                             ) : (
@@ -137,19 +117,12 @@ function EpisodePreview(props: Props) {
             <CardActions className={classes.action}>
                 <Grid container alignItems="flex-end" justify="space-between">
                     <Grid item xs={6}>
-                        <div className={classes.tags}>
-                            {tags.map((tag = "") => (
-                                <TagLink tag={tag} key={tag} />
-                            ))}
-                        </div>
+                        {tags.map((tag = "") => (
+                            <TagLink tag={tag} key={tag} />
+                        ))}
                     </Grid>
                     <Grid item>
-                        <Button
-                            className={classes.button}
-                            color="secondary"
-                            size="small"
-                            href={slug}
-                        >
+                        <Button color="secondary" size="small" href={slug}>
                             Read More
                         </Button>
                     </Grid>
@@ -159,4 +132,4 @@ function EpisodePreview(props: Props) {
     )
 }
 
-export default withStyles(styles)(EpisodePreview)
+export default EpisodePreview
