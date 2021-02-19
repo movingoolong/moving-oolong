@@ -1,37 +1,27 @@
 import React from "react"
-import {
-    Grid,
-    Theme,
-    SvgIcon,
-    createStyles,
-    withStyles,
-    WithStyles,
-} from "@material-ui/core"
+import { Grid, SvgIcon, makeStyles } from "@material-ui/core"
 import config from "data/SiteConfig"
 import { Facebook, Instagram, YouTube } from "@material-ui/icons"
 
 // Components
-import Text from "components/Typography/Text"
+import Text from "components/Typography"
 import ClientOnly from "components/General/ClientOnly"
 import TooltipIcon from "components/General/TooltipIcon"
 
-const styles = (theme: Theme) =>
-    createStyles({
-        root: {
-            padding: theme.spacing(1),
-            [theme.breakpoints.up("md")]: {
-                paddingRight: theme.spacing(3),
-            },
+const useStyles = makeStyles((theme) => ({
+    root: {
+        padding: theme.spacing(1),
+        [theme.breakpoints.up("md")]: {
+            paddingRight: theme.spacing(3),
         },
-        copyright: {
-            marginLeft: theme.spacing(3),
-        },
-    })
+    },
+    copyright: {
+        marginLeft: theme.spacing(3),
+    },
+}))
 
-type Props = WithStyles<typeof styles>
-
-function Footer(props: Props) {
-    const { classes } = props
+export default function Footer() {
+    const classes = useStyles()
     return (
         <ClientOnly>
             <Grid
@@ -88,5 +78,3 @@ function Footer(props: Props) {
         </ClientOnly>
     )
 }
-
-export default withStyles(styles)(Footer)
