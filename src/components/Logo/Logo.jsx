@@ -1,16 +1,16 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-import { withStyles } from "@material-ui/core"
+import { makeStyles } from "@material-ui/core"
 
-const styles = (theme) => ({
+const useStyles = makeStyles({
     root: {
         verticalAlign: "middle",
     },
 })
 
-function Logo(props) {
-    const { classes } = props
+function Logo() {
+    const classes = useStyles();
     const data = useStaticQuery(graphql`
         {
             file(relativePath: { eq: "logo.png" }) {
@@ -33,4 +33,4 @@ function Logo(props) {
     )
 }
 
-export default withStyles(styles)(Logo)
+export default Logo

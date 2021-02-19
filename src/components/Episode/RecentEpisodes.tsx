@@ -21,18 +21,13 @@ const styles = (theme: Theme) =>
         root: {
             marginLeft: theme.spacing(3),
             marginRight: theme.spacing(3),
-            //marginTop: theme.spacing(1),
         },
         title: {
             textAlign: "left",
             color: theme.palette.primary.main,
             margin: theme.spacing(2),
-            marginBottom: 0,
         },
         link: {
-            textAlign: "right",
-            color: theme.palette.primary.dark,
-            // fontSize: "16px",
             margin: theme.spacing(2),
         },
     })
@@ -44,13 +39,21 @@ function RecentPosts(props: Props) {
     const episodes = useEpisodes()
     return (
         <div className={classes.root}>
-            <Grid container alignItems="flex-end" justify="space-between">
+            <Grid container alignItems="center" justify="space-between">
                 <Grid item xs={12} sm={8}>
-                    <Text variant="h2" className={classes.title}>Recent Episodes</Text>
+                    <Text variant="h2" className={classes.title}>
+                        Recent Episodes
+                    </Text>
                 </Grid>
                 <Grid>
                     <CustomLink className={classes.link} to="/episodes">
-                        <Text variant="subtitle1" color="textPrimary">See all episodes</Text>
+                        <Text
+                            variant="subtitle1"
+                            color="textPrimary"
+                            align="right"
+                        >
+                            See all episodes
+                        </Text>
                     </CustomLink>
                 </Grid>
             </Grid>
