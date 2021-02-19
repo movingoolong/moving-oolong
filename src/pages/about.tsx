@@ -8,7 +8,7 @@ import { BODY_FONT } from "src/theme"
 // Components
 import Bio from "components/About/Bio"
 import SEO from "components/General/SEO"
-import Text from "components/Typography/Text"
+import Text, { AnimatedText } from "components/Typography"
 import AnimateOnVisible from "components/General/AnimateOnVisible"
 
 // Hooks
@@ -16,7 +16,6 @@ import useBios from "hooks/useBios"
 import usePrefersReducedMotion from "hooks/usePrefersReducedMotion"
 
 const AnimatedGrid = animated(Grid)
-const AnimatedText = animated(Text)
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -26,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
         marginTop: theme.spacing(2),
     },
     title: {
-        color: theme.palette.primary.dark,
+        color: theme.palette.primary.main,
         margin: theme.spacing(4),
     },
     description: {
@@ -50,7 +49,7 @@ type Props = {
     data: GatsbyTypes.AboutPageQuery
 }
 
-export default ({ data}: Props) => {
+export default ({ data }: Props) => {
     const classes = useStyles()
     const bios = useBios()
     const [isVisible, setIsVisible] = useState(false)
