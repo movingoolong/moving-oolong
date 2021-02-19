@@ -84,7 +84,7 @@ function EpisodePageContent() {
             </Grid>
 
             {ICONS.map(({ href, src, alt }) => (
-                <Grid item>
+                <Grid item key={alt}>
                     <IconButton href={href}>
                         <img src={src} alt={alt} />
                     </IconButton>

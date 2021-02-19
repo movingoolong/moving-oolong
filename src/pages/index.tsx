@@ -9,7 +9,7 @@ import SEO from "components/General/SEO"
 
 const useStyles = makeStyles((theme) => ({
     contact: {
-        marginTop: theme.spacing(15),
+        marginTop: theme.spacing(2),
     },
 }))
 
