@@ -50,7 +50,7 @@ export default function Footer() {
                 container
                 alignItems="center"
                 wrap="nowrap"
-                justify="flex-end"
+                justify="center"
                 className={classes.root}
             >
                 {ICONS.map(({ title, href, icon }) => (
