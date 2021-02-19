@@ -32,7 +32,6 @@ const styles = (theme: Theme) =>
             flexShrink: 1,
         },
         title: {
-            color: theme.palette.primary.dark,
             fontWeight: 700,
             marginTop: theme.spacing(1),
             marginBottom: theme.spacing(1),
@@ -71,7 +70,12 @@ function Bio(props: Props) {
                     alt={`${name} bio image`}
                 />
                 <CardContent>
-                    <Text variant="h6" align="center" className={classes.title}>
+                    <Text
+                        variant="h6"
+                        align="center"
+                        className={classes.title}
+                        color="secondary"
+                    >
                         {name}
                     </Text>
                     <MarkdownContent

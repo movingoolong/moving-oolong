@@ -1,19 +1,12 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import {
-    Button,
-    Container,
-    Grid,
-    Theme,
-    createStyles,
-    withStyles,
-    WithStyles,
-} from "@material-ui/core"
+import { Button, Container, Grid, makeStyles } from "@material-ui/core"
 import { useSpring, animated as a, config } from "react-spring"
 
 // Components
 import BackgroundImage from "gatsby-background-image"
 import CustomLink from "components/General/CustomLink"
+import Text from "components/Typography"
 
 import usePrefersReducedMotion from "hooks/usePrefersReducedMotion"
 import useBoop from "hooks/useBoop"
@@ -21,48 +14,45 @@ import useBoop from "hooks/useBoop"
 const AnimatedGrid = a(Grid)
 const AnimatedButton = a(Button)
 
-const styles = (theme: Theme) =>
-    createStyles({
-        root: {
-            width: "100%",
-            height: "70vh",
-            position: "relative",
-            backgroundAttachment: "fixed",
-            backgroundPosition: "center 90%",
-            backgroundSize: "cover",
-        },
-        filter: {
-            width: "100%",
-            height: "100%",
-            position: "absolute",
-            background: "rgba(0, 0, 0, 0.35)",
-            zIndex: -1,
-        },
-        container: {
-            zIndex: 1,
-            width: "100%",
-            height: "100%",
-            margin: "auto",
-        },
-        button: {
-            margin: theme.spacing(3),
-            opacity: 0.9,
-        },
-        description: {
-            textAlign: "center",
-            color: "#ffffff",
-            margin: theme.spacing(3),
+const useStyles = makeStyles((theme) => ({
+    root: {
+        width: "100%",
+        height: "70vh",
+        position: "relative",
+        backgroundAttachment: "fixed",
+        backgroundPosition: "center 90%",
+        backgroundSize: "cover",
+    },
+    filter: {
+        width: "100%",
+        height: "100%",
+        position: "absolute",
+        background: "rgba(0, 0, 0, 0.4)",
+        zIndex: -1,
+    },
+    container: {
+        zIndex: 1,
+        width: "100%",
+        height: "100%",
+        margin: "auto",
+    },
+    button: {
+        margin: theme.spacing(3),
+        opacity: 0.9,
+    },
+    description: {
+        textAlign: "center",
+        color: "#ffffff",
+        margin: theme.spacing(3),
 
-            [theme.breakpoints.down("sm")]: {
-                margin: theme.spacing(1),
-            },
+        [theme.breakpoints.down("sm")]: {
+            margin: theme.spacing(1),
         },
-    })
+    },
+}))
 
-type Props = WithStyles<typeof styles>
-
-function AboutSection(props: Props) {
-    const { classes } = props
+function AboutSection() {
+    const classes = useStyles()
     const data = useStaticQuery<GatsbyTypes.AboutSectionQuery>(graphql`
         query AboutSection {
             markdownRemark(fileAbsolutePath: { regex: "/site-descriptions/" }) {
@@ -114,9 +104,13 @@ function AboutSection(props: Props) {
             >
                 <AnimatedGrid item style={springLeft}>
                     <Container maxWidth="md">
-                        <h2 className={classes.description}>
+                        <Text
+                            variant="h5"
+                            className={classes.description}
+                            style={springLeft}
+                        >
                             {data.markdownRemark?.frontmatter?.front_page}
-                        </h2>
+                        </Text>
                     </Container>
                 </AnimatedGrid>
 
@@ -138,4 +132,4 @@ function AboutSection(props: Props) {
     )
 }
 
-export default withStyles(styles)(AboutSection)
+export default AboutSection
