@@ -1,10 +1,6 @@
 import React, { useState } from "react"
-import {
-    Container,
-    Grid,
-    IconButton,
-    makeStyles,
-} from "@material-ui/core"
+import { Container, Grid, IconButton, makeStyles } from "@material-ui/core"
+import { animated } from "react-spring"
 
 // @ts-ignore
 import SwipeableViews from "react-swipeable-views"
@@ -15,26 +11,29 @@ import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos"
 import { EpisodeArrayType } from "hooks/useEpisodes"
 import EpisodePreview from "./EpisodePreview"
 
-const useStyles = makeStyles(theme =>
-    ({
-        root: {
-            marginBottom: theme.spacing(2),
-            height: "100%",
-            width: "100%",
-        },
-        iconLeft: {
-            marginRight: "auto",
-        },
-        iconRight: {
-            marginLeft: "auto",
-        },
-        item: {
-            marginTop: theme.spacing(2),
-            marginBottom: theme.spacing(2),
-        },
-    }))
+import useBoop from "hooks/useBoop"
 
-type Props =  {
+const AnimatedIconButton = animated(IconButton)
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        marginBottom: theme.spacing(2),
+        height: "100%",
+        width: "100%",
+    },
+    iconLeft: {
+        marginRight: "auto",
+    },
+    iconRight: {
+        marginLeft: "auto",
+    },
+    item: {
+        marginTop: theme.spacing(2),
+        marginBottom: theme.spacing(2),
+    },
+}))
+
+type Props = {
     episodes: EpisodeArrayType
     numShown: 1 | 2 | 3 | 4
 }
@@ -42,6 +41,9 @@ type Props =  {
 function SwipeableEpisodes({ episodes, numShown = 4 }: Props) {
     const classes = useStyles()
     const [activeStep, setActiveStep] = useState(0)
+
+    const [leftBoopStyle, triggerLeft] = useBoop({ x: -3 })
+    const [rightBoopStyle, triggerRight] = useBoop({ x: 3 })
 
     const handleNext = () => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1)
@@ -67,7 +69,7 @@ function SwipeableEpisodes({ episodes, numShown = 4 }: Props) {
                 <Grid
                     item
                     className={classes.item}
-                    // @ts-ignore Numbers 
+                    // @ts-ignore Numbers
                     sm={12 / numShown}
                     key={episode.node.id}
                 >
@@ -92,14 +94,16 @@ function SwipeableEpisodes({ episodes, numShown = 4 }: Props) {
         <Container className={classes.root} maxWidth="xl">
             <Grid container alignItems="center" justify="space-between">
                 <Grid item>
-                    <IconButton
+                    <AnimatedIconButton
                         className={classes.iconLeft}
                         aria-label="back button"
                         onClick={handleBack}
                         disabled={activeStep === 0}
+                        style={leftBoopStyle}
+                        onMouseEnter={triggerLeft}
                     >
                         <ArrowBackIosIcon />
-                    </IconButton>
+                    </AnimatedIconButton>
                 </Grid>
                 <Grid item sm={10} lg={11}>
                     <SwipeableViews
@@ -112,14 +116,16 @@ function SwipeableEpisodes({ episodes, numShown = 4 }: Props) {
                     </SwipeableViews>
                 </Grid>
                 <Grid item>
-                    <IconButton
+                    <AnimatedIconButton
                         className={classes.iconRight}
                         aria-label="forward button"
                         onClick={handleNext}
                         disabled={activeStep === maxSteps - 1}
+                        style={rightBoopStyle}
+                        onMouseEnter={triggerRight}
                     >
                         <ArrowForwardIosIcon />
-                    </IconButton>
+                    </AnimatedIconButton>
                 </Grid>
             </Grid>
         </Container>
