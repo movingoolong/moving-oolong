@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import Img from "gatsby-image"
 import {
     Button,
@@ -10,6 +10,7 @@ import {
     makeStyles,
 } from "@material-ui/core"
 import moment from "moment"
+import { animated, useSpring, config as springConfig } from "react-spring"
 import { BODY_FONT } from "src/theme"
 
 // Components
@@ -18,6 +19,9 @@ import TagLink from "components/Posts/TagLink"
 import CustomLink from "components/General/CustomLink"
 import config from "data/SiteConfig"
 import Text from "components/Typography"
+
+// Hooks
+import usePrefersReducedMotion from "hooks/usePrefersReducedMotion"
 
 // Types
 import { EpisodeType } from "hooks/useEpisodes"
@@ -74,8 +78,19 @@ type Props = {
     showDescription?: boolean
 }
 
+const AnimatedCard = animated(Card)
+
 function EpisodePreview({ episode, showDescription = true, ...rest }: Props) {
     const classes = useStyles()
+
+    const [isHover, setHover] = useState(false)
+    const springStyle = useSpring({
+        to: {
+            transform: isHover ? "scale(1.05)" : "scale(1.0)",
+        },
+        immediate: usePrefersReducedMotion(),
+        config: springConfig.wobbly,
+    })
 
     if (!episode.node.frontmatter)
         throw new Error("Frontmatter does not exist on episode")
@@ -87,7 +102,13 @@ function EpisodePreview({ episode, showDescription = true, ...rest }: Props) {
     const { slug } = episode.node.fields
 
     return (
-        <Card className={classes.root} {...rest}>
+        <AnimatedCard
+            className={classes.root}
+            {...rest}
+            onMouseOver={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}
+            style={springStyle}
+        >
             <div className={classes.content}>
                 <CustomLink className={classes.link} to={slug}>
                     <CardActionArea>
@@ -128,7 +149,7 @@ function EpisodePreview({ episode, showDescription = true, ...rest }: Props) {
                     </Grid>
                 </Grid>
             </CardActions>
-        </Card>
+        </AnimatedCard>
     )
 }
 
