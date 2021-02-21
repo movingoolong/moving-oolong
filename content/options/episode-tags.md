@@ -3,11 +3,11 @@ title: Episode Tags
 category: options
 options:
   - college life
-  - reflections
-  - friendship
+  - ""
+  - ""
   - dating
   - educational
-  - recommendations
+  - culture
   - media
   - questions
   - personalitytest
