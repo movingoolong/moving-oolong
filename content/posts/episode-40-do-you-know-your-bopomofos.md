@@ -5,7 +5,7 @@ imgsrc: assets/f6fab3f3-1f73-4572-b191-292afd237df1-98e62577-47dd-41f6-accb-5175
 category: episode
 tags:
   - educational
-  - reflections
+  - culture
 link: <iframe
   src="https://open.spotify.com/embed-podcast/episode/4H4gnKVw9Jws6lY4s5184B"
   width="100%" height="232" frameborder="0" allowtransparency="true"
