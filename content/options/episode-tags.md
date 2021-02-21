@@ -3,7 +3,6 @@ title: Episode Tags
 category: options
 options:
   - college life
-  - ""
   - dating
   - educational
   - culture
