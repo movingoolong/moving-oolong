@@ -3,7 +3,7 @@ name: Ming Gault
 category: bio
 imgsrc: assets/ming_biopic.jpg
 instagram: "@minggault"
-twitter: "@minggault"
+twitter: ""
 ---
 I was adopted from Jiangxi, China by a single mother in 1999, so being a transracial/transnational adoptee has definitely shaped my experiences as an Asian American. 
 
