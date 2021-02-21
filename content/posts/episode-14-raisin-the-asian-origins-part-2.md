@@ -4,11 +4,10 @@ date: 2020-04-06T12:00:00.000Z
 imgsrc: assets/33b925e3-db9d-47cc-88b9-0a6763ba842e.jpg
 category: episode
 tags:
-  - reflections
   - tasa
   - postgrad
-link: >-
-  <iframe
+  - culture
+link: <iframe
   src="https://open.spotify.com/embed-podcast/episode/0kpwjSO89GOjMP2RfUtJgU"
   width="100%" height="232" frameborder="0" allowtransparency="true"
   allow="encrypted-media"></iframe>
