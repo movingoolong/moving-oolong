@@ -5,6 +5,7 @@ imgsrc: assets/31cf73cf-29af-418c-8489-627d5f43d454.jpg
 category: episode
 tags:
   - dating
+  - culture
 link: <iframe
   src="https://open.spotify.com/embed-podcast/episode/6RLmbwKHfkwJwD3aJE8VER"
   width="100%" height="232" frameborder="0" allowtransparency="true"
