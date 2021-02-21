@@ -1,7 +1,7 @@
 ---
 title: Episode 41. Revealing Our Guilty Pleasures
 date: 2020-11-16T13:00:00.000Z
-imgsrc: assets/aa3fa809-a13e-476c-893d-8938a1072fc4.jpg
+imgsrc: assets/img_7124.jpg
 category: episode
 tags:
   - recommendations
