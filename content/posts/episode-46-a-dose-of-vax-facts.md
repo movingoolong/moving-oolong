@@ -1,7 +1,7 @@
 ---
 title: Episode 46. A Dose of Vax Facts
 date: 2021-01-25T16:03:57.082Z
-imgsrc: assets/mo-ig-posts.png
+imgsrc: assets/c6608ef3-e7fc-43df-a5d7-c0594e8e3164.jpeg
 category: episode
 tags:
   - educational
