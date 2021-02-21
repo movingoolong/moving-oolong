@@ -1,5 +1,5 @@
 ---
-title: Episode 11. Sexplorations Featuring Hannah Tralka
+title: Episode 11. Sexplorations ft. Hannah Tralka
 date: 2020-03-02T13:00:00.000Z
 imgsrc: assets/fullsizeoutput_2da4.jpeg
 category: episode
