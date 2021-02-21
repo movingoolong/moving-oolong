@@ -1,5 +1,5 @@
 ---
-title: Episode 18. Ending Our Affairs
+title: Episode 18. Ending Our Affairs ft. Christine Rhee
 date: 2020-05-04T12:00:00.000Z
 imgsrc: assets/c033a2bf-9834-4b9e-970e-0d802c17233e.jpg
 category: episode
