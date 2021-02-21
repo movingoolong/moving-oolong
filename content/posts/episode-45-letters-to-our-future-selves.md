@@ -1,7 +1,7 @@
 ---
 title: "Episode 45. Letters to Our Future Selves "
 date: 2021-01-18T16:00:46.018Z
-imgsrc: assets/mo-ig-posts-1-.png
+imgsrc: assets/dsc_0158-2.jpg
 category: episode
 tags:
   - reflections
