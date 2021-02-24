@@ -15,13 +15,14 @@ type Props = {
     className?: string
 }
 
-function CustomLink({ to, children, className = "" }: Props) {
+function CustomLink({ to, children, className = "" }: Props, ref: React.Ref<HTMLAnchorElement>) {
     const classes = useStyles()
     return (
-        <Link className={clsx(classes.root, className)} to={to}>
+        // @ts-ignore Ref has a weird type for Gatsby
+        <Link className={clsx(classes.root, className)} to={to} ref={ref}>
             {children}
         </Link>
     )
 }
 
-export default CustomLink
+export default React.forwardRef(CustomLink)

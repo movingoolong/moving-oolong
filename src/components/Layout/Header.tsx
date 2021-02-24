@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import { PageProps } from "gatsby"
 import {
     AppBar,
-    Button,
     Drawer,
     Hidden,
     IconButton,
@@ -16,6 +15,7 @@ import Logo from "components/Logo/Logo"
 import Search from "components/Search/Search"
 import CustomLink from "components/General/CustomLink"
 import Text from "components/Typography"
+import Button from "components/Button"
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -65,21 +65,31 @@ function Header({ location }: Props) {
 
     const links = (
         <>
-            <CustomLink className={classes.link} to="/">
-                <Button className={classes.button}>
-                    <b>Home</b>
-                </Button>
-            </CustomLink>
-            <CustomLink className={classes.link} to="/about">
-                <Button className={classes.button}>
-                    <b>About</b>
-                </Button>
-            </CustomLink>
-            <CustomLink className={classes.link} to="/episodes">
-                <Button className={classes.button}>
-                    <b>Episodes</b>
-                </Button>
-            </CustomLink>
+            <Button className={classes.button} to="/">
+                <b>Home</b>
+            </Button>
+
+            <Button className={classes.button} to="/about">
+                <b>About</b>
+            </Button>
+
+            <Button className={classes.button} to="/episodes">
+                <b>Episodes</b>
+            </Button>
+
+            <Button
+                className={classes.button}
+                href="https://movingoolong.medium.com/"
+            >
+                <b>Blog</b>
+            </Button>
+            
+            <Button
+                className={classes.button}
+                href="https://anchor.fm/movingoolongpod/support "
+            >
+                <b>Support Us</b>
+            </Button>
         </>
     )
 
