@@ -1,7 +1,8 @@
 import React from "react"
-import { IconButton, Grid, makeStyles } from "@material-ui/core"
+import { Grid, makeStyles } from "@material-ui/core"
 
 import Text from "components/Typography"
+import { IconBoopButton } from "components/Button"
 
 // Images
 import apple from "assets/img/icons/apple_podcasts.png"
@@ -19,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     },
     spacing: {
         marginTop: theme.spacing(1),
-    }
+    },
 }))
 
 const ICONS = [
@@ -59,13 +60,13 @@ const ICONS = [
     {
         href: "https://pca.st/mubc1pay",
         src: pocketcast,
-        alt: "Pocket Casts link"
+        alt: "Pocket Casts link",
     },
     {
         href: "https://overcast.fm/itunes1490732891/moving-oolong",
         src: overcast,
-        alt: "Overcast link"
-    }
+        alt: "Overcast link",
+    },
 ]
 
 function EpisodePageContent() {
@@ -91,9 +92,9 @@ function EpisodePageContent() {
 
             {ICONS.map(({ href, src, alt }) => (
                 <Grid item key={alt}>
-                    <IconButton href={href}>
-                        <img src={src} alt={alt} width="25"/>
-                    </IconButton>
+                    <IconBoopButton href={href} boopProps={{ scale: 1.05 }}>
+                        <img src={src} alt={alt} width="25" />
+                    </IconBoopButton>
                 </Grid>
             ))}
         </Grid>

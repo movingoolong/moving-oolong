@@ -3,8 +3,16 @@
  * https://joshwcomeau.com/react/boop/
  */
 import React from "react"
-import { useSpring } from "react-spring"
+import { useSpring, SpringConfig } from "react-spring"
 import usePrefersReducedMotion from "hooks/usePrefersReducedMotion"
+export type BoopProps = {
+    x?: number
+    y?: number
+    rotation?: number
+    scale?: number
+    timing?: number
+    springConfig?: SpringConfig
+}
 export default function useBoop({
     x = 0,
     y = 0,
@@ -15,7 +23,7 @@ export default function useBoop({
         tension: 300,
         friction: 10,
     },
-}): [{}, () => void] {
+}: BoopProps): [{}, () => void] {
     const prefersReducedMotion = usePrefersReducedMotion()
     const [isBooped, setIsBooped] = React.useState(false)
     const style = useSpring({
