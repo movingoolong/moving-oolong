@@ -8,11 +8,9 @@ import SearchIcon from "@material-ui/icons/Search"
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        marginLeft: 0,
+        marginLeft: theme.spacing(3),
+        marginRight: theme.spacing(3),
         width: "auto",
-        [theme.breakpoints.up("md")]: {
-            marginLeft: theme.spacing(3),
-        },
     },
     searchIcon: {
         pointerEvents: "none",

@@ -68,7 +68,7 @@ export default function RecentPosts() {
                         Recent Episodes
                     </Text>
                 </Grid>
-                <Grid xs={12} sm={2}>
+                <Grid item xs={12} sm={2}>
                     <CustomLink to="/episodes">
                         <Text
                             variant="subtitle1"
