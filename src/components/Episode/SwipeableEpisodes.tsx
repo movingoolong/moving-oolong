@@ -1,19 +1,17 @@
 import React, { useState } from "react"
-import { Container, Grid, IconButton, makeStyles } from "@material-ui/core"
-import { animated } from "react-spring"
-
-// @ts-ignore
-import SwipeableViews from "react-swipeable-views"
+import { Container, Grid, makeStyles } from "@material-ui/core"
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos"
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos"
+
+// @ts-ignore SwipeableViews doesn't have type
+import SwipeableViews from "react-swipeable-views"
 
 // Components
 import { EpisodeArrayType } from "hooks/useEpisodes"
 import EpisodePreview from "./EpisodePreview"
+import { IconBoopButton } from "components/Button"
 
 import useBoop from "hooks/useBoop"
-
-const AnimatedIconButton = animated(IconButton)
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -41,9 +39,6 @@ type Props = {
 function SwipeableEpisodes({ episodes, numShown = 4 }: Props) {
     const classes = useStyles()
     const [activeStep, setActiveStep] = useState(0)
-
-    const [leftBoopStyle, triggerLeft] = useBoop({ x: -3 })
-    const [rightBoopStyle, triggerRight] = useBoop({ x: 3 })
 
     const handleNext = () => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1)
@@ -94,16 +89,15 @@ function SwipeableEpisodes({ episodes, numShown = 4 }: Props) {
         <Container className={classes.root} maxWidth="xl">
             <Grid container alignItems="center" justify="space-between">
                 <Grid item>
-                    <AnimatedIconButton
+                    <IconBoopButton
                         className={classes.iconLeft}
                         aria-label="back button"
                         onClick={handleBack}
                         disabled={activeStep === 0}
-                        style={leftBoopStyle}
-                        onMouseEnter={triggerLeft}
+                        boopProps={{ x: -3 }}
                     >
                         <ArrowBackIosIcon />
-                    </AnimatedIconButton>
+                    </IconBoopButton>
                 </Grid>
                 <Grid item sm={10} lg={11}>
                     <SwipeableViews
@@ -116,16 +110,15 @@ function SwipeableEpisodes({ episodes, numShown = 4 }: Props) {
                     </SwipeableViews>
                 </Grid>
                 <Grid item>
-                    <AnimatedIconButton
+                    <IconBoopButton
                         className={classes.iconRight}
                         aria-label="forward button"
                         onClick={handleNext}
                         disabled={activeStep === maxSteps - 1}
-                        style={rightBoopStyle}
-                        onMouseEnter={triggerRight}
+                        boopProps={{ x: 3 }}
                     >
                         <ArrowForwardIosIcon />
-                    </AnimatedIconButton>
+                    </IconBoopButton>
                 </Grid>
             </Grid>
         </Container>
