@@ -5,7 +5,10 @@ imgsrc: assets/5.jpg
 category: episode
 tags:
   - dating
-link: https://open.spotify.com/episode/5NaJYE5mGbcDl5WSmRBDwz?si=yVyZ9g0DSjud8xz_BWNFSA
+link: <iframe
+  src="https://open.spotify.com/embed-podcast/episode/5NaJYE5mGbcDl5WSmRBDwz"
+  width="100%" height="232" frameborder="0" allowtransparency="true"
+  allow="encrypted-media"></iframe>
 ---
 We just missed Valentine’s day, but we hope the results from our rigorous review of 6 unique dating apps will still be helpful in your quest for love. 
 
