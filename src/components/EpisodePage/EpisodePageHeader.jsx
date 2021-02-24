@@ -7,10 +7,11 @@ import Text from "components/Typography"
 import apple from "assets/img/icons/apple_podcasts.png"
 import spotify from "assets/img/icons/spotify.png"
 import stitcher from "assets/img/icons/stitcher.png"
-import soundcloud from "assets/img/icons/soundcloud.png"
-import googleplay from "assets/img/icons/google-play-music.png"
+import google from "assets/img/icons/google_podcast.png"
 import breaker from "assets/img/icons/breaker.png"
 import radiopublic from "assets/img/icons/radiopublic.png"
+import pocketcast from "assets/img/icons/pocket_casts.png"
+import overcast from "assets/img/icons/overcast.png"
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -35,11 +36,6 @@ const ICONS = [
         alt: "Apple podcasts link",
     },
     {
-        href: "https://soundcloud.com/moving-oolong",
-        src: soundcloud,
-        alt: "Soundcloud link",
-    },
-    {
         href: "https://www.stitcher.com/podcast/moving-oolong?refid=stpr",
         src: stitcher,
         alt: "Stitcher link",
@@ -47,7 +43,7 @@ const ICONS = [
     {
         href:
             "https://www.google.com/podcasts?feed=aHR0cHM6Ly9hbmNob3IuZm0vcy8xOWM3MTc5NC9wb2RjYXN0L3Jzcw==",
-        src: googleplay,
+        src: google,
         alt: "Google podcasts link",
     },
     {
@@ -60,6 +56,16 @@ const ICONS = [
         src: radiopublic,
         alt: "Radio Public link",
     },
+    {
+        href: "https://pca.st/mubc1pay",
+        src: pocketcast,
+        alt: "Pocket Casts link"
+    },
+    {
+        href: "https://overcast.fm/itunes1490732891/moving-oolong",
+        src: overcast,
+        alt: "Overcast link"
+    }
 ]
 
 function EpisodePageContent() {
@@ -86,7 +92,7 @@ function EpisodePageContent() {
             {ICONS.map(({ href, src, alt }) => (
                 <Grid item key={alt}>
                     <IconButton href={href}>
-                        <img src={src} alt={alt} />
+                        <img src={src} alt={alt} width="25"/>
                     </IconButton>
                 </Grid>
             ))}
