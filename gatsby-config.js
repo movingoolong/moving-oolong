@@ -31,7 +31,6 @@ module.exports = {
         "gatsby-plugin-react-helmet",
         "gatsby-plugin-material-ui",
         "gatsby-plugin-use-query-params",
-        "gatsby-background-image",
         {
             resolve: `gatsby-plugin-algolia`,
             options: {
@@ -39,7 +38,7 @@ module.exports = {
                 apiKey: process.env.ALGOLIA_ADMIN_KEY,
                 queries,
                 chunkSize: 1000, // default: 1000
-                enablePartialUpdates: false,
+                enablePartialUpdates: true,
                 concurrentQueries: true,
                 matchFields: ["slug"],
             },

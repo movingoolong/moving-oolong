@@ -45,8 +45,10 @@ const useStyles = makeStyles((theme) => ({
     },
     menuButton: {
         marginRight: theme.spacing(2),
+        color: theme.palette.primary.contrastText,
     },
     drawer: {
+        paddingTop: theme.spacing(1),
         width: "40%",
     },
 }))

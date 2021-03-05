@@ -3133,20 +3133,10 @@ type SitePluginSortInput = {
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
-type AboutSectionQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type AboutSectionQuery = { readonly markdownRemark: Maybe<{ readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'front_page'>> }> };
-
 type SEOQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type SEOQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description'>> }> };
-
-type FluidImageFragment = (
-  Pick<File, 'absolutePath' | 'relativePath'>
-  & { readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }
-);
 
 type AllBiosQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -3155,11 +3145,6 @@ type AllBiosQuery = { readonly allMarkdownRemark: { readonly edges: ReadonlyArra
         Pick<MarkdownRemark, 'html' | 'id'>
         & { readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'category' | 'name' | 'imgsrc' | 'twitter' | 'instagram'>> }
       ) }> }, readonly allFile: { readonly edges: ReadonlyArray<{ readonly node: FluidImageFragment }> } };
-
-type EpisodeFragment = (
-  Pick<MarkdownRemark, 'excerpt' | 'html' | 'id'>
-  & { readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'tags' | 'date' | 'category' | 'imgsrc' | 'link'>> }
-);
 
 type AllEpisodesQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -3175,6 +3160,16 @@ type AboutPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type AboutPageQuery = { readonly markdownRemark: Maybe<{ readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'about_page' | 'about_page_header'>> }> };
+
+type EpisodeFragment = (
+  Pick<MarkdownRemark, 'excerpt' | 'html' | 'id'>
+  & { readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'tags' | 'date' | 'category' | 'imgsrc' | 'link'>> }
+);
+
+type FluidImageFragment = (
+  Pick<File, 'absolutePath' | 'relativePath'>
+  & { readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }
+);
 
 type homeslohprojectsmovingOolongsrctemplatesPostPageTemplateTsx873388545QueryVariables = Exact<{
   slug: Maybe<Scalars['String']>;
@@ -3214,5 +3209,10 @@ type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type PagesQueryQuery = { readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
+
+type AboutSectionQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type AboutSectionQuery = { readonly markdownRemark: Maybe<{ readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'front_page'>> }> };
 
 }
