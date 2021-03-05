@@ -1,10 +1,10 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
 import { Button, Container, Grid, makeStyles } from "@material-ui/core"
 import { useSpring, animated as a, config } from "react-spring"
 
 // Components
-import BackgroundImage from "gatsby-background-image"
 import CustomLink from "components/General/CustomLink"
 import Text from "components/Typography"
 
@@ -14,26 +14,37 @@ import useBoop from "hooks/useBoop"
 const AnimatedGrid = a(Grid)
 const AnimatedButton = a(Button)
 
+const HEIGHT = "70vh"
+
 const useStyles = makeStyles((theme) => ({
     root: {
         width: "100%",
-        height: "70vh",
-        position: "relative",
+        height: HEIGHT,
+    },
+    imageWrapper: {
+        width: "100%",
+        height: HEIGHT,
+        zIndex: -10,
+        position: "fixed",
+    },
+    image: {
         backgroundAttachment: "fixed",
-        backgroundPosition: "center 90%",
-        backgroundSize: "cover",
+        zIndex: -10,
     },
     filter: {
         width: "100%",
-        height: "100%",
+        height: HEIGHT,
         position: "absolute",
+        top: 0,
         background: "rgba(0, 0, 0, 0.4)",
         zIndex: -1,
     },
     container: {
-        zIndex: 1,
+        zIndex: 100,
+        position: "absolute",
+        top: 0,
         width: "100%",
-        height: "100%",
+        height: HEIGHT,
         margin: "auto",
     },
     button: {
@@ -60,15 +71,6 @@ function AboutSection() {
                     front_page
                 }
             }
-
-            file(relativePath: { eq: "about3.jpg" }) {
-                childImageSharp {
-                    fluid(maxWidth: 4096, quality: 100) {
-                        ...GatsbyImageSharpFluid_withWebp
-                        ...GatsbyImageSharpFluidLimitPresentationSize
-                    }
-                }
-            }
         }
     `)
 
@@ -89,11 +91,19 @@ function AboutSection() {
     const [buttonBoopStyle, trigger] = useBoop({ scale: 1.05 })
 
     return (
-        <BackgroundImage
-            className={classes.root}
-            fluid={data.file?.childImageSharp?.fluid}
-            loading="eager"
-        >
+        <div className={classes.root}>
+            <StaticImage
+                src="../../assets/img/about3.jpg"
+                alt="Homepage image featuring Linda, Ming, and Sally smiling against a granite wall background"
+                layout="fullWidth"
+                quality={100}
+                className={classes.imageWrapper}
+                imgClassName={classes.image}
+                loading="eager"
+                objectFit="cover"
+                objectPosition="center 50%"
+                formats={["webp"]}
+            />
             <div className={classes.filter}>{""}</div>
             <Grid
                 container
@@ -128,7 +138,7 @@ function AboutSection() {
                     </CustomLink>
                 </AnimatedGrid>
             </Grid>
-        </BackgroundImage>
+        </div>
     )
 }
 

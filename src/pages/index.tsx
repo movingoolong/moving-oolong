@@ -11,6 +11,9 @@ const useStyles = makeStyles((theme) => ({
     contact: {
         marginTop: theme.spacing(2),
     },
+    content: {
+        background: theme.palette.background.default,
+    },
 }))
 
 export default function IndexPage() {
@@ -27,19 +30,21 @@ export default function IndexPage() {
                 ]}
             />
             <AboutSection />
-            <RecentEpisodes />
-            <Container maxWidth="xl">
-                <Grid
-                    className={classes.contact}
-                    container
-                    alignItems="stretch"
-                    justify="center"
-                >
-                    <Grid item xs={12} sm={9}>
-                        <ContactUsSection />
+            <div className={classes.content}>
+                <RecentEpisodes />
+                <Container maxWidth="xl">
+                    <Grid
+                        className={classes.contact}
+                        container
+                        alignItems="stretch"
+                        justify="center"
+                    >
+                        <Grid item xs={12} sm={9}>
+                            <ContactUsSection />
+                        </Grid>
                     </Grid>
-                </Grid>
-            </Container>
+                </Container>
+            </div>
         </>
     )
 }
