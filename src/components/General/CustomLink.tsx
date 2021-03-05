@@ -15,7 +15,10 @@ type Props = {
     className?: string
 }
 
-function CustomLink({ to, children, className = "" }: Props, ref: React.Ref<HTMLAnchorElement>) {
+function CustomLink(
+    { to, children, className = "" }: Props,
+    ref: React.Ref<HTMLAnchorElement>
+) {
     const classes = useStyles()
     return (
         // @ts-ignore Ref has a weird type for Gatsby

@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image"
 import {
     Button,
     Card,
@@ -113,8 +113,11 @@ function EpisodePreview({ episode, showDescription = true, ...rest }: Props) {
                 <CustomLink className={classes.link} to={slug}>
                     <CardActionArea>
                         <GatsbyImage
-                            image={episode.image?.childImageSharp?.gatsbyImageData}
-                            alt={`${title} preview image`} />
+                            image={
+                                episode.image?.childImageSharp?.gatsbyImageData
+                            }
+                            alt={`${title} preview image`}
+                        />
                         <CardContent className={classes.header}>
                             <Text variant="h6" className={classes.title}>
                                 {title}
@@ -149,7 +152,7 @@ function EpisodePreview({ episode, showDescription = true, ...rest }: Props) {
                 </Grid>
             </CardActions>
         </AnimatedCard>
-    );
+    )
 }
 
 export default EpisodePreview

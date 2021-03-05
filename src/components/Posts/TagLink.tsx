@@ -10,7 +10,11 @@ type Props = {
 
 const TagLink = ({ tag }: Props) => (
     <CustomLink to={`/episodes/?tags=${tag}`} key={tag}>
-        <Text variant="body2" color="textPrimary" display="inline">{`#${tag} `}</Text>
+        <Text
+            variant="body2"
+            color="textPrimary"
+            display="inline"
+        >{`#${tag} `}</Text>
     </CustomLink>
 )
 

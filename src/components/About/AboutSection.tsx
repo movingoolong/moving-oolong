@@ -91,8 +91,8 @@ function AboutSection() {
     return (
         <BackgroundImage
             className={classes.root}
-             fluid={data.file?.childImageSharp?.fluid}
-             loading="eager"
+            fluid={data.file?.childImageSharp?.fluid}
+            loading="eager"
         >
             <div className={classes.filter}>{""}</div>
             <Grid

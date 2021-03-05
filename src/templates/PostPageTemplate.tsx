@@ -20,27 +20,29 @@ function PostPageTemplate(props) {
 
     const title = data.markdownRemark.frontmatter.title
 
-    return <>
-        <SEO
-            title={title}
-            meta={[
-                {
-                    property: "og:image",
-                    content: `${config.siteUrl}${data.file.childImageSharp.gatsbyImageData.src}`,
-                },
-            ]}
-        />
-        <EpisodeContent episode={data.markdownRemark} img={data.file} />
-        <PostSuggestions
-            nextTitle={pageContext.nextTitle}
-            nextSlug={pageContext.nextSlug}
-            prevTitle={pageContext.prevTitle}
-            prevSlug={pageContext.prevSlug}
-        />
-        <Container>
-            <Disqus config={disqusConfig} />
-        </Container>
-    </>;
+    return (
+        <>
+            <SEO
+                title={title}
+                meta={[
+                    {
+                        property: "og:image",
+                        content: `${config.siteUrl}${data.file.childImageSharp.gatsbyImageData.src}`,
+                    },
+                ]}
+            />
+            <EpisodeContent episode={data.markdownRemark} img={data.file} />
+            <PostSuggestions
+                nextTitle={pageContext.nextTitle}
+                nextSlug={pageContext.nextSlug}
+                prevTitle={pageContext.prevTitle}
+                prevSlug={pageContext.prevSlug}
+            />
+            <Container>
+                <Disqus config={disqusConfig} />
+            </Container>
+        </>
+    )
 }
 
 export default PostPageTemplate

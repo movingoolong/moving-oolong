@@ -23,7 +23,7 @@ const theme = createMuiTheme({
         },
         text: {
             primary: "#545454",
-        }
+        },
     },
     typography: {
         fontFamily: HEADING_FONT,
@@ -59,7 +59,7 @@ const theme = createMuiTheme({
         },
         button: {
             fontFamily: BODY_FONT,
-        }
+        },
     },
     overrides: {
         MuiCssBaseline: {

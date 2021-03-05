@@ -17,7 +17,9 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
 exports.createPages = async ({ graphql, actions }) => {
     const { createPage } = actions
-    const postPageTemplate = path.resolve(`./src/templates/PostPageTemplate.tsx`)
+    const postPageTemplate = path.resolve(
+        `./src/templates/PostPageTemplate.tsx`
+    )
     const result = await graphql(`
         query {
             allMarkdownRemark(

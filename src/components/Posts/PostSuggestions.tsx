@@ -5,29 +5,28 @@ import { Toolbar, makeStyles } from "@material-ui/core"
 import CustomLink from "components/General/CustomLink"
 import Text from "components/Typography"
 
-const useStyles = makeStyles(theme =>
-    ({
-        root: {
-            margin: theme.spacing(1),
-        },
-        grow: {
-            flexGrow: 1,
-        },
-        left: {
-            textAlign: "left",
-        },
-        right: {
-            textAlign: "right",
-        },
-        postTitle: {
-            color: theme.palette.primary.main,
-        },
-        helpText: {
-            color: theme.palette.text.primary,
-        },
-    }))
+const useStyles = makeStyles((theme) => ({
+    root: {
+        margin: theme.spacing(1),
+    },
+    grow: {
+        flexGrow: 1,
+    },
+    left: {
+        textAlign: "left",
+    },
+    right: {
+        textAlign: "right",
+    },
+    postTitle: {
+        color: theme.palette.primary.main,
+    },
+    helpText: {
+        color: theme.palette.text.primary,
+    },
+}))
 
-type Props =  {
+type Props = {
     prevSlug: string
     prevTitle: string
     nextSlug: string
@@ -35,7 +34,7 @@ type Props =  {
 }
 
 function PostSuggestions(props: Props) {
-    const {prevSlug, prevTitle, nextSlug, nextTitle } = props
+    const { prevSlug, prevTitle, nextSlug, nextTitle } = props
     const classes = useStyles()
     let previous = <></>
     let next = <></>
@@ -47,7 +46,9 @@ function PostSuggestions(props: Props) {
                     <Text variant="h6" className={classes.helpText}>
                         <b>Previous</b>
                     </Text>
-                    <Text variant="subtitle1" className={classes.postTitle}>{prevTitle}</Text>
+                    <Text variant="subtitle1" className={classes.postTitle}>
+                        {prevTitle}
+                    </Text>
                 </div>
             </CustomLink>
         )
@@ -60,7 +61,9 @@ function PostSuggestions(props: Props) {
                     <Text variant="h6" className={classes.helpText}>
                         <b>Next</b>
                     </Text>
-                    <Text variant="subtitle1" className={classes.postTitle}>{nextTitle}</Text>
+                    <Text variant="subtitle1" className={classes.postTitle}>
+                        {nextTitle}
+                    </Text>
                 </div>
             </CustomLink>
         )

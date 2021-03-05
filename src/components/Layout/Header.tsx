@@ -83,7 +83,7 @@ function Header({ location }: Props) {
             >
                 <b>Blog</b>
             </Button>
-            
+
             <Button
                 className={classes.button}
                 href="https://anchor.fm/movingoolongpod/support "
