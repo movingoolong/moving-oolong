@@ -1,7 +1,7 @@
 import React from "react"
 import { Grid, MenuItem, makeStyles } from "@material-ui/core"
 
-import moment from "moment"
+import dayjs from "dayjs"
 import config from "data/SiteConfig"
 import EventIcon from "@material-ui/icons/Event"
 import CustomLink from "components/General/CustomLink"
@@ -65,7 +65,7 @@ const SearchHitComponent = (props) => {
                             className={classes.date}
                             color="textPrimary"
                         >
-                            {moment(hit.date).format(config.dateFormat)}
+                            {dayjs(hit.date).format(config.dateFormat)}
                         </Text>
                         <div className={classes.tags}>
                             {hit.tags.map((tag) => (

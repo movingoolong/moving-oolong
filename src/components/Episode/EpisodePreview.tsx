@@ -9,7 +9,7 @@ import {
     Grid,
     makeStyles,
 } from "@material-ui/core"
-import moment from "moment"
+import dayjs from "dayjs"
 import { animated, useSpring, config as springConfig } from "react-spring"
 import { BODY_FONT } from "src/theme"
 
@@ -123,7 +123,7 @@ function EpisodePreview({ episode, showDescription = true, ...rest }: Props) {
                                 {title}
                             </Text>
                             <Text variant="subtitle2" color="textPrimary">
-                                {moment(date).format(config.dateFormat)}
+                                {dayjs(date).format(config.dateFormat)}
                             </Text>
                             {showDescription ? (
                                 <MarkdownContent

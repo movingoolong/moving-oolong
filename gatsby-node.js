@@ -1,5 +1,5 @@
 const path = require(`path`)
-const moment = require("moment")
+const dayjs = require("dayjs")
 const siteConfig = require("./data/SiteConfig")
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
@@ -49,12 +49,12 @@ exports.createPages = async ({ graphql, actions }) => {
     const postsEdges = result.data.allMarkdownRemark.edges
 
     postsEdges.sort((postA, postB) => {
-        const dateA = moment(
+        const dateA = dayjs(
             postA.node.frontmatter.date,
             siteConfig.dateFromFormat
         )
 
-        const dateB = moment(
+        const dateB = dayjs(
             postB.node.frontmatter.date,
             siteConfig.dateFromFormat
         )
