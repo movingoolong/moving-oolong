@@ -17,6 +17,7 @@ module.exports = {
         )}/logos/logo-512.png`,
         copyright: config.copyright,
     },
+    flags: { PRESERVE_WEBPACK_CACHE: true },
     plugins: [
         {
             resolve: `gatsby-alias-imports`,
@@ -43,12 +44,6 @@ module.exports = {
                 matchFields: ["slug"],
             },
         },
-        // {
-        //     resolve: "gatsby-plugin-transition-link",
-        //     options: {
-        //         layout: require.resolve(`./src/components/Layout/Layout.tsx`),
-        //     },
-        // },
         {
             resolve: "gatsby-source-filesystem",
             options: {
@@ -125,8 +120,9 @@ module.exports = {
                 color: "#a9ddde",
             },
         },
-        "gatsby-transformer-sharp",
+        "gatsby-plugin-image",
         "gatsby-plugin-sharp",
+        "gatsby-transformer-sharp",
         "gatsby-plugin-catch-links",
         "gatsby-plugin-netlify-cms",
         {

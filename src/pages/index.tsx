@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
-export default () => {
+export default function IndexPage() {
     const classes = useStyles()
     return (
         <>

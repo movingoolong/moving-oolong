@@ -49,7 +49,7 @@ type Props = {
     data: GatsbyTypes.AboutPageQuery
 }
 
-export default ({ data }: Props) => {
+export default function AboutPage({ data }: Props) {
     const classes = useStyles()
     const bios = useBios()
     const [isVisible, setIsVisible] = useState(false)

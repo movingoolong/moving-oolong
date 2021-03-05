@@ -1,5 +1,5 @@
 import React from "react"
-import Img from "gatsby-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Card, CardContent, CardActions, makeStyles } from "@material-ui/core"
 import SocialIcons from "./SocialIcons"
 
@@ -43,9 +43,10 @@ type Props = {
 
 function Bio({ bio }: Props) {
     const classes = useStyles()
+    const image = getImage(bio.image)
     if (!bio.node.frontmatter)
         throw new Error("Frontmatter does not exist on bio")
-    if (!bio.image.childImageSharp?.fluid)
+    if (!image)
         throw new Error(`Image does not exist`)
 
     const { name, instagram, twitter } = bio.node.frontmatter
@@ -53,10 +54,9 @@ function Bio({ bio }: Props) {
     return (
         <Card className={classes.root}>
             <div className={classes.content}>
-                <Img
-                    fluid={bio.image.childImageSharp?.fluid}
-                    alt={`${name} bio image`}
-                />
+                <GatsbyImage
+                    image={image}
+                    alt={`${name} bio image`} />
                 <CardContent>
                     <Text
                         variant="h6"
@@ -73,7 +73,7 @@ function Bio({ bio }: Props) {
                 <SocialIcons instagram={instagram} twitter={twitter} />
             </CardActions>
         </Card>
-    )
+    );
 }
 
 export default Bio

@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image";
 import {
     Button,
     Card,
@@ -95,7 +95,7 @@ function EpisodePreview({ episode, showDescription = true, ...rest }: Props) {
     if (!episode.node.frontmatter)
         throw new Error("Frontmatter does not exist on episode")
     if (!episode.node.fields?.slug) throw new Error("Slug does not exist")
-    if (!episode.image.childImageSharp?.fluid)
+    if (!episode.image.childImageSharp?.gatsbyImageData)
         throw new Error("Image doesn't exist")
 
     const { title, tags = [], date } = episode.node.frontmatter
@@ -112,10 +112,9 @@ function EpisodePreview({ episode, showDescription = true, ...rest }: Props) {
             <div className={classes.content}>
                 <CustomLink className={classes.link} to={slug}>
                     <CardActionArea>
-                        <Img
-                            fluid={episode.image.childImageSharp?.fluid}
-                            alt={`${title} preview image`}
-                        />
+                        <GatsbyImage
+                            image={episode.image?.childImageSharp?.gatsbyImageData}
+                            alt={`${title} preview image`} />
                         <CardContent className={classes.header}>
                             <Text variant="h6" className={classes.title}>
                                 {title}
@@ -150,7 +149,7 @@ function EpisodePreview({ episode, showDescription = true, ...rest }: Props) {
                 </Grid>
             </CardActions>
         </AnimatedCard>
-    )
+    );
 }
 
 export default EpisodePreview

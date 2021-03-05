@@ -13,7 +13,7 @@ import SEO from "components/General/SEO"
 import useTags from "hooks/useTags"
 import useEpisodes from "hooks/useEpisodes"
 
-export default () => {
+export default function EpisodePage() {
     const [urlTags, setURLTags] = useQueryParam("tags", StringParam)
     const tags = useTags(urlTags)
     const episodes = useEpisodes(tags)

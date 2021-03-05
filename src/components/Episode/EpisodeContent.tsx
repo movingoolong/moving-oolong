@@ -1,10 +1,6 @@
 import React from "react"
-import Img from "gatsby-image"
-import {
-    Container,
-    Grid,
-    makeStyles,
-} from "@material-ui/core"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { Container, Grid, makeStyles } from "@material-ui/core"
 
 // Components
 import TagLink from "components/Posts/TagLink"
@@ -12,18 +8,17 @@ import MarkdownContent from "components/General/MarkdownContent"
 import AnimateOnVisible from "components/General/AnimateOnVisible"
 import { AnimatedText } from "components/Typography"
 
-const useStyles = makeStyles(theme =>
-    ({
-        title: {
-            margin: theme.spacing(2),
-        },
-        embed: {
-            width: "100%",
-        },
-        tags: {
-            color: theme.palette.secondary.main,
-        },
-    }))
+const useStyles = makeStyles((theme) => ({
+    title: {
+        margin: theme.spacing(2),
+    },
+    embed: {
+        width: "100%",
+    },
+    tags: {
+        color: theme.palette.secondary.main,
+    },
+}))
 
 type Props = {
     episode: GatsbyTypes.EpisodeFragment
@@ -62,8 +57,8 @@ function EpisodeContent({ episode, img }: Props) {
                     </AnimateOnVisible>
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                    <Img
-                        fluid={img.childImageSharp?.fluid}
+                    <GatsbyImage
+                        image={getImage(img)}
                         alt={`${title} episode image`}
                     />
                 </Grid>
