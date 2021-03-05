@@ -16,7 +16,7 @@ const query = `{
                 category
                 imgsrc
               }
-              html
+              excerpt(pruneLength: 100, format: HTML)
               id
             }
         }
