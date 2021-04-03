@@ -13,7 +13,6 @@ import AnimateOnVisible from "components/General/AnimateOnVisible"
 
 // Hooks
 import useBios from "hooks/useBios"
-import usePrefersReducedMotion from "hooks/usePrefersReducedMotion"
 
 const AnimatedGrid = animated(Grid)
 
@@ -58,7 +57,6 @@ export default function AboutPage({ data }: Props) {
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? "translateY(0px)" : "translateY(-10px)",
         },
-        immediate: usePrefersReducedMotion(),
     })
     return (
         <>

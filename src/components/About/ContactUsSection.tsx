@@ -2,15 +2,13 @@ import React, { useState } from "react"
 import { Button, Grid, Container, makeStyles } from "@material-ui/core"
 import { Facebook, Instagram, Email } from "@material-ui/icons"
 import VisibilitySensor from "react-visibility-sensor"
-import { useTrail, animated as a, config } from "react-spring"
+import { useTrail, animated, config } from "react-spring"
 
 // Components
 import ContactUsForm from "components/About/ContactUsForm"
 import AnimateOnVisible from "components/General/AnimateOnVisible"
 
-import usePrefersReducedMotion from "hooks/usePrefersReducedMotion"
-
-const AnimatedGrid = a(Grid)
+const AnimatedGrid = animated(Grid)
 
 const useStyles = makeStyles((theme) => ({
     title: {
@@ -64,16 +62,15 @@ export default () => {
             transform: isVisible ? "translateY(0px)" : "translateY(-10px)",
         },
         config: config.slow,
-        immediate: usePrefersReducedMotion(),
     })
 
     return (
         <Container maxWidth="lg">
             <AnimateOnVisible once>
                 {(styles) => (
-                    <a.h1 className={classes.title} style={styles}>
+                    <animated.h1 className={classes.title} style={styles}>
                         Contact Us
-                    </a.h1>
+                    </animated.h1>
                 )}
             </AnimateOnVisible>
 

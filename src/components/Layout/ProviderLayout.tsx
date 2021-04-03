@@ -1,8 +1,10 @@
 import React from "react"
 import { ThemeProvider, CssBaseline } from "@material-ui/core"
 import Helmet from "react-helmet"
+import { Globals } from "react-spring"
 
 import theme from "../../theme"
+import usePrefersReducedMotion from "hooks/usePrefersReducedMotion"
 
 type Props = {
     children: React.ReactNode | React.ReactNodeArray
@@ -10,6 +12,12 @@ type Props = {
 
 export default function ProviderLayout(props: Props) {
     const { children } = props
+    const prefersReducedMotion = usePrefersReducedMotion()
+    React.useEffect(() => {
+        Globals.assign({
+            skipAnimation: prefersReducedMotion,
+        })
+    }, [prefersReducedMotion])
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />

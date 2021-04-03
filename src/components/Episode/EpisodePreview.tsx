@@ -20,9 +20,6 @@ import CustomLink from "components/General/CustomLink"
 import config from "data/SiteConfig"
 import Text from "components/Typography"
 
-// Hooks
-import usePrefersReducedMotion from "hooks/usePrefersReducedMotion"
-
 // Types
 import { EpisodeType } from "hooks/useEpisodes"
 
@@ -88,7 +85,6 @@ function EpisodePreview({ episode, showDescription = true, ...rest }: Props) {
         to: {
             transform: isHover ? "scale(1.05)" : "scale(1.0)",
         },
-        immediate: usePrefersReducedMotion(),
         config: springConfig.wobbly,
     })
 

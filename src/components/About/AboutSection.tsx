@@ -2,17 +2,16 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import { Button, Container, Grid, makeStyles } from "@material-ui/core"
-import { useSpring, animated as a, config } from "react-spring"
+import { useSpring, animated, config } from "react-spring"
 
 // Components
 import CustomLink from "components/General/CustomLink"
-import Text from "components/Typography"
+import { AnimatedText } from "components/Typography"
 
-import usePrefersReducedMotion from "hooks/usePrefersReducedMotion"
 import useBoop from "hooks/useBoop"
 
-const AnimatedGrid = a(Grid)
-const AnimatedButton = a(Button)
+const AnimatedGrid = animated(Grid)
+const AnimatedButton = animated(Button)
 
 const HEIGHT = "70vh"
 
@@ -74,17 +73,14 @@ function AboutSection() {
         }
     `)
 
-    const prefersReducedMotion = usePrefersReducedMotion()
     const springLeft = useSpring({
         from: { opacity: 0, transform: "translateX(-10px)" },
         to: { opacity: 1, transform: "translateX(0px)" },
-        immediate: prefersReducedMotion,
         config: config.molasses,
     })
     const springRight = useSpring({
         from: { opacity: 0, transform: "translateX(10px)" },
         to: { opacity: 1, transform: "translateX(0px)" },
-        immediate: prefersReducedMotion,
         config: config.molasses,
     })
 
@@ -114,13 +110,13 @@ function AboutSection() {
             >
                 <AnimatedGrid item style={springLeft}>
                     <Container maxWidth="md">
-                        <Text
+                        <AnimatedText
                             variant="h5"
                             className={classes.description}
                             style={springLeft}
                         >
                             {data.markdownRemark?.frontmatter?.front_page}
-                        </Text>
+                        </AnimatedText>
                     </Container>
                 </AnimatedGrid>
 

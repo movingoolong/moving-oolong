@@ -2,8 +2,6 @@ import React, { useState } from "react"
 import VisibilitySensor from "react-visibility-sensor"
 import { useSpring, animated as a } from "react-spring"
 
-import usePrefersReducedMotion from "hooks/usePrefersReducedMotion"
-
 type ReactNodes = React.ReactNode | React.ReactNodeArray
 
 type Props = {
@@ -26,7 +24,7 @@ export default (props: Props) => {
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? "translateY(0px)" : "translateY(-10px)",
         },
-        immediate: !animated || usePrefersReducedMotion(),
+        immediate: !animated,
     })
 
     return (
