@@ -1,7 +1,7 @@
 ---
 title: Episode 52. How to Train Your Mentor
 date: 2021-03-08T13:00:00.000Z
-imgsrc: assets/5d781c5f-34ad-461b-9217-b33439b0c1f3_4_5005_c.jpeg
+imgsrc: assets/mo-ig-posts.png
 category: episode
 tags:
   - college life
