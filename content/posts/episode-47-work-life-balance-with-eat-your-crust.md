@@ -1,7 +1,7 @@
 ---
 title: Episode 47. Work-Life Balance with Eat Your Crust
 date: 2021-02-01T13:00:00.000Z
-imgsrc: assets/mo-ig-posts.png
+imgsrc: assets/mo-ig-posts-2-.png
 category: episode
 tags:
   - postgrad
