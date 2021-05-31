@@ -1,7 +1,7 @@
 ---
 title: Episode 61. Call Us Jie Jie (姐姐)
 date: 2021-05-10T12:00:00.000Z
-imgsrc: assets/mo_logo_2.png
+imgsrc: assets/img_9025.jpg
 category: episode
 tags:
   - culture
