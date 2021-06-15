@@ -60,3 +60,6 @@ bundle-stats.json
 
 # Environment
 .env
+
+# Types
+src/__generated__
