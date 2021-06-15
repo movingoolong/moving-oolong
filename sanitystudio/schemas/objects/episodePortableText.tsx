@@ -35,27 +35,13 @@ export default {
         annotations: [
           {
             name: "externalLink",
-            type: "object",
+            type: "externalLink",
             title: "External URL",
-            fields: [
-              {
-                title: "URL",
-                name: "href",
-                type: "url",
-              },
-            ],
           },
           {
             name: "internalLink",
-            type: "object",
+            type: "internalLink",
             title: "Internal Link",
-            fields: [
-              {
-                name: "reference",
-                type: "reference",
-                to: [{ type: "episode" }],
-              },
-            ],
           },
         ],
       },

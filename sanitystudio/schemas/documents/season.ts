@@ -4,9 +4,10 @@ export default {
     type: 'document',
     fields: [
         {
-            name: 'number',
-            title: 'Number',
+            name: 'season',
+            title: 'Season #',
             type: 'number',
+            validation: (Rule) => Rule.required(),
         },
     ],
 }

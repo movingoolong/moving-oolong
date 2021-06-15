@@ -1,11 +1,11 @@
 {
   "root": true,
-  "project": {
-    "name": "sanity-studio"
-  },
   "api": {
-    "projectId": "tbo3siwk",
+    "projectId": "s35e7uc0",
     "dataset": "production"
+  },
+  "project": {
+    "name": "Moving Oolong"
   },
   "plugins": [
     "@sanity/base",

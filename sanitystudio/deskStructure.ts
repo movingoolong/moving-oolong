@@ -37,11 +37,13 @@ export default () =>
                 (item) =>
                     ![
                         "siteSettings",
-                        "boardYear",
+                        "season",
                         "media.tag",
                         "bioPortableText",
                         "eventPortableText",
                         "generalPortabletext",
+                        "externalLink",
+                        "internalLink",
                     ].includes(item.getId())
             ),
         ])

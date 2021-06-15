@@ -34,16 +34,9 @@ export default {
           // Annotations can be any object structure – e.g. a link or a footnote.
           annotations: [
             {
-              name: "link",
-              type: "object",
-              title: "URL",
-              fields: [
-                {
-                  title: "URL",
-                  name: "href",
-                  type: "url",
-                },
-              ],
+              name: "externalLink",
+              type: "externalLink",
+              title: "External URL",
             },
           ],
         },
