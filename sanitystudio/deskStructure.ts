@@ -14,22 +14,22 @@ export default () =>
                     .documentId("siteSettings")
             ),
             S.listItem()
-                .title("Board Years")
-                .child(S.documentTypeList("boardYear")),
+                .title("Seasons")
+                .child(S.documentTypeList("season")),
             S.divider(),
-            // Filtering bios by Board year
+            // Filtering episodes by season
             S.listItem()
-                .title("Bios by Board Year")
+                .title("Episodes by Season")
                 .child(
-                    S.documentTypeList("boardYear")
-                        .title("Bios by Board Year")
-                        .child((boardYear) =>
+                    S.documentTypeList("season")
+                        .title("Episodes by Season")
+                        .child((season) =>
                             S.documentList()
-                                .title("Bios")
+                                .title("Episodes")
                                 .filter(
-                                    "_type == 'bio' && $boardYear == boardYear._ref"
+                                    "_type == 'episode' && $season == season._ref"
                                 )
-                                .params({ boardYear })
+                                .params({ season })
                         )
                 ),
             // The rest of the
@@ -39,9 +39,9 @@ export default () =>
                         "siteSettings",
                         "boardYear",
                         "media.tag",
-                        "bio",
                         "bioPortableText",
                         "eventPortableText",
+                        "generalPortabletext",
                     ].includes(item.getId())
             ),
         ])

@@ -9,12 +9,12 @@ import siteSettings from "./singletons/siteSettings"
 
 // Import the document schemas
 import bio from "./documents/bio"
-import event from "./documents/event"
-import boardYear from "./documents/boardYear"
+import episode from "./documents/episode"
+import boardYear from "./documents/season"
 
 // Import the object schemas
 import bioPortableText from "./objects/bioPortableText"
-import eventPortableText from "./objects/eventPortableText"
+import episodePortableText from "./objects/episodePortableText"
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -25,9 +25,9 @@ export default createSchema({
     types: schemaTypes.concat([
         siteSettings,
         bio,
-        event,
+        episode,
         boardYear,
         bioPortableText,
-        eventPortableText,
+        episodePortableText,
     ]),
 })

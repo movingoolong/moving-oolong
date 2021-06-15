@@ -1,5 +1,5 @@
 export default {
-    name: "eventPortableText",
+    name: "generalPortableText",
     type: "array",
     title: "Description",
     of: [

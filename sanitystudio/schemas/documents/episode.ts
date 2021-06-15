@@ -4,8 +4,8 @@ import moment from "moment"
 import { isUniqueAcrossAllDocuments } from "../../lib/isUniqueAcrossAllDocuments"
 
 export default {
-    name: "event",
-    title: "Event",
+    name: "episode",
+    title: "Episode",
     type: "document",
     fields: [
         {
@@ -16,44 +16,37 @@ export default {
         },
         {
             name: "datetime",
-            title: "Event Date and Time",
+            title: "Episode Published Time",
             type: "datetime",
         },
         {
-            name: "boardYear",
-            title: "Board Year",
+            name: "season",
+            title: "Season",
             type: "reference",
-            to: [{ type: "boardYear" }],
+            to: [{ type: "season" }],
             validation: (Rule) => Rule.required(),
         },
         {
-            name: "facebookLink",
-            title: "Facebook Event Link",
+            name: "spotify",
+            title: "Spotify Link",
+            description: "Spotify URL obtained from clicking on Share -> Copy Episode Link",
             type: "url",
         },
         {
-            name: "isFeatured",
-            title: "Featured Event",
-            type: "boolean",
-            description:
-                "Whether or not to include the event in the featured section.",
-            initialValue: false,
-        },
-        {
-            name: "eventTags",
+            name: "episodeTags",
             title: "Tags",
             type: "tags",
         },
         {
             name: "image",
-            title: "Event Cover Photo",
+            title: "Episode Photo",
             type: "image",
         },
         {
             // see https://www.sanity.io/docs/block-type
             name: "description",
-            title: "Event Description",
-            type: "eventPortableText",
+            title: "Episode Description",
+            type: "episodePortableText",
         },
         {
             name: "slug",
