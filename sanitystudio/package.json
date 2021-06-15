@@ -1,10 +1,10 @@
 {
-  "name": "sanitystudio",
+  "name": "moving-oolong-sanity-studio",
   "private": true,
   "version": "1.0.0",
-  "description": "A general student org website using Gatsby and Sanity CMS",
+  "description": "Sanity studio for Moving Oolong Podcast",
   "main": "package.json",
-  "author": "Stephan Loh <sloh4137@gmail.com>",
+  "author": "Moving Oolong <movingoolongpod@gmail.com>",
   "license": "UNLICENSED",
   "scripts": {
     "start": "sanity start",
@@ -30,11 +30,6 @@
     "sanity-plugin-autocomplete-tags": "^1.0.1",
     "sanity-plugin-color-picker": "^1.0.3",
     "sanity-plugin-media": "^1.3.0",
-    "sanity-plugin-order-documents": "^0.0.18"
   },
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:SLoh4137/org-website.git"
-  }
+  "devDependencies": {}
 }
