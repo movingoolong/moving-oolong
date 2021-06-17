@@ -42,7 +42,7 @@ export default {
       // see https://www.sanity.io/docs/block-type
       name: "description",
       title: "Description",
-      type: "bioPortableText",
+      type: "portableText",
     },
     {
       name: "order",

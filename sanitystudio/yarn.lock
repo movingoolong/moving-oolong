@@ -1261,10 +1261,10 @@
   resolved "https://registry.yarnpkg.com/@sanity/asset-utils/-/asset-utils-1.1.5.tgz#dada8644757462c89be2b1e74e1bdb5d70e0d3d5"
   integrity sha512-cghhQZTOFaa0HiBQnf3UF6Nm1DnuS3cS0RZeSUFsC9KmIDwE/DmU7LDfXiZ7xI7dm/RuNa8WSRGfFJBE+KX02g==
 
-"@sanity/base@2.11.1", "@sanity/base@^2.10.2":
-  version "2.11.1"
-  resolved "https://registry.yarnpkg.com/@sanity/base/-/base-2.11.1.tgz#5d44d72b3efb37c3e9de2e71ed998534e7ef3491"
-  integrity sha512-wsP6aJDTklaZ7yi2m2i/Pp/oJ/BqQTtfB/HJbcXjkO447vioh8BRoZ1N7qPykcQaaUFpixncoFrkk0favYJsTw==
+"@sanity/base@2.11.2", "@sanity/base@^2.10.2":
+  version "2.11.2"
+  resolved "https://registry.yarnpkg.com/@sanity/base/-/base-2.11.2.tgz#e2f3a3e96246716821b4011a9d386ed580a38af3"
+  integrity sha512-eosQPidumQxVYC0POZVCqmv9rOjsNYbWwcLBwiVw+l889CeiT6BiUmnxt6bJrh9kQP5aRBvB04k5aJbZAzynpw==
   dependencies:
     "@juggle/resize-observer" "^3.3.0"
     "@popperjs/core" "^2.5.4"
@@ -1282,7 +1282,7 @@
     "@sanity/structure" "2.11.0"
     "@sanity/transaction-collator" "2.7.4"
     "@sanity/types" "2.11.0"
-    "@sanity/ui" "^0.34.2"
+    "@sanity/ui" "^0.34.3"
     "@sanity/util" "2.11.0"
     "@sanity/validation" "2.10.5"
     boundless-arrow-key-navigation "^1.1.0"
@@ -1448,16 +1448,16 @@
     lodash "^4.17.15"
 
 "@sanity/default-layout@^2.10.2":
-  version "2.11.1"
-  resolved "https://registry.yarnpkg.com/@sanity/default-layout/-/default-layout-2.11.1.tgz#b9d6fd3e9f5902381fa6fb055949f97d05b51ace"
-  integrity sha512-zhB60PN+iUmv1CbXJ2uqDJgjhMXNhRe9CuVAj2fC8GNefW7GIv5tKt4mBVzCKu8807HZW0pGaG4YUUaKsv+DDA==
+  version "2.11.2"
+  resolved "https://registry.yarnpkg.com/@sanity/default-layout/-/default-layout-2.11.2.tgz#ee9c233dd5b59dbdddfacbaa0e90939cf54042da"
+  integrity sha512-nOoFfXvr6JMsqLjiG0DSs9n/vjXwS+ZOWujFUAY8b3+s+XQA2RcXzPLOZZe46vOdZ5No9otf9HioCJacb4JUAg==
   dependencies:
     "@reach/auto-id" "^0.13.2"
-    "@sanity/base" "2.11.1"
+    "@sanity/base" "2.11.2"
     "@sanity/client" "2.11.0"
     "@sanity/generate-help-url" "2.2.6"
     "@sanity/types" "2.11.0"
-    "@sanity/ui" "^0.34.2"
+    "@sanity/ui" "^0.34.3"
     "@sanity/util" "2.11.0"
     classnames "^2.2.5"
     is-hotkey "^0.1.4"
@@ -1477,25 +1477,25 @@
     rxjs "^6.5.3"
 
 "@sanity/desk-tool@^2.10.2":
-  version "2.11.1"
-  resolved "https://registry.yarnpkg.com/@sanity/desk-tool/-/desk-tool-2.11.1.tgz#74e47ce777ada988ad4415c2816904b4d19f7b2a"
-  integrity sha512-+NlrDimRFaQDEs3mslLyoqYiYc+qAirIvUP97SN8TPUpSwq1pPRL36qnIwTB5NaoktHEFmKm4p9Q32AgExsuJg==
+  version "2.11.2"
+  resolved "https://registry.yarnpkg.com/@sanity/desk-tool/-/desk-tool-2.11.2.tgz#be95c8127a19cde5fb45b101b51ffd5448a4f3ff"
+  integrity sha512-6HaBm5yVeaVBDV7fMBiSwOdtCHDq6aEo9UD8ZwtK98ABP2F6Kj8hkzulNkwaHiUeawR/1z/+ssyPOFaafSaP5g==
   dependencies:
     "@popperjs/core" "^2.5.4"
     "@reach/auto-id" "^0.13.2"
-    "@sanity/base" "2.11.1"
+    "@sanity/base" "2.11.2"
     "@sanity/client" "2.11.0"
     "@sanity/data-aspects" "2.2.6"
     "@sanity/diff" "2.7.4"
-    "@sanity/field" "2.11.1"
-    "@sanity/form-builder" "2.11.1"
+    "@sanity/field" "2.11.2"
+    "@sanity/form-builder" "2.11.2"
     "@sanity/generate-help-url" "2.2.6"
     "@sanity/icons" "^1.1.2"
     "@sanity/mutator" "2.10.2"
     "@sanity/react-hooks" "2.11.0"
     "@sanity/structure" "2.11.0"
     "@sanity/types" "2.11.0"
-    "@sanity/ui" "^0.34.2"
+    "@sanity/ui" "^0.34.3"
     "@sanity/util" "2.11.0"
     "@sanity/uuid" "^3.0.1"
     boundless-arrow-key-navigation "^1.1.0"
@@ -1547,29 +1547,29 @@
     simple-get "^4.0.0"
     split2 "^3.2.2"
 
-"@sanity/field@2.11.1":
-  version "2.11.1"
-  resolved "https://registry.yarnpkg.com/@sanity/field/-/field-2.11.1.tgz#1a2b29bcac6091d3fb70fda43a1e3e72a10138ae"
-  integrity sha512-3faUoPqpscxQf9xH1dFEfBf/meTmjZij2nqMaGm4HPj0hXxGMKYQsD4qQxPRDpCWnVl3HXoiZfW0rrqyXti9hg==
+"@sanity/field@2.11.2":
+  version "2.11.2"
+  resolved "https://registry.yarnpkg.com/@sanity/field/-/field-2.11.2.tgz#a5fa75d20c077aec318d6c48c9183c5a9e66e483"
+  integrity sha512-GepJzCLEgI2J0OYXwOK7MbLCcgekJr9Q9vdiOjheHiX3dYHSmjshDKWOeoXxNxWOzNC9iIlty2KXGMXyw9ZDVA==
   dependencies:
     "@sanity/asset-utils" "^1.1.2"
-    "@sanity/base" "2.11.1"
+    "@sanity/base" "2.11.2"
     "@sanity/client" "2.11.0"
     "@sanity/diff" "2.7.4"
     "@sanity/react-hooks" "2.11.0"
     "@sanity/types" "2.11.0"
-    "@sanity/ui" "^0.34.2"
+    "@sanity/ui" "^0.34.3"
     "@sanity/util" "2.11.0"
     sanity-diff-patch "^1.0.9"
     styled-components "^5.2.1"
 
-"@sanity/form-builder@2.11.1":
-  version "2.11.1"
-  resolved "https://registry.yarnpkg.com/@sanity/form-builder/-/form-builder-2.11.1.tgz#f8719c000da9b8adf8a7ce4be82aa33b6d1b5e65"
-  integrity sha512-ghlO+akEsdknr6jh4/4rBZ2u9/AA6lxph623/wwTDXVSTZGCamyBStohUANyIHrI+qnLqcRNJv6Y2akenlpcWA==
+"@sanity/form-builder@2.11.2":
+  version "2.11.2"
+  resolved "https://registry.yarnpkg.com/@sanity/form-builder/-/form-builder-2.11.2.tgz#539dd8a9367dadd9a4d759795fa2a25965050c75"
+  integrity sha512-ppVyQWsazEOUsVFSt8K1msPeTUsirSx81PKXyHqEEiPtIymLyRKzqKEIBs9a8ycBJLxlPpOBu4ckmdKJri0D/g==
   dependencies:
     "@reach/auto-id" "^0.13.2"
-    "@sanity/base" "2.11.1"
+    "@sanity/base" "2.11.2"
     "@sanity/block-tools" "2.11.0"
     "@sanity/client" "2.11.0"
     "@sanity/color" "^2.1.2"
@@ -1580,7 +1580,7 @@
     "@sanity/mutator" "2.10.2"
     "@sanity/portable-text-editor" "0.1.25"
     "@sanity/types" "2.11.0"
-    "@sanity/ui" "^0.34.2"
+    "@sanity/ui" "^0.34.3"
     "@sanity/util" "2.11.0"
     "@sanity/uuid" "^3.0.1"
     attr-accept "^1.1.0"
@@ -1848,10 +1848,10 @@
     "@types/react" "^17.0.0"
     rxjs "^6.5.3"
 
-"@sanity/ui@>=0.33.11", "@sanity/ui@^0.34.2":
-  version "0.34.2"
-  resolved "https://registry.yarnpkg.com/@sanity/ui/-/ui-0.34.2.tgz#2ad594752911505b9084b175bbb05caf0b83e9b4"
-  integrity sha512-PjR4IeCt+Tuu8vMtS2oTh4KI5MK6TQO4S7x5vwtEHFdZhPuwAvv98LipFrPTTpViB/PB1OEkpqy+gizTNUlSRg==
+"@sanity/ui@>=0.33.11", "@sanity/ui@^0.34.3":
+  version "0.34.4"
+  resolved "https://registry.yarnpkg.com/@sanity/ui/-/ui-0.34.4.tgz#cb01ea9384c355b9ce8fd2c834424668d5769565"
+  integrity sha512-vRWBqwjzld7NvZ2Je7NtqyBO7u3yDvRzTN5L2JX1cac3+gdg2oh76QS8dn8OBe2z8GIYBQDVAR8m1EAmz90Tbw==
   dependencies:
     "@juggle/resize-observer" "^3.3.1"
     "@popperjs/core" "^2.9.2"
@@ -1896,12 +1896,12 @@
     type-of-is "^3.5.1"
 
 "@sanity/vision@^2.10.0":
-  version "2.11.0"
-  resolved "https://registry.yarnpkg.com/@sanity/vision/-/vision-2.11.0.tgz#84b540b6fe85ab4e050189853e7229cf1c6d977e"
-  integrity sha512-T6FB4i/OlprWaVfuv12B2SF90M6Brc5FSt1i/qqq253zAxNJh19BY+kB1ZGzuegokQzB3ZBHZY0kwC0MsH39Gg==
+  version "2.11.2"
+  resolved "https://registry.yarnpkg.com/@sanity/vision/-/vision-2.11.2.tgz#41ae196e3c4bd4b52d2244c14d669a4a2a57cd5f"
+  integrity sha512-2xeRI5HxeEhq5yYJ49PnnjzQ+QDpOQjzWjUS5Un33yF8SwHKfJeFXofA4UzB3G3sTINGR2bJ+EG/qradTpBDFg==
   dependencies:
     "@sanity/icons" "^1.1.2"
-    "@sanity/ui" "^0.34.2"
+    "@sanity/ui" "^0.34.3"
     classnames "^2.2.5"
     codemirror "^5.47.0"
     moment "^2.19.1"
@@ -2534,7 +2534,7 @@ anymatch@^2.0.0:
     micromatch "^3.1.4"
     normalize-path "^2.1.1"
 
-anymatch@~3.1.1:
+anymatch@~3.1.2:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/anymatch/-/anymatch-3.1.2.tgz#c0557c096af32f106198f4f4e2a383537e378716"
   integrity sha512-P43ePfOAIupkguHUycrc4qJ9kz8ZiuOUijaETwX7THt0Y/GNK7v0aa8rY816xWjZ7rJdA5XdMcpVFTKMq+RvWg==
@@ -2790,12 +2790,12 @@ babel-plugin-polyfill-corejs2@^0.2.2:
     semver "^6.1.1"
 
 babel-plugin-polyfill-corejs3@^0.2.2:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/babel-plugin-polyfill-corejs3/-/babel-plugin-polyfill-corejs3-0.2.2.tgz#7424a1682ee44baec817327710b1b094e5f8f7f5"
-  integrity sha512-l1Cf8PKk12eEk5QP/NQ6TH8A1pee6wWDJ96WjxrMXFLHLOBFzYM4moG80HFgduVhTqAFez4alnZKEhP/bYHg0A==
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/babel-plugin-polyfill-corejs3/-/babel-plugin-polyfill-corejs3-0.2.3.tgz#72add68cf08a8bf139ba6e6dfc0b1d504098e57b"
+  integrity sha512-rCOFzEIJpJEAU14XCcV/erIf/wZQMmMT5l5vXOpL5uoznyOGfDIjPj6FVytMvtzaKSTSVKouOCTPJ5OMUZH30g==
   dependencies:
     "@babel/helper-define-polyfill-provider" "^0.2.2"
-    core-js-compat "^3.9.1"
+    core-js-compat "^3.14.0"
 
 babel-plugin-polyfill-regenerator@^0.2.2:
   version "0.2.2"
@@ -3374,19 +3374,19 @@ chokidar@^2.1.8:
     fsevents "^1.2.7"
 
 chokidar@^3.0.0, chokidar@^3.4.1:
-  version "3.5.1"
-  resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.5.1.tgz#ee9ce7bbebd2b79f49f304799d5468e31e14e68a"
-  integrity sha512-9+s+Od+W0VJJzawDma/gvBNQqkTiqYTWLuZoyAsivsI4AaWTCzHG06/TMjsf1cYe9Cb97UCEhjz7HvnPk2p/tw==
+  version "3.5.2"
+  resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.5.2.tgz#dba3976fcadb016f66fd365021d91600d01c1e75"
+  integrity sha512-ekGhOnNVPgT77r4K/U3GDhu+FQ2S8TnK/s2KbIGXi0SZWuwkZ2QNyfWdZW+TVfn84DpEP7rLeCt2UI6bJ8GwbQ==
   dependencies:
-    anymatch "~3.1.1"
+    anymatch "~3.1.2"
     braces "~3.0.2"
-    glob-parent "~5.1.0"
+    glob-parent "~5.1.2"
     is-binary-path "~2.1.0"
     is-glob "~4.0.1"
     normalize-path "~3.0.0"
-    readdirp "~3.5.0"
+    readdirp "~3.6.0"
   optionalDependencies:
-    fsevents "~2.3.1"
+    fsevents "~2.3.2"
 
 chownr@^1.0.1:
   version "1.1.4"
@@ -3715,7 +3715,7 @@ copy-to-clipboard@^3.2.0, copy-to-clipboard@^3.3.1:
   dependencies:
     toggle-selection "^1.0.6"
 
-core-js-compat@^3.14.0, core-js-compat@^3.9.1:
+core-js-compat@^3.14.0:
   version "3.14.0"
   resolved "https://registry.yarnpkg.com/core-js-compat/-/core-js-compat-3.14.0.tgz#b574dabf29184681d5b16357bd33d104df3d29a5"
   integrity sha512-R4NS2eupxtiJU+VwgkF9WTpnSfZW4pogwKHd8bclWU2sp93Pr5S1uYJI84cMOubJRou7bcfL0vmwtLslWN5p3A==
@@ -5275,7 +5275,7 @@ fsevents@^1.2.7:
     bindings "^1.5.0"
     nan "^2.12.1"
 
-fsevents@~2.3.1:
+fsevents@~2.3.2:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.3.2.tgz#8a526f78b8fdf4623b709e0b975c52c24c02fd1a"
   integrity sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==
@@ -5405,7 +5405,7 @@ glob-parent@^3.1.0:
     is-glob "^3.1.0"
     path-dirname "^1.0.0"
 
-glob-parent@^5.1.0, glob-parent@~5.1.0:
+glob-parent@^5.1.0, glob-parent@~5.1.2:
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/glob-parent/-/glob-parent-5.1.2.tgz#869832c58034fe68a4093c17dc15e8340d8401c4"
   integrity sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==
@@ -9175,10 +9175,10 @@ readdirp@^2.2.1:
     micromatch "^3.1.10"
     readable-stream "^2.0.2"
 
-readdirp@~3.5.0:
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/readdirp/-/readdirp-3.5.0.tgz#9ba74c019b15d365278d2e91bb8c48d7b4d42c9e"
-  integrity sha512-cMhu7c/8rdhkHXWsY+osBhfSy0JikwpHK/5+imo+LpeasTF8ouErHrlYkwT0++njiyuDvc7OFY5T3ukvZ8qmFQ==
+readdirp@~3.6.0:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/readdirp/-/readdirp-3.6.0.tgz#74a370bd857116e245b29cc97340cd431a02a6c7"
+  integrity sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==
   dependencies:
     picomatch "^2.2.1"
 

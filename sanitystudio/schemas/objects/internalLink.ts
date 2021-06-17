@@ -10,6 +10,7 @@ export default {
       name: "reference",
       title: "Reference",
       type: "reference",
+      weak: true,
       to: [{ type: "episode" }],
     },
   ],

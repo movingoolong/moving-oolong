@@ -41,12 +41,19 @@ export default {
             name: "image",
             title: "Episode Photo",
             type: "image",
+            initialValue: {
+                _type: "image",
+                asset: {
+                    _type: "reference",
+                    _ref: "image-0bb8cab3d006a206597697875c16c852ccd0231f-3000x3000-png"
+                }
+            }
         },
         {
             // see https://www.sanity.io/docs/block-type
             name: "description",
             title: "Episode Description",
-            type: "episodePortableText",
+            type: "portableText",
         },
         {
             name: "slug",

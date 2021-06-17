@@ -13,11 +13,12 @@ import episode from "./documents/episode";
 import season from "./documents/season";
 
 // Import the object schemas
-import bioPortableText from "./objects/bioPortableText";
-import episodePortableText from "./objects/episodePortableText";
-import generalPortableText from "./objects/generalPortableText";
-import externalLink from "./objects/externalLink";
-import internalLink from "./objects/internalLink";
+import portableText from "./objects/portableText";
+// import bioPortableText from "./objects/bioPortableText";
+// import episodePortableText from "./objects/episodePortableText";
+// import generalPortableText from "./objects/generalPortableText";
+// import externalLink from "./objects/externalLink";
+// import internalLink from "./objects/internalLink";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -30,10 +31,11 @@ export default createSchema({
     bio,
     episode,
     season,
-    bioPortableText,
-    episodePortableText,
-    generalPortableText,
-    externalLink,
-    internalLink,
+    portableText,
+    // bioPortableText,
+    // episodePortableText,
+    // generalPortableText,
+    // externalLink,
+    // internalLink,
   ]),
 });

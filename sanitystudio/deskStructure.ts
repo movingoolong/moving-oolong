@@ -39,11 +39,11 @@ export default () =>
                         "siteSettings",
                         "season",
                         "media.tag",
-                        "bioPortableText",
-                        "eventPortableText",
-                        "generalPortabletext",
-                        "externalLink",
-                        "internalLink",
+                        // "bioPortableText",
+                        // "eventPortableText",
+                        // "generalPortabletext",
+                        // "externalLink",
+                        // "internalLink",
                     ].includes(item.getId())
             ),
         ])

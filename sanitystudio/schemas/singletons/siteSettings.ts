@@ -21,17 +21,17 @@ export default {
         {
             name: 'frontPageDescription',
             title: 'Front Page Description',
-            type: 'generalPortableText',
+            type: 'portableText',
         },
         {
             name: 'aboutPageHeader',
             title: 'About Page Header',
-            type: 'generalPortableText',
+            type: 'portableText',
         },
         {
             name: 'aboutPageDescription',
             title: 'About Page Description',
-            type: 'generalPortableText',
+            type: 'portableText',
         },
     ],
 }
