@@ -10,10 +10,10 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
-      name: "position",
-      title: "Position",
-      type: "string",
-      validation: (Rule) => Rule.required(),
+      name: "isGuest",
+      title: "Is Guest?",
+      type: "boolean",
+      initialValue: true,
     },
     {
       name: "instagram",
