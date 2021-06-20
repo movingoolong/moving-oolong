@@ -5,5 +5,19 @@
   "include": ["./node_modules/@sanity/base/types/**/*.ts", "./**/*.ts", "./**/*.tsx"],
   "compilerOptions": {
     "jsx": "react"
-  }
+  },
+  "allowJs": true,
+  // "checkJs": true,
+  "jsx": "react",
+  "strict": true,
+  "esModuleInterop": true,
+  "experimentalDecorators": true,
+  "emitDecoratorMetadata": true,
+  "noUnusedLocals": false,
+  "noUnusedParameters": false,
+  "preserveConstEnums": true,
+  "noEmit": true,
+  "skipLibCheck": true,
+  "allowSyntheticDefaultImports": true // So that we can just write 'import React from "react";' again
+
 }
