@@ -2,10 +2,10 @@ import React from "react"
 import { Grid, Container, makeStyles } from "@material-ui/core"
 
 // Components
-import RecentEpisodes from "components/Episode/RecentEpisodes"
-import AboutSection from "components/About/AboutSection"
-import ContactUsSection from "components/About/ContactUsSection"
-import SEO from "components/General/SEO"
+import RecentEpisodes from "@components/Episode/RecentEpisodes"
+import AboutSection from "@components/About/AboutSection"
+import ContactUsSection from "@components/About/ContactUsSection"
+import SEO from "@components/General/SEO"
 
 const useStyles = makeStyles((theme) => ({
     contact: {

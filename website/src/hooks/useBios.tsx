@@ -1,5 +1,5 @@
 import { useStaticQuery, graphql } from "gatsby"
-import { HasImageSrc, mapImgToNode } from "utils/hookUtils"
+import { HasImageSrc, mapImgToNode } from "@utils/hookUtils"
 
 type BioNode = GatsbyTypes.AllBiosQuery["allMarkdownRemark"]["edges"][0]
 

@@ -7,11 +7,11 @@ import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos"
 import SwipeableViews from "react-swipeable-views"
 
 // Components
-import { EpisodeArrayType } from "hooks/useEpisodes"
+import { EpisodeArrayType } from "@hooks/useEpisodes"
 import EpisodePreview from "./EpisodePreview"
-import { IconBoopButton } from "components/Button"
+import { IconBoopButton } from "@components/Button"
 
-import useBoop from "hooks/useBoop"
+import useBoop from "@hooks/useBoop"
 
 const useStyles = makeStyles((theme) => ({
     root: {

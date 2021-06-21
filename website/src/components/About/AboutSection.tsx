@@ -5,10 +5,10 @@ import { Button, Container, Grid, makeStyles } from "@material-ui/core"
 import { useSpring, animated, config } from "react-spring"
 
 // Components
-import CustomLink from "components/General/CustomLink"
-import { AnimatedText } from "components/Typography"
+import CustomLink from "@components/General/CustomLink"
+import { AnimatedText } from "@components/Typography"
 
-import useBoop from "hooks/useBoop"
+import useBoop from "@hooks/useBoop"
 
 const AnimatedGrid = animated(Grid)
 const AnimatedButton = animated(Button)

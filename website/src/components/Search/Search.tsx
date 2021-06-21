@@ -15,9 +15,9 @@ import {
     PopperProps,
 } from "@material-ui/core"
 
-import SearchInput from "components/Search/SearchInput"
-import SearchHitsWrapper from "components/Search/SearchHitsWrapper"
-import SearchHits from "components/Search/SearchHits"
+import SearchInput from "@components/Search/SearchInput"
+import SearchHitsWrapper from "@components/Search/SearchHitsWrapper"
+import SearchHits from "@components/Search/SearchHits"
 
 // const Results = connectStateResults(({ searchState, searchResults }: StateResultsProvided) =>
 //     searchResults && searchResults.nbHits > 0

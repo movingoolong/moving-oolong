@@ -1,8 +1,8 @@
 import React from "react"
 import clsx from "clsx"
 import { makeStyles } from "@material-ui/core"
-import ClientOnly from "components/General/ClientOnly"
-import Text from "components/Typography"
+import ClientOnly from "@components/General/ClientOnly"
+import Text from "@components/Typography"
 
 const useStyles = makeStyles((theme) => ({
     root: {

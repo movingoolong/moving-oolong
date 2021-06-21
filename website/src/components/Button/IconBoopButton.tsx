@@ -2,7 +2,7 @@ import React from "react"
 import { animated } from "react-spring"
 import { IconButton, IconButtonProps } from "@material-ui/core"
 
-import useBoop, { BoopProps } from "hooks/useBoop"
+import useBoop, { BoopProps } from "@hooks/useBoop"
 
 const AnimatedIconButton = animated(IconButton)
 

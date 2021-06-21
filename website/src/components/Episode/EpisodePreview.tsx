@@ -14,14 +14,14 @@ import { animated, useSpring, config as springConfig } from "react-spring"
 import { BODY_FONT } from "src/theme"
 
 // Components
-import MarkdownContent from "components/General/MarkdownContent"
-import TagLink from "components/Posts/TagLink"
-import CustomLink from "components/General/CustomLink"
+import MarkdownContent from "@components/General/MarkdownContent"
+import TagLink from "@components/Posts/TagLink"
+import CustomLink from "@components/General/CustomLink"
 import config from "data/SiteConfig"
-import Text from "components/Typography"
+import Text from "@components/Typography"
 
 // Types
-import { EpisodeType } from "hooks/useEpisodes"
+import { EpisodeType } from "@hooks/useEpisodes"
 
 const useStyles = makeStyles((theme) => ({
     root: {

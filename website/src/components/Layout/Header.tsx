@@ -11,11 +11,11 @@ import {
 import MenuIcon from "@material-ui/icons/Menu"
 
 // Components
-import Logo from "components/Logo/Logo"
-import Search from "components/Search/AutocompleteSearch"
-import CustomLink from "components/General/CustomLink"
-import Text from "components/Typography"
-import Button from "components/Button"
+import Logo from "@components/Logo/Logo"
+import Search from "@components/Search/AutocompleteSearch"
+import CustomLink from "@components/General/CustomLink"
+import Text from "@components/Typography"
+import Button from "@components/Button"
 
 const useStyles = makeStyles((theme) => ({
     root: {

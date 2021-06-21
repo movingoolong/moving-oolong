@@ -6,8 +6,8 @@ import { Hit, BasicDoc } from "react-instantsearch-core"
 import dayjs from "dayjs"
 import config from "data/SiteConfig"
 import EventIcon from "@material-ui/icons/Event"
-import Text from "components/Typography"
-import MarkdownContent from "components/General/MarkdownContent"
+import Text from "@components/Typography"
+import MarkdownContent from "@components/General/MarkdownContent"
 
 // Components
 const useStyles = makeStyles((theme) => ({

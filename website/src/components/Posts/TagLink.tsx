@@ -1,8 +1,8 @@
 import React from "react"
 
 // Components
-import CustomLink from "components/General/CustomLink"
-import Text from "components/Typography"
+import CustomLink from "@components/General/CustomLink"
+import Text from "@components/Typography"
 
 type Props = {
     tag: string

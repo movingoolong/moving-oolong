@@ -4,11 +4,11 @@ import { Card, CardContent, CardActions, makeStyles } from "@material-ui/core"
 import SocialIcons from "./SocialIcons"
 
 // Components
-import MarkdownContent from "components/General/MarkdownContent"
-import Text from "components/Typography/Text"
+import MarkdownContent from "@components/General/MarkdownContent"
+import Text from "@components/Typography/Text"
 
 // Types
-import { BioType } from "hooks/useBios"
+import { BioType } from "@hooks/useBios"
 
 const useStyles = makeStyles((theme) => ({
     root: {

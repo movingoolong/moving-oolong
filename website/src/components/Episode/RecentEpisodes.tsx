@@ -10,10 +10,10 @@ import {
 // Components
 import EpisodeGrid from "./EpisodeGrid"
 import SwipeableEpisodes from "./SwipeableEpisodes"
-import CustomLink from "components/General/CustomLink"
-import Text from "components/Typography"
+import CustomLink from "@components/General/CustomLink"
+import Text from "@components/Typography"
 
-import useEpisodes from "hooks/useEpisodes"
+import useEpisodes from "@hooks/useEpisodes"
 
 const useStyles = makeStyles((theme) => ({
     root: {

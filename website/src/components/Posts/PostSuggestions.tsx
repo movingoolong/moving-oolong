@@ -2,8 +2,8 @@ import React from "react"
 import { Toolbar, makeStyles } from "@material-ui/core"
 
 // Components
-import CustomLink from "components/General/CustomLink"
-import Text from "components/Typography"
+import CustomLink from "@components/General/CustomLink"
+import Text from "@components/Typography"
 
 const useStyles = makeStyles((theme) => ({
     root: {

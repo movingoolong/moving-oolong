@@ -19,15 +19,6 @@ module.exports = {
     },
     flags: { PRESERVE_WEBPACK_CACHE: true },
     plugins: [
-        {
-            resolve: `gatsby-alias-imports`,
-            options: {
-                aliases: {
-                    data: `data/`,
-                    src: `src/`,
-                },
-            },
-        },
         "gatsby-plugin-react-helmet",
         "gatsby-plugin-material-ui",
         "gatsby-plugin-use-query-params",

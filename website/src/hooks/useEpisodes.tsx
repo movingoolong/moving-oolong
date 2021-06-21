@@ -1,6 +1,6 @@
 import { useStaticQuery, graphql } from "gatsby"
-import { mapImgToNode } from "utils/hookUtils"
-import { TagState, getArrayFromTags } from "hooks/useTags"
+import { mapImgToNode } from "@utils/hookUtils"
+import { TagState, getArrayFromTags } from "@hooks/useTags"
 
 type EpisodeNode = GatsbyTypes.AllEpisodesQuery["allMarkdownRemark"]["edges"][0]
 

@@ -4,9 +4,9 @@ import config from "data/SiteConfig"
 import { Facebook, Instagram } from "@material-ui/icons"
 
 // Components
-import Text from "components/Typography"
-import ClientOnly from "components/General/ClientOnly"
-import TooltipIcon from "components/General/TooltipIcon"
+import Text from "@components/Typography"
+import ClientOnly from "@components/General/ClientOnly"
+import TooltipIcon from "@components/General/TooltipIcon"
 
 const useStyles = makeStyles((theme) => ({
     root: {

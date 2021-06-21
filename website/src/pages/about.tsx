@@ -6,13 +6,13 @@ import { useTrail, animated } from "react-spring"
 import { BODY_FONT } from "src/theme"
 
 // Components
-import Bio from "components/About/Bio"
-import SEO from "components/General/SEO"
-import Text, { AnimatedText } from "components/Typography"
-import AnimateOnVisible from "components/General/AnimateOnVisible"
+import Bio from "@components/About/Bio"
+import SEO from "@components/General/SEO"
+import Text, { AnimatedText } from "@components/Typography"
+import AnimateOnVisible from "@components/General/AnimateOnVisible"
 
 // Hooks
-import useBios from "hooks/useBios"
+import useBios from "@hooks/useBios"
 
 const AnimatedGrid = animated(Grid)
 

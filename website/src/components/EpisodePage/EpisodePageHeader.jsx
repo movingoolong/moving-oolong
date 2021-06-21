@@ -1,18 +1,18 @@
 import React from "react"
 import { Grid, makeStyles } from "@material-ui/core"
 
-import Text from "components/Typography"
-import { IconBoopButton } from "components/Button"
+import Text from "@components/Typography"
+import { IconBoopButton } from "@components/Button"
 
 // Images
-import apple from "assets/img/icons/apple_podcasts.png"
-import spotify from "assets/img/icons/spotify.png"
-import stitcher from "assets/img/icons/stitcher.png"
-import google from "assets/img/icons/google_podcast.png"
-import breaker from "assets/img/icons/breaker.png"
-import radiopublic from "assets/img/icons/radiopublic.png"
-import pocketcast from "assets/img/icons/pocket_casts.png"
-import overcast from "assets/img/icons/overcast.png"
+import apple from "@assets/img/icons/apple_podcasts.png"
+import spotify from "@assets/img/icons/spotify.png"
+import stitcher from "@assets/img/icons/stitcher.png"
+import google from "@assets/img/icons/google_podcast.png"
+import breaker from "@assets/img/icons/breaker.png"
+import radiopublic from "@assets/img/icons/radiopublic.png"
+import pocketcast from "@assets/img/icons/pocket_casts.png"
+import overcast from "@assets/img/icons/overcast.png"
 
 const useStyles = makeStyles((theme) => ({
     root: {

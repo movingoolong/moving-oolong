@@ -3,15 +3,15 @@ import { Button, Hidden, SwipeableDrawer, Grid } from "@material-ui/core"
 import { useQueryParam, StringParam } from "use-query-params"
 
 // Components
-import EpisodePageHeader from "components/EpisodePage/EpisodePageHeader"
-import EpisodeGrid from "components/Episode/EpisodeGrid"
-import TagSelectionInput from "components/EpisodePage/TagSelectionInput"
+import EpisodePageHeader from "@components/EpisodePage/EpisodePageHeader"
+import EpisodeGrid from "@components/Episode/EpisodeGrid"
+import TagSelectionInput from "@components/EpisodePage/TagSelectionInput"
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
-import SEO from "components/General/SEO"
+import SEO from "@components/General/SEO"
 
 // Hooks
-import useTags from "hooks/useTags"
-import useEpisodes from "hooks/useEpisodes"
+import useTags from "@hooks/useTags"
+import useEpisodes from "@hooks/useEpisodes"
 
 export default function EpisodePage() {
     const [urlTags, setURLTags] = useQueryParam("tags", StringParam)

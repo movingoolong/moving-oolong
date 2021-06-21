@@ -5,8 +5,8 @@ import VisibilitySensor from "react-visibility-sensor"
 import { useTrail, animated, config } from "react-spring"
 
 // Components
-import ContactUsForm from "components/About/ContactUsForm"
-import AnimateOnVisible from "components/General/AnimateOnVisible"
+import ContactUsForm from "@components/About/ContactUsForm"
+import AnimateOnVisible from "@components/General/AnimateOnVisible"
 
 const AnimatedGrid = animated(Grid)
 

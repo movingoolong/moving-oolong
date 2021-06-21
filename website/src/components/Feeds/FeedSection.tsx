@@ -2,7 +2,7 @@ import React from "react"
 import { Grid } from "@material-ui/core"
 
 // Components
-import TwitterFeed from "components/Feeds/TwitterFeed"
+import TwitterFeed from "@components/Feeds/TwitterFeed"
 
 type Props = {}
 

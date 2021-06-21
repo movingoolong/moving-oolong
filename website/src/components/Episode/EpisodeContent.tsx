@@ -3,10 +3,10 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Container, Grid, makeStyles } from "@material-ui/core"
 
 // Components
-import TagLink from "components/Posts/TagLink"
-import MarkdownContent from "components/General/MarkdownContent"
-import AnimateOnVisible from "components/General/AnimateOnVisible"
-import { AnimatedText } from "components/Typography"
+import TagLink from "@components/Posts/TagLink"
+import MarkdownContent from "@components/General/MarkdownContent"
+import AnimateOnVisible from "@components/General/AnimateOnVisible"
+import { AnimatedText } from "@components/Typography"
 
 const useStyles = makeStyles((theme) => ({
     title: {

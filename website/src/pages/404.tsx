@@ -1,7 +1,7 @@
 import React from "react"
 import { Container } from "@material-ui/core"
 
-import Text from "components/Typography"
+import Text from "@components/Typography"
 // Components
 
 export default function NotFoundPage() {

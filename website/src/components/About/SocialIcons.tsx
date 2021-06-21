@@ -1,7 +1,7 @@
 import React from "react"
 import { Facebook, Instagram, Twitter } from "@material-ui/icons"
 
-import TooltipIcon from "components/General/TooltipIcon"
+import TooltipIcon from "@components/General/TooltipIcon"
 
 type Props = {
     facebook?: string

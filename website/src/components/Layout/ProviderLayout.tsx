@@ -4,7 +4,7 @@ import Helmet from "react-helmet"
 import { Globals } from "react-spring"
 
 import theme from "../../theme"
-import usePrefersReducedMotion from "hooks/usePrefersReducedMotion"
+import usePrefersReducedMotion from "@hooks/usePrefersReducedMotion"
 
 type Props = {
     children: React.ReactNode | React.ReactNodeArray

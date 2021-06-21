@@ -6,7 +6,7 @@ import {
     makeStyles,
 } from "@material-ui/core"
 // Components
-import Text from "components/Typography"
+import Text from "@components/Typography"
 
 const useStyles = makeStyles((theme) => ({
     root: {

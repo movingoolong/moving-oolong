@@ -1,9 +1,9 @@
 import React from "react"
-import { EpisodeArrayType } from "hooks/useEpisodes"
+import { EpisodeArrayType } from "@hooks/useEpisodes"
 import { Flipper, Flipped } from "react-flip-toolkit"
 
 // Components
-import ContentGrid, { PropsForGrid } from "components/General/ContentGrid"
+import ContentGrid, { PropsForGrid } from "@components/General/ContentGrid"
 import EpisodePreview from "./EpisodePreview"
 
 type Props = PropsForGrid & {

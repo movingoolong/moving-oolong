@@ -6,9 +6,9 @@ import { Disqus } from "gatsby-plugin-disqus"
 import config from "data/SiteConfig"
 
 // Components
-import EpisodeContent from "components/Episode/EpisodeContent"
-import PostSuggestions from "components/Posts/PostSuggestions"
-import SEO from "components/General/SEO"
+import EpisodeContent from "@components/Episode/EpisodeContent"
+import PostSuggestions from "@components/Posts/PostSuggestions"
+import SEO from "@components/General/SEO"
 
 function PostPageTemplate(props) {
     const { data, pageContext, location } = props

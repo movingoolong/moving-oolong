@@ -1,5 +1,5 @@
 import React from "react"
-import ClientOnly from "components/General/ClientOnly"
+import ClientOnly from "@components/General/ClientOnly"
 
 type Props = {
     height: number
