@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import { Container, Grid, makeStyles } from "@material-ui/core"
 import VisibilitySensor from "react-visibility-sensor"
 import { useTrail, animated } from "react-spring"
-import { BODY_FONT } from "src/theme"
+import { BODY_FONT } from "../theme"
 
 // Components
 import Bio from "@components/About/Bio"
@@ -34,13 +34,18 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 export const query = graphql`
-    query AboutPage {
-        markdownRemark(fileAbsolutePath: { regex: "/site-descriptions/" }) {
-            frontmatter {
-                about_page
-                about_page_header
-            }
+    query AboutPageQuery {
+        sanitySiteSettings {
+            _rawAboutPageDescription
+            _rawAboutPageHeader
         }
+        allSanityBio(filter: {isGuest: {eq: false}}) {
+            edges {
+              node {
+                ...Bio
+              }
+            }
+          }
     }
 `
 

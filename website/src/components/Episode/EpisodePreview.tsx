@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import { GatsbyImage } from "gatsby-plugin-image"
 import {
     Button,
     Card,
@@ -14,14 +13,13 @@ import { animated, useSpring, config as springConfig } from "react-spring"
 import { BODY_FONT } from "../../theme"
 
 // Components
-import MarkdownContent from "@components/General/MarkdownContent"
+import { GatsbyImageIfExists } from "@components/Image"
+import SanityContent from "@components/SanityContent"
 import TagLink from "@components/Posts/TagLink"
 import CustomLink from "@components/General/CustomLink"
 import Text from "@components/Typography"
 
 // Types
-import { EpisodeType } from "@hooks/useEpisodes"
-
 const useStyles = makeStyles((theme) => ({
     root: {
         display: "flex",
@@ -70,7 +68,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 type Props = {
-    episode: EpisodeType
+    episode: GatsbyTypes.EpisodeFragment,
     showDescription?: boolean
 }
 

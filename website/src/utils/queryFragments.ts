@@ -1,6 +1,5 @@
 import { graphql } from "gatsby"
 
-
 export const fluidImageFragment = graphql`
     fragment FluidImage on SanityImage {
         asset {
@@ -43,3 +42,16 @@ export const episodeFragment = graphql`
     }
 `
 
+export const bioFragment = graphql`
+    fragment Bio on SanityBio {
+        _id
+        name
+        isGuest
+        instagram
+        twitter
+        propic {
+            ...FluidImage
+        }
+        _rawDescription
+    }
+`

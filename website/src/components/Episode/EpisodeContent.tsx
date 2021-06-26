@@ -1,10 +1,10 @@
 import React from "react"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Container, Grid, makeStyles } from "@material-ui/core"
 
 // Components
+import { GatsbyImageIfExists } from "@components/Image"
+import SanityContent from "@components/SanityContent"
 import TagLink from "@components/Posts/TagLink"
-import MarkdownContent from "@components/General/MarkdownContent"
 import AnimateOnVisible from "@components/General/AnimateOnVisible"
 import { AnimatedText } from "@components/Typography"
 
@@ -21,16 +21,22 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 type Props = {
-    episode: GatsbyTypes.EpisodeFragment
-    img: GatsbyTypes.FluidImageFragment
+    data: GatsbyTypes.EpisodeFragment
 }
 
-function EpisodeContent({ episode, img }: Props) {
+function EpisodeContent({ data }: Props) {
     const classes = useStyles()
-
-    if (!episode.frontmatter)
-        throw new Error("Episode frontmatter doesn't exist")
-    const { title, tags = [], link } = episode.frontmatter
+    const {
+        title,
+        datetime,
+        season,
+        guest,
+        spotify,
+        episodeTags,
+        image,
+        _rawDescription,
+        _rawReference,
+    } = data
 
     return (
         <Container>
@@ -57,10 +63,7 @@ function EpisodeContent({ episode, img }: Props) {
                     </AnimateOnVisible>
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                    <GatsbyImage
-                        image={getImage(img)}
-                        alt={`${title} episode image`}
-                    />
+                    <GatsbyImageIfExists imageAsset={image} />
                 </Grid>
                 <Grid
                     item
@@ -72,13 +75,13 @@ function EpisodeContent({ episode, img }: Props) {
                     sm={6}
                 >
                     <Grid item>
-                        <MarkdownContent
+                        <SanityContent
                             className={classes.embed}
-                            content={link}
+                            blocks={_rawDescription}
                         />
                     </Grid>
                     <Grid item>
-                        <MarkdownContent content={episode.html} />
+                        <SanityContent blocks={_rawDescription} />
                     </Grid>
                     <Grid item>
                         <div className={classes.tags}>
