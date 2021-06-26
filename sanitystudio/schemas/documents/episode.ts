@@ -29,8 +29,13 @@ export default {
     {
       name: "guest",
       title: "Guest",
-      type: "reference",
-      to: [{ type: "bio" }],
+      type: "array",
+      of: [
+        {
+          type: "reference",
+          to: [{ type: "bio" }],
+        },
+      ],
     },
     {
       name: "spotify",
