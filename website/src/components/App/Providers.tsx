@@ -10,7 +10,7 @@ type Props = {
     children: React.ReactNode | React.ReactNodeArray
 }
 
-export default function ProviderLayout(props: Props) {
+export default function Providers(props: Props) {
     const { children } = props
     const prefersReducedMotion = usePrefersReducedMotion()
     React.useEffect(() => {

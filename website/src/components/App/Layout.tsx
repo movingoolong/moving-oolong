@@ -4,7 +4,6 @@ import { PageProps } from "gatsby"
 //Components
 import Header from "./Header"
 import Footer from "./Footer"
-import ProviderLayout from "./ProviderLayout"
 
 type Props = PageProps & {
     children: React.ReactNode

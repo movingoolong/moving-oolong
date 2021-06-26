@@ -12,7 +12,6 @@ import MenuIcon from "@material-ui/icons/Menu"
 
 // Components
 import Logo from "@components/Logo/Logo"
-import Search from "@components/Search/AutocompleteSearch"
 import CustomLink from "@components/General/CustomLink"
 import Text from "@components/Typography"
 import Button from "@components/Button"
@@ -111,10 +110,6 @@ function Header({ location }: Props) {
                 </CustomLink>
 
                 <div className={classes.grow} />
-
-                <Hidden smDown>
-                    <Search />
-                </Hidden>
 
                 <Hidden xsDown>{links}</Hidden>
 
