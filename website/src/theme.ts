@@ -1,6 +1,6 @@
 import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles"
 // @ts-ignore Importing a font so no type
-import SukarBlack from "@assets/fonts/Sukar-Black.ttf"
+import SukarBlack from "./assets/fonts/Sukar-Black.ttf"
 
 const fontFace = {
     fontFamily: "Sukar Black",

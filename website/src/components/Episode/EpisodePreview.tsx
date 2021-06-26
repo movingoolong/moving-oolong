@@ -11,13 +11,12 @@ import {
 } from "@material-ui/core"
 import dayjs from "dayjs"
 import { animated, useSpring, config as springConfig } from "react-spring"
-import { BODY_FONT } from "src/theme"
+import { BODY_FONT } from "../../theme"
 
 // Components
 import MarkdownContent from "@components/General/MarkdownContent"
 import TagLink from "@components/Posts/TagLink"
 import CustomLink from "@components/General/CustomLink"
-import config from "data/SiteConfig"
 import Text from "@components/Typography"
 
 // Types
@@ -119,7 +118,7 @@ function EpisodePreview({ episode, showDescription = true, ...rest }: Props) {
                                 {title}
                             </Text>
                             <Text variant="subtitle2" color="textPrimary">
-                                {dayjs(date).format(config.dateFormat)}
+                                {dayjs(date)}
                             </Text>
                             {showDescription ? (
                                 <MarkdownContent

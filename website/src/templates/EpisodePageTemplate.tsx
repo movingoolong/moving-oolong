@@ -2,14 +2,17 @@ import React from "react"
 import { graphql } from "gatsby"
 import { Helmet } from "react-helmet"
 import { Container } from "@material-ui/core"
-import config from "data/SiteConfig"
 
 // Components
 import EpisodeContent from "@components/Episode/EpisodeContent"
 import PostSuggestions from "@components/Posts/PostSuggestions"
 import SEO from "@components/General/SEO"
 
-function PostPageTemplate(props) {
+type EpisodePageTemplateProps = {
+
+}
+
+function EpisodePageTemplate(props) {
     const { data, pageContext, location } = props
 
     const title = data.markdownRemark.frontmatter.title
@@ -30,10 +33,10 @@ function PostPageTemplate(props) {
     )
 }
 
-export default PostPageTemplate
+export default EpisodePageTemplate
 
 export const query = graphql`
-    query($slug: String, $imgsrc: String) {
+    query EpisodePage($slug: String) {
         markdownRemark(fields: { slug: { eq: $slug } }) {
             ...Episode
         }

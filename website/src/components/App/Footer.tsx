@@ -1,6 +1,5 @@
 import React from "react"
 import { Grid, SvgIcon, makeStyles } from "@material-ui/core"
-import config from "data/SiteConfig"
 import { Facebook, Instagram } from "@material-ui/icons"
 
 // Components
@@ -63,7 +62,7 @@ export default function Footer() {
 
                 <Grid item className={classes.copyright}>
                     <Text align="right" color="primary">
-                        <b>{config.copyright}</b>
+                        <b>Copyright © 2021 Moving Oolong</b>
                     </Text>
                 </Grid>
             </Grid>

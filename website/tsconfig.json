@@ -9,8 +9,7 @@
             "@components/*": ["src/components/*"],
             "@pages/*": ["src/pages/*"],
             "@hooks/*": ["src/hooks/*"],
-            "@utils/*": ["src/utils/*"],
-            "src/*": ["src/*"],
+            "@utils/*": ["src/utils/*"]
         },
         "typeRoots": ["./node_modules/@types"],
         "allowJs": true,

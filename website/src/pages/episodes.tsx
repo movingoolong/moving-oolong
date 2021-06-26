@@ -1,4 +1,5 @@
 import React, { useState, FormEvent, SyntheticEvent } from "react"
+import { PageProps, graphl } from "gatsby"
 import { Button, Hidden, SwipeableDrawer, Grid } from "@material-ui/core"
 import { useQueryParam, StringParam } from "use-query-params"
 
@@ -13,7 +14,9 @@ import SEO from "@components/General/SEO"
 import useTags from "@hooks/useTags"
 import useEpisodes from "@hooks/useEpisodes"
 
-export default function EpisodePage() {
+type Props = PageProps<GatsbyTypes.EpisodePageQuery>
+
+export default function EpisodePage({data}: Props) {
     const [urlTags, setURLTags] = useQueryParam("tags", StringParam)
     const tags = useTags(urlTags)
     const episodes = useEpisodes(tags)
@@ -78,3 +81,15 @@ export default function EpisodePage() {
         </>
     )
 }
+
+export const query = graphql`
+    query EpisodesPage {
+        allSanityEpisode {
+            edges {
+              node {
+                ...Episode
+              }
+            }
+          }
+    }
+`

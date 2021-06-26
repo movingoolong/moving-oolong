@@ -1,10 +1,8 @@
 const queries = require("./src/utils/algolia")
 require("dotenv").config()
 
-const regexExcludeRobots = /^(?!\/(dev-404-page|404|offline-plugin-app-shell-fallback|tags|categories)).*$/
-
 const title = "Moving Oolong Podcast"
-const description = ""
+const description = "Raw, unfiltered conversations between 3 best friends. We’re Asian American young women who started this podcast to share our stories and growing pains."
 
 module.exports = {
     pathPrefix: "/",
@@ -27,6 +25,13 @@ module.exports = {
                 concurrentQueries: true,
                 matchFields: ["slug"],
             },
+        },
+        {
+            resolve: "gatsby-source-sanity",
+            options: {
+                projectId: process.env.GATSBY_SANITY_PROJECT_ID,
+                dataset: process.env.GATSBY_SANITY_DATASET,
+            }
         },
         {
             resolve: "gatsby-source-filesystem",
