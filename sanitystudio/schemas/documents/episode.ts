@@ -27,6 +27,23 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      description: "The URL for the episode on the website",
+      options: {
+        source: "title",
+        slugify: (input) =>
+          input
+            .toLowerCase()
+            .replace(".", "")
+            .replace(/\s+/g, "-")
+            .slice(0, 200),
+        isUnique: isUniqueAcrossAllDocuments,
+      },
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: "guest",
       title: "Guest",
       type: "array",
@@ -71,21 +88,6 @@ export default {
       name: "references",
       title: "Additional References",
       type: "portableText",
-    },
-    {
-      name: "slug",
-      title: "Slug",
-      type: "slug",
-      hidden: true,
-      options: {
-        source: (doc) =>
-          doc.datetime
-            ? `${doc.title}-${moment(doc.datetime).year()}`
-            : doc.title,
-        slugify: (input) =>
-          input.toLowerCase().replace(/\s+/g, "-").slice(0, 200),
-        isUnique: isUniqueAcrossAllDocuments,
-      },
     },
   ],
 };
