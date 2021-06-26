@@ -2,7 +2,6 @@ import React from "react"
 import { graphql } from "gatsby"
 import { Helmet } from "react-helmet"
 import { Container } from "@material-ui/core"
-import { Disqus } from "gatsby-plugin-disqus"
 import config from "data/SiteConfig"
 
 // Components
@@ -12,11 +11,6 @@ import SEO from "@components/General/SEO"
 
 function PostPageTemplate(props) {
     const { data, pageContext, location } = props
-    const disqusConfig = {
-        url: `${config.siteUrl + location.pathname}`,
-        identifier: data.markdownRemark.id,
-        title: data.markdownRemark.frontmatter.title,
-    }
 
     const title = data.markdownRemark.frontmatter.title
 
@@ -24,12 +18,6 @@ function PostPageTemplate(props) {
         <>
             <SEO
                 title={title}
-                meta={[
-                    {
-                        property: "og:image",
-                        content: `${config.siteUrl}${data.file.childImageSharp.gatsbyImageData.src}`,
-                    },
-                ]}
             />
             <EpisodeContent episode={data.markdownRemark} img={data.file} />
             <PostSuggestions
@@ -38,9 +26,6 @@ function PostPageTemplate(props) {
                 prevTitle={pageContext.prevTitle}
                 prevSlug={pageContext.prevSlug}
             />
-            <Container>
-                <Disqus config={disqusConfig} />
-            </Container>
         </>
     )
 }
