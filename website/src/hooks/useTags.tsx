@@ -6,21 +6,24 @@ export type TagState = Record<string, boolean>
 function getInitialState(): TagState {
     const data = useStaticQuery<GatsbyTypes.AllTagsQuery>(graphql`
         query AllTags {
-            markdownRemark(fileAbsolutePath: { regex: "/episode-tags/" }) {
-                frontmatter {
-                    options
+            allSanityEpisode {
+                nodes {
+                    episodeTags {
+                        value
+                    }
                 }
             }
         }
     `)
 
-    if (!data.markdownRemark?.frontmatter?.options)
-        throw new Error("No tag options exist")
+    if (!data.allSanityEpisode?.nodes) throw new Error("No episodes exist")
 
     let state: TagState = {}
-    data.markdownRemark.frontmatter.options.forEach(
-        (tag = "") => (state[tag] = false)
-    )
+    data.allSanityEpisode.nodes.forEach((episodeTags) => {
+        episodeTags.forEach((value) => {
+            state[value] = false
+        })
+    })
     return state
 }
 
