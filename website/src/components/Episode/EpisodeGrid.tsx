@@ -7,7 +7,7 @@ import ContentGrid, { PropsForGrid } from "@components/General/ContentGrid"
 import EpisodePreview from "./EpisodePreview"
 
 type Props = PropsForGrid & {
-    episodes: EpisodeArrayType
+    episodes: GatsbyTypes.EpisodeFragment[],
     showDescription?: boolean
 }
 
