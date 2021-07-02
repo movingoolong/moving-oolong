@@ -14,6 +14,11 @@ export default {
             type: 'portableText',
         },
         {
+            name: 'frontPageImage',
+            title: 'Front Page Image',
+            type: 'image',
+        },
+        {
             name: 'aboutPageHeader',
             title: 'About Page Header',
             type: 'portableText',
