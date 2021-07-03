@@ -63,15 +63,6 @@ const useStyles = makeStyles((theme) => ({
 
 function AboutSection() {
     const classes = useStyles()
-    const data = useStaticQuery<GatsbyTypes.AboutSectionQuery>(graphql`
-        query AboutSection {
-            markdownRemark(fileAbsolutePath: { regex: "/site-descriptions/" }) {
-                frontmatter {
-                    front_page
-                }
-            }
-        }
-    `)
 
     const springLeft = useSpring({
         from: { opacity: 0, transform: "translateX(-10px)" },
@@ -115,7 +106,7 @@ function AboutSection() {
                             className={classes.description}
                             style={springLeft}
                         >
-                            {data.markdownRemark?.frontmatter?.front_page}
+                           Nice
                         </AnimatedText>
                     </Container>
                 </AnimatedGrid>

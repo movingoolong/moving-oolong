@@ -11,7 +11,7 @@ export interface HasImageSrc {
 }
 
 export interface NodeWithImage<T extends HasImageSrc> {
-    node: T["node"]
+    node: T["node"] 
     image: GatsbyTypes.FluidImageFragment
 }
 

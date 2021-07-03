@@ -11,9 +11,6 @@ import SEO from "@components/General/SEO"
 import Text, { AnimatedText } from "@components/Typography"
 import AnimateOnVisible from "@components/General/AnimateOnVisible"
 
-// Hooks
-import useBios from "@hooks/useBios"
-
 const AnimatedGrid = animated(Grid)
 
 const useStyles = makeStyles((theme) => ({
@@ -40,12 +37,10 @@ export const query = graphql`
             _rawAboutPageHeader
         }
         allSanityBio(filter: {isGuest: {eq: false}}) {
-            edges {
-              node {
+            nodes {
                 ...Bio
-              }
             }
-          }
+        }
     }
 `
 
@@ -55,7 +50,7 @@ type Props = {
 
 export default function AboutPage({ data }: Props) {
     const classes = useStyles()
-    const bios = useBios()
+    const { sanitySiteSettings, allSanityBio } = data
     const [isVisible, setIsVisible] = useState(false)
     const trails = useTrail(bios.length, {
         to: {
@@ -76,10 +71,7 @@ export default function AboutPage({ data }: Props) {
                             style={springStyle}
                         >
                             <b>
-                                {
-                                    data.markdownRemark?.frontmatter
-                                        ?.about_page_header
-                                }
+nice
                             </b>
                         </AnimatedText>
                     )}
@@ -91,7 +83,7 @@ export default function AboutPage({ data }: Props) {
                     color="textPrimary"
                     className={classes.description}
                 >
-                    <b>{data.markdownRemark?.frontmatter?.about_page}</b>
+                    <b>subtitle</b>
                 </Text>
 
                 <VisibilitySensor
@@ -105,13 +97,13 @@ export default function AboutPage({ data }: Props) {
                         justify="center"
                         alignItems="stretch"
                     >
-                        {bios.map((bio, index) => (
+                        {allSanityBio.nodes.map((bio, index) => (
                             <AnimatedGrid
                                 item
                                 className={classes.item}
                                 xs={12}
                                 sm={4}
-                                key={bio.node.id}
+                                key={index}
                                 style={trails[index]}
                             >
                                 <Bio bio={bio} />

@@ -76,76 +76,77 @@ const AnimatedCard = animated(Card)
 
 function EpisodePreview({ episode, showDescription = true, ...rest }: Props) {
     const classes = useStyles()
+    return <></>
 
-    const [isHover, setHover] = useState(false)
-    const springStyle = useSpring({
-        to: {
-            transform: isHover ? "scale(1.05)" : "scale(1.0)",
-        },
-        config: springConfig.wobbly,
-    })
+    // const [isHover, setHover] = useState(false)
+    // const springStyle = useSpring({
+    //     to: {
+    //         transform: isHover ? "scale(1.05)" : "scale(1.0)",
+    //     },
+    //     config: springConfig.wobbly,
+    // })
 
-    if (!episode.node.frontmatter)
-        throw new Error("Frontmatter does not exist on episode")
-    if (!episode.node.fields?.slug) throw new Error("Slug does not exist")
-    if (!episode.image.childImageSharp?.gatsbyImageData)
-        throw new Error("Image doesn't exist")
+    // if (!episode.node.frontmatter)
+    //     throw new Error("Frontmatter does not exist on episode")
+    // if (!episode.node.fields?.slug) throw new Error("Slug does not exist")
+    // if (!episode.image.childImageSharp?.gatsbyImageData)
+    //     throw new Error("Image doesn't exist")
 
-    const { title, tags = [], date } = episode.node.frontmatter
-    const { slug } = episode.node.fields
+    // const { title, tags = [], date } = episode.node.frontmatter
+    // const { slug } = episode.node.fields
 
-    return (
-        <AnimatedCard
-            className={classes.root}
-            {...rest}
-            onMouseOver={() => setHover(true)}
-            onMouseLeave={() => setHover(false)}
-            style={springStyle}
-        >
-            <div className={classes.content}>
-                <CustomLink className={classes.link} to={slug}>
-                    <CardActionArea>
-                        <GatsbyImage
-                            image={
-                                episode.image?.childImageSharp?.gatsbyImageData
-                            }
-                            alt={`${title} preview image`}
-                        />
-                        <CardContent className={classes.header}>
-                            <Text variant="h6" className={classes.title}>
-                                {title}
-                            </Text>
-                            <Text variant="subtitle2" color="textPrimary">
-                                {dayjs(date)}
-                            </Text>
-                            {showDescription ? (
-                                <MarkdownContent
-                                    content={episode.node.excerpt}
-                                />
-                            ) : (
-                                <></>
-                            )}
-                        </CardContent>
-                    </CardActionArea>
-                </CustomLink>
-            </div>
+    // return (
+    //     <AnimatedCard
+    //         className={classes.root}
+    //         {...rest}
+    //         onMouseOver={() => setHover(true)}
+    //         onMouseLeave={() => setHover(false)}
+    //         style={springStyle}
+    //     >
+    //         <div className={classes.content}>
+    //             <CustomLink className={classes.link} to={slug}>
+    //                 <CardActionArea>
+    //                     <GatsbyImage
+    //                         image={
+    //                             episode.image?.childImageSharp?.gatsbyImageData
+    //                         }
+    //                         alt={`${title} preview image`}
+    //                     />
+    //                     <CardContent className={classes.header}>
+    //                         <Text variant="h6" className={classes.title}>
+    //                             {title}
+    //                         </Text>
+    //                         <Text variant="subtitle2" color="textPrimary">
+    //                             {dayjs(date)}
+    //                         </Text>
+    //                         {showDescription ? (
+    //                             <MarkdownContent
+    //                                 content={episode.node.excerpt}
+    //                             />
+    //                         ) : (
+    //                             <></>
+    //                         )}
+    //                     </CardContent>
+    //                 </CardActionArea>
+    //             </CustomLink>
+    //         </div>
 
-            <CardActions className={classes.action}>
-                <Grid container alignItems="flex-end" justify="space-between">
-                    <Grid item xs={6}>
-                        {tags.map((tag = "") => (
-                            <TagLink tag={tag} key={tag} />
-                        ))}
-                    </Grid>
-                    <Grid item>
-                        <Button color="secondary" size="small" href={slug}>
-                            Read More
-                        </Button>
-                    </Grid>
-                </Grid>
-            </CardActions>
-        </AnimatedCard>
-    )
+    //         <CardActions className={classes.action}>
+    //             <Grid container alignItems="flex-end" justify="space-between">
+    //                 <Grid item xs={6}>
+    //                     {tags.map((tag = "") => (
+    //                         <TagLink tag={tag} key={tag} />
+    //                     ))}
+    //                 </Grid>
+    //                 <Grid item>
+    //                     <Button color="secondary" size="small" href={slug}>
+    //                         Read More
+    //                     </Button>
+    //                 </Grid>
+    //             </Grid>
+    //         </CardActions>
+    //     </AnimatedCard>
+    // )
 }
 
 export default EpisodePreview

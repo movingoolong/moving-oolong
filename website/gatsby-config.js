@@ -14,18 +14,18 @@ module.exports = {
         "gatsby-plugin-react-helmet",
         "gatsby-plugin-material-ui",
         "gatsby-plugin-use-query-params",
-        {
-            resolve: `gatsby-plugin-algolia`,
-            options: {
-                appId: process.env.GATSBY_ALGOLIA_APP_ID,
-                apiKey: process.env.ALGOLIA_ADMIN_KEY,
-                queries,
-                chunkSize: 1000, // default: 1000
-                enablePartialUpdates: false,
-                concurrentQueries: true,
-                matchFields: ["slug"],
-            },
-        },
+        // {
+        //     resolve: `gatsby-plugin-algolia`,
+        //     options: {
+        //         appId: process.env.GATSBY_ALGOLIA_APP_ID,
+        //         apiKey: process.env.ALGOLIA_ADMIN_KEY,
+        //         queries,
+        //         chunkSize: 1000, // default: 1000
+        //         enablePartialUpdates: false,
+        //         concurrentQueries: true,
+        //         matchFields: ["slug"],
+        //     },
+        // },
         {
             resolve: "gatsby-source-sanity",
             options: {

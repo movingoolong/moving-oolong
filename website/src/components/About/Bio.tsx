@@ -4,11 +4,9 @@ import { Card, CardContent, CardActions, makeStyles } from "@material-ui/core"
 import SocialIcons from "./SocialIcons"
 
 // Components
-import MarkdownContent from "@components/General/MarkdownContent"
 import Text from "@components/Typography/Text"
 
 // Types
-import { BioType } from "@hooks/useBios"
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -38,39 +36,40 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 type Props = {
-    bio: BioType
+    bio: any
 }
 
 function Bio({ bio }: Props) {
-    const classes = useStyles()
-    const image = getImage(bio.image)
-    if (!bio.node.frontmatter)
-        throw new Error("Frontmatter does not exist on bio")
-    if (!image) throw new Error(`Image does not exist`)
+    return <></>
+    // const classes = useStyles()
+    // const image = getImage(bio.image)
+    // if (!bio.node.frontmatter)
+    //     throw new Error("Frontmatter does not exist on bio")
+    // if (!image) throw new Error(`Image does not exist`)
 
-    const { name, instagram, twitter } = bio.node.frontmatter
+    // const { name, instagram, twitter } = bio.node.frontmatter
 
-    return (
-        <Card className={classes.root}>
-            <div className={classes.content}>
-                <GatsbyImage image={image} alt={`${name} bio image`} />
-                <CardContent>
-                    <Text
-                        variant="h6"
-                        align="center"
-                        className={classes.title}
-                        color="secondary"
-                    >
-                        {name}
-                    </Text>
-                    <MarkdownContent content={bio.node.html} />
-                </CardContent>
-            </div>
-            <CardActions disableSpacing className={classes.socials}>
-                <SocialIcons instagram={instagram} twitter={twitter} />
-            </CardActions>
-        </Card>
-    )
+    // return (
+    //     <Card className={classes.root}>
+    //         <div className={classes.content}>
+    //             <GatsbyImage image={image} alt={`${name} bio image`} />
+    //             <CardContent>
+    //                 <Text
+    //                     variant="h6"
+    //                     align="center"
+    //                     className={classes.title}
+    //                     color="secondary"
+    //                 >
+    //                     {name}
+    //                 </Text>
+    //                 <MarkdownContent content={bio.node.html} />
+    //             </CardContent>
+    //         </div>
+    //         <CardActions disableSpacing className={classes.socials}>
+    //             <SocialIcons instagram={instagram} twitter={twitter} />
+    //         </CardActions>
+    //     </Card>
+    // )
 }
 
 export default Bio

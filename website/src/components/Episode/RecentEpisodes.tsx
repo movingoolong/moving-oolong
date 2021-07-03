@@ -13,8 +13,6 @@ import SwipeableEpisodes from "./SwipeableEpisodes"
 import CustomLink from "@components/General/CustomLink"
 import Text from "@components/Typography"
 
-import useEpisodes from "@hooks/useEpisodes"
-
 const useStyles = makeStyles((theme) => ({
     root: {
         marginLeft: theme.spacing(3),
@@ -58,7 +56,6 @@ const useSizing = () => {
 
 export default function RecentPosts() {
     const classes = useStyles()
-    const episodes = useEpisodes()
     const numShown = useSizing()
     return (
         <div className={classes.root}>
@@ -81,9 +78,9 @@ export default function RecentPosts() {
                 </Grid>
             </Grid>
 
-            <Hidden xsDown>
+            {/* <Hidden xsDown>
                 <SwipeableEpisodes
-                    episodes={episodes.slice(0, numShown * 2)}
+                    episodes={[episodes.slice(0, numShown * 2)]}
                     numShown={numShown}
                 />
             </Hidden>
@@ -92,7 +89,7 @@ export default function RecentPosts() {
                     episodes={episodes.slice(0, 3)}
                     showDescription={false}
                 />
-            </Hidden>
+            </Hidden> */}
         </div>
     )
 }

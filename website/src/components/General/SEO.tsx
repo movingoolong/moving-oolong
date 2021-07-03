@@ -29,26 +29,15 @@ type SEOProps = {
 
 const SEO = (props: SEOProps) => {
     const { lang = "en", meta = [], description = "", title } = props // assignment means default props
-    const { site } = useStaticQuery<GatsbyTypes.SEOQuery>(
+    const { sanitySiteSettings } = useStaticQuery<GatsbyTypes.SEOQuery>(
         graphql`
             query SEO {
-                site {
-                    siteMetadata {
-                        title
-                        description
-                    }
+                sanitySiteSettings {
+                    title
                 }
             }
         `
     )
-
-    if (!site?.siteMetadata?.title || !site?.siteMetadata?.description) {
-        throw new Error(
-            "Either title or description not defined in siteMetadata. Check gatsby-config"
-        )
-    }
-
-    const metaDescription = description || site.siteMetadata.description
 
     return (
         <Helmet
@@ -56,11 +45,13 @@ const SEO = (props: SEOProps) => {
                 lang,
             }}
             title={title}
-            titleTemplate={`%s | ${site.siteMetadata.title}`}
+            titleTemplate={`%s | ${
+                sanitySiteSettings?.title ? sanitySiteSettings.title : ""
+            }`}
             meta={[
                 {
                     name: `description`,
-                    content: metaDescription,
+                    content: description,
                 },
                 {
                     property: `og:title`,
@@ -68,7 +59,7 @@ const SEO = (props: SEOProps) => {
                 },
                 {
                     property: `og:description`,
-                    content: metaDescription,
+                    content: description,
                 },
                 {
                     property: `og:type`,

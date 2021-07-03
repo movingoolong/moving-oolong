@@ -12,7 +12,6 @@ import SEO from "@components/General/SEO"
 
 // Hooks
 import useTags from "@hooks/useTags"
-import useEpisodes from "@hooks/useEpisodes"
 
 type Props = PageProps<GatsbyTypes.EpisodePageQuery>
 

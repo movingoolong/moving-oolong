@@ -1,5 +1,4 @@
 import React from "react"
-import { EpisodeArrayType } from "@hooks/useEpisodes"
 import { Flipper, Flipped } from "react-flip-toolkit"
 
 // Components
