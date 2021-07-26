@@ -84,11 +84,11 @@ function EpisodeContent({ data }: Props) {
                         <SanityContent blocks={_rawDescription} />
                     </Grid>
                     <Grid item>
-                        <div className={classes.tags}>
+                        {/* <div className={classes.tags}>
                             {tags.map((tag = "") => (
                                 <TagLink tag={tag} key={tag} />
                             ))}
-                        </div>
+                        </div> */}
                     </Grid>
                 </Grid>
             </Grid>

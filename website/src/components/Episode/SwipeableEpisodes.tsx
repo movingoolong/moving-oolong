@@ -7,11 +7,8 @@ import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos"
 import SwipeableViews from "react-swipeable-views"
 
 // Components
-import { EpisodeArrayType } from "@hooks/useEpisodes"
 import EpisodePreview from "./EpisodePreview"
 import { IconBoopButton } from "@components/Button"
-
-import useBoop from "@hooks/useBoop"
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -32,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 type Props = {
-    episodes: EpisodeArrayType
+    episodes: GatsbyTypes.EpisodeFragment[]
     numShown: 1 | 2 | 3 | 4
 }
 
@@ -66,7 +63,7 @@ function SwipeableEpisodes({ episodes, numShown = 4 }: Props) {
                     className={classes.item}
                     // @ts-ignore Numbers
                     sm={12 / numShown}
-                    key={episode.node.id}
+                    key={episode._id}
                 >
                     <EpisodePreview episode={episode} showDescription={false} />
                 </Grid>

@@ -9,7 +9,7 @@ import {
     makeStyles,
 } from "@material-ui/core"
 import dayjs from "dayjs"
-import { animated, useSpring, config as springConfig } from "react-spring"
+import { animated } from "react-spring"
 import { BODY_FONT } from "../../theme"
 
 // Components
@@ -18,6 +18,8 @@ import SanityContent from "@components/SanityContent"
 import TagLink from "@components/Posts/TagLink"
 import CustomLink from "@components/General/CustomLink"
 import Text from "@components/Typography"
+
+import useBoop from "@hooks/useBoop"
 
 // Types
 const useStyles = makeStyles((theme) => ({
@@ -68,7 +70,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 type Props = {
-    episode: GatsbyTypes.EpisodeFragment,
+    episode: GatsbyTypes.EpisodeFragment
     showDescription?: boolean
 }
 
@@ -76,77 +78,63 @@ const AnimatedCard = animated(Card)
 
 function EpisodePreview({ episode, showDescription = true, ...rest }: Props) {
     const classes = useStyles()
-    return <></>
+    const [boopStyle, trigger] = useBoop({ scale: 1.05 })
+    const {
+        title,
+        datetime,
+        episodeTags,
+        image,
+        slug,
+        _rawDescription,
+        _rawReference,
+    } = episode
+    const slugLink = slug?.current
+    console.log(episode)
 
-    // const [isHover, setHover] = useState(false)
-    // const springStyle = useSpring({
-    //     to: {
-    //         transform: isHover ? "scale(1.05)" : "scale(1.0)",
-    //     },
-    //     config: springConfig.wobbly,
-    // })
+    return (
+        <AnimatedCard
+            className={classes.root}
+            {...rest}
+            onMouseEnter={trigger}
+            style={boopStyle}
+        >
+            <div className={classes.content}>
+                <CustomLink className={classes.link} to={slugLink}>
+                    <CardActionArea>
+                        <GatsbyImageIfExists imageAsset={image} />
+                        <CardContent className={classes.header}>
+                            {/* <Text variant="h6" className={classes.title}>
+                                {title}
+                            </Text>
+                            <Text variant="subtitle2" color="textPrimary">
+                                {dayjs(datetime)}
+                            </Text>
+                            {showDescription ? (
+                                <SanityContent blocks={_rawDescription} />
+                            ) : (
+                                <></>
+                            )} */}
+                        </CardContent>
+                    </CardActionArea>
+                </CustomLink>
+            </div>
 
-    // if (!episode.node.frontmatter)
-    //     throw new Error("Frontmatter does not exist on episode")
-    // if (!episode.node.fields?.slug) throw new Error("Slug does not exist")
-    // if (!episode.image.childImageSharp?.gatsbyImageData)
-    //     throw new Error("Image doesn't exist")
-
-    // const { title, tags = [], date } = episode.node.frontmatter
-    // const { slug } = episode.node.fields
-
-    // return (
-    //     <AnimatedCard
-    //         className={classes.root}
-    //         {...rest}
-    //         onMouseOver={() => setHover(true)}
-    //         onMouseLeave={() => setHover(false)}
-    //         style={springStyle}
-    //     >
-    //         <div className={classes.content}>
-    //             <CustomLink className={classes.link} to={slug}>
-    //                 <CardActionArea>
-    //                     <GatsbyImage
-    //                         image={
-    //                             episode.image?.childImageSharp?.gatsbyImageData
-    //                         }
-    //                         alt={`${title} preview image`}
-    //                     />
-    //                     <CardContent className={classes.header}>
-    //                         <Text variant="h6" className={classes.title}>
-    //                             {title}
-    //                         </Text>
-    //                         <Text variant="subtitle2" color="textPrimary">
-    //                             {dayjs(date)}
-    //                         </Text>
-    //                         {showDescription ? (
-    //                             <MarkdownContent
-    //                                 content={episode.node.excerpt}
-    //                             />
-    //                         ) : (
-    //                             <></>
-    //                         )}
-    //                     </CardContent>
-    //                 </CardActionArea>
-    //             </CustomLink>
-    //         </div>
-
-    //         <CardActions className={classes.action}>
-    //             <Grid container alignItems="flex-end" justify="space-between">
-    //                 <Grid item xs={6}>
-    //                     {tags.map((tag = "") => (
-    //                         <TagLink tag={tag} key={tag} />
-    //                     ))}
-    //                 </Grid>
-    //                 <Grid item>
-    //                     <Button color="secondary" size="small" href={slug}>
-    //                         Read More
-    //                     </Button>
-    //                 </Grid>
-    //             </Grid>
-    //         </CardActions>
-    //     </AnimatedCard>
-    // )
+            <CardActions className={classes.action}>
+                <Grid container alignItems="flex-end" justify="space-between">
+                    {/* <Grid item xs={6}>
+                        {tags.map((tag = "") => (
+                            <TagLink tag={tag} key={tag} />
+                        ))}
+                    </Grid> */}
+                    <Grid item>
+                        <Button color="secondary" size="small" href={slugLink}>
+                            Read More
+                        </Button>
+                    </Grid>
+                </Grid>
+            </CardActions>
+        </AnimatedCard>
+    )
 }
 
 export default EpisodePreview

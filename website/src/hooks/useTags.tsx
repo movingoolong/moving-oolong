@@ -19,9 +19,9 @@ function getInitialState(): TagState {
     if (!data.allSanityEpisode?.nodes) throw new Error("No episodes exist")
 
     let state: TagState = {}
-    data.allSanityEpisode.nodes.forEach((episodeTags) => {
-        episodeTags.forEach((value) => {
-            state[value] = false
+    data.allSanityEpisode.nodes.forEach((node) => {
+        node.episodeTags.forEach((sanityTag) => {
+            state[sanityTag?.value] = false
         })
     })
     return state

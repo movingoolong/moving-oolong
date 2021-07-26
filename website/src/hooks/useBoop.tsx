@@ -11,6 +11,7 @@ export type BoopProps = {
     scale?: number
     timing?: number
     springConfig?: SpringConfig
+    disabled?: boolean
 }
 export default function useBoop({
     x = 0,
@@ -22,6 +23,7 @@ export default function useBoop({
         tension: 300,
         friction: 10,
     },
+    disabled = false
 }: BoopProps): [{}, () => void] {
     // const prefersReducedMotion = usePrefersReducedMotion()
     const [isBooped, setIsBooped] = React.useState(false)
@@ -34,6 +36,7 @@ export default function useBoop({
          rotate(0deg)
          scale(1)`,
         config: springConfig,
+        cancel: disabled
     })
     React.useEffect(() => {
         if (!isBooped) {

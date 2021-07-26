@@ -54,7 +54,11 @@ const useSizing = () => {
     }
 }
 
-export default function RecentPosts() {
+type Props = {
+    episodes: GatsbyTypes.EpisodeFragment[]
+}
+
+export default function RecentPosts({ episodes }: Props) {
     const classes = useStyles()
     const numShown = useSizing()
     return (
@@ -78,9 +82,9 @@ export default function RecentPosts() {
                 </Grid>
             </Grid>
 
-            {/* <Hidden xsDown>
+            <Hidden xsDown>
                 <SwipeableEpisodes
-                    episodes={[episodes.slice(0, numShown * 2)]}
+                    episodes={episodes.slice(0, numShown * 2)}
                     numShown={numShown}
                 />
             </Hidden>
@@ -89,7 +93,7 @@ export default function RecentPosts() {
                     episodes={episodes.slice(0, 3)}
                     showDescription={false}
                 />
-            </Hidden> */}
+            </Hidden>
         </div>
     )
 }

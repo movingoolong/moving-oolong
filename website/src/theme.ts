@@ -1,4 +1,4 @@
-import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles"
+import { createTheme, responsiveFontSizes } from "@material-ui/core/styles"
 // @ts-ignore Importing a font so no type
 import SukarBlack from "./assets/fonts/Sukar-Black.ttf"
 
@@ -12,7 +12,7 @@ export const HEADING_FONT = ["Sukar Black", "sans-serif"].join()
 export const BODY_FONT = ["Poppins", "san-serif"].join()
 
 // A custom theme for this app
-const theme = createMuiTheme({
+const theme = createTheme({
     palette: {
         primary: {
             main: "#3C787E",

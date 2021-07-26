@@ -10,12 +10,20 @@ type Props = IconButtonProps & {
     boopProps: BoopProps
 }
 
-export default function IconBoopButton({ boopProps, ...rest }: Props) {
-    const [boopStyles, trigger] = useBoop(boopProps)
+export default function IconBoopButton({
+    boopProps,
+    disabled,
+    ...rest
+}: Props) {
+    const [boopStyles, trigger] = useBoop({ ...boopProps, disabled })
 
     return (
         <span onMouseEnter={trigger}>
-            <AnimatedIconButton style={boopStyles} {...rest} />
+            <AnimatedIconButton
+                style={boopStyles}
+                disabled={disabled}
+                {...rest}
+            />
         </span>
     )
 }

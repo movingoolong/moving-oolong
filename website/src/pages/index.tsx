@@ -5,11 +5,10 @@ import { useSpring, animated, config } from "react-spring"
 
 // Components
 import RecentEpisodes from "@components/Episode/RecentEpisodes"
-import AboutSection from "@components/About/AboutSection"
 import ContactUsSection from "@components/About/ContactUsSection"
 import SEO from "@components/General/SEO"
-import CustomLink from "@components/General/CustomLink"
 import { ImageSection } from "@components/Image"
+import { CustomButton } from "@components/Button"
 
 // Hooks
 import useBoop from "@hooks/useBoop"
@@ -23,11 +22,10 @@ const useStyles = makeStyles((theme) => ({
     aboutImageWrapper: {
         width: "100%",
         height: HEIGHT,
-        zIndex: -10,
         position: "fixed",
         backgroundAttachment: "fixed",
         backgroundPosition: "center 60%",
-        backgroundSize: "auto",
+        backgroundSize: "cover",
     },
     aboutTextContainer: {
         width: "100%",
@@ -69,6 +67,11 @@ export const query = graphql`
                     )
                     altText
                 }
+            }
+        }
+        allSanityEpisode {
+            nodes {
+                ...Episode
             }
         }
     }
@@ -120,64 +123,21 @@ export default function IndexPage({
                     </AnimatedGrid>
 
                     <AnimatedGrid item style={springRight}>
-                        <CustomLink to="/about">
-                            <AnimatedButton
+                        <span style={buttonBoopStyle} onMouseEnter={trigger}>
+                            <CustomButton
+                                to="/about"
                                 className={classes.aboutButton}
                                 size="large"
                                 variant="contained"
-                                style={buttonBoopStyle}
-                                onMouseEnter={trigger}
                             >
                                 About Us
-                            </AnimatedButton>
-                        </CustomLink>
+                            </CustomButton>
+                        </span>
                     </AnimatedGrid>
                 </Grid>
             </ImageSection>
-            {/* <div className={classes.about}>
-                <GatsbyImageIfExists
-                    imageAsset={data?.sanitySiteSettings?.frontPageImage}
-                    className={classes.aboutImageWrapper}
-                    imgClassName={classes.aboutImage}
-                    loading="eager"
-                    objectPosition="center 50%"
-                    objectFit="cover"
-                    quality={100}
-                    transformOptions={{
-                        duotone: {
-                            highlight: "#000000",
-                            opacity: 0.4,
-                        },
-                    }}
-                />
-                <Grid
-                    container
-                    className={classes.aboutTextContainer}
-                    alignItems="center"
-                    justify="center"
-                    direction="column"
-                >
-                    <AnimatedGrid item style={springLeft}>
-                        <Container maxWidth="md">Text</Container>
-                    </AnimatedGrid>
-
-                    <AnimatedGrid item style={springRight}>
-                        <CustomLink to="/about">
-                            <AnimatedButton
-                                className={classes.aboutButton}
-                                size="large"
-                                variant="contained"
-                                style={buttonBoopStyle}
-                                onMouseEnter={trigger}
-                            >
-                                About Us
-                            </AnimatedButton>
-                        </CustomLink>
-                    </AnimatedGrid>
-                </Grid>
-            </div> */}
             <div className={classes.content}>
-                <RecentEpisodes />
+                <RecentEpisodes episodes={data.allSanityEpisode.nodes}/>
                 <Container maxWidth="xl">
                     <Grid
                         className={classes.contact}

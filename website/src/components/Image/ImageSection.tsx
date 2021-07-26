@@ -12,10 +12,8 @@ const useStyles = makeStyles((theme) => ({
         position: "absolute",
         top: 0,
         background: "rgba(0, 0, 0, 0.4)",
-        zIndex: -1,
     },
     content: {
-        zIndex: 1,
         width: "100%",
         height: "100%",
         padding: theme.spacing(2),
