@@ -9,7 +9,7 @@ import AboutSection from "@components/About/AboutSection"
 import ContactUsSection from "@components/About/ContactUsSection"
 import SEO from "@components/General/SEO"
 import CustomLink from "@components/General/CustomLink"
-import { GatsbyImageIfExists } from "@components/Image"
+import { ImageSection } from "@components/Image"
 
 // Hooks
 import useBoop from "@hooks/useBoop"
@@ -20,26 +20,18 @@ const AnimatedButton = animated(Button)
 const HEIGHT = "70vh"
 
 const useStyles = makeStyles((theme) => ({
-    about: {
-        width: "100%",
-        height: HEIGHT,
-    },
     aboutImageWrapper: {
         width: "100%",
         height: HEIGHT,
         zIndex: -10,
         position: "fixed",
-    },
-    aboutImage: {
         backgroundAttachment: "fixed",
-        zIndex: -10,
+        backgroundPosition: "center 60%",
+        backgroundSize: "auto",
     },
     aboutTextContainer: {
-        zIndex: 100,
-        position: "absolute",
-        top: 0,
         width: "100%",
-        height: HEIGHT,
+        height: "100%",
         margin: "auto",
     },
     aboutDescription: {
@@ -111,7 +103,38 @@ export default function IndexPage({
                 ]}
             />
             {/* About Section*/}
-            <div className={classes.about}>
+            <ImageSection
+                imageAsset={data?.sanitySiteSettings?.frontPageImage}
+                className={classes.aboutImageWrapper}
+                loading="eager"
+            >
+                <Grid
+                    container
+                    className={classes.aboutTextContainer}
+                    alignItems="center"
+                    justify="center"
+                    direction="column"
+                >
+                    <AnimatedGrid item style={springLeft}>
+                        <Container maxWidth="md">Text</Container>
+                    </AnimatedGrid>
+
+                    <AnimatedGrid item style={springRight}>
+                        <CustomLink to="/about">
+                            <AnimatedButton
+                                className={classes.aboutButton}
+                                size="large"
+                                variant="contained"
+                                style={buttonBoopStyle}
+                                onMouseEnter={trigger}
+                            >
+                                About Us
+                            </AnimatedButton>
+                        </CustomLink>
+                    </AnimatedGrid>
+                </Grid>
+            </ImageSection>
+            {/* <div className={classes.about}>
                 <GatsbyImageIfExists
                     imageAsset={data?.sanitySiteSettings?.frontPageImage}
                     className={classes.aboutImageWrapper}
@@ -123,8 +146,8 @@ export default function IndexPage({
                     transformOptions={{
                         duotone: {
                             highlight: "#000000",
-                            opacity: 0.4
-                        }
+                            opacity: 0.4,
+                        },
                     }}
                 />
                 <Grid
@@ -152,7 +175,7 @@ export default function IndexPage({
                         </CustomLink>
                     </AnimatedGrid>
                 </Grid>
-            </div>
+            </div> */}
             <div className={classes.content}>
                 <RecentEpisodes />
                 <Container maxWidth="xl">
