@@ -11,15 +11,27 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
 import SEO from "@components/General/SEO"
 
 // Hooks
-import useTags from "@hooks/useTags"
+import useTags, { getArrayFromTags } from "@hooks/useTags"
+import { TagFacesRounded } from "@material-ui/icons"
 
 type Props = PageProps<GatsbyTypes.EpisodePageQuery>
 
 export default function EpisodePage({ data }: Props) {
-    const { allSanityEpisodes } = data
     const [urlTags, setURLTags] = useQueryParam("tags", StringParam)
-    const tags = useTags(urlTags)
-    // const episodes = useEpisodes(tags)
+    const [tags, tagsArray] = useTags(urlTags)
+    let episodes = data.allSanityEpisode.nodes
+    if (tagsArray.length > 0) {
+        episodes = episodes.filter(
+            ({ episodeTags }: GatsbyTypes.EpisodeFragment) => {
+                if (!episodeTags) return false
+                let episodeTagsArray = episodeTags.map((e) => e?.value)
+
+                return episodeTagsArray.some((tag) =>
+                    tag ? tagsArray.includes(tag) : false
+                )
+            }
+        )
+    }
 
     const [drawer, setDrawer] = useState(false)
 
@@ -58,7 +70,7 @@ export default function EpisodePage({ data }: Props) {
                         elevation={16}
                     >
                         <TagSelectionInput
-                            tags={tags}
+                            tags={TagFacesRounded}
                             urlTags={urlTags}
                             setURLTags={setURLTags}
                         />
@@ -75,10 +87,7 @@ export default function EpisodePage({ data }: Props) {
                 </Hidden>
 
                 <Grid item xs={12} sm={9} lg={10}>
-                    <EpisodeGrid
-                        episodes={allSanityEpisodes.nodes}
-                        showDescription
-                    />
+                    <EpisodeGrid episodes={episodes} showDescription />
                 </Grid>
             </Grid>
         </>

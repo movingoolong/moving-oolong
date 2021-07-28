@@ -54,5 +54,5 @@ export default function useTags(urlTags?: string | null) {
         setTags(newState)
     }, [urlTags])
 
-    return tags
+    return [tags, getArrayFromTags(tags)]
 }
