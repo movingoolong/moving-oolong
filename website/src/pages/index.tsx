@@ -12,6 +12,7 @@ import { CustomButton } from "@components/Button"
 
 // Hooks
 import useBoop from "@hooks/useBoop"
+import SanityContent from "@components/SanityContent"
 
 const AnimatedGrid = animated(Grid)
 const AnimatedButton = animated(Button)
@@ -36,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
         textAlign: "center",
         color: "#ffffff",
         margin: theme.spacing(3),
+        fontSize: theme.typography.h5.fontSize,
 
         [theme.breakpoints.down("sm")]: {
             margin: theme.spacing(1),
@@ -119,7 +121,17 @@ export default function IndexPage({
                     direction="column"
                 >
                     <AnimatedGrid item style={springLeft}>
-                        <Container maxWidth="md">Text</Container>
+                        <Container
+                            maxWidth="md"
+                            className={classes.aboutDescription}
+                        >
+                            <SanityContent
+                                blocks={
+                                    data.sanitySiteSettings
+                                        ?._rawFrontPageDescription
+                                }
+                            />
+                        </Container>
                     </AnimatedGrid>
 
                     <AnimatedGrid item style={springRight}>
@@ -137,7 +149,7 @@ export default function IndexPage({
                 </Grid>
             </ImageSection>
             <div className={classes.content}>
-                <RecentEpisodes episodes={data.allSanityEpisode.nodes}/>
+                <RecentEpisodes episodes={data.allSanityEpisode.nodes} />
                 <Container maxWidth="xl">
                     <Grid
                         className={classes.contact}
