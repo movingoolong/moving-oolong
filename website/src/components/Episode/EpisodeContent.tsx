@@ -5,7 +5,7 @@ import { Container, Grid, makeStyles } from "@material-ui/core"
 import { GatsbyImageIfExists } from "@components/Image"
 import SanityContent from "@components/SanityContent"
 import TagLink from "@components/Posts/TagLink"
-import AnimateOnVisible from "@components/General/AnimateOnVisible"
+import { AnimateOnVisible } from "@components/Layout"
 import { AnimatedText } from "@components/Typography"
 
 const useStyles = makeStyles((theme) => ({

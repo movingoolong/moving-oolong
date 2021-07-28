@@ -9,7 +9,7 @@ import { BODY_FONT } from "../theme"
 import Bio from "@components/About/Bio"
 import SEO from "@components/General/SEO"
 import Text, { AnimatedText } from "@components/Typography"
-import AnimateOnVisible from "@components/General/AnimateOnVisible"
+import { AnimateOnVisible } from "@components/Layout"
 
 const AnimatedGrid = animated(Grid)
 
