@@ -32,7 +32,7 @@ function EpisodeContent({ data }: Props) {
         season,
         guest,
         spotify,
-        episodeTags,
+        episodeTags = [],
         image,
         _rawDescription,
         _rawReference,
@@ -84,11 +84,11 @@ function EpisodeContent({ data }: Props) {
                         <SanityContent blocks={_rawDescription} />
                     </Grid>
                     <Grid item>
-                        {/* <div className={classes.tags}>
-                            {tags.map((tag = "") => (
-                                <TagLink tag={tag} key={tag} />
+                        <div className={classes.tags}>
+                            {episodeTags.map((tag) => (
+                                <TagLink tag={tag?.value} key={tag?.value} />
                             ))}
-                        </div> */}
+                        </div>
                     </Grid>
                 </Grid>
             </Grid>

@@ -20,9 +20,9 @@ function getInitialState(): TagState {
 
     let state: TagState = {}
     data.allSanityEpisode.nodes.forEach((node) => {
-        if (node?.episodeTags) return
+        if (!node?.episodeTags) return
         node.episodeTags.forEach((sanityTag) => {
-            if (sanityTag?.value) return
+            if (!sanityTag?.value) return
             state[sanityTag.value] = false
         })
     })
@@ -39,14 +39,15 @@ export function getArrayFromTags(tags: TagState): string[] {
     return tagsArray
 }
 
-export default function useTags(urlTags?: string) {
+export default function useTags(urlTags?: string | null) {
     //const initialState = useMemo(() => getInitialState(), [])
     const initialState = getInitialState()
     const [tags, setTags] = useState(initialState)
 
     useEffect(() => {
         const newState: TagState = {}
-        const tagsToCheck = urlTags !== undefined ? urlTags.split(",") : []
+        const tagsToCheck =
+            urlTags !== undefined && urlTags !== null ? urlTags.split(",") : []
         Object.entries(initialState).forEach(([key, __]) => {
             newState[key] = tagsToCheck.includes(key)
         })

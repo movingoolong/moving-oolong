@@ -18,7 +18,7 @@ type Props = PageProps<GatsbyTypes.EpisodePageQuery>
 export default function EpisodePage({ data }: Props) {
     const { allSanityEpisodes } = data
     const [urlTags, setURLTags] = useQueryParam("tags", StringParam)
-    // const tags = useTags(urlTags)
+    const tags = useTags(urlTags)
     // const episodes = useEpisodes(tags)
 
     const [drawer, setDrawer] = useState(false)
@@ -40,7 +40,7 @@ export default function EpisodePage({ data }: Props) {
             <SEO title={"Episodes"} />
             <EpisodePageHeader />
             <Grid container alignItems="flex-start" justify="center">
-                {/* <Hidden smUp>
+                <Hidden smUp>
                     <Button
                         onClick={toggleDrawer(true)}
                         variant="outlined"
@@ -72,10 +72,13 @@ export default function EpisodePage({ data }: Props) {
                             setURLTags={setURLTags}
                         />
                     </Grid>
-                </Hidden> */}
+                </Hidden>
 
                 <Grid item xs={12} sm={9} lg={10}>
-                    <EpisodeGrid episodes={episodes} showDescription />
+                    <EpisodeGrid
+                        episodes={allSanityEpisodes.nodes}
+                        showDescription
+                    />
                 </Grid>
             </Grid>
         </>

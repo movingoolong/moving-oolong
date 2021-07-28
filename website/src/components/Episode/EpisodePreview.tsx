@@ -119,11 +119,11 @@ function EpisodePreview({ episode, showDescription = true, ...rest }: Props) {
                                 <></>
                             )}
 
-                            {/* {showDescription ? (
+                            {showDescription ? (
                                 <SanityContent blocks={_rawDescription} />
                             ) : (
                                 <></>
-                            )} */}
+                            )}
                         </CardContent>
                     </CardActionArea>
                 </CustomLink>
