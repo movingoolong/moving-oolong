@@ -5,10 +5,10 @@ import CustomLink from "@components/General/CustomLink"
 import Text from "@components/Typography"
 
 type Props = {
-    tag: string
+    tag?: string
 }
 
-const TagLink = ({ tag }: Props) => (
+const TagLink = ({ tag = "" }: Props) => (
     <CustomLink to={`/episodes/?tags=${tag}`} key={tag}>
         <Text
             variant="body2"

@@ -20,8 +20,10 @@ function getInitialState(): TagState {
 
     let state: TagState = {}
     data.allSanityEpisode.nodes.forEach((node) => {
+        if (node?.episodeTags) return
         node.episodeTags.forEach((sanityTag) => {
-            state[sanityTag?.value] = false
+            if (sanityTag?.value) return
+            state[sanityTag.value] = false
         })
     })
     return state

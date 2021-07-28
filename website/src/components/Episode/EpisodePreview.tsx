@@ -9,7 +9,7 @@ import {
     makeStyles,
 } from "@material-ui/core"
 import dayjs from "dayjs"
-import { animated } from "react-spring"
+import { animated, useSpring, config } from "react-spring"
 import { BODY_FONT } from "../../theme"
 
 // Components
@@ -78,38 +78,48 @@ const AnimatedCard = animated(Card)
 
 function EpisodePreview({ episode, showDescription = true, ...rest }: Props) {
     const classes = useStyles()
-    const [boopStyle, trigger] = useBoop({ scale: 1.05 })
     const {
         title,
         datetime,
-        episodeTags,
+        episodeTags = [],
         image,
         slug,
         _rawDescription,
-        _rawReference,
     } = episode
     const slugLink = slug?.current
-    console.log(episode)
+    const [isHover, setHover] = useState(false)
+    const springStyle = useSpring({
+        to: {
+            transform: isHover ? "scale(1.02)" : "scale(1.0)",
+        },
+        config: config.wobbly,
+    })
 
     return (
         <AnimatedCard
             className={classes.root}
             {...rest}
-            onMouseEnter={trigger}
-            style={boopStyle}
+            onMouseOver={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}
+            style={springStyle}
         >
             <div className={classes.content}>
                 <CustomLink className={classes.link} to={slugLink}>
                     <CardActionArea>
                         <GatsbyImageIfExists imageAsset={image} />
                         <CardContent className={classes.header}>
-                            {/* <Text variant="h6" className={classes.title}>
+                            <Text variant="h6" className={classes.title}>
                                 {title}
                             </Text>
-                            <Text variant="subtitle2" color="textPrimary">
-                                {dayjs(datetime)}
-                            </Text>
-                            {showDescription ? (
+                            {datetime ? (
+                                <Text variant="subtitle2" color="textPrimary">
+                                    {datetime}
+                                </Text>
+                            ) : (
+                                <></>
+                            )}
+
+                            {/* {showDescription ? (
                                 <SanityContent blocks={_rawDescription} />
                             ) : (
                                 <></>
@@ -121,11 +131,11 @@ function EpisodePreview({ episode, showDescription = true, ...rest }: Props) {
 
             <CardActions className={classes.action}>
                 <Grid container alignItems="flex-end" justify="space-between">
-                    {/* <Grid item xs={6}>
-                        {tags.map((tag = "") => (
-                            <TagLink tag={tag} key={tag} />
+                    <Grid item xs={6}>
+                        {episodeTags.map((tag) => (
+                            <TagLink tag={tag?.value} key={tag?.value} />
                         ))}
-                    </Grid> */}
+                    </Grid>
                     <Grid item>
                         <Button color="secondary" size="small" href={slugLink}>
                             Read More
