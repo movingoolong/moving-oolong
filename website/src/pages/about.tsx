@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { graphql } from "gatsby"
+import { graphql, PageProps } from "gatsby"
 import { Container, Grid, makeStyles } from "@material-ui/core"
 import VisibilitySensor from "react-visibility-sensor"
 import { useTrail, animated } from "react-spring"
@@ -10,6 +10,7 @@ import Bio from "@components/About/Bio"
 import SEO from "@components/General/SEO"
 import Text, { AnimatedText } from "@components/Typography"
 import { AnimateOnVisible } from "@components/Layout"
+import SanityContent from "@components/SanityContent"
 
 const AnimatedGrid = animated(Grid)
 
@@ -22,21 +23,24 @@ const useStyles = makeStyles((theme) => ({
     },
     title: {
         color: theme.palette.primary.main,
+        textAlign: "center",
         margin: theme.spacing(4),
     },
     description: {
+        color: theme.palette.primary.main,
+        textAlign: "center",
         marginBottom: theme.spacing(4),
         fontFamily: BODY_FONT,
     },
 }))
 
 export const query = graphql`
-    query AboutPageQuery {
+    query AboutPage {
         sanitySiteSettings {
             _rawAboutPageDescription
             _rawAboutPageHeader
         }
-        allSanityBio(filter: {isGuest: {eq: false}}) {
+        allSanityBio(filter: { isGuest: { eq: false } }) {
             nodes {
                 ...Bio
             }
@@ -44,14 +48,13 @@ export const query = graphql`
     }
 `
 
-type Props = {
-    data: GatsbyTypes.AboutPageQuery
-}
-
-export default function AboutPage({ data }: Props) {
+export default function AboutPage({
+    data,
+}: PageProps<GatsbyTypes.AboutPageQuery>) {
     const classes = useStyles()
     const { sanitySiteSettings, allSanityBio } = data
     const [isVisible, setIsVisible] = useState(false)
+    const bios = allSanityBio.nodes
     const trails = useTrail(bios.length, {
         to: {
             opacity: isVisible ? 1 : 0,
@@ -64,27 +67,22 @@ export default function AboutPage({ data }: Props) {
             <Container maxWidth="lg">
                 <AnimateOnVisible once>
                     {(springStyle) => (
-                        <AnimatedText
-                            variant="h5"
-                            align="center"
+                        <animated.span
                             className={classes.title}
                             style={springStyle}
                         >
-                            <b>
-nice
-                            </b>
-                        </AnimatedText>
+                            <SanityContent
+                                blocks={sanitySiteSettings?._rawAboutPageHeader}
+                            />
+                        </animated.span>
                     )}
                 </AnimateOnVisible>
 
-                <Text
-                    variant="subtitle1"
-                    align="center"
-                    color="textPrimary"
-                    className={classes.description}
-                >
-                    <b>subtitle</b>
-                </Text>
+                <span className={classes.description}>
+                    <SanityContent
+                        blocks={sanitySiteSettings?._rawAboutPageDescription}
+                    />
+                </span>
 
                 <VisibilitySensor
                     onChange={(isVisible) => setIsVisible(isVisible)}
@@ -97,7 +95,7 @@ nice
                         justify="center"
                         alignItems="stretch"
                     >
-                        {allSanityBio.nodes.map((bio, index) => (
+                        {bios.map((bio, index) => (
                             <AnimatedGrid
                                 item
                                 className={classes.item}
