@@ -6,7 +6,8 @@ import { GatsbyImageIfExists } from "@components/Image"
 import SanityContent from "@components/SanityContent"
 import TagLink from "@components/Posts/TagLink"
 import { AnimateOnVisible } from "@components/Layout"
-import { AnimatedText } from "@components/Typography"
+import { AnimatedText, Text } from "@components/Typography"
+import { Spotify } from "@components/Spotify"
 
 const useStyles = makeStyles((theme) => ({
     title: {
@@ -17,6 +18,9 @@ const useStyles = makeStyles((theme) => ({
     },
     tags: {
         color: theme.palette.secondary.main,
+    },
+    references: {
+        textAlign: "left",
     },
 }))
 
@@ -35,7 +39,7 @@ function EpisodeContent({ episode }: Props) {
         episodeTags = [],
         image,
         _rawDescription,
-        _rawReference,
+        _rawReferences,
     } = episode
 
     return (
@@ -44,7 +48,7 @@ function EpisodeContent({ episode }: Props) {
                 container
                 alignItems="flex-start"
                 justifyContent="center"
-                alignContent="stretch"
+                alignContent="center"
                 spacing={2}
             >
                 <Grid item xs={12}>
@@ -75,10 +79,7 @@ function EpisodeContent({ episode }: Props) {
                     sm={6}
                 >
                     <Grid item>
-                        {/* <SanityContent
-                            className={classes.embed}
-                            blocks={spotify}
-                        /> */}
+                        <Spotify src={spotify} />
                     </Grid>
                     <Grid item>
                         <SanityContent blocks={_rawDescription} />
@@ -90,6 +91,20 @@ function EpisodeContent({ episode }: Props) {
                             ))}
                         </div>
                     </Grid>
+                </Grid>
+                <Grid
+                    item
+                    container
+                    xs={6}
+                    className={classes.references}
+                    direction="column"
+                    alignItems="stretch"
+                    justifyContent="space-between"
+                >
+                    <Text variant="h3" align="center" color="primary">
+                        References
+                    </Text>
+                    <SanityContent blocks={_rawReferences} />
                 </Grid>
             </Grid>
         </Container>
