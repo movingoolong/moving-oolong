@@ -21,10 +21,10 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 type Props = {
-    data: GatsbyTypes.EpisodeFragment
+    episode: GatsbyTypes.EpisodeFragment
 }
 
-function EpisodeContent({ data }: Props) {
+function EpisodeContent({ episode }: Props) {
     const classes = useStyles()
     const {
         title,
@@ -36,7 +36,7 @@ function EpisodeContent({ data }: Props) {
         image,
         _rawDescription,
         _rawReference,
-    } = data
+    } = episode
 
     return (
         <Container>
@@ -75,10 +75,10 @@ function EpisodeContent({ data }: Props) {
                     sm={6}
                 >
                     <Grid item>
-                        <SanityContent
+                        {/* <SanityContent
                             className={classes.embed}
-                            blocks={_rawDescription}
-                        />
+                            blocks={spotify}
+                        /> */}
                     </Grid>
                     <Grid item>
                         <SanityContent blocks={_rawDescription} />

@@ -11,12 +11,74 @@ exports.onCreateWebpackConfig = ({ actions }) => {
     const webpackAliases = {}
     for (let key in aliases) {
         const value = trimString(aliases[key][0])
-        webpackAliases[trimString(key)] = path.isAbsolute(value) ? value : path.resolve(value)
+        webpackAliases[trimString(key)] = path.isAbsolute(value)
+            ? value
+            : path.resolve(value)
     }
     actions.setWebpackConfig({
         resolve: {
-            alias: webpackAliases
+            alias: webpackAliases,
+        },
+    })
+}
+
+exports.createPages = async ({ graphql, actions }) => {
+    const { createPage } = actions
+
+    const result = await graphql(`
+        {
+            allSanityEpisode(
+                filter: { slug: { current: { ne: null } } }
+                sort: { fields: datetime }
+            ) {
+                edges {
+                    node {
+                        title
+                        slug {
+                            current
+                        }
+                    }
+                }
+            }
         }
+    `)
+
+    if (result.errors) {
+        throw result.errors
+    }
+
+    const episodes = result.data.allSanityEpisode.edges || []
+    episodes.forEach((edge, index) => {
+        let nextTitle = ""
+        let nextSlug = ""
+        let prevTitle = ""
+        let prevSlug = ""
+
+        if (index + 1 < episodes.length) {
+            const nextEdge = episodes[index + 1]
+            nextTitle = nextEdge.node.title
+            nextSlug = nextEdge.node.slug.current
+        }
+
+        if (index - 1 >= 0) {
+            const prevEdge = episodes[index - 1]
+            prevTitle = prevEdge.node.title
+            prevSlug = prevEdge.node.slug.current
+        }
+
+        createPage({
+            path: edge.node.fields.slug,
+            component: path.resolve(`./src/templates/EpisodePageTemplate.tsx`),
+            context: {
+                // Data passed to context is available
+                // in page queries as GraphQL variables.
+                slug: edge.node.slug.current,
+                nextTitle: nextTitle,
+                nextSlug: nextSlug,
+                prevTitle: prevTitle,
+                prevSlug: prevSlug,
+            },
+        })
     })
 }
 
