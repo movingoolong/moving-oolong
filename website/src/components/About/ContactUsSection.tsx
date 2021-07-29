@@ -82,7 +82,7 @@ export default () => {
                 <Grid
                     container
                     alignItems="center"
-                    justify="center"
+                    justifyContent="center"
                     alignContent="center"
                 >
                     {socialIcons.map((item, index) => (

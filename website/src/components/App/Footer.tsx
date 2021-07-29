@@ -49,7 +49,7 @@ export default function Footer() {
                 container
                 alignItems="center"
                 wrap="nowrap"
-                justify="center"
+                justifyContent="center"
                 className={classes.root}
             >
                 {ICONS.map(({ title, href, icon }) => (

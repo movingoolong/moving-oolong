@@ -10,7 +10,7 @@ const useStyles = makeStyles({
 })
 
 type Props = {
-    to: string | undefined
+    to: string
     children: React.ReactNode | React.ReactNodeArray
     className?: string
 }
@@ -22,7 +22,7 @@ function CustomLink(
     const classes = useStyles()
     return (
         // @ts-ignore Ref has a weird type for Gatsby
-        <Link className={clsx(classes.root, className)} to={to ? to : "/"} ref={ref}>
+        <Link className={clsx(classes.root, className)} to={to} ref={ref}>
             {children}
         </Link>
     )

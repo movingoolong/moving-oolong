@@ -39,7 +39,7 @@ function ContentGrid(props: Props) {
                 spacing={3}
                 alignItems="stretch"
                 alignContent="stretch"
-                justify="center"
+                justifyContent="center"
             >
                 {content.map((item) => (
                     <Grid

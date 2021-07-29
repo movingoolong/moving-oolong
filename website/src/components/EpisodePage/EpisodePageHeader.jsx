@@ -76,7 +76,7 @@ function EpisodePageContent() {
             container
             className={classes.root}
             alignItems="center"
-            justify="center"
+            justifyContent="center"
         >
             <Grid item xs={12}>
                 <Text variant="h2" align="center" color="primary">

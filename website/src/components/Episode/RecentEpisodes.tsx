@@ -63,7 +63,7 @@ export default function RecentPosts({ episodes }: Props) {
     const numShown = useSizing()
     return (
         <div className={classes.root}>
-            <Grid container alignItems="center" justify="space-between">
+            <Grid container alignItems="center" justifyContent="space-between">
                 <Grid item xs={12} sm={8}>
                     <Text variant="h2" className={classes.title}>
                         Recent Episodes

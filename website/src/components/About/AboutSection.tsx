@@ -96,7 +96,7 @@ function AboutSection() {
                 container
                 className={classes.container}
                 alignItems="center"
-                justify="center"
+                justifyContent="center"
                 direction="column"
             >
                 <AnimatedGrid item style={springLeft}>

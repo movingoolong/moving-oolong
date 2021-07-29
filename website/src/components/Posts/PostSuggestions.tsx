@@ -27,10 +27,10 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 type Props = {
-    prevSlug: string
-    prevTitle: string
-    nextSlug: string
-    nextTitle: string
+    prevSlug?: string
+    prevTitle?: string
+    nextSlug?: string
+    nextTitle?: string
 }
 
 function PostSuggestions(props: Props) {
@@ -39,7 +39,7 @@ function PostSuggestions(props: Props) {
     let previous = <></>
     let next = <></>
 
-    if (prevSlug !== "" && prevTitle !== "") {
+    if (prevSlug && prevTitle) {
         previous = (
             <CustomLink to={prevSlug}>
                 <div className={classes.left}>
@@ -54,7 +54,7 @@ function PostSuggestions(props: Props) {
         )
     }
 
-    if (nextSlug !== "" && nextTitle !== "") {
+    if (nextSlug && nextTitle) {
         next = (
             <CustomLink to={nextSlug}>
                 <div className={classes.right}>

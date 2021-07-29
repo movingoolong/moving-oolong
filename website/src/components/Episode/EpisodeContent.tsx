@@ -43,7 +43,7 @@ function EpisodeContent({ episode }: Props) {
             <Grid
                 container
                 alignItems="flex-start"
-                justify="center"
+                justifyContent="center"
                 alignContent="stretch"
                 spacing={2}
             >
@@ -70,7 +70,7 @@ function EpisodeContent({ episode }: Props) {
                     container
                     direction="column"
                     alignItems="stretch"
-                    justify="space-between"
+                    justifyContent="space-between"
                     xs={12}
                     sm={6}
                 >

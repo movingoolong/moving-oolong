@@ -67,7 +67,7 @@ exports.createPages = async ({ graphql, actions }) => {
         }
 
         createPage({
-            path: edge.node.fields.slug,
+            path: `/${edge.node.slug.current}`,
             component: path.resolve(`./src/templates/EpisodePageTemplate.tsx`),
             context: {
                 // Data passed to context is available

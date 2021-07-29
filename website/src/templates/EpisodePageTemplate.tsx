@@ -8,21 +8,29 @@ import SEO from "@components/General/SEO"
 
 export const query = graphql`
     query EpisodePageTemplate($slug: String) {
-        sanityEpisode(slug: {current: {eq: $slug}})
+        sanityEpisode(slug: { current: { eq: $slug } }) {
             ...Episode
         }
     }
 `
 
-function EpisodePageTemplate({
-    data,
-    pageContext,
-}: PageProps<GatsbyTypes.EpisodePageTemplateQuery>) {
-    const title = data.markdownRemark.frontmatter.title
+type PageContext = {
+    slug: string
+    nextTitle?: string
+    nextSlug?: string
+    prevTitle?: string
+    prevSlug?: string
+}
+
+function EpisodePageTemplate(
+    { data, pageContext }: PageProps<GatsbyTypes.EpisodePageTemplateQuery, PageContext>,
+) {
+    if (!data?.sanityEpisode) return <></>
+    const title = data.sanityEpisode.title
 
     return (
         <>
-            <SEO title={title} />
+            <SEO title={title || ''} />
             <EpisodeContent episode={data.sanityEpisode} />
             <PostSuggestions
                 nextTitle={pageContext.nextTitle}

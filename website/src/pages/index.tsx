@@ -117,7 +117,7 @@ export default function IndexPage({
                     container
                     className={classes.aboutTextContainer}
                     alignItems="center"
-                    justify="center"
+                    justifyContent="center"
                     direction="column"
                 >
                     <AnimatedGrid item style={springLeft}>
@@ -155,7 +155,7 @@ export default function IndexPage({
                         className={classes.contact}
                         container
                         alignItems="stretch"
-                        justify="center"
+                        justifyContent="center"
                     >
                         <Grid item xs={12} sm={9}>
                             <ContactUsSection />

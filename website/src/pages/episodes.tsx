@@ -51,7 +51,7 @@ export default function EpisodePage({ data }: Props) {
         <>
             <SEO title={"Episodes"} />
             <EpisodePageHeader />
-            <Grid container alignItems="flex-start" justify="center">
+            <Grid container alignItems="flex-start" justifyContent="center">
                 <Hidden smUp>
                     <Button
                         onClick={toggleDrawer(true)}

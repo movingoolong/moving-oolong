@@ -94,6 +94,7 @@ function EpisodePreview({ episode, showDescription = true, ...rest }: Props) {
         },
         config: config.wobbly,
     })
+    console.log(slug)
 
     return (
         <AnimatedCard
@@ -104,7 +105,7 @@ function EpisodePreview({ episode, showDescription = true, ...rest }: Props) {
             style={springStyle}
         >
             <div className={classes.content}>
-                <CustomLink className={classes.link} to={slugLink}>
+                <CustomLink className={classes.link} to={`/${slugLink}`}>
                     <CardActionArea>
                         <GatsbyImageIfExists imageAsset={image} />
                         <CardContent className={classes.header}>
@@ -130,7 +131,7 @@ function EpisodePreview({ episode, showDescription = true, ...rest }: Props) {
             </div>
 
             <CardActions className={classes.action}>
-                <Grid container alignItems="flex-end" justify="space-between">
+                <Grid container alignItems="flex-end" justifyContent="space-between">
                     <Grid item xs={6}>
                         {episodeTags.map((tag) => (
                             <TagLink tag={tag?.value} key={tag?.value} />

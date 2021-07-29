@@ -74,7 +74,7 @@ function SwipeableEpisodes({ episodes, numShown = 4 }: Props) {
                 container
                 spacing={3}
                 alignItems="stretch"
-                justify="center"
+                justifyContent="center"
                 key={step}
             >
                 {previews}
@@ -84,7 +84,7 @@ function SwipeableEpisodes({ episodes, numShown = 4 }: Props) {
 
     return (
         <Container className={classes.root} maxWidth="xl">
-            <Grid container alignItems="center" justify="space-between">
+            <Grid container alignItems="center" justifyContent="space-between">
                 <Grid item>
                     <IconBoopButton
                         className={classes.iconLeft}

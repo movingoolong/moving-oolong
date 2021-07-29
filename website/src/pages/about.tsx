@@ -92,7 +92,7 @@ export default function AboutPage({
                     <Grid
                         container
                         spacing={3}
-                        justify="center"
+                        justifyContent="center"
                         alignItems="stretch"
                     >
                         {bios.map((bio, index) => (

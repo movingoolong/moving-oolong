@@ -12,7 +12,7 @@ function FeedSection(props: Props) {
             <Grid
                 container
                 alignItems="center"
-                justify="center"
+                justifyContent="center"
                 alignContent="center"
             >
                 <Grid item xs={12}>
