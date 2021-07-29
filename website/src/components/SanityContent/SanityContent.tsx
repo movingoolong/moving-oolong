@@ -43,6 +43,12 @@ const serializers = {
         h4: ({ children }: TypeNode) => (
             <Typography variant="h4">{children}</Typography>
         ),
+        h5: ({ children }: TypeNode) => (
+            <Typography variant="h5">{children}</Typography>
+        ),
+        h6: ({ children }: TypeNode) => (
+            <Typography variant="h6">{children}</Typography>
+        ),
         // This needs updating
         blockquote: ({ children }: TypeNode) => (
             <Typography variant="caption">{children}</Typography>
