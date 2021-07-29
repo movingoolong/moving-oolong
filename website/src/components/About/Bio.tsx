@@ -1,10 +1,11 @@
 import React from "react"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Card, CardContent, CardActions, makeStyles } from "@material-ui/core"
 import SocialIcons from "./SocialIcons"
 
 // Components
 import Text from "@components/Typography/Text"
+import { GatsbyImageIfExists } from "@components/Image"
+import SanityContent from "@components/SanityContent"
 
 // Types
 
@@ -36,40 +37,34 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 type Props = {
-    bio: any
+    bio: GatsbyTypes.BioFragment
 }
 
 function Bio({ bio }: Props) {
-    return <></>
-    // const classes = useStyles()
-    // const image = getImage(bio.image)
-    // if (!bio.node.frontmatter)
-    //     throw new Error("Frontmatter does not exist on bio")
-    // if (!image) throw new Error(`Image does not exist`)
+    const classes = useStyles()
+    const { name, instagram, twitter, propic, _rawDescription } = bio
 
-    // const { name, instagram, twitter } = bio.node.frontmatter
-
-    // return (
-    //     <Card className={classes.root}>
-    //         <div className={classes.content}>
-    //             <GatsbyImage image={image} alt={`${name} bio image`} />
-    //             <CardContent>
-    //                 <Text
-    //                     variant="h6"
-    //                     align="center"
-    //                     className={classes.title}
-    //                     color="secondary"
-    //                 >
-    //                     {name}
-    //                 </Text>
-    //                 <MarkdownContent content={bio.node.html} />
-    //             </CardContent>
-    //         </div>
-    //         <CardActions disableSpacing className={classes.socials}>
-    //             <SocialIcons instagram={instagram} twitter={twitter} />
-    //         </CardActions>
-    //     </Card>
-    // )
+    return (
+        <Card className={classes.root}>
+            <div className={classes.content}>
+                <GatsbyImageIfExists imageAsset={propic} />
+                <CardContent>
+                    <Text
+                        variant="h6"
+                        align="center"
+                        className={classes.title}
+                        color="secondary"
+                    >
+                        {name}
+                    </Text>
+                    <SanityContent blocks={_rawDescription} />
+                </CardContent>
+            </div>
+            <CardActions disableSpacing className={classes.socials}>
+                <SocialIcons instagram={instagram} twitter={twitter} />
+            </CardActions>
+        </Card>
+    )
 }
 
 export default Bio
