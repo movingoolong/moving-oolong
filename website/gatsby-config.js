@@ -53,6 +53,12 @@ module.exports = {
                 color: "#a9ddde",
             },
         },
+        // {
+        //     resolve: `gatsby-source-instagram`,
+        //     options: {
+        //       username: `25381814750`, // Instagram ID for @movingoolongpod
+        //     },
+        //   },
         "gatsby-plugin-image",
         "gatsby-plugin-sharp",
         "gatsby-transformer-sharp",
