@@ -57,6 +57,12 @@ const theme = createTheme({
         body2: {
             fontFamily: BODY_FONT,
         },
+        subtitle1: {
+            fontFamily: BODY_FONT,
+        },
+        subtitle2: {
+            fontFamily: BODY_FONT,
+        },
         button: {
             fontFamily: BODY_FONT,
         },
@@ -65,27 +71,6 @@ const theme = createTheme({
         MuiCssBaseline: {
             "@global": {
                 "@font-face": [fontFace],
-                // h1: {
-                //     fontFamily: HEADING_FONT,
-                // },
-                // h2: {
-                //     fontFamily: HEADING_FONT,
-                // },
-                // h3: {
-                //     fontFamily: HEADING_FONT,
-                // },
-                // h4: {
-                //     fontFamily: HEADING_FONT,
-                // },
-                // h5: {
-                //     fontFamily: HEADING_FONT,
-                // },
-                // h6: {
-                //     fontFamily: HEADING_FONT,
-                // },
-                // p: {
-                //     fontFamily: BODY_FONT,
-                // },
             },
         },
     },

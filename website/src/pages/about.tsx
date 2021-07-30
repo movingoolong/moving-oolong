@@ -27,7 +27,6 @@ const useStyles = makeStyles((theme) => ({
         margin: theme.spacing(4),
     },
     description: {
-        color: theme.palette.primary.main,
         textAlign: "center",
         marginBottom: theme.spacing(4),
         fontFamily: BODY_FONT,
@@ -61,6 +60,7 @@ export default function AboutPage({
             transform: isVisible ? "translateY(0px)" : "translateY(-10px)",
         },
     })
+    console.log(sanitySiteSettings?._rawAboutPageHeader)
     return (
         <>
             <SEO title="About" />

@@ -1,6 +1,6 @@
 import React from "react"
 import BlockContent, { BlockContentProps } from "@sanity/block-content-to-react"
-import { Typography } from "@material-ui/core"
+import { Typography, TypographyVariant } from "@material-ui/core"
 
 type TypeNode = {
     children: React.ReactNode
@@ -23,36 +23,48 @@ type ExternalLinkNode = MarkNode & {
     }
 }
 
+type BlockRendererProps = {
+    children: React.ReactNode
+    node: {
+        style?:
+            | "normal"
+            | "h1"
+            | "h2"
+            | "h3"
+            | "h4"
+            | "h5"
+            | "h6"
+            | "blockquote"
+    }
+}
+
+const BlockRenderer = ({ node, children }: BlockRendererProps) => {
+    const { style = "normal" } = node
+
+    let variant: TypographyVariant = "body1"
+    switch (style) {
+        case "normal":
+            variant = "body1"
+            break
+        case "blockquote":
+            variant = "caption"
+            break
+        case "h6":
+            variant = "subtitle1"
+            break
+        default:
+            variant = style
+    }
+
+    return <Typography variant={variant}>{children}</Typography>
+}
+
 const serializers = {
     list: ({ children, type }: ListNode) =>
         type === "bullet" ? <ul>{children}</ul> : <ol>{children}</ol>,
     listItem: ({ children }: MarkNode) => <li>{children}</li>,
     types: {
-        normal: ({ children }: TypeNode) => (
-            <Typography variant="body1">{children}</Typography>
-        ),
-        h1: ({ children }: TypeNode) => (
-            <Typography variant="h1">{children}</Typography>
-        ),
-        h2: ({ children }: TypeNode) => (
-            <Typography variant="h2">{children}</Typography>
-        ),
-        h3: ({ children }: TypeNode) => (
-            <Typography variant="h3">{children}</Typography>
-        ),
-        h4: ({ children }: TypeNode) => (
-            <Typography variant="h4">{children}</Typography>
-        ),
-        h5: ({ children }: TypeNode) => (
-            <Typography variant="h5">{children}</Typography>
-        ),
-        h6: ({ children }: TypeNode) => (
-            <Typography variant="h6">{children}</Typography>
-        ),
-        // This needs updating
-        blockquote: ({ children }: TypeNode) => (
-            <Typography variant="caption">{children}</Typography>
-        ),
+        block: BlockRenderer,
     },
     marks: {
         strong: ({ children }: MarkNode) => <b>{children}</b>,
@@ -61,7 +73,9 @@ const serializers = {
             <span style={{ textDecoration: "underline" }}>{children}</span>
         ),
         externalLink: ({ children, mark }: ExternalLinkNode) => (
-            <a href={mark.href} target={mark.blank ? "_blank" : "_self"}>{children}</a>
+            <a href={mark.href} target={mark.blank ? "_blank" : "_self"}>
+                {children}
+            </a>
         ),
     },
 }
