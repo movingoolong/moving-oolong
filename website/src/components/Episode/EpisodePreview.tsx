@@ -40,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
     },
     header: {
         paddingBottom: 0,
+        color: theme.palette.text.primary,
     },
     link: {
         color: "#ffffff",
@@ -94,7 +95,7 @@ function EpisodePreview({ episode, showDescription = true, ...rest }: Props) {
         },
         config: config.wobbly,
     })
-    console.log(slug)
+    console.log(_rawDescription)
 
     return (
         <AnimatedCard
@@ -105,7 +106,7 @@ function EpisodePreview({ episode, showDescription = true, ...rest }: Props) {
             style={springStyle}
         >
             <div className={classes.content}>
-                <CustomLink className={classes.link} to={`/${slugLink}`}>
+                <CustomLink className={classes.link} to={slugLink || ""}>
                     <CardActionArea>
                         <GatsbyImageIfExists imageAsset={image} />
                         <CardContent className={classes.header}>
@@ -120,8 +121,10 @@ function EpisodePreview({ episode, showDescription = true, ...rest }: Props) {
                                 <></>
                             )}
 
-                            {showDescription ? (
-                                <SanityContent blocks={_rawDescription} />
+                            {showDescription && _rawDescription ? (
+                                <SanityContent
+                                    blocks={_rawDescription.slice(0, 1)}
+                                />
                             ) : (
                                 <></>
                             )}
@@ -131,7 +134,11 @@ function EpisodePreview({ episode, showDescription = true, ...rest }: Props) {
             </div>
 
             <CardActions className={classes.action}>
-                <Grid container alignItems="flex-end" justifyContent="space-between">
+                <Grid
+                    container
+                    alignItems="flex-end"
+                    justifyContent="space-between"
+                >
                     <Grid item xs={6}>
                         {episodeTags.map((tag) => (
                             <TagLink tag={tag?.value} key={tag?.value} />

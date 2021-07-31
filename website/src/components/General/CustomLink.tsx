@@ -22,7 +22,11 @@ function CustomLink(
     const classes = useStyles()
     return (
         // @ts-ignore Ref has a weird type for Gatsby
-        <Link className={clsx(classes.root, className)} to={to} ref={ref}>
+        <Link
+            className={clsx(classes.root, className)}
+            to={to.charAt(0) != "/" ? `/${to}` : to}
+            ref={ref}
+        >
             {children}
         </Link>
     )
