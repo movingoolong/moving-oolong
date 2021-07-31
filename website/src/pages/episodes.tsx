@@ -96,7 +96,7 @@ export default function EpisodePage({ data }: Props) {
 
 export const query = graphql`
     query EpisodesPage {
-        allSanityEpisode {
+        allSanityEpisode(sort: { fields: datetime }) {
             nodes {
                 ...Episode
             }

@@ -70,7 +70,7 @@ export const query = graphql`
                 }
             }
         }
-        allSanityEpisode {
+        allSanityEpisode(sort: { fields: datetime }) {
             nodes {
                 ...Episode
             }

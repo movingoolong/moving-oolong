@@ -60,7 +60,6 @@ export default function AboutPage({
             transform: isVisible ? "translateY(0px)" : "translateY(-10px)",
         },
     })
-    console.log(sanitySiteSettings?._rawAboutPageHeader)
     return (
         <>
             <SEO title="About" />
