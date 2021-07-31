@@ -11,7 +11,7 @@ function Spotify({ src = "https://open.spotify.com/episode/1R5u8jFJNqQdeWOjHBvvn
             width="100%"
             height="232"
             frameBorder="0"
-            allowTransparency={true}
+            allowtransparency="true"
             allow="encrypted-media"
         />
     )

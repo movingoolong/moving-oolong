@@ -19,6 +19,10 @@ const useStyles = makeStyles((theme) => ({
     tags: {
         color: theme.palette.secondary.main,
     },
+    content: {
+        marginTop: theme.spacing(2),
+        marginBottom: theme.spacing(4),
+    },
     references: {
         textAlign: "left",
     },
@@ -43,7 +47,7 @@ function EpisodeContent({ episode }: Props) {
     } = episode
 
     return (
-        <Container>
+        <Container className={classes.content}>
             <Grid
                 container
                 alignItems="flex-start"
@@ -92,20 +96,24 @@ function EpisodeContent({ episode }: Props) {
                         </div>
                     </Grid>
                 </Grid>
-                <Grid
-                    item
-                    container
-                    xs={6}
-                    className={classes.references}
-                    direction="column"
-                    alignItems="stretch"
-                    justifyContent="space-between"
-                >
-                    <Text variant="h3" align="center" color="primary">
-                        References
-                    </Text>
-                    <SanityContent blocks={_rawReferences} />
-                </Grid>
+                {_rawReferences && _rawReferences.length > 0 ? (
+                    <Grid
+                        item
+                        container
+                        xs={6}
+                        className={classes.references}
+                        direction="column"
+                        alignItems="stretch"
+                        justifyContent="space-between"
+                    >
+                        <Text variant="h3" align="center" color="primary">
+                            References
+                        </Text>
+                        <SanityContent blocks={_rawReferences} />
+                    </Grid>
+                ) : (
+                    <></>
+                )}
             </Grid>
         </Container>
     )
