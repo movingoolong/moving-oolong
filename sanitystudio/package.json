@@ -31,7 +31,7 @@
     "sanity-plugin-autocomplete-tags": "^1.0.1",
     "sanity-plugin-color-picker": "^1.0.3",
     "sanity-plugin-media": "^1.3.0",
-    "sanity-plugin-order-documents": "^0.0.19"
+    "sanity-plugin-order-documents": "^0.0.20"
   },
   "devDependencies": {}
 }
