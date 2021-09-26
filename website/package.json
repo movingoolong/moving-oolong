@@ -11,7 +11,7 @@
     "clsx": "^1.1.1",
     "dayjs": "^1.10.4",
     "dotenv": "^10.0.0",
-    "gatsby": "^3.0.2",
+    "gatsby": "^4.0.0-zz-next.1",
     "gatsby-background-image": "^1.5.3",
     "gatsby-plugin-algolia": "^0.22.0",
     "gatsby-plugin-catch-links": "^3.0.0",
