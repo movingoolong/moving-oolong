@@ -14,7 +14,7 @@ const TagLink = ({ tag = "" }: Props) => (
             variant="body2"
             color="textPrimary"
             display="inline"
-        >{`#${tag} `}</Text>
+        >{`#${tag.replace(" ", "")} `}</Text>
     </CustomLink>
 )
 

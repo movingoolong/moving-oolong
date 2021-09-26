@@ -8,18 +8,15 @@ import {
     Grid,
     makeStyles,
 } from "@material-ui/core"
-import dayjs from "dayjs"
 import { animated, useSpring, config } from "react-spring"
 import { BODY_FONT } from "../../theme"
 
 // Components
 import { GatsbyImageIfExists } from "@components/Image"
 import SanityContent from "@components/SanityContent"
-import TagLink from "@components/Posts/TagLink"
 import CustomLink from "@components/General/CustomLink"
 import Text from "@components/Typography"
-
-import useBoop from "@hooks/useBoop"
+import TagLink from "./TagLink"
 
 // Types
 const useStyles = makeStyles((theme) => ({
@@ -82,7 +79,7 @@ function EpisodePreview({ episode, showDescription = true, ...rest }: Props) {
     const {
         title,
         datetime,
-        episodeTags = [],
+        tags = [],
         image,
         slug,
         _rawDescription,
@@ -139,7 +136,7 @@ function EpisodePreview({ episode, showDescription = true, ...rest }: Props) {
                     justifyContent="space-between"
                 >
                     <Grid item xs={6}>
-                        {episodeTags.map((tag) => (
+                        {tags.map((tag) => (
                             <TagLink tag={tag?.value} key={tag?.value} />
                         ))}
                     </Grid>

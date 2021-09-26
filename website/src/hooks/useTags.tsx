@@ -8,7 +8,7 @@ function getInitialState(): TagState {
         query AllTags {
             allSanityEpisode {
                 nodes {
-                    episodeTags {
+                    tags {
                         value
                     }
                 }
@@ -20,8 +20,8 @@ function getInitialState(): TagState {
 
     let state: TagState = {}
     data.allSanityEpisode.nodes.forEach((node) => {
-        if (!node?.episodeTags) return
-        node.episodeTags.forEach((sanityTag) => {
+        if (!node?.tags) return
+        node.tags.forEach((sanityTag) => {
             if (!sanityTag?.value) return
             state[sanityTag.value] = false
         })

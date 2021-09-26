@@ -22,9 +22,9 @@ export default function EpisodePage({ data }: Props) {
     let episodes = data.allSanityEpisode.nodes
     if (tagsArray.length > 0) {
         episodes = episodes.filter(
-            ({ episodeTags }: GatsbyTypes.EpisodeFragment) => {
-                if (!episodeTags) return false
-                let episodeTagsArray = episodeTags.map((e) => e?.value)
+            ({ tags }: GatsbyTypes.EpisodeFragment) => {
+                if (!tags) return false
+                let episodeTagsArray = tags.map((e) => e?.value)
 
                 return episodeTagsArray.some((tag) =>
                     tag ? tagsArray.includes(tag) : false

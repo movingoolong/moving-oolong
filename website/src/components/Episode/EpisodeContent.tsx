@@ -4,10 +4,10 @@ import { Container, Grid, makeStyles } from "@material-ui/core"
 // Components
 import { GatsbyImageIfExists } from "@components/Image"
 import SanityContent from "@components/SanityContent"
-import TagLink from "@components/Posts/TagLink"
 import { AnimateOnVisible } from "@components/Layout"
 import { AnimatedText, Text } from "@components/Typography"
 import { Spotify } from "@components/Spotify"
+import TagLink from "./TagLink"
 
 const useStyles = makeStyles((theme) => ({
     title: {
@@ -40,7 +40,7 @@ function EpisodeContent({ episode }: Props) {
         season,
         guest,
         spotify,
-        episodeTags = [],
+        tags = [],
         image,
         _rawDescription,
         _rawReferences,
@@ -90,7 +90,7 @@ function EpisodeContent({ episode }: Props) {
                     </Grid>
                     <Grid item>
                         <div className={classes.tags}>
-                            {episodeTags.map((tag) => (
+                            {tags.map((tag) => (
                                 <TagLink tag={tag?.value} key={tag?.value} />
                             ))}
                         </div>

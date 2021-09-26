@@ -24,7 +24,7 @@ export const episodeFragment = graphql`
             _id
         }
         spotify
-        episodeTags {
+        tags {
             _key
             label
             value
