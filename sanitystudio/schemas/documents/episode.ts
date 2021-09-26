@@ -18,6 +18,7 @@ export default {
       name: "datetime",
       title: "Episode Published Time",
       type: "datetime",
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "season",
@@ -62,7 +63,7 @@ export default {
       type: "url",
     },
     {
-      name: "episodeTags",
+      name: "tags",
       title: "Tags",
       type: "tags",
     },
