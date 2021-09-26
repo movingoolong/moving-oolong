@@ -22,6 +22,11 @@ export const episodeFragment = graphql`
         }
         guest {
             _id
+            name
+            propic {
+                ...FluidImage
+            }
+            instagram
         }
         spotify
         tags {

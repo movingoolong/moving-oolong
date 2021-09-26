@@ -8,6 +8,7 @@ import { AnimateOnVisible } from "@components/Layout"
 import { AnimatedText, Text } from "@components/Typography"
 import { Spotify } from "@components/Spotify"
 import TagLink from "./TagLink"
+import EpisodeGuest from "./EpisodeGuest"
 
 const useStyles = makeStyles((theme) => ({
     title: {
@@ -22,6 +23,9 @@ const useStyles = makeStyles((theme) => ({
     content: {
         marginTop: theme.spacing(2),
         marginBottom: theme.spacing(4),
+    },
+    image: {
+        borderRadius: theme.shape.borderRadius,
     },
     references: {
         textAlign: "left",
@@ -71,7 +75,10 @@ function EpisodeContent({ episode }: Props) {
                     </AnimateOnVisible>
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                    <GatsbyImageIfExists imageAsset={image} />
+                    <GatsbyImageIfExists
+                        className={classes.image}
+                        imageAsset={image}
+                    />
                 </Grid>
                 <Grid
                     item
@@ -81,6 +88,7 @@ function EpisodeContent({ episode }: Props) {
                     justifyContent="space-between"
                     xs={12}
                     sm={6}
+                    spacing={1}
                 >
                     <Grid item>
                         <Spotify src={spotify} />
@@ -95,6 +103,23 @@ function EpisodeContent({ episode }: Props) {
                             ))}
                         </div>
                     </Grid>
+                    {guest && guest.length > 0 ? (
+                        <Grid
+                            item
+                            container
+                            alignItems="stretch"
+                            justifyContent="center"
+                            spacing={1}
+                        >
+                            {guest.map((g) => (
+                                <Grid item xs={3}>
+                                    <EpisodeGuest guest={g} />
+                                </Grid>
+                            ))}
+                        </Grid>
+                    ) : (
+                        <></>
+                    )}
                 </Grid>
                 {_rawReferences && _rawReferences.length > 0 ? (
                     <Grid
