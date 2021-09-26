@@ -7,7 +7,7 @@ function Spotify({ src = "https://open.spotify.com/episode/1R5u8jFJNqQdeWOjHBvvn
     const episodeId = src.substring(src.lastIndexOf('/'), src.lastIndexOf("?"))
     return (
         <iframe
-            src={`https://open.spotify.com/embed/episode${episodeId}`}
+            src={`https://open.spotify.com/embed/episode${episodeId}?theme=0`}
             width="100%"
             height="232"
             frameBorder="0"
