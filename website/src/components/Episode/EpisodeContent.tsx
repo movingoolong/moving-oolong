@@ -103,7 +103,7 @@ function EpisodeContent({ episode }: Props) {
                             ))}
                         </div>
                     </Grid>
-                    {guest && guest.length > 0 ? (
+                    {/* {guest && guest.length > 0 ? (
                         <Grid
                             item
                             container
@@ -119,7 +119,7 @@ function EpisodeContent({ episode }: Props) {
                         </Grid>
                     ) : (
                         <></>
-                    )}
+                    )} */}
                 </Grid>
                 {_rawReferences && _rawReferences.length > 0 ? (
                     <Grid
