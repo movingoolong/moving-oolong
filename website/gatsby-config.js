@@ -12,7 +12,6 @@ module.exports = {
     flags: { PRESERVE_WEBPACK_CACHE: true },
     plugins: [
         "gatsby-plugin-react-helmet",
-        "gatsby-plugin-material-ui",
         "gatsby-plugin-use-query-params",
         // {
         //     resolve: `gatsby-plugin-algolia`,
@@ -62,7 +61,6 @@ module.exports = {
         "gatsby-plugin-image",
         "gatsby-plugin-sharp",
         "gatsby-transformer-sharp",
-        "gatsby-plugin-catch-links",
         "gatsby-plugin-typegen",
         {
             resolve: "gatsby-plugin-manifest",

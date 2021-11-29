@@ -1,7 +1,6 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import { Button, Container, Grid, makeStyles } from "@material-ui/core"
+import { Box, Button, Container, Grid, makeStyles } from "@mui/material"
 import { useSpring, animated, config } from "react-spring"
 
 // Components
@@ -15,55 +14,7 @@ const AnimatedButton = animated(Button)
 
 const HEIGHT = "70vh"
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        width: "100%",
-        height: HEIGHT,
-    },
-    imageWrapper: {
-        width: "100%",
-        height: HEIGHT,
-        zIndex: -10,
-        position: "fixed",
-    },
-    image: {
-        backgroundAttachment: "fixed",
-        zIndex: -10,
-    },
-    filter: {
-        width: "100%",
-        height: HEIGHT,
-        position: "absolute",
-        top: 0,
-        background: "rgba(0, 0, 0, 0.4)",
-        zIndex: -1,
-    },
-    container: {
-        zIndex: 100,
-        position: "absolute",
-        top: 0,
-        width: "100%",
-        height: HEIGHT,
-        margin: "auto",
-    },
-    button: {
-        margin: theme.spacing(3),
-        opacity: 0.9,
-    },
-    description: {
-        textAlign: "center",
-        color: "#ffffff",
-        margin: theme.spacing(3),
-
-        [theme.breakpoints.down("sm")]: {
-            margin: theme.spacing(1),
-        },
-    },
-}))
-
 function AboutSection() {
-    const classes = useStyles()
-
     const springLeft = useSpring({
         from: { opacity: 0, transform: "translateX(-10px)" },
         to: { opacity: 1, transform: "translateX(0px)" },
@@ -78,35 +29,73 @@ function AboutSection() {
     const [buttonBoopStyle, trigger] = useBoop({ scale: 1.05 })
 
     return (
-        <div className={classes.root}>
+        <Box
+            sx={{
+                width: "100%",
+                height: HEIGHT,
+            }}
+        >
             <StaticImage
                 src="../../assets/img/about3.jpg"
                 alt="Homepage image featuring Linda, Ming, and Sally smiling against a granite wall background"
                 layout="fullWidth"
                 quality={100}
-                className={classes.imageWrapper}
-                imgClassName={classes.image}
                 loading="eager"
                 objectFit="cover"
                 objectPosition="center 50%"
                 formats={["webp"]}
+                style={{
+                    width: "100%",
+                    height: HEIGHT,
+                    zIndex: -10,
+                    position: "fixed",
+                }}
+                imgStyle={{
+                    backgroundAttachment: "fixed",
+                    zIndex: -10,
+                }}
             />
-            <div className={classes.filter}>{""}</div>
+            <Box
+                sx={{
+                    width: "100%",
+                    height: HEIGHT,
+                    position: "absolute",
+                    top: 0,
+                    background: "rgba(0, 0, 0, 0.4)",
+                    zIndex: -1,
+                }}
+            >
+                {""}
+            </Box>
             <Grid
                 container
-                className={classes.container}
                 alignItems="center"
                 justifyContent="center"
                 direction="column"
+                sx={{
+                    zIndex: 100,
+                    position: "absolute",
+                    top: 0,
+                    width: "100%",
+                    height: HEIGHT,
+                    margin: "auto",
+                }}
             >
                 <AnimatedGrid item style={springLeft}>
                     <Container maxWidth="md">
                         <AnimatedText
                             variant="h5"
-                            className={classes.description}
                             style={springLeft}
+                            sx={{
+                                textAlign: "center",
+                                color: "#ffffff",
+                                margin: {
+                                    xs: 1, // theme.spacing(1)
+                                    sm: 3, // theme.spacing(3)
+                                },
+                            }}
                         >
-                           Nice
+                            Nice
                         </AnimatedText>
                     </Container>
                 </AnimatedGrid>
@@ -114,18 +103,21 @@ function AboutSection() {
                 <AnimatedGrid item style={springRight}>
                     <CustomLink to="/about">
                         <AnimatedButton
-                            className={classes.button}
                             size="large"
                             variant="contained"
                             style={buttonBoopStyle}
                             onMouseEnter={trigger}
+                            sx={{
+                                margin: 3, // theme.spacing(3)
+                                opacity: 0.9,
+                            }}
                         >
                             About Us
                         </AnimatedButton>
                     </CustomLink>
                 </AnimatedGrid>
             </Grid>
-        </div>
+        </Box>
     )
 }
 
