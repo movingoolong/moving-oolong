@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql, PageProps } from "gatsby"
-import { Box, Container, Button, Grid } from "@mui/material"
+import { Box, Container, Grid } from "@mui/material"
 import { useSpring, animated, config } from "react-spring"
 
 // Components
@@ -15,6 +15,7 @@ import useBoop from "@hooks/useBoop"
 import SanityContent from "@components/SanityContent"
 
 const AnimatedGrid = animated(Grid)
+const AnimatedButton = animated(CustomButton)
 
 const HEIGHT = "70vh"
 
@@ -111,18 +112,19 @@ export default function IndexPage({
                     </AnimatedGrid>
 
                     <AnimatedGrid item style={springRight}>
-                        <span style={buttonBoopStyle} onMouseEnter={trigger}>
-                            <CustomButton
+                        <span onMouseEnter={trigger}>
+                            <AnimatedButton
                                 to="/about"
                                 size="large"
                                 variant="contained"
+                                style={buttonBoopStyle}
                                 sx={{
                                     margin: 3, // theme.spacing(3),
                                     opacity: 0.9,
                                 }}
                             >
                                 About Us
-                            </CustomButton>
+                            </AnimatedButton>
                         </span>
                     </AnimatedGrid>
                 </Grid>

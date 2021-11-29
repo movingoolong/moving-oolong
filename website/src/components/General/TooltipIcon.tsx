@@ -9,7 +9,7 @@ type Props = {
 }
 
 const TooltipIcon = ({ title, href, children, color }: Props) => (
-    <Tooltip title={title} interactive placement="top">
+    <Tooltip title={title} disableInteractive={false} placement="top">
         <IconButton href={href} color={color}>
             {children}
         </IconButton>
