@@ -9,7 +9,6 @@ module.exports = {
     siteMetadata: {
         title: title,
     },
-    flags: { PRESERVE_WEBPACK_CACHE: true },
     plugins: [
         "gatsby-plugin-react-helmet",
         "gatsby-plugin-use-query-params",
