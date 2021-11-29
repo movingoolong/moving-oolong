@@ -1,6 +1,6 @@
 import React from "react"
 import { animated } from "react-spring"
-import { IconButton, IconButtonProps } from "@material-ui/core"
+import { IconButton, IconButtonProps } from "@mui/material"
 
 import useBoop, { BoopProps } from "@hooks/useBoop"
 
