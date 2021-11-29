@@ -10,7 +10,7 @@ const CustomButton = React.forwardRef<HTMLElement, Props>(
     ({ to, ...rest }, ref) => (
         <Button
             component={to ? Link : "button"}
-            to={to}
+            to={to && to.charAt(0) != "/" ? `/${to}` : to}
             // @ts-ignore Ref type weirdness
             ref={ref}
             {...rest}
