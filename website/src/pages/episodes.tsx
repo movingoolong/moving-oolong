@@ -1,18 +1,18 @@
 import React, { useState, FormEvent, SyntheticEvent } from "react"
 import { PageProps, graphql } from "gatsby"
-import { Button, Hidden, SwipeableDrawer, Grid } from "@material-ui/core"
+import { Button, Hidden, SwipeableDrawer, Grid } from "@mui/material"
+import { ExpandMore, TagFacesRounded } from "@mui/icons-material/ExpandMore"
 import { useQueryParam, StringParam } from "use-query-params"
 
 // Components
 import EpisodePageHeader from "@components/EpisodePage/EpisodePageHeader"
 import EpisodeGrid from "@components/Episode/EpisodeGrid"
 import TagSelectionInput from "@components/EpisodePage/TagSelectionInput"
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
+
 import SEO from "@components/General/SEO"
 
 // Hooks
 import useTags, { getArrayFromTags } from "@hooks/useTags"
-import { TagFacesRounded } from "@material-ui/icons"
 
 type Props = PageProps<GatsbyTypes.EpisodePageQuery>
 
@@ -58,7 +58,7 @@ export default function EpisodePage({ data }: Props) {
                         variant="outlined"
                         size="medium"
                         color="secondary"
-                        startIcon={<ExpandMoreIcon />}
+                        startIcon={<ExpandMore />}
                     >
                         Filters
                     </Button>
