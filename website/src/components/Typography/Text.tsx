@@ -1,16 +1,6 @@
 import React from "react"
-import { Typography, TypographyProps, makeStyles } from "@material-ui/core"
+import { Typography, TypographyProps } from "@mui/material"
 import { animated } from "react-spring"
-import clsx from "clsx"
-
-const useStyles = makeStyles((theme) => ({
-    white: {
-        color: "#ffffff",
-    },
-    success: {
-        color: theme.palette.success.main,
-    },
-}))
 
 export interface TextColorOptions {
     color?: TypographyProps["color"] | "white" | "success"
@@ -24,32 +14,10 @@ type Props = Omit<TypographyProps, "color"> & TextColorOptions
  * @param props
  */
 function Text(props: Props, ref: React.Ref<HTMLElement>) {
-    const { className = "", color = "initial", ...rest } = props
-    const classes = useStyles()
-    let textClassName = className
-
-    let passedColor = color
-
-    switch (color) {
-        case "white":
-            textClassName = clsx(textClassName, classes.white)
-            passedColor = "initial"
-            break
-        case "success":
-            textClassName = clsx(textClassName, classes.success)
-            passedColor = "initial"
-            break
-        default:
-            passedColor = color
-    }
+    const { className, color, ...rest } = props
 
     return (
-        <Typography
-            className={textClassName}
-            color={passedColor}
-            ref={ref}
-            {...rest}
-        />
+        <Typography className={className} color={color} ref={ref} {...rest} />
     )
 }
 

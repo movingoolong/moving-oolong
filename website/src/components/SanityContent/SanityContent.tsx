@@ -1,6 +1,6 @@
 import React from "react"
 import BlockContent, { BlockContentProps } from "@sanity/block-content-to-react"
-import { Typography, TypographyVariant } from "@material-ui/core"
+import { Typography, TypographyVariant } from "@mui/material"
 
 type TypeNode = {
     children: React.ReactNode
