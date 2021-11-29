@@ -62,6 +62,7 @@ module.exports = {
         "gatsby-plugin-sharp",
         "gatsby-transformer-sharp",
         "gatsby-plugin-typegen",
+        "gatsby-plugin-gatsby-cloud",
         {
             resolve: "gatsby-plugin-manifest",
             options: {
