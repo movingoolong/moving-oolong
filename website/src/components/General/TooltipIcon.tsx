@@ -1,5 +1,5 @@
 import React from "react"
-import { IconButton, Tooltip, IconButtonProps } from "@material-ui/core"
+import { IconButton, Tooltip, IconButtonProps } from "@mui/material"
 
 type Props = {
     title: string
