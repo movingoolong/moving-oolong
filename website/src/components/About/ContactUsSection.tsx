@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import { Button, Grid, Container, makeStyles } from "@material-ui/core"
-import { Facebook, Instagram, Email } from "@material-ui/icons"
+import { Button, Grid, Container, styled } from "@mui/material"
+import { Facebook, Instagram, Email } from "@mui/icons-material"
 import VisibilitySensor from "react-visibility-sensor"
 import { useTrail, animated, config } from "react-spring"
 
@@ -9,51 +9,40 @@ import ContactUsForm from "@components/About/ContactUsForm"
 import { AnimateOnVisible } from "@components/Layout"
 
 const AnimatedGrid = animated(Grid)
-
-const useStyles = makeStyles((theme) => ({
-    title: {
+const AnimatedHeader = animated(
+    styled("h1")(({ theme }) => ({
         textAlign: "center",
         color: theme.palette.primary.main,
-    },
-    moving: {
-        textAlign: "center",
-    },
-    button: {
-        width: "100%",
-    },
-    text: {
-        textTransform: "none",
-        marginLeft: theme.spacing(1),
-    },
+    }))
+)
+const StyledParagraph = styled("p")(({ theme }) => ({
+    textTransform: "none",
+    marginLeft: theme.spacing(1),
+}))
+const StyledButton = styled(Button)(({ theme }) => ({
+    width: "100%",
 }))
 
 export default () => {
-    const classes = useStyles()
     const socialIcons = [
-        <Button
-            className={classes.button}
-            href="mailto:movingoolong@gmail.com"
-            color="secondary"
-        >
+        <StyledButton href="mailto:movingoolong@gmail.com" color="secondary">
             <Email />
-            <p className={classes.text}>movingoolong@gmail.com</p>
-        </Button>,
-        <Button
-            className={classes.button}
+            <StyledParagraph>movingoolong@gmail.com</StyledParagraph>
+        </StyledButton>,
+        <StyledButton
             href="https://www.facebook.com/movingoolong/"
             color="secondary"
         >
             <Facebook />
-            <p className={classes.text}>Moving Oolong Podcast</p>
-        </Button>,
-        <Button
-            className={classes.button}
+            <StyledParagraph>Moving Oolong Podcast</StyledParagraph>
+        </StyledButton>,
+        <StyledButton
             href="https://www.instagram.com/movingoolongpod/"
             color="secondary"
         >
             <Instagram />
-            <p className={classes.text}>@movingoolongpod</p>
-        </Button>,
+            <StyledParagraph>@movingoolongpod</StyledParagraph>
+        </StyledButton>,
     ]
     const [isVisible, setIsVisible] = useState(false)
     const trails = useTrail(socialIcons.length, {
@@ -68,9 +57,9 @@ export default () => {
         <Container maxWidth="lg">
             <AnimateOnVisible once>
                 {(styles) => (
-                    <animated.h1 className={classes.title} style={styles}>
+                    <AnimatedHeader style={styles}>
                         Contact Us
-                    </animated.h1>
+                    </AnimatedHeader>
                 )}
             </AnimateOnVisible>
 
