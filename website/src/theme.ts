@@ -1,4 +1,4 @@
-import { createTheme, responsiveFontSizes } from "@material-ui/core/styles"
+import { createTheme, responsiveFontSizes } from "@mui/material"
 // @ts-ignore Importing a font so no type
 import SukarBlack from "./assets/fonts/Sukar-Black.ttf"
 
@@ -67,12 +67,14 @@ const theme = createTheme({
             fontFamily: BODY_FONT,
         },
     },
-    overrides: {
+    components: {
         MuiCssBaseline: {
-            "@global": {
-                "@font-face": [fontFace],
-            },
-        },
+            styleOverrides: {
+                "@global": {
+                    "@font-face": [fontFace],
+                },
+            }
+        }
     },
 })
 
