@@ -20,7 +20,6 @@ type Props = PropsForGrid & {
 
 function ContentGrid(props: Props) {
     const { content, xs = 12, sm = 6, md = 4, lg = false, xl = 3 } = props
-    const classes = useStyles()
 
     return (
         <Container maxWidth="xl" sx={{ marginBottom: 2 }}>

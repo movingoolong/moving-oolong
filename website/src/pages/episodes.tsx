@@ -1,7 +1,7 @@
 import React, { useState, FormEvent, SyntheticEvent } from "react"
 import { PageProps, graphql } from "gatsby"
 import { Button, Hidden, SwipeableDrawer, Grid } from "@mui/material"
-import { ExpandMore, TagFacesRounded } from "@mui/icons-material/ExpandMore"
+import { ExpandMore, TagFacesRounded } from "@mui/icons-material"
 import { useQueryParam, StringParam } from "use-query-params"
 
 // Components

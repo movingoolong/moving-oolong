@@ -28,7 +28,6 @@
     "gatsby-source-sanity": "^7.0.7",
     "gatsby-transformer-sharp": "^4.1.0",
     "gbimage-bridge": "^0.1.4",
-    "graphql": "^16.0.1",
     "graphql-compose": "^9.0.4",
     "gsap": "^3.6.0",
     "intersection-observer": "^0.12.0",
