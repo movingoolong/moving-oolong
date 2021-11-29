@@ -1,23 +1,11 @@
 import React from "react"
-import { Grid, SvgIcon, makeStyles } from "@material-ui/core"
-import { Facebook, Instagram } from "@material-ui/icons"
+import { Grid, SvgIcon } from "@mui/material"
+import { Facebook, Instagram } from "@mui/icons-material"
 
 // Components
 import Text from "@components/Typography"
 import ClientOnly from "@components/General/ClientOnly"
 import TooltipIcon from "@components/General/TooltipIcon"
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-        padding: theme.spacing(1),
-        [theme.breakpoints.up("md")]: {
-            paddingRight: theme.spacing(3),
-        },
-    },
-    copyright: {
-        marginLeft: theme.spacing(3),
-    },
-}))
 
 const ICONS = [
     {
@@ -42,7 +30,6 @@ const ICONS = [
 ]
 
 export default function Footer() {
-    const classes = useStyles()
     return (
         <ClientOnly>
             <Grid
@@ -50,7 +37,12 @@ export default function Footer() {
                 alignItems="center"
                 wrap="nowrap"
                 justifyContent="center"
-                className={classes.root}
+                sx={{
+                    padding: 1, // theme.spacing(1)
+                    paddingRight: {
+                        md: 3, // theme.spacing(3)
+                    },
+                }}
             >
                 {ICONS.map(({ title, href, icon }) => (
                     <Grid item key={title}>
@@ -60,7 +52,9 @@ export default function Footer() {
                     </Grid>
                 ))}
 
-                <Grid item className={classes.copyright}>
+                <Grid item sx={{
+                    marginLeft: 3, // theme.spacing(3)
+                }}>
                     <Text align="right" color="primary">
                         <b>Copyright © 2021 Moving Oolong</b>
                     </Text>

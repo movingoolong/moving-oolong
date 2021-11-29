@@ -2,13 +2,14 @@ import React, { useState } from "react"
 import { PageProps } from "gatsby"
 import {
     AppBar,
+    Box,
     Drawer,
     Hidden,
     IconButton,
     Toolbar,
-    makeStyles,
-} from "@material-ui/core"
-import MenuIcon from "@material-ui/icons/Menu"
+    styled,
+} from "@mui/material"
+import MenuIcon from "@mui/icons-material/Menu"
 
 // Components
 import Logo from "@components/Logo/Logo"
@@ -16,40 +17,11 @@ import CustomLink from "@components/General/CustomLink"
 import Text from "@components/Typography"
 import Button from "@components/Button"
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        flexGrow: 1,
-        opacity: 0.9,
-    },
-    title: {
-        color: theme.palette.primary.contrastText,
-        marginLeft: theme.spacing(1),
-        display: "inline",
-        textTransform: "none",
-        verticalAlign: "-15%",
-    },
-    grow: {
-        flexGrow: 1,
-    },
-    link: {
-        margin: theme.spacing(1),
-        textDecoration: "none",
-        display: "inline-block",
-    },
-    button: {
-        color: theme.palette.primary.contrastText,
-        [theme.breakpoints.down("xs")]: {
-            color: theme.palette.primary.main,
-        },
-    },
-    menuButton: {
-        marginRight: theme.spacing(2),
-        color: theme.palette.primary.contrastText,
-    },
-    drawer: {
-        paddingTop: theme.spacing(1),
-        width: "40%",
-    },
+const StyledButton = styled(Button)(({theme}) => ({
+    color: theme.palette.primary.contrastText,
+    [theme.breakpoints.down("xs")]: {
+        color: theme.palette.primary.main,
+    }
 }))
 
 type Props = {
@@ -57,7 +29,6 @@ type Props = {
 }
 
 function Header({ location }: Props) {
-    const classes = useStyles()
     const [mobileOpen, setMobileOpen] = useState(false)
 
     const handleDrawerToggle = () => {
@@ -66,50 +37,59 @@ function Header({ location }: Props) {
 
     const links = (
         <>
-            <Button className={classes.button} to="/">
+            <StyledButton to="/">
                 <b>Home</b>
-            </Button>
+            </StyledButton>
 
-            <Button className={classes.button} to="/about">
+            <StyledButton to="/about">
                 <b>About</b>
-            </Button>
+            </StyledButton>
 
-            <Button className={classes.button} to="/episodes">
+            <StyledButton to="/episodes">
                 <b>Episodes</b>
-            </Button>
+            </StyledButton>
 
-            <Button
-                className={classes.button}
+            <StyledButton
                 href="https://movingoolong.medium.com/"
             >
                 <b>Blog</b>
-            </Button>
+            </StyledButton>
 
-            <Button
-                className={classes.button}
-                href="https://anchor.fm/movingoolongpod/support "
+            <StyledButton
+                href="https://anchor.fm/movingoolongpod/support"
             >
                 <b>Support Us</b>
-            </Button>
+            </StyledButton>
         </>
     )
 
     return (
         <AppBar
-            className={classes.root}
             position={location.pathname === "/" ? "absolute" : "relative"}
             key={location.pathname}
             elevation={0}
+            sx={{
+                flexGrow: 1,
+        opacity: 0.9,
+            }}
         >
             <Toolbar>
                 <CustomLink to="/">
                     <Logo />
-                    <Text variant="h2" className={classes.title}>
+                    <Text variant="h2" sx={{
+                                color: "primary.contrastText",
+                                marginLeft: 1, // theme.spacing(1),
+                                display: "inline",
+                                textTransform: "none",
+                                verticalAlign: "-15%",
+                    }}>
                         Moving Oolong
                     </Text>
                 </CustomLink>
 
-                <div className={classes.grow} />
+                <Box sx={{
+                    flexGrow: 1,
+                }} />
 
                 <Hidden xsDown>{links}</Hidden>
 
@@ -118,14 +98,20 @@ function Header({ location }: Props) {
                         aria-label="open drawer"
                         edge="start"
                         onClick={handleDrawerToggle}
-                        className={classes.menuButton}
+                        sx={{
+                            marginRight: 2, // theme.spacing(2),
+        color: "primary.contrastText",
+                        }}
                     >
                         <MenuIcon />
                     </IconButton>
                     <Drawer
                         variant="temporary"
-                        classes={{
-                            paper: classes.drawer,
+                        PaperProps={{
+                            sx: {
+                                paddingTop: 1, // theme.spacing(1),
+                                width: "40%",
+                            }
                         }}
                         anchor="right"
                         open={mobileOpen}
