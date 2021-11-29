@@ -70,7 +70,7 @@ function Header({ location }: Props) {
             elevation={0}
             sx={{
                 flexGrow: 1,
-        opacity: 0.9,
+                opacity: 0.9,
             }}
         >
             <Toolbar>
@@ -100,7 +100,7 @@ function Header({ location }: Props) {
                         onClick={handleDrawerToggle}
                         sx={{
                             marginRight: 2, // theme.spacing(2),
-        color: "primary.contrastText",
+                            color: "primary.contrastText",
                         }}
                     >
                         <MenuIcon />

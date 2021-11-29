@@ -8,21 +8,26 @@ import {
     FormControlLabel,
 } from "@mui/material"
 
+import { TagState } from "@hooks/useTags"
+
 type Props = {
-    tags: string[],
-    urlTags: string,
-    setURLTags: React.Dispatch<React.SetStateAction<string>>
+    tags: TagState,
+    urlTags: string | null | undefined,
+    setURLTags: (newValue: NewValueType<string | null | undefined>, updateType?: UrlUpdateType | undefined) => void
 }
 
 function TagSelectionInput({ tags, urlTags, setURLTags }: Props) {
     const handleChange = (event: React.ChangeEvent) => {
+        console.log(urlTags)
         const urlTagsArray = urlTags !== undefined ? urlTags.split(",") : []
+        console.log(urlTagsArray)
         const index = urlTagsArray.indexOf(event.target.name)
         if (index == -1 && event.target.checked) {
             urlTagsArray.push(event.target.name)
         } else if (index != -1 && !event.target.checked) {
             urlTagsArray.splice(index, 1)
         }
+        console.log(urlTagsArray.join(","))
         setURLTags(urlTagsArray.join(","))
     }
 

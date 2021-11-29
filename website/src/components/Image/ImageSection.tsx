@@ -39,4 +39,4 @@ const ImageSection = ({ imageAsset, children, ...rest }: Props) => {
     )
 }
 
-export default styled(ImageSection)()
+export default styled(ImageSection)({})
