@@ -1,19 +1,15 @@
 import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
-import { makeStyles } from "@material-ui/core"
+import { styled } from "@mui/material"
 
-const useStyles = makeStyles({
-    root: {
-        verticalAlign: "middle",
-        display: "inline-block",
-    },
+const StyledImage = styled(StaticImage)({
+    verticalAlign: "middle",
+    display: "inline-block",
 })
 
-function Logo() {
-    const classes = useStyles()
+export default function Logo() {
     return (
-        <StaticImage
-            className={classes.root}
+        <StyledImage
             src="../../assets/img/logo.png"
             alt="Moving Oolong logo"
             layout="fixed"
@@ -24,5 +20,3 @@ function Logo() {
         />
     )
 }
-
-export default Logo
