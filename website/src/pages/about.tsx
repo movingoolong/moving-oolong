@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { graphql, PageProps } from "gatsby"
-import { Container, Grid, makeStyles } from "@material-ui/core"
+import { Box, Container, Grid, styled } from "@mui/material"
 import VisibilitySensor from "react-visibility-sensor"
 import { useTrail, animated } from "react-spring"
 import { BODY_FONT } from "../theme"
@@ -8,30 +8,17 @@ import { BODY_FONT } from "../theme"
 // Components
 import Bio from "@components/About/Bio"
 import SEO from "@components/General/SEO"
-import Text, { AnimatedText } from "@components/Typography"
 import { AnimateOnVisible } from "@components/Layout"
 import SanityContent from "@components/SanityContent"
 
 const AnimatedGrid = animated(Grid)
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-        width: "100%",
-    },
-    item: {
-        marginTop: theme.spacing(2),
-    },
-    title: {
+const AnimatedTitle = animated(
+    styled("span")(({ theme }) => ({
         color: theme.palette.primary.main,
         textAlign: "center",
         margin: theme.spacing(4),
-    },
-    description: {
-        textAlign: "center",
-        marginBottom: theme.spacing(4),
-        fontFamily: BODY_FONT,
-    },
-}))
+    }))
+)
 
 export const query = graphql`
     query AboutPage {
@@ -50,7 +37,6 @@ export const query = graphql`
 export default function AboutPage({
     data,
 }: PageProps<GatsbyTypes.AboutPageQuery>) {
-    const classes = useStyles()
     const { sanitySiteSettings, allSanityBio } = data
     const [isVisible, setIsVisible] = useState(false)
     const bios = allSanityBio.nodes
@@ -66,22 +52,25 @@ export default function AboutPage({
             <Container maxWidth="lg">
                 <AnimateOnVisible once>
                     {(springStyle) => (
-                        <animated.span
-                            className={classes.title}
-                            style={springStyle}
-                        >
+                        <AnimatedTitle style={springStyle}>
                             <SanityContent
                                 blocks={sanitySiteSettings?._rawAboutPageHeader}
                             />
-                        </animated.span>
+                        </AnimatedTitle>
                     )}
                 </AnimateOnVisible>
 
-                <span className={classes.description}>
+                <Box
+                    sx={{
+                        textAlign: "center",
+                        marginBottom: 4, // theme.spacing(4),
+                        fontFamily: BODY_FONT,
+                    }}
+                >
                     <SanityContent
                         blocks={sanitySiteSettings?._rawAboutPageDescription}
                     />
-                </span>
+                </Box>
 
                 <VisibilitySensor
                     onChange={(isVisible) => setIsVisible(isVisible)}
@@ -97,11 +86,13 @@ export default function AboutPage({
                         {bios.map((bio, index) => (
                             <AnimatedGrid
                                 item
-                                className={classes.item}
                                 xs={12}
                                 sm={4}
                                 key={index}
                                 style={trails[index]}
+                                sx={{
+                                    marginTop: 2,
+                                }}
                             >
                                 <Bio bio={bio} />
                             </AnimatedGrid>
