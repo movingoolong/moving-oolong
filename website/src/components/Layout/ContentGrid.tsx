@@ -1,15 +1,5 @@
 import React from "react"
-import { Container, Grid, GridProps, makeStyles } from "@material-ui/core"
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-        marginBottom: theme.spacing(2),
-    },
-    item: {
-        marginTop: theme.spacing(2),
-        marginBottom: theme.spacing(2),
-    },
-}))
+import { Container, Grid, GridProps } from "@mui/material"
 
 export interface PropsForGrid {
     xs?: GridProps["xs"]
@@ -33,7 +23,7 @@ function ContentGrid(props: Props) {
     const classes = useStyles()
 
     return (
-        <Container className={classes.root} maxWidth="xl">
+        <Container maxWidth="xl" sx={{ marginBottom: 2 }}>
             <Grid
                 container
                 spacing={3}
@@ -44,13 +34,16 @@ function ContentGrid(props: Props) {
                 {content.map((item) => (
                     <Grid
                         item
-                        className={classes.item}
                         xs={xs}
                         sm={sm}
                         md={md}
                         lg={lg}
                         xl={xl}
                         key={item.key}
+                        sx={{
+                            marginTop: 2,
+                            marginBottom: 2,
+                        }}
                     >
                         {item.node}
                     </Grid>
