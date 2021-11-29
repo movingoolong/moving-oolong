@@ -1,5 +1,5 @@
 import React from "react"
-import { Grid, makeStyles } from "@material-ui/core"
+import { Grid } from "@mui/material"
 
 import Text from "@components/Typography"
 import { IconBoopButton } from "@components/Button"
@@ -14,25 +14,14 @@ import radiopublic from "@assets/img/icons/radiopublic.png"
 import pocketcast from "@assets/img/icons/pocket_casts.png"
 import overcast from "@assets/img/icons/overcast.png"
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        marginTop: theme.spacing(2),
-    },
-    spacing: {
-        marginTop: theme.spacing(1),
-    },
-}))
-
 const ICONS = [
     {
-        href:
-            "https://open.spotify.com/show/02UAHtTye0bhzUPuNFM1HE?si=vkorccKzRi-IY75Dre5I-w",
+        href: "https://open.spotify.com/show/02UAHtTye0bhzUPuNFM1HE?si=vkorccKzRi-IY75Dre5I-w",
         src: spotify,
         alt: "Spotify link",
     },
     {
-        href:
-            "https://podcasts.apple.com/us/podcast/moving-oolong/id1490732891",
+        href: "https://podcasts.apple.com/us/podcast/moving-oolong/id1490732891",
         src: apple,
         alt: "Apple podcasts link",
     },
@@ -42,8 +31,7 @@ const ICONS = [
         alt: "Stitcher link",
     },
     {
-        href:
-            "https://www.google.com/podcasts?feed=aHR0cHM6Ly9hbmNob3IuZm0vcy8xOWM3MTc5NC9wb2RjYXN0L3Jzcw==",
+        href: "https://www.google.com/podcasts?feed=aHR0cHM6Ly9hbmNob3IuZm0vcy8xOWM3MTc5NC9wb2RjYXN0L3Jzcw==",
         src: google,
         alt: "Google podcasts link",
     },
@@ -70,13 +58,14 @@ const ICONS = [
 ]
 
 function EpisodePageContent() {
-    const classes = useStyles()
     return (
         <Grid
             container
-            className={classes.root}
             alignItems="center"
             justifyContent="center"
+            sx={{
+                marginTop: 2,
+            }}
         >
             <Grid item xs={12}>
                 <Text variant="h2" align="center" color="primary">
@@ -84,7 +73,7 @@ function EpisodePageContent() {
                 </Text>
             </Grid>
 
-            <Grid item xs={12} className={classes.spacing}>
+            <Grid item xs={12} sx={{ marginTop: 1 }}>
                 <Text variant="h3" align="center" color="textPrimary">
                     Listen on
                 </Text>

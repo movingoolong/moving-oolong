@@ -1,34 +1,21 @@
 import React from "react"
 import {
+    Box,
     Checkbox,
     FormControl,
     FormLabel,
     FormGroup,
     FormControlLabel,
-    makeStyles,
-} from "@material-ui/core"
+} from "@mui/material"
 
-// Components
+type Props = {
+    tags: string[],
+    urlTags: string,
+    setURLTags: React.Dispatch<React.SetStateAction<string>>
+}
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        display: "flex",
-    },
-    formControl: {
-        margin: theme.spacing(3),
-    },
-    groupLabel: {
-        color: theme.palette.primary.main,
-    },
-    label: {
-        color: theme.palette.text.primary,
-    },
-}))
-
-function TagSelectionInput({ tags, urlTags, setURLTags }) {
-    const classes = useStyles()
-
-    const handleChange = (event) => {
+function TagSelectionInput({ tags, urlTags, setURLTags }: Props) {
+    const handleChange = (event: React.ChangeEvent) => {
         const urlTagsArray = urlTags !== undefined ? urlTags.split(",") : []
         const index = urlTagsArray.indexOf(event.target.name)
         if (index == -1 && event.target.checked) {
@@ -40,12 +27,11 @@ function TagSelectionInput({ tags, urlTags, setURLTags }) {
     }
 
     return (
-        <div className={classes.root}>
-            <FormControl component="fieldset" className={classes.formControl}>
+        <Box sx={{display: "flex"}}>
+            <FormControl component="fieldset" sx={{ margin: 3 }}>
                 <FormLabel
                     component="legend"
                     color="primary"
-                    className={classes.groupLabel}
                 >
                     <b>Filter by Tags</b>
                 </FormLabel>
@@ -59,13 +45,13 @@ function TagSelectionInput({ tags, urlTags, setURLTags }) {
                                     name={key}
                                 />
                             }
-                            label={<div className={classes.label}>{key}</div>}
+                            label={<Box sx={{color: "text.primary" }}>{key}</Box>}
                             key={key}
                         />
                     ))}
                 </FormGroup>
             </FormControl>
-        </div>
+        </Box>
     )
 }
 
