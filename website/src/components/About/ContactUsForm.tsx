@@ -1,34 +1,12 @@
 import React, { useState } from "react"
 import {
+    Box,
     Button,
     CircularProgress,
-    TextField,
-    makeStyles,
-} from "@material-ui/core"
+    TextField
+} from "@mui/material"
 // Components
 import Text from "@components/Typography"
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-        padding: theme.spacing(1),
-    },
-    submit: {
-        marginLeft: "auto",
-        marginRight: "auto",
-    },
-    backdrop: {
-        zIndex: theme.zIndex.drawer + 1,
-        color: "#fff",
-    },
-    success: {
-        color: theme.palette.primary.dark,
-        textAlign: "center",
-    },
-    failure: {
-        color: "#f44336",
-        textAlign: "center",
-    },
-}))
 
 const encode = (data: Record<string, string>) => {
     return Object.keys(data)
@@ -47,7 +25,6 @@ type State = {
 }
 
 export default () => {
-    const classes = useStyles()
     const [state, setState] = useState<State>({
         name: "",
         email: "",
@@ -57,10 +34,13 @@ export default () => {
 
     const [submitContent, setSubmitContent] = useState(
         <Button
-            className={classes.submit}
             type="submit"
             color="primary"
             fullWidth
+            sx={{
+                marginLeft: "auto",
+                marginRight: "auto",
+            }}
         >
             <b>Submit</b>
         </Button>
@@ -83,14 +63,18 @@ export default () => {
         })
             .then(() => {
                 setSubmitContent(
-                    <Text variant="h4" className={classes.success}>
+                    <Text variant="h4" sx={{
+                        color: "primary.dark",
+                        textAlign: "center",
+                    }}>
                         Success! Thank you for your message!
                     </Text>
                 )
             })
             .catch((error) => {
                 setSubmitContent(
-                    <Text variant="h4" className={classes.failure}>
+                    <Text variant="h4" sx={{color: "#f44336",
+                    textAlign: "center",}}>
                         Failed to send message! {error}
                     </Text>
                 )
@@ -100,7 +84,9 @@ export default () => {
     }
 
     return (
-        <div className={classes.root}>
+        <Box sx={{
+            padding: 1, // theme.spacing(1)
+        }}>
             <form
                 onSubmit={handleSubmit}
                 name="contact"
@@ -160,6 +146,6 @@ export default () => {
                 />
                 {submitContent}
             </form>
-        </div>
+        </Box>
     )
 }

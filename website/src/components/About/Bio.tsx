@@ -1,5 +1,5 @@
 import React from "react"
-import { Box, Card, CardContent, CardActions, makeStyles } from "@mui/material"
+import { Box, Card, CardContent, CardActions } from "@mui/material"
 import SocialIcons from "./SocialIcons"
 
 // Components
