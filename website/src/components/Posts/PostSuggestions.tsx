@@ -1,30 +1,9 @@
 import React from "react"
-import { Toolbar, makeStyles } from "@material-ui/core"
+import { Box, Toolbar } from "@mui/material"
 
 // Components
 import CustomLink from "@components/General/CustomLink"
 import Text from "@components/Typography"
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-        margin: theme.spacing(1),
-    },
-    grow: {
-        flexGrow: 1,
-    },
-    left: {
-        textAlign: "left",
-    },
-    right: {
-        textAlign: "right",
-    },
-    postTitle: {
-        color: theme.palette.primary.main,
-    },
-    helpText: {
-        color: theme.palette.text.primary,
-    },
-}))
 
 type Props = {
     prevSlug?: string
@@ -35,21 +14,20 @@ type Props = {
 
 function PostSuggestions(props: Props) {
     const { prevSlug, prevTitle, nextSlug, nextTitle } = props
-    const classes = useStyles()
     let previous = <></>
     let next = <></>
 
     if (prevSlug && prevTitle) {
         previous = (
             <CustomLink to={prevSlug}>
-                <div className={classes.left}>
-                    <Text variant="h6" className={classes.helpText}>
+                <Box sx={{ textAlign: "left" }}>
+                    <Text variant="h6" color="textPrimary">
                         <b>Previous</b>
                     </Text>
-                    <Text variant="subtitle1" className={classes.postTitle}>
+                    <Text variant="subtitle1" color="primary">
                         {prevTitle}
                     </Text>
-                </div>
+                </Box>
             </CustomLink>
         )
     }
@@ -57,22 +35,22 @@ function PostSuggestions(props: Props) {
     if (nextSlug && nextTitle) {
         next = (
             <CustomLink to={nextSlug}>
-                <div className={classes.right}>
-                    <Text variant="h6" className={classes.helpText}>
+                <Box sx={{ textAlign: "right" }}>
+                    <Text variant="h6" color="textPrimary">
                         <b>Next</b>
                     </Text>
-                    <Text variant="subtitle1" className={classes.postTitle}>
+                    <Text variant="subtitle1" color="primary">
                         {nextTitle}
                     </Text>
-                </div>
+                </Box>
             </CustomLink>
         )
     }
 
     return (
-        <Toolbar className={classes.root}>
+        <Toolbar sx={{ margin: 1 }}>
             {previous}
-            <div className={classes.grow} />
+            <Box sx={{ flexGrow: 1 }} />
             {next}
         </Toolbar>
     )
