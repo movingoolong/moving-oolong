@@ -1,4 +1,5 @@
 import React from "react"
+import { styled } from "@mui/material"
 import { GatsbyImage, GatsbyImageProps } from "gatsby-plugin-image"
 
 export type SanityImageWithAltText = GatsbyTypes.Maybe<{
@@ -28,4 +29,6 @@ const GatsbyImageIfExists = ({ imageAsset, ...rest }: Props) => {
     )
 }
 
-export default GatsbyImageIfExists
+export default styled(GatsbyImageIfExists)(({ theme }) => ({
+    borderRadius: theme.shape.borderRadius
+}))

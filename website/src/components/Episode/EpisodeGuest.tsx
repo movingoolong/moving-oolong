@@ -1,5 +1,5 @@
 import React from "react"
-import { Container, Grid, makeStyles } from "@material-ui/core"
+import { Grid } from "@mui/material"
 
 import { GatsbyImageIfExists } from "@components/Image"
 import { Text } from "@components/Typography"
@@ -8,18 +8,9 @@ type Props = {
     guest: GatsbyTypes.EpisodeFragment["guest"][0]
 }
 
-const useStyles = makeStyles((theme) => ({
-    image: {
-        borderRadius: theme.shape.borderRadius,
-    },
-}))
-
 function EpisodeGuest({ guest }: Props) {
-    const classes = useStyles()
     const { name, instagram, propic } = guest
-    const image = (
-        <GatsbyImageIfExists className={classes.image} imageAsset={propic} />
-    )
+    const image = <GatsbyImageIfExists imageAsset={propic} />
 
     return (
         <Grid

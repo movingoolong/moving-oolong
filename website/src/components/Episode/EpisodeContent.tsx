@@ -1,5 +1,5 @@
 import React from "react"
-import { Container, Grid, makeStyles } from "@material-ui/core"
+import { Box, Container, Grid } from "@mui/material"
 
 // Components
 import { GatsbyImageIfExists } from "@components/Image"
@@ -10,34 +10,11 @@ import { Spotify } from "@components/Spotify"
 import TagLink from "./TagLink"
 import EpisodeGuest from "./EpisodeGuest"
 
-const useStyles = makeStyles((theme) => ({
-    title: {
-        margin: theme.spacing(2),
-    },
-    embed: {
-        width: "100%",
-    },
-    tags: {
-        color: theme.palette.secondary.main,
-    },
-    content: {
-        marginTop: theme.spacing(2),
-        marginBottom: theme.spacing(4),
-    },
-    image: {
-        borderRadius: theme.shape.borderRadius,
-    },
-    references: {
-        textAlign: "left",
-    },
-}))
-
 type Props = {
     episode: GatsbyTypes.EpisodeFragment
 }
 
 function EpisodeContent({ episode }: Props) {
-    const classes = useStyles()
     const {
         title,
         datetime,
@@ -51,7 +28,12 @@ function EpisodeContent({ episode }: Props) {
     } = episode
 
     return (
-        <Container className={classes.content}>
+        <Container
+            sx={{
+                marginTop: 2, // theme.spacing(2),
+                marginBottom: 4, // theme.spacing(4),
+            }}
+        >
             <Grid
                 container
                 alignItems="flex-start"
@@ -64,10 +46,12 @@ function EpisodeContent({ episode }: Props) {
                         {(styleProps) => (
                             <AnimatedText
                                 variant="h1"
-                                className={classes.title}
                                 align="center"
                                 color="primary"
                                 style={styleProps}
+                                sx={{
+                                    margin: 2, // theme.spacing(2)
+                                }}
                             >
                                 {title}
                             </AnimatedText>
@@ -75,10 +59,7 @@ function EpisodeContent({ episode }: Props) {
                     </AnimateOnVisible>
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                    <GatsbyImageIfExists
-                        className={classes.image}
-                        imageAsset={image}
-                    />
+                    <GatsbyImageIfExists imageAsset={image} />
                 </Grid>
                 <Grid
                     item
@@ -97,11 +78,15 @@ function EpisodeContent({ episode }: Props) {
                         <SanityContent blocks={_rawDescription} />
                     </Grid>
                     <Grid item>
-                        <div className={classes.tags}>
+                        <Box
+                            sx={{
+                                color: "secondary.main",
+                            }}
+                        >
                             {tags.map((tag) => (
                                 <TagLink tag={tag?.value} key={tag?.value} />
                             ))}
-                        </div>
+                        </Box>
                     </Grid>
                     {/* {guest && guest.length > 0 ? (
                         <Grid
@@ -126,10 +111,12 @@ function EpisodeContent({ episode }: Props) {
                         item
                         container
                         xs={6}
-                        className={classes.references}
                         direction="column"
                         alignItems="stretch"
                         justifyContent="space-between"
+                        sx={{
+                            textAlign: "left",
+                        }}
                     >
                         <Text variant="h3" align="center" color="primary">
                             References

@@ -1,13 +1,12 @@
 import React, { useState } from "react"
 import {
-    Button,
+    Box,
     Card,
     CardActionArea,
     CardContent,
     CardActions,
     Grid,
-    makeStyles,
-} from "@material-ui/core"
+} from "@mui/material"
 import { animated, useSpring, config } from "react-spring"
 import { BODY_FONT } from "../../theme"
 
@@ -17,56 +16,9 @@ import SanityContent from "@components/SanityContent"
 import CustomLink from "@components/General/CustomLink"
 import Text from "@components/Typography"
 import TagLink from "./TagLink"
+import Button from "@components/Button"
 
 // Types
-const useStyles = makeStyles((theme) => ({
-    root: {
-        display: "flex",
-        height: "100%",
-        flexDirection: "column",
-        margin: theme.spacing(1),
-        [theme.breakpoints.down("sm")]: {
-            margin: theme.spacing(0),
-        },
-    },
-    content: {
-        height: "100%",
-        display: "flex",
-        flexDirection: "column",
-        flexShrink: 1,
-    },
-    header: {
-        paddingBottom: 0,
-        color: theme.palette.text.primary,
-    },
-    link: {
-        color: "#ffffff",
-    },
-    title: {
-        color: theme.palette.primary.main,
-        marginTop: 0,
-        marginBottom: 0,
-        padding: 0,
-    },
-    date: {
-        color: theme.palette.text.primary,
-        fontFamily: BODY_FONT,
-        margin: 0,
-        marginTop: theme.spacing(1),
-    },
-    action: {
-        //display: "flex",
-        flexGrow: 1,
-        margin: 0,
-        marginLeft: theme.spacing(1),
-        marginRight: theme.spacing(1),
-        paddingTop: 0,
-    },
-    grow: {
-        flexGrow: 1,
-    },
-}))
-
 type Props = {
     episode: GatsbyTypes.EpisodeFragment
     showDescription?: boolean
@@ -75,15 +27,7 @@ type Props = {
 const AnimatedCard = animated(Card)
 
 function EpisodePreview({ episode, showDescription = true, ...rest }: Props) {
-    const classes = useStyles()
-    const {
-        title,
-        datetime,
-        tags = [],
-        image,
-        slug,
-        _rawDescription,
-    } = episode
+    const { title, datetime, tags = [], image, slug, _rawDescription } = episode
     const slugLink = slug?.current
     const [isHover, setHover] = useState(false)
     const springStyle = useSpring({
@@ -95,18 +39,46 @@ function EpisodePreview({ episode, showDescription = true, ...rest }: Props) {
 
     return (
         <AnimatedCard
-            className={classes.root}
+            sx={{
+                display: "flex",
+                height: "100%",
+                flexDirection: "column",
+                margin: {
+                    xs: 0, // theme.spacing(0)
+                    md: 1, // theme.spacing(1),
+                },
+            }}
             {...rest}
             onMouseOver={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
             style={springStyle}
         >
-            <div className={classes.content}>
-                <CustomLink className={classes.link} to={slugLink || ""}>
+            <Box
+                sx={{
+                    height: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                    flexShrink: 1,
+                }}
+            >
+                <CustomLink sx={{ color: "#ffffff" }} to={slugLink || ""}>
                     <CardActionArea>
                         <GatsbyImageIfExists imageAsset={image} />
-                        <CardContent className={classes.header}>
-                            <Text variant="h6" className={classes.title}>
+                        <CardContent
+                            sx={{
+                                paddingBottom: 0,
+                                color: "text.primary",
+                            }}
+                        >
+                            <Text
+                                variant="h6"
+                                color="primary"
+                                sx={{
+                                    marginTop: 0,
+                                    marginBottom: 0,
+                                    padding: 0,
+                                }}
+                            >
                                 {title}
                             </Text>
                             {datetime ? (
@@ -127,9 +99,17 @@ function EpisodePreview({ episode, showDescription = true, ...rest }: Props) {
                         </CardContent>
                     </CardActionArea>
                 </CustomLink>
-            </div>
+            </Box>
 
-            <CardActions className={classes.action}>
+            <CardActions
+                sx={{
+                    flexGrow: 1,
+                    margin: 0,
+                    marginLeft: 1, // theme.spacing(1),
+                    marginRight: 1, // theme.spacing(1),
+                    paddingTop: 0,
+                }}
+            >
                 <Grid
                     container
                     alignItems="flex-end"
@@ -141,7 +121,7 @@ function EpisodePreview({ episode, showDescription = true, ...rest }: Props) {
                         ))}
                     </Grid>
                     <Grid item>
-                        <Button color="secondary" size="small" href={slugLink}>
+                        <Button color="secondary" size="small" to={slugLink}>
                             Read More
                         </Button>
                     </Grid>

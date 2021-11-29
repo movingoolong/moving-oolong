@@ -1,7 +1,7 @@
 import React, { useState } from "react"
-import { Container, Grid, makeStyles } from "@material-ui/core"
-import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos"
-import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos"
+import { Container, Grid } from "@mui/material"
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos"
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos"
 
 // @ts-ignore SwipeableViews doesn't have type
 import SwipeableViews from "react-swipeable-views"
@@ -10,31 +10,12 @@ import SwipeableViews from "react-swipeable-views"
 import EpisodePreview from "./EpisodePreview"
 import { IconBoopButton } from "@components/Button"
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        marginBottom: theme.spacing(2),
-        height: "100%",
-        width: "100%",
-    },
-    iconLeft: {
-        marginRight: "auto",
-    },
-    iconRight: {
-        marginLeft: "auto",
-    },
-    item: {
-        marginTop: theme.spacing(2),
-        marginBottom: theme.spacing(2),
-    },
-}))
-
 type Props = {
     episodes: GatsbyTypes.EpisodeFragment[]
     numShown: 1 | 2 | 3 | 4
 }
 
 function SwipeableEpisodes({ episodes, numShown = 4 }: Props) {
-    const classes = useStyles()
     const [activeStep, setActiveStep] = useState(0)
 
     const handleNext = () => {
@@ -60,10 +41,13 @@ function SwipeableEpisodes({ episodes, numShown = 4 }: Props) {
             previews.push(
                 <Grid
                     item
-                    className={classes.item}
                     // @ts-ignore Numbers
                     sm={12 / numShown}
                     key={episode._id}
+                    sx={{
+                        marginTop: 2,
+                        marginBottom: 2,
+                    }}
                 >
                     <EpisodePreview episode={episode} showDescription={false} />
                 </Grid>
@@ -83,15 +67,21 @@ function SwipeableEpisodes({ episodes, numShown = 4 }: Props) {
     }
 
     return (
-        <Container className={classes.root} maxWidth="xl">
+        <Container maxWidth="xl" sx={{
+            marginBottom: 2, // theme.spacing(2),
+            height: "100%",
+            width: "100%",
+        }}>
             <Grid container alignItems="center" justifyContent="space-between">
                 <Grid item>
                     <IconBoopButton
-                        className={classes.iconLeft}
                         aria-label="back button"
                         onClick={handleBack}
                         disabled={activeStep === 0}
                         boopProps={{ x: -3 }}
+                        sx={{
+                            marginRight: "auto",
+                        }}
                     >
                         <ArrowBackIosIcon />
                     </IconBoopButton>
@@ -108,11 +98,11 @@ function SwipeableEpisodes({ episodes, numShown = 4 }: Props) {
                 </Grid>
                 <Grid item>
                     <IconBoopButton
-                        className={classes.iconRight}
                         aria-label="forward button"
                         onClick={handleNext}
                         disabled={activeStep === maxSteps - 1}
                         boopProps={{ x: 3 }}
+                        sx={{ marginLeft: "auto "}}
                     >
                         <ArrowForwardIosIcon />
                     </IconBoopButton>

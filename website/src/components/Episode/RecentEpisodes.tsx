@@ -1,42 +1,16 @@
 import React from "react"
 import {
+    Box,
     Grid,
-    Hidden,
-    makeStyles,
     useMediaQuery,
     useTheme,
-} from "@material-ui/core"
+} from "@mui/material"
 
 // Components
 import EpisodeGrid from "./EpisodeGrid"
 import SwipeableEpisodes from "./SwipeableEpisodes"
 import CustomLink from "@components/General/CustomLink"
 import Text from "@components/Typography"
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-        marginLeft: theme.spacing(3),
-        marginRight: theme.spacing(3),
-    },
-    title: {
-        textAlign: "left",
-        color: theme.palette.primary.main,
-        margin: theme.spacing(2),
-        [theme.breakpoints.down("xs")]: {
-            textAlign: "center",
-        },
-    },
-    seeAll: {
-        textAlign: "right",
-        textDecoration: "underline",
-        margin: theme.spacing(2),
-        [theme.breakpoints.down("xs")]: {
-            textAlign: "center",
-            marginTop: 0,
-            marginBottom: 0,
-        },
-    },
-}))
 
 const useSizing = () => {
     const theme = useTheme()
@@ -59,13 +33,18 @@ type Props = {
 }
 
 export default function RecentPosts({ episodes }: Props) {
-    const classes = useStyles()
     const numShown = useSizing()
     return (
-        <div className={classes.root}>
+        <Box sx={{
+            marginLeft: 3,
+            marginRight: 3,
+        }}>
             <Grid container alignItems="center" justifyContent="space-between">
                 <Grid item xs={12} sm={8}>
-                    <Text variant="h2" className={classes.title}>
+                    <Text variant="h2" color="primary" sx={{
+                        textAlign: {xs: "center", sm: "left" },
+                        margin: 2, // theme.spacing(2),
+                    }}>
                         Recent Episodes
                     </Text>
                 </Grid>
@@ -74,7 +53,19 @@ export default function RecentPosts({ episodes }: Props) {
                         <Text
                             variant="subtitle1"
                             color="textPrimary"
-                            className={classes.seeAll}
+                            sx={{
+                                textAlign: {xs: "center", sm: "right", },
+                                textDecoration: "underline",
+                                margin: 2, // theme.spacing(2),
+                                marginTop: {
+                                    xs: 0,
+                                    sm: 2,
+                                },
+                                marginBottom: {
+                                    xs: 0,
+                                    sm: 2
+                                }
+                            }}
                         >
                             See all episodes
                         </Text>
@@ -82,18 +73,28 @@ export default function RecentPosts({ episodes }: Props) {
                 </Grid>
             </Grid>
 
-            <Hidden xsDown>
+            <Box sx={{
+                display: {
+                    xs: "none",
+                    sm: "block",
+                }
+            }}>
                 <SwipeableEpisodes
                     episodes={episodes.slice(0, numShown * 2)}
                     numShown={numShown}
                 />
-            </Hidden>
-            <Hidden smUp>
+            </Box>
+            <Box sx={{
+                display: {
+                    xs: "block",
+                    sm: "none",
+                }
+            }}>
                 <EpisodeGrid
                     episodes={episodes.slice(0, 3)}
                     showDescription={false}
                 />
-            </Hidden>
-        </div>
+            </Box>
+        </Box>
     )
 }
