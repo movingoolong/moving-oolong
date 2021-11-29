@@ -1,5 +1,5 @@
 import React from "react"
-import { Facebook, Instagram, Twitter } from "@material-ui/icons"
+import { Facebook, Instagram, Twitter } from "@mui/icons-material"
 
 import TooltipIcon from "@components/General/TooltipIcon"
 
