@@ -1,6 +1,6 @@
-import React, { useState, FormEvent, SyntheticEvent } from "react"
+import React, { useState, SyntheticEvent } from "react"
 import { PageProps, graphql } from "gatsby"
-import { Button, Hidden, SwipeableDrawer, Grid } from "@mui/material"
+import { Box, Button, SwipeableDrawer, Grid } from "@mui/material"
 import { ExpandMore, TagFacesRounded } from "@mui/icons-material"
 import { useQueryParam, StringParam } from "use-query-params"
 
@@ -12,7 +12,7 @@ import TagSelectionInput from "@components/EpisodePage/TagSelectionInput"
 import SEO from "@components/General/SEO"
 
 // Hooks
-import useTags, { getArrayFromTags } from "@hooks/useTags"
+import useTags from "@hooks/useTags"
 
 type Props = PageProps<GatsbyTypes.EpisodePageQuery>
 
@@ -21,16 +21,14 @@ export default function EpisodePage({ data }: Props) {
     const [tags, tagsArray] = useTags(urlTags)
     let episodes = data.allSanityEpisode.nodes
     if (tagsArray.length > 0) {
-        episodes = episodes.filter(
-            ({ tags }: GatsbyTypes.EpisodeFragment) => {
-                if (!tags) return false
-                let episodeTagsArray = tags.map((e) => e?.value)
+        episodes = episodes.filter(({ tags }: GatsbyTypes.EpisodeFragment) => {
+            if (!tags) return false
+            let episodeTagsArray = tags.map((e) => e?.value)
 
-                return episodeTagsArray.some((tag) =>
-                    tag ? tagsArray.includes(tag) : false
-                )
-            }
-        )
+            return episodeTagsArray.some((tag) =>
+                tag ? tagsArray.includes(tag) : false
+            )
+        })
     }
 
     const [drawer, setDrawer] = useState(false)
@@ -52,7 +50,14 @@ export default function EpisodePage({ data }: Props) {
             <SEO title={"Episodes"} />
             <EpisodePageHeader />
             <Grid container alignItems="flex-start" justifyContent="center">
-                <Hidden smUp>
+                <Box
+                    sx={{
+                        display: {
+                            xs: "display",
+                            sm: "none",
+                        },
+                    }}
+                >
                     <Button
                         onClick={toggleDrawer(true)}
                         variant="outlined"
@@ -70,13 +75,20 @@ export default function EpisodePage({ data }: Props) {
                         elevation={16}
                     >
                         <TagSelectionInput
-                            tags={TagFacesRounded}
+                            tags={tags}
                             urlTags={urlTags}
                             setURLTags={setURLTags}
                         />
                     </SwipeableDrawer>
-                </Hidden>
-                <Hidden xsDown>
+                </Box>
+                <Box
+                    sx={{
+                        display: {
+                            xs: "none",
+                            sm: "block",
+                        },
+                    }}
+                >
                     <Grid item xs={12} sm={3} lg={2}>
                         <TagSelectionInput
                             tags={tags}
@@ -84,7 +96,7 @@ export default function EpisodePage({ data }: Props) {
                             setURLTags={setURLTags}
                         />
                     </Grid>
-                </Hidden>
+                </Box>
 
                 <Grid item xs={12} sm={9} lg={10}>
                     <EpisodeGrid episodes={episodes} showDescription />

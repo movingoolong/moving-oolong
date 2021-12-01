@@ -12,6 +12,7 @@ module.exports = {
     plugins: [
         "gatsby-plugin-react-helmet",
         "gatsby-plugin-use-query-params",
+        "gatsby-plugin-material-ui",
         // {
         //     resolve: `gatsby-plugin-algolia`,
         //     options: {

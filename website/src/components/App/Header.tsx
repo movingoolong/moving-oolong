@@ -17,11 +17,11 @@ import CustomLink from "@components/General/CustomLink"
 import Text from "@components/Typography"
 import Button from "@components/Button"
 
-const StyledButton = styled(Button)(({theme}) => ({
+const StyledButton = styled(Button)(({ theme }) => ({
     color: theme.palette.primary.contrastText,
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("sm")]: {
         color: theme.palette.primary.main,
-    }
+    },
 }))
 
 type Props = {
@@ -49,15 +49,11 @@ function Header({ location }: Props) {
                 <b>Episodes</b>
             </StyledButton>
 
-            <StyledButton
-                href="https://movingoolong.medium.com/"
-            >
+            <StyledButton href="https://movingoolong.medium.com/">
                 <b>Blog</b>
             </StyledButton>
 
-            <StyledButton
-                href="https://anchor.fm/movingoolongpod/support"
-            >
+            <StyledButton href="https://anchor.fm/movingoolongpod/support">
                 <b>Support Us</b>
             </StyledButton>
         </>
@@ -76,30 +72,54 @@ function Header({ location }: Props) {
             <Toolbar>
                 <CustomLink to="/">
                     <Logo />
-                    <Text variant="h2" sx={{
-                                color: "primary.contrastText",
-                                marginLeft: 1, // theme.spacing(1),
-                                display: "inline",
-                                textTransform: "none",
-                                verticalAlign: "-15%",
-                    }}>
+                    <Text
+                        variant="h2"
+                        sx={{
+                            color: "primary.contrastText",
+                            marginLeft: 1, // theme.spacing(1),
+                            display: "inline",
+                            textTransform: "none",
+                            verticalAlign: "-15%",
+                        }}
+                    >
                         Moving Oolong
                     </Text>
                 </CustomLink>
 
-                <Box sx={{
-                    flexGrow: 1,
-                }} />
+                <Box
+                    sx={{
+                        flexGrow: 1,
+                    }}
+                />
 
-                <Hidden xsDown>{links}</Hidden>
+                <Box
+                    sx={{
+                        display: {
+                            xs: "none",
+                            sm: "block",
+                        },
+                    }}
+                >
+                    {links}
+                </Box>
 
-                <Hidden smUp>
+                <Box
+                    sx={{
+                        display: {
+                            xs: "block",
+                            sm: "none",
+                        },
+                    }}
+                >
                     <IconButton
                         aria-label="open drawer"
                         edge="start"
                         onClick={handleDrawerToggle}
                         sx={{
-                            marginRight: 2, // theme.spacing(2),
+                            marginRight: {
+                                sm: 1, // theme.spacing(2),
+                                md: 2,
+                            },
                             color: "primary.contrastText",
                         }}
                     >
@@ -111,7 +131,7 @@ function Header({ location }: Props) {
                             sx: {
                                 paddingTop: 1, // theme.spacing(1),
                                 width: "40%",
-                            }
+                            },
                         }}
                         anchor="right"
                         open={mobileOpen}
@@ -122,7 +142,7 @@ function Header({ location }: Props) {
                     >
                         {links}
                     </Drawer>
-                </Hidden>
+                </Box>
             </Toolbar>
         </AppBar>
     )

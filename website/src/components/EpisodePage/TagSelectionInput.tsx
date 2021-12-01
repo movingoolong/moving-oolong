@@ -11,33 +11,30 @@ import {
 import { TagState } from "@hooks/useTags"
 
 type Props = {
-    tags: TagState,
-    urlTags: string | null | undefined,
-    setURLTags: (newValue: NewValueType<string | null | undefined>, updateType?: UrlUpdateType | undefined) => void
+    tags: TagState
+    urlTags: string | null | undefined
+    setURLTags: (
+        newValue: NewValueType<string | null | undefined>,
+        updateType?: UrlUpdateType | undefined
+    ) => void
 }
 
 function TagSelectionInput({ tags, urlTags, setURLTags }: Props) {
     const handleChange = (event: React.ChangeEvent) => {
-        console.log(urlTags)
         const urlTagsArray = urlTags !== undefined ? urlTags.split(",") : []
-        console.log(urlTagsArray)
         const index = urlTagsArray.indexOf(event.target.name)
         if (index == -1 && event.target.checked) {
             urlTagsArray.push(event.target.name)
         } else if (index != -1 && !event.target.checked) {
             urlTagsArray.splice(index, 1)
         }
-        console.log(urlTagsArray.join(","))
         setURLTags(urlTagsArray.join(","))
     }
 
     return (
-        <Box sx={{display: "flex"}}>
+        <Box>
             <FormControl component="fieldset" sx={{ margin: 3 }}>
-                <FormLabel
-                    component="legend"
-                    color="primary"
-                >
+                <FormLabel component="legend">
                     <b>Filter by Tags</b>
                 </FormLabel>
                 <FormGroup>
@@ -50,7 +47,9 @@ function TagSelectionInput({ tags, urlTags, setURLTags }: Props) {
                                     name={key}
                                 />
                             }
-                            label={<Box sx={{color: "text.primary" }}>{key}</Box>}
+                            label={
+                                <Box sx={{ color: "text.primary" }}>{key}</Box>
+                            }
                             key={key}
                         />
                     ))}
