@@ -31,35 +31,36 @@ const ICONS = [
 
 export default function Footer() {
     return (
-        <ClientOnly>
+        <Grid
+            container
+            alignItems="center"
+            wrap="nowrap"
+            justifyContent="center"
+            sx={{
+                padding: 1, // theme.spacing(1)
+                paddingRight: {
+                    md: 3, // theme.spacing(3)
+                },
+            }}
+        >
+            {ICONS.map(({ title, href, icon }) => (
+                <Grid item key={title}>
+                    <TooltipIcon title={title} href={href} color="primary">
+                        {icon}
+                    </TooltipIcon>
+                </Grid>
+            ))}
+
             <Grid
-                container
-                alignItems="center"
-                wrap="nowrap"
-                justifyContent="center"
+                item
                 sx={{
-                    padding: 1, // theme.spacing(1)
-                    paddingRight: {
-                        md: 3, // theme.spacing(3)
-                    },
+                    marginLeft: 3, // theme.spacing(3)
                 }}
             >
-                {ICONS.map(({ title, href, icon }) => (
-                    <Grid item key={title}>
-                        <TooltipIcon title={title} href={href} color="primary">
-                            {icon}
-                        </TooltipIcon>
-                    </Grid>
-                ))}
-
-                <Grid item sx={{
-                    marginLeft: 3, // theme.spacing(3)
-                }}>
-                    <Text align="right" color="primary">
-                        <b>Copyright © 2021 Moving Oolong</b>
-                    </Text>
-                </Grid>
+                <Text align="right" color="primary">
+                    <b>Copyright © 2021 Moving Oolong</b>
+                </Text>
             </Grid>
-        </ClientOnly>
+        </Grid>
     )
 }

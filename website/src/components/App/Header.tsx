@@ -60,7 +60,7 @@ function Header({ location }: Props) {
 
     return (
         <AppBar
-            //position={location.pathname === "/" ? "absolute" : "relative"}
+            position="relative"
             key={location.pathname}
             elevation={0}
             color="primary"

@@ -12,7 +12,6 @@ module.exports = {
     plugins: [
         "gatsby-plugin-react-helmet",
         "gatsby-plugin-use-query-params",
-        "gatsby-plugin-material-ui",
         // {
         //     resolve: `gatsby-plugin-algolia`,
         //     options: {
@@ -71,7 +70,7 @@ module.exports = {
                 description: description,
                 start_url: "/",
                 background_color: "#e0e0e0",
-                theme_color: "#c62828",
+                theme_color: "#3C787E",
                 display: "minimal-ui",
                 icon: "src/assets/img/logo.png",
             },
