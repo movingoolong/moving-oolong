@@ -4,7 +4,6 @@ import {
     AppBar,
     Box,
     Drawer,
-    Hidden,
     IconButton,
     Toolbar,
     styled,
@@ -61,12 +60,12 @@ function Header({ location }: Props) {
 
     return (
         <AppBar
-            position={location.pathname === "/" ? "absolute" : "relative"}
+            //position={location.pathname === "/" ? "absolute" : "relative"}
             key={location.pathname}
             elevation={0}
+            color="primary"
             sx={{
                 flexGrow: 1,
-                opacity: 0.9,
             }}
         >
             <Toolbar>
